@@ -1,0 +1,21 @@
+                                                                                                  Fecha :06/01/201
+                                             Listado de Grupos
+
+                             Grupo   Nombre
+
+                                 0   VARIOS                                            
+                                 1   CAJAS                                             
+                                 2   PETACAS                                           
+                                 3   VIDRERIA                                          
+                                 4   ETIQUETAS                                         
+                                 5   ENVASES                                           
+                                 6   GRANEL                                            
+                                 7   APLICADORES                                       
+                                 8   BOLSAS                                            
+                                 9   CELUGAMA                                          
+                                10   PRODUCTO TERMINADO                                
+                                11   PUBLICIDAD                                        
+
+                                                                                                Pagina Nro       1
+
+

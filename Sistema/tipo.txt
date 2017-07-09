@@ -1,0 +1,281 @@
+0600      MUESTRAS                      
+060C      CREMA CORPORAL SIN FRAGANCIA  
+060G      GEL DUCHA SIN FRAGANCIA       
+060P      SOLUCION SIN ESENCIA          
+060R      PERFUMADOR SIN ESENCIA        
+061C      COMBO SOFT CARE               
+0621      GIORGIA X 14 LISO             
+0622      FCO MARIANA                   
+0623      MAYA  X 7 CC                  
+0624      DALI X 13CC                   
+0625      GRACE                         
+0626      FCO VIDRIO CONICO X 11ML CON B
+0627      FRASCO ROCIO X 24OML.         
+0628      FRASCO PET X 200ML.           
+0629      ECUATONE                      
+0630      FRASCO PVC X 60ML.            
+0631      PETACA X 100 ML. VIDRIO B/ROSC
+0632      ROLÒN BOLILLA X 15 C/ TAPA    
+0633      FCO M8560 CORAZÒN X 50ML      
+0634      FCO XEDRA X 50ML BOCA ROSCA   
+0635      OBELISCO X 50ML               
+0636      FRASCO PETACA X 100           
+0637      FCO PET BETA                  
+0638      COLIRIO C/ INSERTO Y TAPA     
+0639      POTE ZANAHORIA X 50 GR        
+063M      PAC MARACUYA                  
+0640      CHICAGO X 60                  
+0641      PRISMA X 50                   
+0642      FRASCO AEROPET X 100ML        
+0643      FRASCO AEROPET X 150ML        
+0644      FRASCO BANANA X 50CC          
+0645      COLIRIO X 10ML CON TAPA E INSE
+0646      JACKIE X 15 CC                
+0647      GARRAFITA                     
+0648      FRASCO DELTA X 125 ML         
+0649      FRASCO COUPE                  
+0650      FRASCO RO                     
+0651      FRASCOS BEL                   
+0652      TRICOR X 50 CON TAPA          
+0653      BOTELLA DE PVC                
+0654      FCO CARREP X 125              
+0655      FCO JARABE X125 C/TAPA        
+0656      FRASCO COMETE                 
+0657      FRACO DE AC HIDROSOLUBLE      
+0671      TAPA GIORGIA                  
+0672      TAPA MELICIA                  
+0673      TAPA ROSCA 18 PLATA           
+0674      TAPA METAL BOMBA 18 FUNDA ORO/
+0675      TAPA BOLITA TRANSPARENTE      
+0676      TAPA POTE ZANAHORIA BLANCA    
+0677      TAPA POTE ZANAHORIA METALIZADA
+0678      TAPA PRISMA NEGRA             
+0679      TAPA DIAM15 LISA              
+0680      TAPA HONGUITO BORDO           
+0681      TAPA FLIP TOP                 
+0682      TAPA DISK TOP RS 24/410       
+0683      TAPA NEGRA COLIRIO C/GUARNICIO
+0684      TAPA HONGUITO ROSCA 24        
+0685      TAPA PLATA MATE ROSCA 13      
+0686      TAPA PLASTICA P FCO AC HIDRO  
+0687      TAPA ROSITA                   
+06A1      ALFA                          
+06AA      AGUA ENVIDIA                  
+06AB      ACEITE BIFASE                 
+06AC      ACONDICIONADOR                
+06AD      AGUA REFRESCANTE C/ALOE       
+06AE      ACEITE ESENCIAL               
+06AF      AFTER SHAVE                   
+06AG      AGUA DE ROSAS                 
+06AH      ACEITE HIDROSOLUBLE           
+06AI      AIRE ACONDICIONADO            
+06AL      ALMOHADA                      
+06AM      AMBIENTE                      
+06AN      ANTIFAZ                       
+06AP      APARATITO DE AUTO             
+06AR      ARO DIFUSOR                   
+06AS      CREMA AFTER SHAVE             
+06AT      ATENAS                        
+06AU      AUTOS                         
+06AV      ACEITE VEHICULAR              
+06B1      BASE COMPACTA                 
+06BA      BAÑO                          
+06BB      PACK B                        
+06BC      BLISTER X 20 UNIDADES/BODY+CRE
+06BD      BODY                          
+06BE      BUTTER                        
+06BG      BODY SPLASH EN GEL            
+06BI      BIAPÍ                         
+06BJ      BOMBA JABÓN LÍQUIDO           
+06BL      BLISTER VACIO                 
+06BM      MASSAGE (BARRAS DE MASAJE)    
+06BN      BRONCEADOR PARA PIEL NORMAL  (
+06BO      BOMBAS                        
+06BP      BRONCEADOR P/PIEL SENSIBLE (25
+06BR      BERRETA                       
+06BS      BODY SPLASH                   
+06BT      BODY TOUCH                    
+06BU      BURBUJAS                      
+06BV      BOLSA VILLONE                 
+06BÑ      BAÑADERA                      
+06C0      FCO VIDRIO CANELA X 50ML      
+06C1      CR EXFOLIANTE P/CODOS Y TALONE
+06C2      CREMA ANTIAGE                 
+06C3      CREMA ANTIRRADICALES LIBRES   
+06C5      CREMA TENSORA CUELLO/BRAZOS/BU
+06C6      CREMA REDUCTORA  MODELING     
+06CA      CARTONCITOS/CATÁLOGO/CAMPANITA
+06CB      CREMA BRILLITOS               
+06CC      CREMA P/MANOS Y CUERPO / PACK 
+06CD      CREMA USO DIURNO              
+06CE      CREMA EXFOLIANTE              
+06CF      CAJA ESENCIA AROMATERAPIA     
+06CG      CREMA P/CUTIS GRASO           
+06CH      REDUCTORA 1                   
+06CI      CIEGA                         
+06CJ      CREMA REAFIRMANTE HUMECTANTE  
+06CK      CREMA P/CELULITIS C/CENTELLA  
+06CL      CREMA DE LIMPIEZA             
+06CM      CREMA DE MANOS                
+06CN      CREMA P/USO NOCTURNO          
+06CO      COLONIA                       
+06CP      CREMA LINEA PROFESIONAL       
+06CQ      CREMA REDUC. C/CAFEINA Y CENTE
+06CR      CREMA                         
+06CS      CREMAS P/MANOS - SEDATIVA     
+06CT      CR. TERMOGENICA               
+06CU      CUADRADO                      
+06CV      CREAM GEL                     
+06CX      CUBRE FERULA P BRILLO         
+06CY      CREAMY                        
+06CÑ      CREMA PARA PARPADOS           
+06DA      DIFUSOR AMBIENTAL             
+06DC      PACK DEO COLONIA              
+06DD      PACK D                        
+06DE      DESODORANTE                   
+06DI      DILUYENTE INDUSTRIAL/DIAMANTE 
+06DJ      DIPENSER JABÓN LÍQUIDO        
+06DL      DELINEADOR                    
+06DP      DISPOSITIVO                   
+06E1      EMULSION SOLAR                
+06EC      ESENCIA + CORAZON             
+06ED      ESENCIA/DILUYENTE 505         
+06EE      PACK E                        
+06EH      ESENCIA HORNITO X 10 ML EN CAJ
+06EL      ELLE                          
+06EM      EMULSIONANTE                  
+06EN      ENGRIMPADORA                  
+06EP      ESPATULAS                     
+06ES      ESPUMA DE BAÑO                
+06ET      ETIQUETAS                     
+06EU      EUGENIA                       
+06EV      ESENCIA USO VETERINARIO       
+06EX      EXPO                          
+06FA      FANALES                       
+06FE      FERRARI/FECULA                
+06FF      PACK F                        
+06FI      FIZZ (SAL EFERVESENTE)        
+06FL      FLETE                         
+06FP      FLIP TOP                      
+06GA      GATILLO                       
+06GB      GEL CON BRILLOS               
+06GC      GEL CRIOGENICO REDUCTOR       
+06GD      GEL FLEBOLOGICO               
+06GE      GEL DE DUCHA                  
+06GF      GEL REFRESCANTE - RELAJANTE MU
+06GG      GOTERO                        
+06GH      GEL REGENERADOR               
+06GI      GILDA                         
+06GL      GEL AFTER SHAVE               
+06GM      GEL MENTOL/ALCAFORT/EUCALIPTO 
+06GN      GEL NEUTRO P/APARATOLOGIA     
+06GO      GEL LIPOREDUCTOR CT           
+06GP      GEL P/CELULITIS C/CENTELLA    
+06GR      GEL REDUCTO ALGAS/CAFEINA     
+06GS      GEL  CRIOGENICO SUAVE ( 028)  
+06GT      GATITOS PORTA ANILLOS         
+06GU      GUARNICION                    
+06HO      HORNITOS                      
+06HP      HOJAS PAPEL                   
+06HS      PACK HORNITO+SOLIDA           
+06HT      HOTEL                         
+06HY      HYDRA                         
+06IM      IMPRESIÓN                     
+06IN      INTER                         
+06J1      JABÓN LÍQUIDO ANTESÉPTICO     
+06JA      JABON                         
+06JD      JABÓN DIBUJADO                
+06JG      JABON GLICERINA               
+06JK      FRASCO JACKIE X 15            
+06JL      JABÓN LÍQUIDO                 
+06JU      JUSTINE                       
+06KI      KIAMA                         
+06LA      LABIAL                        
+06LB      LAMPARA BERGE                 
+06LI      LIMPIEZA                      
+06LL      LLENADO                       
+06LM      LLENADO LAMPARA               
+06MA      MASAJEADOR                    
+06MB      MINIBOLSO                     
+06MC      MACETITAS                     
+06MD      FCO PVC MC X 30ML RS 18/415   
+06ME      MECHAS APARATO                
+06MF      MASCARILLA FACIAL             
+06MI      MIRACLES                      
+06MM      FCO MARTINA X 100CC           
+06MN      MANOPLA                       
+06MO      MANO DE OBRA                  
+06MP      MINIPORTACOSMETICOS           
+06MR      MARLENE                       
+06MU      MULTIUSO                      
+06NE      NECESAIRE                     
+06OC      FCO OCEANO X 50ML             
+06OD      ODETTE                        
+06OM      OMEGA                         
+06OS      OSTRA                         
+06OV      OVAL                          
+06P1      PROMO 1                       
+06P2      PROMO 2                       
+06P3      PROMO 3                       
+06P4      PROMO 4                       
+06P5      PACK SOFT CARE                
+06PA      PERFUMADOR PARA AUTOS         
+06PB      PALITOS BAMBOO                
+06PC      PACK COLONIA / C              
+06PD      PERFUME+DEO                   
+06PE      PERFUME                       
+06PF      PERFUMERITOS                  
+06PG      PACK  GEL + ESPONJA           
+06PH      BOMBON PERFUMADO              
+06PI      PISO                          
+06PL      PLUMITAS                      
+06PM      PRIMAVERA                     
+06PN      POST SOLAR                    
+06PO      POTE                          
+06PP      PIECITAS PERFUMADAS           
+06PPC     PPC                           
+06PR      PERFUMADOR DE ROPA            
+06PS      PACK SHAMPOO                  
+06PT      PORTACOSMETICO RED            
+06PV      POSA VELA                     
+06PW      POLVO                         
+06QU      QUITA ESMALTE                 
+06RA      REPUESTO AUTO                 
+06RC      REPELENTE CITRONELA           
+06RD      RESPUESTO DIFUSOR             
+06RE      RESINA                        
+06RI      RIMEL                         
+06RJ      REPUESTO JABON LIQUIDO        
+06RN      RINO X 55CC                   
+06RP      REPUESTO PERFUMADOR           
+06RR      PERROS                        
+06RS      RESINA                        
+06RU      RUBOR                         
+06S1      SAUNA                         
+06S2      FRASCO SUECIA                 
+06SA      SALES DE BAÑO                 
+06SC      SUJETA CEPILLO                
+06SD      SOMBRAS DUO                   
+06SE      SET                           
+06SH      SHAMPOO                       
+06SI      SILICONA                      
+06SM      SAHUMERIOS                    
+06SN      SANDALIA TOALLA               
+06SP      SPRAY                         
+06SR      SCRUB EMOLIENTE               
+06ST      ST                            
+06SU      SUSHI                         
+06TA      TAU/ TAPONES                  
+06TE      TELMA                         
+06TI      TIRAS                         
+06TO      TOALLA C/BRODERY              
+06TR      CREMA TRIFASE                 
+06TU      TUTORES                       
+06UN      UNICAS                        
+06VA      VASIJA/VASELINA               
+06VB      VARILLA BAMBOO                
+06VE      VELAS                         
+06VI      VINCHA                        
+06VL      FCO VIAL                      
+06VS      VASELINA LIQUIDA              
+06VT      VINCHA TOALLA                 

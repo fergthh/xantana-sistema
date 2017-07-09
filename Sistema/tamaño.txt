@@ -1,0 +1,28 @@
+090       0                             
+091       10ML                          
+092       100ML                         
+093       125ML                         
+094       150ML                         
+095       250 ML                        
+096       500ML                         
+097       1 LT.                         
+098       30ML                          
+099       45ML                          
+09A       DIAMETRO 28                   
+09B       BIDON X 5 LT.                 
+09C       CHICO                         
+09D       X 20ML ; X 35ML               
+09E       3.5ML                         
+09F       10LT                          
+09G       GRANDE                        
+09H       BIDON X 3LT                   
+09I       120ML                         
+09J       CAJA                          
+09K       200ML                         
+09L       CUADRADA GRANDE               
+09M       MEDIANO                       
+09N       60ML                          
+09P       POLVO                         
+09R       RIÑON                         
+09S       CUADRADA CHICA                
+09U       UNICO                         

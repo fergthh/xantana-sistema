@@ -1,0 +1,765 @@
+0700      SIN FRAGANCIA                 
+0701      AMARIGE FEM                   
+0702      ONE UNI                       
+0703      DETE                          
+0704      C HERRERA MASC                
+0705      C HERRERA FEM                 
+0706      OPIUM FEM                     
+0707      MINOTAURO                     
+0708      PALOMA PICASSO                
+0709      KENZO M                       
+070A      AMOR AMOR MASC                
+070B      TE VERDE/TILO/MANZANILLA      
+070C      CAMPOS VERDES                 
+070D      LAVANDA/GERANIO/NARANJA/MELISA
+070M      MANDARINA/FEUILLE             
+070V      VAINILLA/LIMON                
+070Z      CRHOMO M                      
+0710      NARCISE                       
+0711      ACQUA FEM.                    
+0712      DISSEY F                      
+0713      DISSEY M                      
+0714      ENVY FEMENINO                 
+0715      BE UNI                        
+0716      ESCAPE FEMENINO               
+0717      OPIUM MASC                    
+0718      ACQUA MASC                    
+0719      POLO SPORT MASC.              
+071A      CODE SP MASC                  
+071B      BOUQUET 1B                    
+071C      CÍTRICO 1 2083                
+071D      VINO CABERNET                 
+071E      CEDRON                        
+071F      PAR HILL FEM                  
+071G      CLEAN AND GO                  
+071H      PAR HILL MASC                 
+071I      ONE MILLION FEM               
+071J      PACO DIS                      
+071L      CLAVEL                        
+071M      1 MILLON FEM                  
+071N      PRINCESA                      
+071O      CHROME MASC                   
+071P      1 MILLON PACO RABANNE         
+071R      ROSSO 1                       
+071T      PITANGA                       
+071V      VETIVERT                      
+0720      POEME FEMENINO                
+0721      TOMMY MASCULINO               
+0722      PLEASURE                      
+0723      ANIMAL FEM                    
+0724      ORGANZA FEM                   
+0725      TARTIN                        
+0726      ETERNITY FEMENINO             
+0727      ETERNITY MASCULINO            
+0728      COOL WATER FEMENINO           
+0729      COOL WATER MASC.              
+072A      ANTISEPTICO                   
+072B      BENJUI/LIMON/RUDA             
+072C      CHICLE                        
+072D      DIAMONT M                     
+072F      FRESI/LILA/COCO               
+072H      HOMME GIV M                   
+072M      MARINA/MANZANA                
+072P      POISON TENDRE FEM             
+072V      VAINILLA OPCION 2             
+0730      POLO CLASICO MASC.            
+0731      PÒLO SPORT FEMENINO           
+0732      CABOTINE FEM                  
+0733      PARIS FEM                     
+0734      TRESSOR                       
+0735      CHANEL Nº5 FEM                
+0736      EDEN FEM.                     
+0737      EMPORIO ARMANI FEM.           
+0738      EMPORIO ARMANI MASC.          
+0739      FLORE FEM.                    
+073A      ARANDANO                      
+073C      CONTRADICTION MASC            
+073F      FRUTILLA/MADERAS DE ORIENTE/LA
+073M      MARACUYA                      
+073P      POLO EXPLORER MASC            
+073R      CRAVO                         
+073U      MUJERCITAS                    
+073V      VERBENA P                     
+0740      FAHRENHEIT MASC.              
+0741      TOMMY GIRL FEM.               
+0742      HALLOWEEN FEM                 
+0743      GIORGIO FEM                   
+0744      212 CH FEM                    
+0745      212 CH MASC                   
+0746      5TA AVENIDA FEM               
+0747      DOLCE VITA FEM.               
+0748      ANGEL FEM                     
+0749      JAZZ MASC.                    
+074A      ARNICA/MANZANILLA             
+074C      CANELA/MANZANA/FRUTILLA       
+074F      FLORENCIA                     
+074M      MALAS ONDAS                   
+074P      PLAY MASC                     
+074V      MUJERCITAS                    
+0750      AZZARO MASC                   
+0751      RED DOOR FEM.                 
+0752      DONNA KARAN FEM.              
+0753      FLOWER FEM.                   
+0754      ANAÏS ANAÏS FEM               
+0755      XS MASCULINO                  
+0756      XS FEMENINO                   
+0757      KENZO FEMENINO                
+0758      ESCAPE MASCULINO              
+0759      LAGUNA FEMENINO               
+075A      ALMENDRA/FLORES               
+075C      CKIN2U FEM                    
+075F      FAN DI FENDI                  
+075M      MADERA ANTIGUA                
+075P      PLAY FEM                      
+0760      MONTANA FEM.                  
+0761      MONTANA MASC.                 
+0762      LEAU PAR KENZO FEM           
+0763      ROMANCE FEMENINO              
+0764      ROMANCE MASCULINO             
+0765      ARMANI MASC                   
+0766      BULGARY FEM                   
+0767      BULGARY MASC                  
+0768      SAMSARA FEMENINO              
+0769      HUGO BOSS MASC                
+076A      ARRAYAN 6                     
+076C      CKIN2U MASC                   
+076M      MADRE SELVA                   
+076P      PALO SANTO                    
+0770      GENTLEMAN MASC                
+0771      ANGEL MASC                    
+0772      PACO RABANNE M                
+0773      SENSI FEMENINO                
+0774      INCENSE MASCULINO             
+0775      POLO BLUE MASCULINO           
+0776      HOT FEM                       
+0777      AMOR AMOR FEM                 
+0778      VERY IRRESISTIBLE             
+0779      CHIC FEM                      
+077A      AUTO NUEVO                    
+077C      CANELA LIMON                  
+077M      MENTOL/ALCANFORT/EUCALIPTO    
+077P      7 PODERES                     
+0780      CHIC MASC                     
+0781      212 SEXY FEM; GDY GENTLEMAN MA
+0782      BLACK CODE MASC; GDY ACQUA MAS
+0783      NOA FEM; GDY HUGO BOSS MASC   
+0784      RALPH FEM                     
+0785      POLO BLUE MASC/ARMANI MANIA FE
+0786      MANIA MASC; GDY CHIC MASC     
+0787      INCENSE MASC GREIDY/JADORE FE
+0788      EUPHORIA FEM                  
+0789      HIGHER MASC                   
+078C      CITRICO MAZZA                 
+078M      CANELA/MAGNOLIA/VIOLETA       
+078P      POLEN                         
+0790      RALPH BLUE FEM                
+0791      BRIT FEM                      
+0792      D GABANNA FEM                 
+0793      D GABANA MASC                 
+0794      212 SEXY MASC                 
+0795      VERY IRRESISTIBLE MASC; GDY PE
+0796      AMOUR FEM; CARTUCHERA         
+0797      BE DELICIOUS FEM; GDY TARTÍN I
+0798      POLO BLACK MASC               
+0799      CODE FEM                      
+079C      C H MASC NUEVO                
+079M      MEJI                          
+079P      PETIT/SALVIA                  
+07A0      CAMPOS DE ALGODON             
+07A1      ALMIZCLE                      
+07A2      AMBRÉ                         
+07A3      ALMENDRA/MIEL                 
+07A4      AQUA FLORE                    
+07A5      ADDICT FEM                    
+07A6      ALLURE FEM                    
+07A7      ALLURE MASC                   
+07A8      ADVANC (FANTASIA)             
+07A9      ATTITUDE MASC                 
+07AA      AMOR AMOR MASC                
+07AB      ALBAHACA                      
+07AC      ALCANFOR                      
+07AD      ADONIS                        
+07AE      ADRENALINA                    
+07AF      AFRODISÍACA                   
+07AG      ALGAS; AGUA MARINA            
+07AH      AQUA DI GIOIA FEM             
+07AI      ARIEL                         
+07AJ      ANANA                         
+07AK      AGUA                          
+07AL      ALMENDRA                      
+07AM      AMBAR                         
+07AN      ANTITABACO; ANTIPARASITARIO   
+07AO      ALGODÓN                       
+07AP      APRICOT                       
+07AQ      ALBA FLORAL                   
+07AR      ARPEGIO                       
+07AS      ARAUCARIA                     
+07AT      ATRAE DINERO; ANTITABACO MK   
+07AU      AUDACIA                       
+07AV      ALOE VERA                     
+07AW      ARMANI WITHE FEM              
+07AX      AURA                          
+07AY      ANGEL Y DEMONIO FEM           
+07AZ      AZAHAR                        
+07AÑ      ANIS                          
+07B1      BOUCHERON FEM                 
+07B2      BOUCHERON MASC                
+07B3      BOUQUET 21                    
+07B4      BAMBOO                        
+07B5      MILK                          
+07B6      CHAMPAGNE FEM.                
+07B7      BOSQUES LAS MARIAS            
+07B8      BASE SOL                      
+07B9      BRIT MASC                     
+07BA      BANANA/BALLENA                
+07BB      BEBÉ; ADV BEBÉ                
+07BC      BE DELICIOUS MASC             
+07BD      BANANA-DURAZNO                
+07BE      BERGAMOTA                     
+07BG      BIG EGO                       
+07BH      BRABSH                        
+07BI      BRILLO                        
+07BL      BELEZA                        
+07BM      BRISA DEL MAR                 
+07BN      BENJUI                        
+07BO      BOUCHERON MASC                
+07BP      BOSQUES PATAGÓNICOS           
+07BQ      BLU MASC                      
+07BR      BRISAS                        
+07BS      BESAME MUCHO                  
+07BT      AFTER 8                       
+07BU      BOUQUET FLORAL; BURBERRY MASC 
+07BV      BLUE LAVEL MASC               
+07BW      BOSS MASC NO TRADICIONAL      
+07BX      BOSQUES                       
+07BY      BOYS; ADV BOYS                
+07BZ      AFTER 8                       
+07C0      CLASICA                       
+07C1      CHICOS                        
+07C2      CHICAS                        
+07C3      CAFÉ-CERAMIDAS                
+07C4      CARICIAS                      
+07C5      COCO ANANÁ                    
+07C6      COCO/NARANJA                  
+07C7      CITRUS/NARANJA                
+07C8      CHOCOLATE                     
+07C9      CANELA/MELÓN                  
+07CA      CANELA                        
+07CB      COLBERT                       
+07CC      CIRCULATORIO                  
+07CD      CHANDAN                       
+07CE      CEDRO                         
+07CF      CONFORT; CARIBE FRUIT         
+07CG      CONY                          
+07CH      CHERRY; CHARLY                
+07CI      CITRONELA                     
+07CJ      CHOCOLATE/MENTA               
+07CK      CHEEKY                        
+07CL      CALÉNDULA; CLAVO DE OLOR      
+07CM      COCO/MELÓN; COOL MEN;CANELA/MA
+07CN      COLONIA                       
+07CO      COCO                          
+07CP      CHOCOLATE LECHE               
+07CQ      CARAMELO                      
+07CR      CRISTAL/CRANDAL               
+07CS      COCO FRESH                    
+07CT      CITRUS                        
+07CU      CUERO; CUADRADO               
+07CV      COCO/VAINILLA                 
+07CW      C H FEM                       
+07CX      CREPUSCULO                    
+07CY      CANTILENA/ CAMELIA            
+07CZ      CIRUELO; CHIC                 
+07CÑ      COCO NEW                      
+07D1      DUNE FEM                      
+07D2      DANIELA                       
+07D3      DUNE MASC                     
+07D4      COOL WATER DEEP MASC          
+07D5      DELICIAS/LAVANDA              
+07D6      DURAZNO/POMELO                
+07D7      DRAZNO-PAPAYA                 
+07D8      DURAZNO/PAPAYA                
+07D9      DURAZNO/MUGUET                
+07DA      DANZARIN                      
+07DB      DOVE                          
+07DD      DUENDE FEM                    
+07DE      DESCONTRACTURANTE             
+07DG      DOLCE GABANNA                 
+07DH      DIOR HOMME                    
+07DI      DRIVE; DISCO                  
+07DK      DRAKAR MASC                   
+07DM      DIAMOND FEM                   
+07DN      DURAZNO NARANJA               
+07DO      DOREE 1805 BP/DOVE/DORADO     
+07DP      DOREE PLUS 1805 HP            
+07DR      DREAM; DREZER                 
+07DS      DULCES SUEÑOS                 
+07DT      DEDITOS                       
+07DU      DURAZNO                       
+07DV      DURAZNO/VAINILLA              
+07DX      DIAMON MASC                   
+07E1      ENEBRO/EUCALIPTO              
+07E2      EUPHORIA MASC.                
+07E3      ESENCIA DUENDE                
+07E4      MALBEC                        
+07E5      CABERNET                      
+07E6      MOSCATEL                      
+07EA      EAU SAUVAGE MASC              
+07EB      ENEBRO                        
+07EC      ECHO MASC; ECO SUAVE          
+07ED      ESPIRITUALIDAD                
+07EE      ENERGIA; ESCADA               
+07EF      EUFORIZANTE/EUCAFRESH         
+07EG      ENERGIZANTE                   
+07EH      ECHO FEM                      
+07EI      ENRIQUECIDA                   
+07EJ      ENDLESS  LOVE                 
+07EK      ESENCIA DUENDE                
+07EL      ETER LOV FEM                  
+07EM      EUCALIPTO/MENTA               
+07EN      ENGRIMPE/ENEBRO               
+07EO      EOLOS                         
+07EP      EUCALIPTO/PINO                
+07EQ      EQUILIBRIO                    
+07ER      EROS                          
+07ES      ESTRELLA; ESPANTAPAJAROS      
+07ET      ESPADOL                       
+07EU      EUCALIPTUS                    
+07EV      EXTRACTOS VEGETALES           
+07EW      EMPORIO WITHE MASC            
+07EX      EXTRAVAGANCE FEM              
+07F1      FRUTOS NEGROS                 
+07F2      FRUTOS ROJOS                  
+07F3      FLOR DE LOTO                  
+07F4      FEUILLE                       
+07F5      FRESHLY                       
+07F6      FLORES BLANCAS/RETAMA         
+07F7      FRESCA VERDE                  
+07F8      FLORES INDIA                  
+07F9      FLORES                        
+07FA      FANTASIA                      
+07FB      FRUTOS DEL BOSQUE             
+07FC      FRESCA CARICIA                
+07FD      FENDI F                       
+07FE      FRESIA                        
+07FF      FRUTILLA FRAMBUESA; FREEDOM   
+07FG      FRESIA/GERANIO                
+07FH      FLORES LAS MARIAS             
+07FI      FIESTA/FIRST                  
+07FJ      FAHRENHEIT 32 MASC            
+07FK      FLORES Y FRUTOS               
+07FL      FLORAL; FLAIT                 
+07FM      FRAMBUESA                     
+07FN      FLORES BLANCAS                
+07FO      FORTALECEDOR/FOREST           
+07FP      FLORAL PERFUMINA 1756 HT      
+07FQ      FLOR DE INDIA                 
+07FR      FRUTILLA                      
+07FS      FRASCOS                       
+07FT      FRUTAS TROPICALES             
+07FU      FRUTADO                       
+07FW      FRUTALIS                      
+07FZ      FLOR DE ESPINILLO             
+07G1      GIO FEM                       
+07G2      GUILO                         
+07G3      GINGER; JENGIBRE              
+07G4      GARDENIA/JAZMIN/MAGNOLIA      
+07GA      GARDENIA                      
+07GC      GUCCI FEM                     
+07GD      DREAM GIV F                   
+07GE      GERANIO                       
+07GF      GARDENIA/FLORES BLANCAS       
+07GG      GREEN GRASS                   
+07GI      GINGSENG; ADV GIRLS           
+07GL      GLAMOROUS FEM                 
+07GM      GARDENIA MIRRA                
+07GN      GARDENIA NARANJA              
+07GO      GOLDEN; GOTERO                
+07GR      GARDENIA ROSA                 
+07GT      GERMEN DE TRIGO               
+07GU      GUARANA; GUITARRERA; GUCCI MAS
+07H1      HERBAL 1                      
+07H3      HERBAL 3                      
+07H4      H24 CRAVO                     
+07H6      HERBAL 6                      
+07HA      CHANCE FEM                    
+07HB      HERBALIS                      
+07HC      CITRONELLA-FINAS HIERBAS      
+07HD      HIEDRAS                       
+07HE      HERBAL                        
+07HF      HAPPI CLINIC                  
+07HG      HUGO BOSS ELEMENTS MASC       
+07HH      HIPERICUM/NARANJA             
+07HI      HIERBAS; HIPOALARGÉNICO       
+07HJ      HYPNOSE MASC                  
+07HK      HENO PRAVIA                   
+07HM      HIERBAS/MIEL                  
+07HN      HINDS                         
+07HO      HOJA SAPITO; HOJAS DE TOMATE  
+07HP      HIPPIE                        
+07HQ      HOTEL                         
+07HS      HYPNOSE FEM                   
+07HT      HADAS DE TELA                 
+07HU      HUGO BOSS FEM                 
+07HW      HAWAIAN                       
+07HY      HYPNOTIC FEM                  
+07I1      INTERNACIONAL                 
+07I2      IDOLE FEM                     
+07I3      INCIENSO/MIRRA/SANDALO/ALMIZCL
+07I4      MIMOS GIRL                    
+07I5      MIMO BOYS                     
+07IB      ICE BLUE                      
+07IC      INCIENSO/CANELA               
+07ID      INDIAN HIDE                   
+07IE      ICE MASC                      
+07IG      INGLESA                       
+07IH      IBIZZA HIPPIE                 
+07II      INMOTION MASC                 
+07IK      ISLAND KISS                   
+07IM      IMPECABLE                     
+07IN      INCIENSO                      
+07IO      CALCIO                        
+07IT      INCIENSO/TE VERDE             
+07JA      JAZMIN                        
+07JB      JAZMIN BLANCO                 
+07JC      JACINTO                       
+07JD      JACINTO-SALVIA-MANZANILLA     
+07JE      JENGIBRE                      
+07JF      J P GAULTIER FEM              
+07JJ      JULIANA                       
+07JL      J LOVE                        
+07JM      JUNGLE MASC                   
+07JN      JENGIBRE/NARANJA              
+07JO      JOJOBA                        
+07JP      J P GAULTIER MASC             
+07JS      JAMES SMART MASC              
+07JU      JUNGLE FEM                    
+07JY      JAZMIN YLANG                  
+07K1      CHEEKY ROSA                   
+07K2      CHEEKY AMARILLO               
+07KA      KASAYA FEM                    
+07KC      CH INTOO YU FEM               
+07KE      KEVIN MASC                    
+07KI      KIDS                          
+07KO      KOSIUKO                       
+07KP      KIWI POMELO                   
+07KS      SUMMER FEM KENZO              
+07L1      LIMÓN 1413 TP                 
+07L2      LAVANDA 1406 TP               
+07L3      LILA                          
+07L4      LEU PAR MASC                 
+07L5      LAVANDA/ROMERO                
+07L6      LEGACY                        
+07L7      COCO/LIMA                     
+07L8      LIMON CITRONELA               
+07L9      LILAS GARCIA                  
+07LA      LAVANDA                       
+07LB      LAVANDA VERBENA               
+07LC      LAIR DU TEMPS                 
+07LD      LAVANDA/TILO/MENTA            
+07LE      LAUREL                        
+07LF      LAVANDA FRAMBUEZA             
+07LG      LEMMON GRASS                  
+07LH      LIGH BLUE FEM                 
+07LI      LIMON                         
+07LJ      LAVANDA TILO EUCALIPTO        
+07LK      LAVANDA/MELISA                
+07LL      LALI GOG                      
+07LM      LAVANDA/MARINA                
+07LN      LIMON/NARANJA                 
+07LO      LOLITA                        
+07LP      LAVANDA/PINO                  
+07LQ      LIMON MENTOLADO               
+07LR      LIRIO                         
+07LS      LOVE SPILL                    
+07LT      LAVANDA/MENTA                 
+07LU      LUI / LOU LOU                 
+07LV      LOVE                          
+07LW      LES BELLE                     
+07LX      LE MALE JPG MASC              
+07LY      LIMON SANDALO                 
+07LÑ      LIMON/BERGAMOTA               
+07M0      MARIA 1                       
+07M1      MAGNOLIA                      
+07M2      MANZANA                       
+07M3      MANZANILLA                    
+07M4      MARINA                        
+07M5      MENTOL                        
+07M6      MANGO/MANDARINA MAZZA         
+07M7      MOONLIGHT                     
+07M8      MATIC 1895 TP                 
+07M9      MANANTIAL                     
+07MA      MADERA ANTIGUA; MANDARINA     
+07MB      MISS DIOR FEM                 
+07MC      MENTA CHOCOLATE               
+07MD      MADERAS ORIENTALES            
+07ME      MELON                         
+07MF      MIL FLORES                    
+07MG      MUGUET                        
+07MH      MARIPOSAS HOJAS               
+07MI      MIRRA/MIRACLE                 
+07MJ      MEJORANA                      
+07MK      MELON / KIWI                  
+07ML      ALMENDRA/MIEL                 
+07MM      MANGO/MANDARINA; MIRACLE FEM  
+07MN      MINI                          
+07MO      MORA                          
+07MP      MIMOSA                        
+07MQ      MIEL                          
+07MR      MANZANA ROJA                  
+07MS      MELISA                        
+07MT      MENTA PEPERITA                
+07MU      MUSK/ MOUSSE                  
+07MV      MANDARINA/VAINILLA            
+07MW      MISS DIOR CHÉRIE              
+07MX      MANGO                         
+07MY      MANZANILLA/LIMON              
+07MZ      MANZANA/CANELA                
+07MÑ      MARGARITA                     
+07N1      MILENARIA                     
+07N2      NEUTRO                        
+07N3      Nº 3                          
+07N4      NEROLI/JAZMIN/MUSK            
+07NA      NARANJA                       
+07NC      NARANJA CANELA                
+07NE      NENES/NEGRO                   
+07NG      NEGRO                         
+07NH      NAG CHAMPA                    
+07NI      NICTE                         
+07NL      NARANJA/LIMÓN                 
+07NM      NARANJA/MELISA                
+07NN      NINAS FEM                     
+07NO      NOCHE; NAOME                  
+07NR      NARDO                         
+07NS      NENAS                         
+07NT      NOTORIOUS CK                  
+07NV      NARANJA/LAVANDA               
+07O1      OSCAR DLR MASC                
+07O2      OSCAR DLR FEM                 
+07O3      ORQUIDEA/MANZANILLA           
+07O4      ORANGE VERT                   
+07O5      ORQUIDEA/BAMBOO               
+07O6      AMBAR/OPIUM/FRESIA            
+07O7      ORQUIDEAS/BAMBOO              
+07OA      BOUQUET A (11A)               
+07OB      OBSESSION MASC                
+07OC      OCEAN                         
+07OD      O DE LANCOME FEM             
+07OE      OLEO 33                       
+07OF      OBSESSION FEM                 
+07OG      ORQUIDEAS/GARDENIA            
+07OI      ORGANZA INDECENSE FEM         
+07OL      OLÉ                           
+07OM      OLMO                          
+07ON      MILLON MASC                   
+07OO      COOL 2010 TP                  
+07OP      POL CRE MASC                  
+07OR      ORANGE/GINGER                 
+07OS      ONE SUMMER F                  
+07OT      OTOÑO                         
+07OV      OVALADO                       
+07OX      BASE OLEOSA MIXTA             
+07P0      PAMELA                        
+07P1      POMELO/MELÓN                  
+07P2      PI MASC                       
+07P3      POLO BLACK MASC               
+07P4      PERA/MELÓN                    
+07P5      PATAGONIA                     
+07P6      PERA/SANDIA                   
+07P7      PEPINO/TILO                   
+07P8      POMELO/MANDARINA              
+07P9      PEONIA                        
+07PA      PATCHOULY                     
+07PB      PELO BLANCO                   
+07PC      POLO CLASICO GDY              
+07PD      PEDICO                        
+07PE      PEARS                         
+07PF      POUR GIV M                    
+07PG      PETIT GRAIN                   
+07PH      PETISOS COLONIA               
+07PI      PINO AUSTRRAL/ PIOJICIDA      
+07PJ      POISON MID NIGHT F            
+07PK      POMELO/KIWI                   
+07PL      POLO                          
+07PM      PIMIENTA/POISON MIDNIGHT      
+07PN      POMELO/NARANJA                
+07PO      POMELO                        
+07PP      PATIO                         
+07PQ      PUMA                          
+07PR      PERICON/PROBADOR              
+07PS      PEPINO SANDIA/PASTA SUAVIZANTE
+07PT      PETIT ENFANT                  
+07PU      PURE POISON                   
+07PV      PIVOINE ROUGE                 
+07PW      POWER MASC                    
+07PX      POMELO/DURAZNO                
+07PY      PAPAYA                        
+07PZ      PEARS/CANELA                  
+07PÑ      PIÑA                          
+07QA      QUARTZ MASC                   
+07QF      QUARTZ FEM                    
+07QU      QUARZENIA                     
+07R1      ROSA MOSQUETA                 
+07R2      ROMERO/MENTA                  
+07R3      RUDA CANELA                   
+07R4      ROSA BULGARA                  
+07RA      RAINE                         
+07RB      RUMBA FEM                     
+07RC      ROCÍO ALGODÓN                 
+07RD      RELAJANTE/DESCONTRACTURANTE   
+07RE      RELAX                         
+07RF      RALPH HOT FEM                 
+07RG      ROMANCE GITANO                
+07RH      RUSH F                        
+07RI      RIÑON                         
+07RJ      ROSA/JAZMÍN                   
+07RK      RUSH MASC                     
+07RL      RICI RICI FEM                 
+07RM      ROMERO                        
+07RN      REINO NOCHE                   
+07RO      ROSAS                         
+07RR      ROCK AND ROLL                 
+07RS      ROSCA                         
+07RT      RECTANGULAR                   
+07RU      RUDA                          
+07RW      RALPH WIEL F.                 
+07RY      ROYAL                         
+07S1      SUAVE                         
+07S2      SANDIA/PEPINO                 
+07S3      SOLANAS                       
+07S4      SPOR                          
+07S5      SALUD DINERO Y AMOR           
+07S6      SNDALO/JAZMIN                 
+07S7      SKIP                          
+07S8      SHOPPING                      
+07S9      SANDALO/LOTO/NARDO            
+07SA      SANDALO                       
+07SB      CEDRO/SANDALO                 
+07SC      SUAVE CARICIA                 
+07SD      SEDUCCIÓN                     
+07SE      SELENE/SEASHORE               
+07SF      SWEET FLOWER/SANDÍA FRUTILLA  
+07SG      SANDALO/FLORES BLANCAS        
+07SH      SÁNDALO HINDÚ                 
+07SI      SILICONAS                     
+07SJ      SWEET DAY DREAMS 1            
+07SK      SWEET DAY DREAMS 2            
+07SL      SALVIA; SULTAN                
+07SM      SANDIA MELON; SMART           
+07SN      SANDIA                        
+07SO      SOFTY                         
+07SP      SPRING                        
+07SQ      SEXY TODAY VSECRET            
+07SR      SILVESTRE                     
+07SS      SENSUAL                       
+07ST      SWEET TEMPTATION              
+07SU      SUNNY FRUIT/SUMMER            
+07SV      SAVIA VEGETAL                 
+07SW      SUNFLOWER FEM                 
+07SX      SAI BABA                      
+07SY      SANDIA FRAMBUEZA              
+07SZ      SANDALO/YLANG                 
+07T1      TRIGO                         
+07T2      TIERRA OCRE                   
+07T3      CONTRADICTION FEM             
+07T4      TRIBU FEM                     
+07T5      TOMATE                        
+07T6      TUBEROSA                      
+07T7      TERRE                         
+07T8      TUTULA                        
+07T9      TE NEGRO                      
+07TA      TAPAS                         
+07TB      TABACO                        
+07TC      TIERRA OCRE 1                 
+07TD      TED LAPIDUS; TODAS            
+07TE      TE VERDE                      
+07TF      TILO/FRESCA CARICIA           
+07TG      TILO/GRANA                    
+07TH      THERAPY                       
+07TI      TILO                          
+07TJ      TILO/MANZANILLA               
+07TK      TOKIO MASC                    
+07TL      TALCO                         
+07TM      TILO/MIRRA                    
+07TN      TE VERDE/MENTA                
+07TO      TOMILLO                       
+07TP      TEMPTATION/TROPICAL PUNCH     
+07TQ      THE ONE D&G FEM               
+07TR      TORTUGA                       
+07TS      TSAR 1615                     
+07TT      TEA TREE                      
+07TU      TUTIFRUTI                     
+07TV      THE ONE MASC D&G              
+07TW      THE ONE DG FEM                
+07U1      ULTRALIFE 2170 JP             
+07U2      ULTRALIFE 2171 JP             
+07U3      MADERAS PERFUMADAS            
+07UF      ULTRAVIOLET FEM               
+07UL      ULTRAVIOLET MASC              
+07UM      UVA/MELÓN                     
+07UN      UNISEX                        
+07UO      UOMO MASC                     
+07UP      UPALALA                       
+07UR      UVA FRUTILLA                  
+07UU      UOMO FEM                      
+07UV      UVA                           
+07UX      UNITED SEX                    
+07V1      VAINILLA/MANZANA/CANELA       
+07V2      VAINILLA/CANELA/ALMENDRA      
+07V3      VANILLA/MENTA                 
+07V4      VAINILLA/CHOCOLATE/CAFÉ       
+07V5      VERBENA/VAINILLA              
+07V6      VISIT MASC                    
+07V7      VAINILLA/MANZANA              
+07V8      LAVANDA/VERBENA               
+07V9      VETIVERT                      
+07VA      VAINILLA                      
+07VB      VAINILLA AMBAR                
+07VC      VAINILLA/CANELA               
+07VD      VAINILLA/ALMENDRA             
+07VE      VERBENA                       
+07VF      VITAMINADA                    
+07VG      VAINILLA FLORAL               
+07VH      VAINILLA CHOCOLATE            
+07VI      VIOLETA                       
+07VJ      212 VIP FEM                   
+07VK      VERBENA EICALIPTO             
+07VL      VILLAGE                       
+07VM      VAINILLA/MIEL                 
+07VN      VAINILLA/NARANJA              
+07VO      VAINILLA ORIENTAL             
+07VP      212 VIP MASC.                 
+07VQ      VAINILLA COCO                 
+07VR      VINO MOSCATEL                 
+07VS      VAINILLA SUGAR; VAINILLA/DULCE
+07VT      VITAL                         
+07VU      VAINILLA DULCE OPCION 3       
+07VV      VIVERE                        
+07VW      VEHICULAR ORGANICO            
+07VX      VERSACE                       
+07VY      VIVEX                         
+07VZ      VERBENA/MANZANILLA            
+07WA      WANAMA                        
+07WF      EMPORIO WITHE FEM             
+07WM      WHITE MUSK                    
+07WO      WOOD ORANGE                   
+07WT      WATER                         
+07XB      XS BLACK MASCULINO            
+07XC      MIX CITRUS                    
+07XE      XERYOUS ROUGE MASC            
+07XF      XS BLACK FEM                  
+07XI      XI HUGO M                     
+07XM      MIRACLE MASC                  
+07XP      PLESSURE MASC.                
+07XX      AZARO CHROME                  
+07XY      XY MASC.                      
+07YE      YELLOW                        
+07YH      HERBAL CON YERBA MATE         
+07YM      YERBA MATE                    
+07YU      LA YUMBA                      
+07YY      YLANG YLANG                   
+07ZA      SAFARI FEM                    
+07ZL      CELULITIS/LAVANDA             
+07ZM      SANDIA MELON                  
+07ZP      PEPINO                        
+07ZZ      CIEL                          

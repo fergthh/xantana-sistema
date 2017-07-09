@@ -1,0 +1,196 @@
+05000     PROD S/CODIGO                 
+05ACA     ACABAJO                       
+05ACC     ACCESORIOS                    
+05ADV     ADVANCED                      
+05AGD     AGENDA                        
+05ALE     ALEJANDRINA                   
+05ALP     ALPARAMIS                     
+05APU     APUT JORGE                    
+05ARO     AROMA PAMPA                   
+05ASP     ASPRES/ASPRO                  
+05AZU     AZULINO                       
+05B&C     BEAUTY & CARE                 
+05BAN     BABY ANFAY                    
+05BAR     BARUGEL                       
+05BAT     BATIDO EXPRESS                
+05BBB     BEBE BLANC                    
+05BCB     ANULADO                       
+05BCU     BLANCA CURIE                  
+05BEL     BELLISIMA                     
+05BEN     BENAVIDEZ                     
+05BON     SE PUEDE USAR                 
+05BRA     BRAVO HORACIO                 
+05BRR     BRT ROPA                      
+05BRT     BERRETA                       
+05BTI     BABY TIME                     
+05BUT     BUTERFLY                      
+05CAL     CALAFATE HOTEL                
+05CAM     CAMELLI LINEA                 
+05CAP     CAPARRA                       
+05CAR     CARO BAMBINO                  
+05CAV     CAVAS HOTEL (ORGANICO)        
+05CDC     COSAS DE CHICOS (BAHIA BLANCA)
+05COS     COSMETICA NATY                
+05CRE     CRECIENDO                     
+05DEU     DEUCE                         
+05DIB     DI BUDUO                      
+05DUN     CAROLINA DUNCAN               
+05ECO     LINEA ECO PRODUCTOS MASIVOS   
+05ED      ESENCIA50%/DILUYENTE50%       
+05EQT     ECUATONE SIN MARCA            
+05ERO     ESTANCIA EL ROCIO             
+05ESC     ESENCIAS                      
+05EUR     EUROLINE                      
+05EXP     EXPORTACION ESENCIAS          
+05FER     FERPAMAR                      
+05FGP     FG PERFUMES                   
+05FLE     LINEA KARINA FLEURS           
+05GAR     GARCÍA GERARDO                
+05GBP     GASTON BERNTZ PRODUCCIONES    
+05GDB     GABRIELA DE BIANCHETTI        
+05GDY     GREIDY                        
+05GRE     GREEN LIGHT                   
+05H18     HOTEL 1890                    
+05HAE     HAMELIN                       
+05HAM     HOTEL AMAIKE                  
+05HAP     HAPPY HOUR                    
+05HAR     HOTEL AZUL REAL               
+05HAS     HOTEL ASPEN                   
+05HAV     HOTEL AVE MARIA               
+05HBA     HOTEL BAHIA                   
+05HBB     HOTEL BAHIA BUSTAMANTE        
+05HBG     HOTEL BUENOS AIRES GRAND      
+05HCA     HOTEL CAVAS                   
+05HCB     HOTEL CABAÑAS DEL PARQUE      
+05HCC     HOTEL CASA COLORADA           
+05HCG     HOTEL CABRERA GARDEN          
+05HCL     HOTEL CLARIDGE                
+05HCM     SIN UTILIZAR                  
+05HCO     HOTEL CARILO                  
+05HCP     HOTEL  DE CAMPO Y POLO        
+05HCR     HOTEL CRAFT                   
+05HCS     HOTEL CASA CALMA EX BLANQUERIA
+05HDE     HOTEL DELTA ECO SPA           
+05HDS     HOTEL DESTINO SUR             
+05HE2     HOTEL ESTANCIA 2 LUNAS        
+05HEA     HOTEL EL AURA                 
+05HEC     HOTEL ESTANCIA EL COLIBRI     
+05HED     HOTEL EDELWEISS               
+05HEF     HOTEL EL FARO                 
+05HEH     HOTEL EL HUANCAR              
+05HEP     HOTEL EL PEDRIEL              
+05HER     HOTEL ESTANCIA EL ROCIO       
+05HFA     HOTEL FLOR DE AMOR            
+05HFE     HOTEL FAENA                   
+05HFI     HOTEL FIERRO                  
+05HFS     HOTEL FOUR SEASONS            
+05HGI     HOTEL GRAND IGUAZU            
+05HHE     HOTEL HERRADURA               
+05HHH     HOSTERIA HUECHULAFQUEN        
+05HJA     HOUSE OF JASMINES             
+05HJR     HOTEL JAINA RESORT            
+05HKY     HOTEL KAU YATUN               
+05HLB     HOTEL ESTANCIA LA BAMBA       
+05HLC     HOTEL  LOS CAUQUENES          
+05HLD     HOTEL  LODGE DE CAZA          
+05HLE     HOTEL LA ESCONDIDA            
+05HLF     HOTEL LA SOFIA                
+05HLI     HOTEL LOS CIRUELOS            
+05HLM     HOTEL LA MESTIZA              
+05HLO     HOTEL LA OTRA ORILLA          
+05HLP     HOTEL LA CAMPIÑA              
+05HLR     HOTEL LIROLAY                 
+05HLS     HOTEL  LA SIRENUSE            
+05HLT     HOTEL LEGADO MITICO           
+05HLU     HOTEL LUMA                    
+05HLV     HOTEL LA VIEJA HOSTERIA       
+05HMA     HOTEL MAYORAZGO               
+05HMH     HOTEL MALABIA HOUSE           
+05HMR     HOTEL LAS MARIAS              
+05HMT     HOTEL MELI TUE                
+05HNW     HOTEL NERVOUS WATER           
+05HPB     HOTEL PUERTO BEMBERG          
+05HPO     HOTEL POSTAL                  
+05HPV     HOTEL PUERTO VALLE            
+05HRA     HOTEL RIO ARRIBA              
+05HRH     HOTEL RIO HERMOSO             
+05HRK     HOTEL RUCA KITAI              
+05HSE     HOTEL SERENA                  
+05HTM     HOTEL TAILOR MADE             
+05HVA     HOTEL VAIN                    
+05HVC     HOTEL VILLAGE CATARATAS       
+05HVM     HOTEL VILLA MARIA             
+05HVR     HOTEL VIRAZON                 
+05HYI     HOTEL YACUTINGA IGUAZU        
+05ILC     ISABEL LA CATOLICA            
+05JAB     JABA                          
+05JAR     JARLIP                        
+05JEA     JEAN CARTIER                  
+05JMV     JESUS MALLA VAZQUEZ           
+05KIO     KIARA                         
+05KOX     KOXIS                         
+05KUR     KURBASH                       
+05LEC     LECHALEUR                     
+05LEV     LEV                           
+05LIM     LIMPIEZA                      
+05LOR     LORHIEN                       
+05LUX     LUXURY BLACK                  
+05MAC     MACERADO                      
+05MAG     MAGAZINO                      
+05MAZ     GABRIELA MAZZA                
+05MCB     MC BEBE                       
+05MCF     MC FRAGANCIAS                 
+05MCH     MC LINEA MASCULINA            
+05MCK     MC KIDS                       
+05MCN     MC LÍNEA NATURAL              
+05MEL     MELOCOTON (LINEA PROPIA)      
+05MEN     MENENDEZ ALBERTO              
+05MIS     MISTRAL                       
+05MKO     MARIAH KLARA                  
+05MOX     MK OXTREAM                    
+05MUE     MUESTRAS                      
+05NAT     NATURAL                       
+05NHA     NEO HARMONY                   
+05OKF     OKFF                          
+05OLD     OLD BRIDGE                    
+05ORG     ORGANICO                      
+05ORM     ORGULLOSA MARIA               
+05PAC     PACKS                         
+05PCH     PANCHO CHEVEZ                 
+05PCY     PAUL CARTY                    
+05PED     PEDROTI                       
+05PER     PERFUMUM                      
+05PEÑ     PEÑA ALEJANDRO                
+05PLU     PLUMITAS                      
+05POM     CREMA EN POMO                 
+05PPA     PABLO PAEZ                    
+05PRO     LINEA PROFESIONAL             
+05PUE     PUELA                         
+05PXA     PROXIMA                       
+05RED     REDARS                        
+05RIN     RINCON CALAFATE               
+05RIV     RIVALDI                       
+05SCR     SCREAM                        
+05SER     CAROLINA SERNITTI             
+05SEX     SEX SHOP BOSCO                
+05SGB     SGB                           
+05SIN     SIN MARCA                     
+05SOL     SOLUCIONES                    
+05SOU     SOUVENIR                      
+05SPA     SPA                           
+05SRE     SOFT RED                      
+05STE     STEREN                        
+05SUR     SURVIVAL                      
+05TAN     TANGO BOUQUET                 
+05TEK     TE-KEL                        
+05TID     TIDBIT                        
+05TO2     TO2                           
+05TOF     TOFFOLINI                     
+05TRE     TRENDIS                       
+05TRI     TRIBECA                       
+05UNI     UNION GOOD                    
+05VAL     VALERIA PRYDATOX              
+05VET     VETERINARIA                   
+05VRL     LÍNEA VAZQUEZ RAMIREZ LORENZA 
+05WEA     WEAK MEAK                     
+05YOG     YOGA                          

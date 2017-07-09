@@ -1,0 +1,5 @@
+Línea 351: la clase Crystal.CrystalReport del control Listado no era una clase de control cargada.
+Línea 376: la clase MSMask.MaskEdBox del control Fecha no era una clase de control cargada.
+Línea 444: la clase MSMask.MaskEdBox del control WTexto3 no era una clase de control cargada.
+Línea 467: la clase MSFlexGridLib.MSFlexGrid del control WVector1 no era una clase de control cargada.
+Línea 478: la clase MSMask.MaskEdBox del control FechaLLegada no era una clase de control cargada.

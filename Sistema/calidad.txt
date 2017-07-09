@@ -1,0 +1,32 @@
+080       AL 15%                        
+081       AL 8%                         
+082       AL 2%                         
+083       AL 18%                        
+084       ESPECIAL                      
+085       AL 5%                         
+086       AL 20%                        
+087       AL 7%                         
+088       AL 16%                        
+089       AL 9%                         
+08A       CALIDAD A                     
+08B       TB; CAJA B/CALIDAD B/BLUE     
+08C       CAJA/CLEAR                    
+08D       CAJA D /  DULCE               
+08E       ESMERILADO                    
+08F       FUNDA ORO/FEMENINO            
+08G       GREEN                         
+08H       HINDU                         
+08I       PLASTICO                      
+08J       JP                            
+08K       AL 4%                         
+08L       BLANCA                        
+08M       TM; MODIFICADO/MASCULINO      
+08N       NP; NEGRA                     
+08P       FUNDA PLATA                   
+08Q       QP                            
+08R       RP; RUSTICO                   
+08S       SUPER SANDALO/SEXY            
+08T       TP; TRANSPARENTE/TIBET/TURQUES
+08U       UNICA                         
+08V       X VEINTE MILILITROS/VERDE     
+08Z       BLISTER "Z"                   

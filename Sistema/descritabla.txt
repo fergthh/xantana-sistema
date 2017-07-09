@@ -1,0 +1,35 @@
+001      CATEGORIA DE IVA              
+0002      TIPO DE DOCUMENTO             
+0004      MOTIVOS DE BAJA               
+0005      LINEAS EXISTENTES             
+0006      TIPOS DE PRODUCTOS            
+0007      FRAGANCIAS                    
+0008      CALIDAD                       
+0009      TAMAÑO                        
+0010      CATEGORIA DE I.BRUTOS         
+0011      CATEGORIA DE GANANCIAS        
+0012      TIPOS DE MATERIALES           
+0013      NOTAS DE PERFUMES             
+0014      FAMILAS DE MATERIALES         
+0015      AREAS                         
+0016      SECTORES DE LA EMPRESA        
+0019      MEDIO DE PAGO/COBRO           
+0020      TIPOS DE COMPROBANTE          
+0024      ORIGEN                        
+0025      TIPO DE VENTA                 
+0026      NOTAS DE CREDITO /DEBITO      
+0027      MOTIVOS NOTA DE CREDITO/DEBITO
+0028      CLASES DE GASTOS              
+0029      CAJAS HABILITADAS             
+0030      MOVIMIENTOS DE CAJA           
+0031      BANCOS                        
+0032      ESTADO DEL CHEQUE             
+0034      ESTADO DEL PEDIDO             
+0035      FRANQUICIAS                   
+0036      LISTAS DE PRECIO              
+0037      TIPOS DE COMPONENTES          
+0038      SECTORES DE LA EMPRESA        
+0039      TIPOS DE CLIENTE              
+0039      TIPOS DE CLIENTE              
+0040      ESTADOS DE LA COTIZACION      
+0041      MOTIVOS COTIZACIONES PERDIDAS 

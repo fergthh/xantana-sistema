@@ -1,0 +1,73 @@
+28AB      ABL SAN MARTIN                
+28AG      ANTICIPO GANACIAS             
+28AL      ALQUILERES                    
+28AM      ALMACEN                       
+28AN      ANMAT                         
+28AR      ARANCELES                     
+28AY      AYSA                          
+28BP      BIENES PERSONALES             
+28CA      GASTOS CABALLITO              
+28CD      COMPRA DEPOSITO               
+28CE      CERTIFICADOS ANMAT            
+28CF      CFI                           
+28CI      CIRCULO INMOBILIARIO          
+28CO      COMISIONES PAGADAS            
+28CP      CAPACITACION                  
+28CR      CHEQUE RECHAZADO (CANJE)      
+28CS      CARGAS SOCIALES               
+28CT      CERTIFICACIONES               
+28CV      COM.VTA.CHEQUES               
+28DO      DONACIONES                    
+28DP      DEPOSITOS BANCARIOS EN EFECT. 
+28EL      ELECTRICIDAD                  
+28FA      FARMACIA                      
+28FL      FLETES                        
+28GA      GASTO ADUANERO                
+28GB      GASTOS B.BLANCA               
+28GC      GASTOS CLOACAS                
+28GG      GASTOS GENERALES              
+28GH      GASTOS HABILITACION           
+28GN      GAS NATURAL                   
+28GP      GANANCIA PRESUNTA             
+28GR      GASTOS DE REPRESENTACION      
+28HN      HONORARIOS                    
+28IB      INGRESOS BRUTOS               
+28IE      INVERSIONES                   
+28IG      INSPECCION GRAL. DE JUSTICIA  
+28II      IMPUESTO INMOBILIARIO         
+28IM      IMPRENTA                      
+28IN      INSUMOS                       
+28IP      INTERESES PAGADOS             
+28IS      IMPUESTOS                     
+28IV      IVA                           
+28JU      JUBILACIONES SOCIOS           
+28LI      LIBRERIA                      
+28LM      LIMPIEZA                      
+28LU      EDENOR                        
+28MK      GASTOS P/CTA.DE MK            
+28MO      MANO DE OBRA                  
+28MP      MATERIAS PRIMAS               
+28MS      MANO SINIESTRA                
+28MU      MUEBLES Y UTILES/MAQUINARIAS  
+28PD      PRODUCCION DOMISANITARIO      
+28PR      PERDIDA POR ROBO              
+28PU      PUBLICIDAD                    
+28RE      RETENCION                     
+28RM      REPARACION MAQUINARIAS        
+28RO      RETIRO OFICIAL P/BALANCE      
+28RP      ROPA PERSONAL                 
+28RS      RETIRO SOCIOS                 
+28RV      REPARACIONES VILLA BALLESTER  
+28SE      SERVICIOS                     
+28SG      SEGUROS GENERALES             
+28SH      SEGURIDAD E HIGIENE           
+28SI      SISTEMAS                      
+28SL      SELLADOS                      
+28SM      SEGURO MEDICO PASANTIAS       
+28SU      SUELDOS                       
+28TE      TELEFONOS                     
+28VE      VENTISQUERO                   
+28VI      VILLATE                       
+28VM      VISITA MEDICA                 
+28VS      GASTOS POR REPARACIONES       
+28VT      VIATICOS                      

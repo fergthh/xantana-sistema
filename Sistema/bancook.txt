@@ -1,0 +1,17 @@
+31BNL     BANCA NATIONALE DEL LABORO    
+31BOST    BANK BOSTON                   
+31BPBA    BANCO DE LA PROVINCIA DE BS AS
+31BPN     BANCO DE LA PROV. DE NEUQUEN  
+31CITI    CITIBANK                      
+31CRED    BANCON CREDICOP               
+31FRA     BANCO FRANCES                 
+31GALIC   GALICIA                       
+31HSBC    HSBC                          
+31ITAU    ITAU BUEN AYRE                
+31MARY    MARIA                         
+31NACIO   Banco de la Nación Argentina  
+31PATAG   BANCO PATAGONIA SA.           
+31RIO     BANCO RIO                     
+31SANTA   SANTANDER                     
+31SOCI    SOCIETE GENERALE              
+31SUDA    BANCO SUDAMERIS               

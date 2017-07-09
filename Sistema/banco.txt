@@ -1,0 +1,6 @@
+21CRED    BANCO DE CREDITO              
+21GAL     BANCO GALICIA                 
+21NAC     BANCO NACION                  
+21OTROS   OTROS BANCOS                  
+21PCIA    BANCO PROVINCIA               
+21RIO     BANCO RIO                     

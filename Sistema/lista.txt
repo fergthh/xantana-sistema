@@ -1,0 +1,11 @@
+36000     GENERAL                       
+36001     MK/MC PAUL FOX                
+36002     MC FRANQUICIA                 
+36003     MC COMERCIO                   
+36004     MARIAH KLARA                  
+36005     MC DISTRIBUIDOR               
+36006     BARUGEL + MC COMERCIO20%MAS   
+36007     MK/MC BRASIL APUT             
+36008     MK DISTRIBUIDOR               
+36009     MK/MC EMPLEADOS               
+36010     JAVIER                        
