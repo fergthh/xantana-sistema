@@ -1,27 +1,27 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form prgcliente 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Ingreso de Clientes"
-   ClientHeight    =   9075
+   ClientHeight    =   7605
    ClientLeft      =   930
    ClientTop       =   405
-   ClientWidth     =   10995
+   ClientWidth     =   11415
    LinkTopic       =   "Form2"
-   ScaleHeight     =   9075
-   ScaleWidth      =   10995
-   Begin VB.Frame PantaContacto 
-      Caption         =   "Contactos"
-      Height          =   1815
-      Left            =   6960
-      TabIndex        =   72
-      Top             =   6840
-      Visible         =   0   'False
-      Width           =   2535
-      Begin VB.CommandButton CierraContactos 
-         Caption         =   "Menu F10"
+   ScaleHeight     =   7605
+   ScaleWidth      =   11415
+   Begin VB.Frame Frame6 
+      Caption         =   "Navegación por Registros"
+      Height          =   1095
+      Left            =   6240
+      TabIndex        =   93
+      Top             =   6360
+      Width           =   4335
+      Begin VB.CommandButton Primer 
+         Caption         =   "Primer F5"
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -31,16 +31,1514 @@ Begin VB.Form prgcliente
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   975
-         Left            =   4560
+         Height          =   615
+         Left            =   240
          MouseIcon       =   "cliente.frx":0000
          MousePointer    =   99  'Custom
          Picture         =   "cliente.frx":030A
-         Style           =   1  'Graphical
-         TabIndex        =   91
-         ToolTipText     =   "Salida"
-         Top             =   4680
+         TabIndex        =   97
+         ToolTipText     =   "Primer Registro"
+         Top             =   290
          Width           =   855
+      End
+      Begin VB.CommandButton Anterior 
+         Caption         =   "Anterior F6"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   1200
+         MouseIcon       =   "cliente.frx":074C
+         MousePointer    =   99  'Custom
+         Picture         =   "cliente.frx":0A56
+         TabIndex        =   96
+         ToolTipText     =   "Registro Anterior"
+         Top             =   290
+         Width           =   855
+      End
+      Begin VB.CommandButton Siguiente 
+         Caption         =   "Siguiente F7"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   2160
+         MouseIcon       =   "cliente.frx":0E98
+         MousePointer    =   99  'Custom
+         Picture         =   "cliente.frx":11A2
+         TabIndex        =   95
+         ToolTipText     =   "Registro Siguiente"
+         Top             =   290
+         Width           =   975
+      End
+      Begin VB.CommandButton Ultimo 
+         Caption         =   "Ultimo F8"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   3240
+         MouseIcon       =   "cliente.frx":15E4
+         MousePointer    =   99  'Custom
+         Picture         =   "cliente.frx":18EE
+         TabIndex        =   94
+         ToolTipText     =   "Salida"
+         Top             =   290
+         Width           =   855
+      End
+   End
+   Begin VB.ListBox WIndice 
+      Height          =   255
+      Left            =   10320
+      TabIndex        =   92
+      Top             =   6360
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.CommandButton CmdClose 
+      Caption         =   "Menu F10"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   5280
+      MouseIcon       =   "cliente.frx":1D30
+      MousePointer    =   99  'Custom
+      Picture         =   "cliente.frx":203A
+      TabIndex        =   91
+      ToolTipText     =   "Salida"
+      Top             =   6600
+      Width           =   855
+   End
+   Begin VB.CommandButton Lista 
+      Caption         =   "Listar F9"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   4320
+      MouseIcon       =   "cliente.frx":287C
+      MousePointer    =   99  'Custom
+      Picture         =   "cliente.frx":2B86
+      TabIndex        =   90
+      ToolTipText     =   "Impresion "
+      Top             =   6600
+      Width           =   855
+   End
+   Begin VB.CommandButton Consulta 
+      Caption         =   "Consultar F4"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   3240
+      MouseIcon       =   "cliente.frx":33C8
+      MousePointer    =   99  'Custom
+      Picture         =   "cliente.frx":36D2
+      TabIndex        =   89
+      ToolTipText     =   "Consulta de Datos"
+      Top             =   6600
+      Width           =   975
+   End
+   Begin VB.CommandButton CmdLimpiar 
+      Caption         =   "Limpiar F3"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   2280
+      MouseIcon       =   "cliente.frx":3F14
+      MousePointer    =   99  'Custom
+      Picture         =   "cliente.frx":421E
+      TabIndex        =   88
+      ToolTipText     =   "Limpia la pantalla"
+      Top             =   6600
+      Width           =   855
+   End
+   Begin VB.CommandButton CmdDelete 
+      Caption         =   "Borrar  F2"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   1320
+      MouseIcon       =   "cliente.frx":4A60
+      MousePointer    =   99  'Custom
+      Picture         =   "cliente.frx":4D6A
+      TabIndex        =   87
+      ToolTipText     =   "Elimina el Registro"
+      Top             =   6600
+      Width           =   855
+   End
+   Begin VB.CommandButton CmdAdd 
+      Caption         =   "Grabar F1"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   615
+      Left            =   360
+      MouseIcon       =   "cliente.frx":55AC
+      MousePointer    =   99  'Custom
+      Picture         =   "cliente.frx":58B6
+      TabIndex        =   86
+      ToolTipText     =   "Graba los Datos Ingresados"
+      Top             =   6600
+      Width           =   855
+   End
+   Begin TabDlg.SSTab SSTab1 
+      Height          =   6135
+      Left            =   240
+      TabIndex        =   21
+      Top             =   120
+      Width           =   10935
+      _ExtentX        =   19288
+      _ExtentY        =   10821
+      _Version        =   393216
+      Tab             =   1
+      TabHeight       =   520
+      TabCaption(0)   =   "Datos Generales"
+      TabPicture(0)   =   "cliente.frx":60F8
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "lblLabels(0)"
+      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).Control(1)=   "lblLabels(2)"
+      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).Control(2)=   "lblLabels(1)"
+      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(3)=   "Cliente"
+      Tab(0).Control(3).Enabled=   0   'False
+      Tab(0).Control(4)=   "Razon"
+      Tab(0).Control(4).Enabled=   0   'False
+      Tab(0).Control(5)=   "DatosAdicinales"
+      Tab(0).Control(5).Enabled=   0   'False
+      Tab(0).Control(6)=   "Fantasia"
+      Tab(0).Control(6).Enabled=   0   'False
+      Tab(0).Control(7)=   "Frame1"
+      Tab(0).Control(7).Enabled=   0   'False
+      Tab(0).Control(8)=   "Frame4"
+      Tab(0).Control(8).Enabled=   0   'False
+      Tab(0).Control(9)=   "Frame5"
+      Tab(0).Control(9).Enabled=   0   'False
+      Tab(0).ControlCount=   10
+      TabCaption(1)   =   "Facturación"
+      TabPicture(1)   =   "cliente.frx":6114
+      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).Control(0)=   "Label26"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "Label25"
+      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(2)=   "Label24"
+      Tab(1).Control(2).Enabled=   0   'False
+      Tab(1).Control(3)=   "Label11"
+      Tab(1).Control(3).Enabled=   0   'False
+      Tab(1).Control(4)=   "lblLabels(3)"
+      Tab(1).Control(4).Enabled=   0   'False
+      Tab(1).Control(5)=   "DesCondicion"
+      Tab(1).Control(5).Enabled=   0   'False
+      Tab(1).Control(6)=   "Label17"
+      Tab(1).Control(6).Enabled=   0   'False
+      Tab(1).Control(7)=   "DesTipoClie"
+      Tab(1).Control(7).Enabled=   0   'False
+      Tab(1).Control(8)=   "Label12"
+      Tab(1).Control(8).Enabled=   0   'False
+      Tab(1).Control(9)=   "Label10"
+      Tab(1).Control(9).Enabled=   0   'False
+      Tab(1).Control(10)=   "Label15"
+      Tab(1).Control(10).Enabled=   0   'False
+      Tab(1).Control(11)=   "DesListaPrecios"
+      Tab(1).Control(11).Enabled=   0   'False
+      Tab(1).Control(12)=   "FechaAlta"
+      Tab(1).Control(12).Enabled=   0   'False
+      Tab(1).Control(13)=   "LocalidadII"
+      Tab(1).Control(13).Enabled=   0   'False
+      Tab(1).Control(14)=   "PostalII"
+      Tab(1).Control(14).Enabled=   0   'False
+      Tab(1).Control(15)=   "ProvinciaII"
+      Tab(1).Control(15).Enabled=   0   'False
+      Tab(1).Control(16)=   "Historial"
+      Tab(1).Control(16).Enabled=   0   'False
+      Tab(1).Control(17)=   "ClieLista"
+      Tab(1).Control(17).Enabled=   0   'False
+      Tab(1).Control(18)=   "Bonifica"
+      Tab(1).Control(18).Enabled=   0   'False
+      Tab(1).Control(19)=   "Vercontactos"
+      Tab(1).Control(19).Enabled=   0   'False
+      Tab(1).Control(20)=   "DireccionII"
+      Tab(1).Control(20).Enabled=   0   'False
+      Tab(1).Control(21)=   "Condicion"
+      Tab(1).Control(21).Enabled=   0   'False
+      Tab(1).Control(22)=   "TipoClie"
+      Tab(1).Control(22).Enabled=   0   'False
+      Tab(1).Control(23)=   "Expreso"
+      Tab(1).Control(23).Enabled=   0   'False
+      Tab(1).Control(24)=   "NroLista"
+      Tab(1).Control(24).Enabled=   0   'False
+      Tab(1).ControlCount=   25
+      TabCaption(2)   =   "Tab 2"
+      TabPicture(2)   =   "cliente.frx":6130
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlCount=   0
+      Begin VB.Frame Frame5 
+         Caption         =   "Datos Impositivos"
+         Height          =   1215
+         Left            =   -74760
+         TabIndex        =   74
+         Top             =   4680
+         Width           =   10455
+         Begin MSMask.MaskEdBox Cuit 
+            Height          =   285
+            Left            =   960
+            TabIndex        =   85
+            Top             =   480
+            Width           =   1575
+            _ExtentX        =   2778
+            _ExtentY        =   503
+            _Version        =   393216
+            MaxLength       =   13
+            Mask            =   "##-########-#"
+            PromptChar      =   "_"
+         End
+         Begin VB.Frame Frame3 
+            Caption         =   "Condicion de Iva"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   975
+            Left            =   4440
+            TabIndex        =   78
+            Top             =   120
+            Width           =   5775
+            Begin VB.OptionButton Iva6 
+               Caption         =   "Exterior"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   255
+               Left            =   4080
+               TabIndex        =   84
+               Top             =   600
+               Width           =   1335
+            End
+            Begin VB.OptionButton Iva5 
+               Caption         =   "Monotributo"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   81
+               Top             =   240
+               Width           =   1455
+            End
+            Begin VB.OptionButton Iva4 
+               Caption         =   "Exento"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   255
+               Left            =   4080
+               TabIndex        =   83
+               Top             =   240
+               Width           =   1335
+            End
+            Begin VB.OptionButton Iva3 
+               Caption         =   "Cons. Final"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   255
+               Left            =   2280
+               TabIndex        =   82
+               Top             =   600
+               Width           =   1455
+            End
+            Begin VB.OptionButton Iva2 
+               Caption         =   "No Inscripto"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   255
+               Left            =   360
+               TabIndex        =   80
+               Top             =   600
+               Width           =   1455
+            End
+            Begin VB.OptionButton Iva1 
+               Caption         =   "Inscripto"
+               BeginProperty Font 
+                  Name            =   "MS Sans Serif"
+                  Size            =   8.25
+                  Charset         =   0
+                  Weight          =   700
+                  Underline       =   0   'False
+                  Italic          =   0   'False
+                  Strikethrough   =   0   'False
+               EndProperty
+               ForeColor       =   &H00800000&
+               Height          =   255
+               Left            =   360
+               TabIndex        =   79
+               Top             =   240
+               Width           =   1215
+            End
+         End
+         Begin VB.TextBox PorceIva 
+            Alignment       =   1  'Right Justify
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   3240
+            MaxLength       =   6
+            TabIndex        =   75
+            Text            =   " "
+            Top             =   480
+            Width           =   855
+         End
+         Begin VB.Label Label7 
+            Caption         =   "Cuit"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   240
+            TabIndex        =   77
+            Top             =   480
+            Width           =   735
+         End
+         Begin VB.Label Label8 
+            Caption         =   "% Iva"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   285
+            Left            =   2640
+            TabIndex        =   76
+            Top             =   480
+            Width           =   615
+         End
+      End
+      Begin VB.TextBox NroLista 
+         Alignment       =   1  'Right Justify
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   2280
+         MaxLength       =   6
+         TabIndex        =   72
+         Text            =   " "
+         Top             =   1320
+         Width           =   855
+      End
+      Begin VB.Frame Frame4 
+         Caption         =   "Datos de Contacto"
+         Height          =   1815
+         Left            =   -74760
+         TabIndex        =   59
+         Top             =   2760
+         Width           =   10455
+         Begin VB.TextBox email 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1320
+            MaxLength       =   100
+            TabIndex        =   70
+            Text            =   " "
+            Top             =   660
+            Width           =   3255
+         End
+         Begin VB.TextBox txtPaginaWeb 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   6120
+            MaxLength       =   50
+            TabIndex        =   68
+            Text            =   " "
+            Top             =   660
+            Width           =   4215
+         End
+         Begin VB.TextBox txtNombreContacto 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   7200
+            MaxLength       =   50
+            TabIndex        =   66
+            Text            =   " "
+            Top             =   300
+            Width           =   3135
+         End
+         Begin VB.TextBox Telefono 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   1320
+            MaxLength       =   50
+            TabIndex        =   62
+            Text            =   " "
+            Top             =   300
+            Width           =   3255
+         End
+         Begin VB.TextBox Observaciones 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1560
+            MaxLength       =   100
+            TabIndex        =   61
+            Text            =   " "
+            Top             =   1400
+            Width           =   8775
+         End
+         Begin VB.TextBox fax 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1320
+            MaxLength       =   30
+            TabIndex        =   60
+            Text            =   " "
+            Top             =   1050
+            Width           =   3255
+         End
+         Begin VB.Label Label13 
+            Caption         =   "E-Mail"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   240
+            TabIndex        =   71
+            Top             =   660
+            Width           =   1095
+         End
+         Begin VB.Label Label29 
+            Caption         =   "Página Web:"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   4920
+            TabIndex        =   69
+            Top             =   660
+            Width           =   1215
+         End
+         Begin VB.Label Label19 
+            Caption         =   "Responsable / Contacto"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   4920
+            TabIndex        =   67
+            Top             =   300
+            Width           =   2175
+         End
+         Begin VB.Label Label6 
+            Caption         =   "Telefono"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   240
+            TabIndex        =   65
+            Top             =   300
+            Width           =   975
+         End
+         Begin VB.Label Label4 
+            Caption         =   "Observaciones"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   120
+            TabIndex        =   64
+            Top             =   1400
+            Width           =   1455
+         End
+         Begin VB.Label Label20 
+            Caption         =   "Fax"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   720
+            TabIndex        =   63
+            Top             =   1050
+            Width           =   495
+         End
+      End
+      Begin VB.Frame Frame1 
+         Caption         =   "Datos Domiciliarios"
+         Height          =   1335
+         Left            =   -74760
+         TabIndex        =   50
+         Top             =   1320
+         Width           =   10455
+         Begin VB.TextBox Direccion 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1320
+            MaxLength       =   50
+            TabIndex        =   54
+            Text            =   " "
+            Top             =   360
+            Width           =   6135
+         End
+         Begin VB.TextBox Localidad 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1320
+            MaxLength       =   50
+            TabIndex        =   53
+            Text            =   " "
+            Top             =   720
+            Width           =   4215
+         End
+         Begin VB.TextBox Postal 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   9000
+            MaxLength       =   15
+            TabIndex        =   52
+            Text            =   " "
+            Top             =   360
+            Width           =   1335
+         End
+         Begin VB.ComboBox Provincia 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   315
+            Left            =   7200
+            TabIndex        =   51
+            Text            =   " "
+            Top             =   720
+            Width           =   3135
+         End
+         Begin VB.Label Label3 
+            Caption         =   "Direccion"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   120
+            TabIndex        =   58
+            Top             =   360
+            Width           =   1215
+         End
+         Begin VB.Label Poblaci 
+            Caption         =   "Localidad"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   120
+            TabIndex        =   57
+            Top             =   720
+            Width           =   1215
+         End
+         Begin VB.Label Label5 
+            Caption         =   "Codigo Postal"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   7680
+            TabIndex        =   56
+            Top             =   360
+            Width           =   1455
+         End
+         Begin VB.Label Label9 
+            Caption         =   "Provincia"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   5880
+            TabIndex        =   55
+            Top             =   720
+            Width           =   1095
+         End
+      End
+      Begin VB.TextBox Fantasia 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -72240
+         MaxLength       =   50
+         TabIndex        =   48
+         Top             =   960
+         Width           =   7815
+      End
+      Begin VB.TextBox Expreso 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   1485
+         Left            =   2280
+         MaxLength       =   50
+         MultiLine       =   -1  'True
+         TabIndex        =   36
+         Text            =   "cliente.frx":614C
+         Top             =   3120
+         Width           =   7815
+      End
+      Begin VB.TextBox TipoClie 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   2280
+         MaxLength       =   6
+         TabIndex        =   35
+         Text            =   " "
+         Top             =   1680
+         Width           =   855
+      End
+      Begin VB.TextBox Condicion 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   2280
+         MaxLength       =   6
+         TabIndex        =   34
+         Text            =   " "
+         Top             =   960
+         Width           =   855
+      End
+      Begin VB.TextBox DireccionII 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   2280
+         MaxLength       =   50
+         TabIndex        =   33
+         Top             =   2160
+         Width           =   5175
+      End
+      Begin VB.CommandButton Vercontactos 
+         Caption         =   "CONTACTOS"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   2400
+         TabIndex        =   32
+         Top             =   4800
+         Width           =   1455
+      End
+      Begin VB.CommandButton Bonifica 
+         Caption         =   "BONIFICACIONES"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   4080
+         TabIndex        =   31
+         Top             =   4800
+         Width           =   1695
+      End
+      Begin VB.CommandButton ClieLista 
+         Caption         =   "LISTAS DE PRECIOS"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   6000
+         TabIndex        =   30
+         Top             =   4800
+         Width           =   1695
+      End
+      Begin VB.CommandButton Historial 
+         Caption         =   "HISTORIAL"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   7920
+         TabIndex        =   29
+         Top             =   4800
+         Width           =   1695
+      End
+      Begin VB.ComboBox ProvinciaII 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   315
+         Left            =   6960
+         TabIndex        =   28
+         Text            =   " "
+         Top             =   2520
+         Width           =   3135
+      End
+      Begin VB.TextBox PostalII 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   9120
+         MaxLength       =   15
+         TabIndex        =   27
+         Text            =   " "
+         Top             =   2160
+         Width           =   975
+      End
+      Begin VB.TextBox LocalidadII 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   2280
+         MaxLength       =   50
+         TabIndex        =   26
+         Text            =   " "
+         Top             =   2520
+         Width           =   3135
+      End
+      Begin VB.CommandButton DatosAdicinales 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   -63120
+         MouseIcon       =   "cliente.frx":614E
+         MousePointer    =   99  'Custom
+         Picture         =   "cliente.frx":6458
+         Style           =   1  'Graphical
+         TabIndex        =   25
+         ToolTipText     =   "Pedidos de Clientes"
+         Top             =   3960
+         Visible         =   0   'False
+         Width           =   495
+      End
+      Begin VB.TextBox Razon 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -70320
+         MaxLength       =   50
+         TabIndex        =   23
+         Top             =   480
+         Width           =   5895
+      End
+      Begin VB.TextBox Cliente 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   -73440
+         MaxLength       =   10
+         TabIndex        =   0
+         Text            =   " "
+         Top             =   480
+         Width           =   1575
+      End
+      Begin MSMask.MaskEdBox FechaAlta 
+         Height          =   285
+         Left            =   8640
+         TabIndex        =   37
+         Top             =   960
+         Width           =   1575
+         _ExtentX        =   2778
+         _ExtentY        =   503
+         _Version        =   393216
+         MaxLength       =   10
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Mask            =   "##/##/####"
+         PromptChar      =   " "
+      End
+      Begin VB.Label DesListaPrecios 
+         BackColor       =   &H00C0C000&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   " "
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   3240
+         TabIndex        =   98
+         Top             =   1320
+         Width           =   3855
+      End
+      Begin VB.Label Label15 
+         Caption         =   "Lista de Precios:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   600
+         TabIndex        =   73
+         Top             =   1320
+         Width           =   1455
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Nombre de Fantasía:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   1
+         Left            =   -74400
+         TabIndex        =   49
+         Top             =   960
+         Width           =   1815
+      End
+      Begin VB.Label Label10 
+         Caption         =   "Observaciones:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   720
+         TabIndex        =   47
+         Top             =   3120
+         Width           =   1575
+      End
+      Begin VB.Label Label12 
+         Caption         =   "Categoria:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   1155
+         TabIndex        =   46
+         Top             =   1680
+         Width           =   855
+      End
+      Begin VB.Label DesTipoClie 
+         BackColor       =   &H00C0C000&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   " "
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   3240
+         TabIndex        =   45
+         Top             =   1680
+         Width           =   3855
+      End
+      Begin VB.Label Label17 
+         Caption         =   "Condicion de Pago"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   285
+         Left            =   360
+         TabIndex        =   44
+         Top             =   960
+         Width           =   1815
+      End
+      Begin VB.Label DesCondicion 
+         BackColor       =   &H00C0C000&
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   " "
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   3240
+         TabIndex        =   43
+         Top             =   960
+         Width           =   3855
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Dirección de Entrega:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   3
+         Left            =   160
+         TabIndex        =   42
+         Top             =   2160
+         Width           =   1935
+      End
+      Begin VB.Label Label11 
+         Caption         =   "Fecha Alta"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   7560
+         TabIndex        =   41
+         Top             =   960
+         Width           =   1095
+      End
+      Begin VB.Label Label24 
+         Caption         =   "Provincia:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   5640
+         TabIndex        =   40
+         Top             =   2520
+         Width           =   855
+      End
+      Begin VB.Label Label25 
+         Caption         =   "Codigo Postal"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   7800
+         TabIndex        =   39
+         Top             =   2160
+         Width           =   1215
+      End
+      Begin VB.Label Label26 
+         Caption         =   "Localidad:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Left            =   1150
+         TabIndex        =   38
+         Top             =   2520
+         Width           =   975
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Razón Social:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   2
+         Left            =   -71640
+         TabIndex        =   24
+         Top             =   480
+         Width           =   1215
+      End
+      Begin VB.Label lblLabels 
+         Caption         =   "Código"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   255
+         Index           =   0
+         Left            =   -74400
+         TabIndex        =   22
+         Top             =   480
+         Width           =   735
+      End
+   End
+   Begin Crystal.CrystalReport Listado 
+      Left            =   10920
+      Top             =   6600
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   262150
+      Destination     =   1
+      WindowTitle     =   "Listado de Clientes"
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      GroupSelectionFormula=   " "
+      BoundReportFooter=   -1  'True
+      DiscardSavedData=   -1  'True
+      WindowState     =   2
+   End
+   Begin VB.Frame PantaContacto 
+      Caption         =   "Contactos"
+      Height          =   5415
+      Left            =   240
+      TabIndex        =   1
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   10455
+      Begin VB.CommandButton CierraContactos 
+         Caption         =   "Aceptar y Cerrar"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   615
+         Left            =   4080
+         MouseIcon       =   "cliente.frx":6D22
+         MousePointer    =   99  'Custom
+         Picture         =   "cliente.frx":702C
+         TabIndex        =   20
+         ToolTipText     =   "Salida"
+         Top             =   3960
+         Width           =   2175
       End
       Begin VB.TextBox EmailIII 
          BeginProperty Font 
@@ -53,12 +1551,12 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1800
+         Left            =   6480
          MaxLength       =   50
-         TabIndex        =   89
+         TabIndex        =   18
          Text            =   " "
-         Top             =   3840
-         Width           =   6135
+         Top             =   3120
+         Width           =   3015
       End
       Begin VB.TextBox TelefonoIII 
          BeginProperty Font 
@@ -71,12 +1569,12 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   1800
+         Left            =   2040
          MaxLength       =   30
-         TabIndex        =   87
+         TabIndex        =   16
          Text            =   " "
-         Top             =   3480
-         Width           =   6135
+         Top             =   3120
+         Width           =   3495
       End
       Begin VB.TextBox NombreIII 
          BeginProperty Font 
@@ -89,11 +1587,11 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1800
+         Left            =   2040
          MaxLength       =   50
-         TabIndex        =   85
-         Top             =   3120
-         Width           =   6135
+         TabIndex        =   14
+         Top             =   2760
+         Width           =   7455
       End
       Begin VB.TextBox EmailII 
          BeginProperty Font 
@@ -106,12 +1604,12 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1800
+         Left            =   6480
          MaxLength       =   50
-         TabIndex        =   83
+         TabIndex        =   12
          Text            =   " "
-         Top             =   2400
-         Width           =   6135
+         Top             =   2040
+         Width           =   3135
       End
       Begin VB.TextBox TelefonoII 
          BeginProperty Font 
@@ -124,12 +1622,12 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   1800
+         Left            =   2040
          MaxLength       =   30
-         TabIndex        =   81
+         TabIndex        =   10
          Text            =   " "
          Top             =   2040
-         Width           =   6135
+         Width           =   3495
       End
       Begin VB.TextBox NombreII 
          BeginProperty Font 
@@ -142,11 +1640,11 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1800
+         Left            =   2040
          MaxLength       =   50
-         TabIndex        =   79
+         TabIndex        =   8
          Top             =   1680
-         Width           =   6135
+         Width           =   7575
       End
       Begin VB.TextBox EmailI 
          BeginProperty Font 
@@ -159,12 +1657,12 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1800
+         Left            =   6480
          MaxLength       =   50
-         TabIndex        =   77
+         TabIndex        =   6
          Text            =   " "
          Top             =   960
-         Width           =   6135
+         Width           =   3135
       End
       Begin VB.TextBox TelefonoI 
          BeginProperty Font 
@@ -177,12 +1675,12 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   1800
+         Left            =   2040
          MaxLength       =   30
-         TabIndex        =   75
+         TabIndex        =   4
          Text            =   " "
-         Top             =   600
-         Width           =   6135
+         Top             =   960
+         Width           =   3495
       End
       Begin VB.TextBox NombreI 
          BeginProperty Font 
@@ -195,29 +1693,23 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1800
+         Left            =   2040
          MaxLength       =   50
-         TabIndex        =   73
-         Top             =   240
-         Width           =   6135
+         TabIndex        =   2
+         Top             =   600
+         Width           =   7575
+      End
+      Begin VB.Line Line4 
+         X1              =   1200
+         X2              =   9120
+         Y1              =   2520
+         Y2              =   2520
       End
       Begin VB.Line Line3 
-         X1              =   0
-         X2              =   9360
-         Y1              =   4440
-         Y2              =   4440
-      End
-      Begin VB.Line Line2 
-         X1              =   0
-         X2              =   9360
-         Y1              =   2880
-         Y2              =   2880
-      End
-      Begin VB.Line Line1 
-         X1              =   120
-         X2              =   9480
-         Y1              =   1560
-         Y2              =   1560
+         X1              =   1200
+         X2              =   9120
+         Y1              =   1440
+         Y2              =   1440
       End
       Begin VB.Label Label23 
          Caption         =   "E-Mail"
@@ -232,10 +1724,10 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   120
-         TabIndex        =   90
-         Top             =   3840
-         Width           =   1095
+         Left            =   5760
+         TabIndex        =   19
+         Top             =   3120
+         Width           =   735
       End
       Begin VB.Label Label22 
          Caption         =   "Telefono"
@@ -250,10 +1742,10 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   120
-         TabIndex        =   88
-         Top             =   3480
-         Width           =   2175
+         Left            =   840
+         TabIndex        =   17
+         Top             =   3120
+         Width           =   855
       End
       Begin VB.Label lblLabels 
          Caption         =   "Nombre"
@@ -269,10 +1761,10 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   6
-         Left            =   120
-         TabIndex        =   86
-         Top             =   3120
-         Width           =   1815
+         Left            =   840
+         TabIndex        =   15
+         Top             =   2760
+         Width           =   855
       End
       Begin VB.Label Label21 
          Caption         =   "E-Mail"
@@ -287,10 +1779,10 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   120
-         TabIndex        =   84
-         Top             =   2400
-         Width           =   1095
+         Left            =   5760
+         TabIndex        =   13
+         Top             =   2040
+         Width           =   735
       End
       Begin VB.Label Label18 
          Caption         =   "Telefono"
@@ -305,10 +1797,10 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   120
-         TabIndex        =   82
+         Left            =   840
+         TabIndex        =   11
          Top             =   2040
-         Width           =   2175
+         Width           =   855
       End
       Begin VB.Label lblLabels 
          Caption         =   "Nombre"
@@ -324,10 +1816,10 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   5
-         Left            =   120
-         TabIndex        =   80
+         Left            =   840
+         TabIndex        =   9
          Top             =   1680
-         Width           =   1815
+         Width           =   855
       End
       Begin VB.Label Label16 
          Caption         =   "E-Mail"
@@ -342,10 +1834,10 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   120
-         TabIndex        =   78
+         Left            =   5760
+         TabIndex        =   7
          Top             =   960
-         Width           =   1095
+         Width           =   615
       End
       Begin VB.Label Label14 
          Caption         =   "Telefono"
@@ -360,10 +1852,10 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   120
-         TabIndex        =   76
-         Top             =   600
-         Width           =   2175
+         Left            =   840
+         TabIndex        =   5
+         Top             =   960
+         Width           =   1095
       End
       Begin VB.Label lblLabels 
          Caption         =   "Nombre"
@@ -379,1548 +1871,257 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   4
-         Left            =   120
-         TabIndex        =   74
-         Top             =   240
-         Width           =   1815
-      End
-   End
-   Begin VB.CommandButton Command1 
-      Caption         =   "Command1"
-      Height          =   615
-      Left            =   10320
-      TabIndex        =   102
-      Top             =   480
-      Visible         =   0   'False
-      Width           =   495
-   End
-   Begin VB.TextBox LocalidadII 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   98
-      Text            =   " "
-      Top             =   4800
-      Width           =   3135
-   End
-   Begin VB.TextBox PostalII 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   7800
-      MaxLength       =   15
-      TabIndex        =   97
-      Text            =   " "
-      Top             =   5160
-      Width           =   1935
-   End
-   Begin VB.ComboBox ProvinciaII 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   315
-      Left            =   2280
-      TabIndex        =   96
-      Text            =   " "
-      Top             =   5160
-      Width           =   3135
-   End
-   Begin VB.CommandButton Historial 
-      Caption         =   "HISTORIAL"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   615
-      Left            =   9000
-      TabIndex        =   95
-      Top             =   3720
-      Width           =   1695
-   End
-   Begin VB.CommandButton ClieLista 
-      Caption         =   "LISTAS DE PRECIOS"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   615
-      Left            =   9000
-      TabIndex        =   94
-      Top             =   4440
-      Width           =   1695
-   End
-   Begin VB.CommandButton Bonifica 
-      Caption         =   "BONIFICACIONES"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   615
-      Left            =   7200
-      TabIndex        =   93
-      Top             =   4440
-      Width           =   1695
-   End
-   Begin VB.Frame Frame2 
-      Caption         =   "Control Listado"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   2055
-      Left            =   840
-      TabIndex        =   6
-      Top             =   6720
-      Visible         =   0   'False
-      Width           =   5895
-      Begin VB.CommandButton Acepta 
-         Caption         =   "Confirma F11"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   975
-         Left            =   3720
-         MouseIcon       =   "cliente.frx":0B4C
-         MousePointer    =   99  'Custom
-         Picture         =   "cliente.frx":0E56
-         Style           =   1  'Graphical
-         TabIndex        =   54
-         ToolTipText     =   "Graba los Datos Ingresados"
-         Top             =   480
+         Left            =   840
+         TabIndex        =   3
+         Top             =   600
          Width           =   855
       End
-      Begin VB.CommandButton Cancela 
-         Caption         =   "Cancela F12"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   975
-         Left            =   4800
-         MouseIcon       =   "cliente.frx":1298
-         MousePointer    =   99  'Custom
-         Picture         =   "cliente.frx":15A2
-         Style           =   1  'Graphical
-         TabIndex        =   53
-         ToolTipText     =   "Graba los Datos Ingresados"
-         Top             =   480
-         Width           =   855
-      End
-      Begin VB.TextBox Hasta 
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   285
-         Left            =   1920
-         MaxLength       =   10
-         TabIndex        =   12
-         Text            =   " "
-         Top             =   720
-         Width           =   1575
-      End
-      Begin VB.TextBox Desde 
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   285
-         Left            =   1920
-         MaxLength       =   10
-         TabIndex        =   11
-         Text            =   " "
-         Top             =   360
-         Width           =   1575
-      End
-      Begin VB.OptionButton Impresora 
-         Caption         =   "Impresora"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   375
-         Left            =   1680
-         TabIndex        =   10
-         Top             =   1320
-         Width           =   1215
-      End
-      Begin VB.OptionButton Panta 
-         Caption         =   "Pantalla"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   375
-         Left            =   480
-         TabIndex        =   9
-         Top             =   1320
-         Width           =   1215
-      End
-      Begin VB.Label Label2 
-         Caption         =   "Hasta Codigo"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   375
-         Left            =   360
-         TabIndex        =   8
-         Top             =   720
-         Width           =   1335
-      End
-      Begin VB.Label Label1 
-         Caption         =   "Desde Codigo"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   495
-         Left            =   360
-         TabIndex        =   7
-         Top             =   360
-         Width           =   1215
-      End
    End
-   Begin VB.CommandButton Vercontactos 
-      Caption         =   "CONTACTOS"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   615
-      Left            =   5640
-      TabIndex        =   92
-      Top             =   4440
-      Width           =   1455
-   End
-   Begin VB.TextBox PorceIva 
-      Alignment       =   1  'Right Justify
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   6720
-      MaxLength       =   6
-      TabIndex        =   70
-      Text            =   " "
-      Top             =   2640
-      Width           =   855
-   End
-   Begin VB.TextBox DireccionII 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   66
-      Top             =   4440
-      Width           =   3135
-   End
-   Begin VB.TextBox Fantasia 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   64
-      Top             =   4080
-      Width           =   3135
-   End
-   Begin VB.TextBox Condicion 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   6
-      TabIndex        =   61
-      Text            =   " "
-      Top             =   3720
-      Width           =   855
-   End
-   Begin VB.TextBox NroLista 
-      Alignment       =   1  'Right Justify
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   6720
-      MaxLength       =   6
-      TabIndex        =   59
-      Text            =   " "
-      Top             =   1560
-      Width           =   855
-   End
-   Begin VB.CommandButton DatosAdicinales 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   615
-      Left            =   8520
-      MouseIcon       =   "cliente.frx":19E4
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":1CEE
-      Style           =   1  'Graphical
-      TabIndex        =   58
-      ToolTipText     =   "Pedidos de Clientes"
-      Top             =   1560
-      Visible         =   0   'False
-      Width           =   495
-   End
-   Begin VB.TextBox TipoClie 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   6720
-      MaxLength       =   6
-      TabIndex        =   55
-      Text            =   " "
-      Top             =   3360
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdAdd 
-      Caption         =   "Graba F1"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   120
-      MouseIcon       =   "cliente.frx":25B8
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":28C2
-      Style           =   1  'Graphical
-      TabIndex        =   52
-      ToolTipText     =   "Graba los Datos Ingresados"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdDelete 
-      Caption         =   "Borra  F2"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   1080
-      MouseIcon       =   "cliente.frx":3104
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":340E
-      Style           =   1  'Graphical
-      TabIndex        =   51
-      ToolTipText     =   "Elimina el Registro"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdLimpiar 
-      Caption         =   "Limpia F3"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   2040
-      MouseIcon       =   "cliente.frx":3C50
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":3F5A
-      Style           =   1  'Graphical
-      TabIndex        =   50
-      ToolTipText     =   "Limpia la pantalla"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton Consulta 
-      Caption         =   "Consulta F4"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   3000
-      MouseIcon       =   "cliente.frx":479C
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":4AA6
-      Style           =   1  'Graphical
-      TabIndex        =   49
-      ToolTipText     =   "Consulta de Datos"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton Lista 
-      Caption         =   "Listado F9"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   7800
-      MouseIcon       =   "cliente.frx":52E8
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":55F2
-      Style           =   1  'Graphical
-      TabIndex        =   48
-      ToolTipText     =   "Impresion "
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdClose 
-      Caption         =   "Menu F10"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   8760
-      MouseIcon       =   "cliente.frx":5E34
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":613E
-      Style           =   1  'Graphical
-      TabIndex        =   47
-      ToolTipText     =   "Salida"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton Primer 
-      Caption         =   "Primer F5"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   3960
-      MouseIcon       =   "cliente.frx":6980
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":6C8A
-      Style           =   1  'Graphical
-      TabIndex        =   46
-      ToolTipText     =   "Primer Registro"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton Anterior 
-      Caption         =   "Anterior F6"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   4920
-      MouseIcon       =   "cliente.frx":70CC
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":73D6
-      Style           =   1  'Graphical
-      TabIndex        =   45
-      ToolTipText     =   "Registro Anterior"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton Siguiente 
-      Caption         =   "Siguien. F7"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   5880
-      MouseIcon       =   "cliente.frx":7818
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":7B22
-      Style           =   1  'Graphical
-      TabIndex        =   44
-      ToolTipText     =   "Registro Siguiente"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.CommandButton Ultimo 
-      Caption         =   "Ultimo F8"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   6840
-      MouseIcon       =   "cliente.frx":7F64
-      MousePointer    =   99  'Custom
-      Picture         =   "cliente.frx":826E
-      Style           =   1  'Graphical
-      TabIndex        =   43
-      ToolTipText     =   "Salida"
-      Top             =   5640
-      Width           =   855
-   End
-   Begin VB.TextBox Expreso 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   40
-      Text            =   " "
-      Top             =   3360
-      Width           =   3135
-   End
-   Begin VB.TextBox Ayuda 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   120
-      TabIndex        =   39
-      Top             =   6840
-      Visible         =   0   'False
-      Width           =   9735
-   End
-   Begin VB.ComboBox Provincia 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   315
-      Left            =   2280
-      TabIndex        =   38
-      Text            =   " "
-      Top             =   1560
-      Width           =   3135
-   End
-   Begin VB.TextBox fax 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   30
-      TabIndex        =   36
-      Text            =   " "
-      Top             =   2640
-      Width           =   3135
-   End
-   Begin VB.TextBox email 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   6720
-      MaxLength       =   100
-      TabIndex        =   35
-      Text            =   " "
-      Top             =   2280
-      Width           =   3135
-   End
-   Begin VB.TextBox Observaciones 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   100
-      TabIndex        =   26
-      Text            =   " "
-      Top             =   3000
-      Width           =   4695
-   End
-   Begin VB.Frame Frame3 
-      Caption         =   "Condicion de Iva"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   1455
-      Left            =   5640
-      TabIndex        =   23
-      Top             =   0
-      Width           =   4095
-      Begin VB.OptionButton Iva6 
-         Caption         =   "Exterior"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   255
-         Left            =   2280
-         TabIndex        =   42
-         Top             =   960
-         Width           =   1335
-      End
-      Begin VB.OptionButton Iva5 
-         Caption         =   "Monotributo"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   255
-         Left            =   120
-         TabIndex        =   32
-         Top             =   960
-         Width           =   1575
-      End
-      Begin VB.OptionButton Iva4 
-         Caption         =   "Exento"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   255
-         Left            =   2280
-         TabIndex        =   30
-         Top             =   600
-         Width           =   1335
-      End
-      Begin VB.OptionButton Iva3 
-         Caption         =   "Cons. Final"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   255
-         Left            =   2280
-         TabIndex        =   29
-         Top             =   240
-         Width           =   1455
-      End
-      Begin VB.OptionButton Iva2 
-         Caption         =   "No Inscripto"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   255
-         Left            =   120
-         TabIndex        =   28
-         Top             =   600
-         Width           =   1815
-      End
-      Begin VB.OptionButton Iva1 
-         Caption         =   "Inscripto"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00800000&
-         Height          =   255
-         Left            =   120
-         TabIndex        =   27
-         Top             =   240
-         Width           =   1215
-      End
-   End
-   Begin VB.TextBox Cuit 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   6720
-      MaxLength       =   13
-      TabIndex        =   22
-      Text            =   " "
-      Top             =   1920
-      Width           =   1575
-   End
-   Begin VB.TextBox Telefono 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   315
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   21
-      Text            =   " "
-      Top             =   2280
-      Width           =   3135
-   End
-   Begin VB.TextBox Postal 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   15
-      TabIndex        =   20
-      Text            =   " "
-      Top             =   1920
-      Width           =   1935
-   End
-   Begin VB.TextBox Localidad 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   19
-      Text            =   " "
-      Top             =   1200
-      Width           =   3135
-   End
-   Begin VB.TextBox Direccion 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   14
-      Text            =   " "
-      Top             =   840
-      Width           =   3135
-   End
-   Begin VB.TextBox Cliente 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   10
-      TabIndex        =   0
-      Text            =   " "
-      Top             =   120
-      Width           =   1575
-   End
-   Begin Crystal.CrystalReport Listado 
-      Left            =   9480
-      Top             =   1920
-      _ExtentX        =   741
-      _ExtentY        =   741
-      _Version        =   262150
-      ReportFileName  =   "cliente.rpt"
-      Destination     =   1
-      WindowTitle     =   "Listado de Clientes"
-      WindowControlBox=   -1  'True
-      WindowMaxButton =   -1  'True
-      WindowMinButton =   -1  'True
-      GroupSelectionFormula=   " "
-      BoundReportFooter=   -1  'True
-      DiscardSavedData=   -1  'True
-      WindowState     =   2
-   End
-   Begin VB.ListBox WIndice 
-      Height          =   255
-      Left            =   9240
-      TabIndex        =   5
-      Top             =   1560
-      Visible         =   0   'False
-      Width           =   975
-   End
-   Begin VB.TextBox Razon 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2280
-      MaxLength       =   50
-      TabIndex        =   3
-      Top             =   480
-      Width           =   3135
-   End
-   Begin VB.ListBox Opcion 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   1035
-      Left            =   1200
-      TabIndex        =   24
-      Top             =   7320
-      Visible         =   0   'False
-      Width           =   2655
-   End
-   Begin VB.ListBox Pantalla 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   1740
-      ItemData        =   "cliente.frx":86B0
-      Left            =   120
-      List            =   "cliente.frx":86B7
-      TabIndex        =   4
-      Top             =   7200
-      Visible         =   0   'False
-      Width           =   9735
-   End
-   Begin MSMask.MaskEdBox FechaAlta 
-      Height          =   285
-      Left            =   6720
-      TabIndex        =   69
-      Top             =   3720
-      Width           =   1575
-      _ExtentX        =   2778
-      _ExtentY        =   503
-      _Version        =   327680
-      MaxLength       =   10
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Mask            =   "##/##/####"
-      PromptChar      =   " "
-   End
-   Begin VB.Label Label26 
-      Caption         =   "Localidad"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   375
-      Left            =   120
-      TabIndex        =   101
-      Top             =   4800
-      Width           =   1935
-   End
-   Begin VB.Label Label25 
-      Caption         =   "Codigo Postal"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   375
-      Left            =   5640
-      TabIndex        =   100
-      Top             =   5160
-      Width           =   2055
-   End
-   Begin VB.Label Label24 
-      Caption         =   "Provincia"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   120
+   Begin VB.Frame Extras 
+      Height          =   4335
+      Left            =   2640
       TabIndex        =   99
-      Top             =   5160
-      Width           =   2055
-   End
-   Begin VB.Label Label8 
-      Caption         =   "% Iva"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   285
-      Left            =   5640
-      TabIndex        =   71
-      Top             =   2640
-      Width           =   1095
-   End
-   Begin VB.Label Label11 
-      Caption         =   "Fecha Alta"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   5640
-      TabIndex        =   68
-      Top             =   3720
-      Width           =   1095
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Direccion Iva"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Index           =   3
-      Left            =   120
-      TabIndex        =   67
-      Top             =   4440
-      Width           =   1815
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Denominacion Comercial"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Index           =   2
-      Left            =   120
-      TabIndex        =   65
-      Top             =   480
-      Width           =   2295
-   End
-   Begin VB.Label DesCondicion 
-      BackColor       =   &H00C0C000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   " "
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   255
-      Left            =   3240
-      TabIndex        =   63
-      Top             =   3720
-      Width           =   2175
-   End
-   Begin VB.Label Label17 
-      Caption         =   "Condicion de Venta"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   285
-      Left            =   120
-      TabIndex        =   62
-      Top             =   3720
-      Width           =   2055
-   End
-   Begin VB.Label Label15 
-      Caption         =   "Nro Lista"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   285
-      Left            =   5640
-      TabIndex        =   60
-      Top             =   1560
-      Width           =   1095
-   End
-   Begin VB.Label DesTipoClie 
-      BackColor       =   &H00C0C000&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   " "
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   255
-      Left            =   7680
-      TabIndex        =   57
-      Top             =   3360
-      Width           =   2295
-   End
-   Begin VB.Label Label12 
-      Caption         =   "Tipo"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   285
-      Left            =   5640
-      TabIndex        =   56
-      Top             =   3360
-      Width           =   1575
-   End
-   Begin VB.Label Label10 
-      Caption         =   "Expreso"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   285
-      Left            =   120
-      TabIndex        =   41
-      Top             =   3360
-      Width           =   1575
-   End
-   Begin VB.Label Label9 
-      Caption         =   "Provincia"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   120
-      TabIndex        =   37
-      Top             =   1560
-      Width           =   2055
-   End
-   Begin VB.Label Label20 
-      Caption         =   "Fax"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   120
-      TabIndex        =   34
-      Top             =   2640
-      Width           =   975
-   End
-   Begin VB.Label Label13 
-      Caption         =   "E-Mail"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   5640
-      TabIndex        =   33
-      Top             =   2280
-      Width           =   1095
-   End
-   Begin VB.Label Label19 
-      Caption         =   " "
-      Height          =   255
-      Left            =   120
-      TabIndex        =   31
-      Top             =   5040
-      Width           =   1935
-   End
-   Begin VB.Label Label4 
-      Caption         =   "Observaciones"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   120
-      TabIndex        =   25
-      Top             =   3000
-      Width           =   1695
-   End
-   Begin VB.Label Label7 
-      Caption         =   "Cuit"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   375
-      Left            =   5640
-      TabIndex        =   18
-      Top             =   1920
-      Width           =   735
-   End
-   Begin VB.Label Label6 
-      Caption         =   "Telefono"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Left            =   120
-      TabIndex        =   17
-      Top             =   2280
-      Width           =   2175
-   End
-   Begin VB.Label Label5 
-      Caption         =   "Codigo Postal"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   375
-      Left            =   120
-      TabIndex        =   16
-      Top             =   1920
-      Width           =   2055
-   End
-   Begin VB.Label Poblaci 
-      Caption         =   "Localidad"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   375
-      Left            =   120
-      TabIndex        =   15
-      Top             =   1200
-      Width           =   1935
-   End
-   Begin VB.Label Label3 
-      Caption         =   "Direccion"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   375
-      Left            =   120
-      TabIndex        =   13
-      Top             =   840
-      Width           =   1935
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Razon Social"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Index           =   1
-      Left            =   120
-      TabIndex        =   2
-      Top             =   4080
-      Width           =   1815
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Codigo de Cliente"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Index           =   0
-      Left            =   120
-      TabIndex        =   1
-      Top             =   120
-      Width           =   1815
+      Top             =   1320
+      Visible         =   0   'False
+      Width           =   6615
+      Begin VB.Frame FrameConsulta 
+         Height          =   3015
+         Left            =   480
+         TabIndex        =   109
+         Top             =   720
+         Width           =   5655
+         Begin VB.ListBox Pantalla 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   1500
+            ItemData        =   "cliente.frx":786E
+            Left            =   360
+            List            =   "cliente.frx":7875
+            TabIndex        =   113
+            Top             =   600
+            Visible         =   0   'False
+            Width           =   5055
+         End
+         Begin VB.ListBox Opcion 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   1035
+            Left            =   1560
+            TabIndex        =   112
+            Top             =   840
+            Visible         =   0   'False
+            Width           =   2655
+         End
+         Begin VB.TextBox Ayuda 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   360
+            TabIndex        =   111
+            Top             =   240
+            Visible         =   0   'False
+            Width           =   5055
+         End
+         Begin VB.CommandButton btnCerrarConsulta 
+            Caption         =   "Cerrar"
+            Height          =   495
+            Left            =   2040
+            TabIndex        =   110
+            Top             =   2280
+            Width           =   1695
+         End
+      End
+      Begin VB.Frame FrameListado 
+         Caption         =   "Control Listado"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00800000&
+         Height          =   1815
+         Left            =   480
+         TabIndex        =   100
+         Top             =   1200
+         Visible         =   0   'False
+         Width           =   5655
+         Begin VB.CommandButton Acepta 
+            Caption         =   "Confirmar (F11)"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   3720
+            MouseIcon       =   "cliente.frx":7883
+            MousePointer    =   99  'Custom
+            Picture         =   "cliente.frx":7B8D
+            TabIndex        =   106
+            ToolTipText     =   "Graba los Datos Ingresados"
+            Top             =   240
+            Width           =   1215
+         End
+         Begin VB.CommandButton Cancela 
+            Caption         =   "Cancelar (F12)"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   3720
+            MouseIcon       =   "cliente.frx":7FCF
+            MousePointer    =   99  'Custom
+            Picture         =   "cliente.frx":82D9
+            TabIndex        =   105
+            ToolTipText     =   "Graba los Datos Ingresados"
+            Top             =   960
+            Width           =   1215
+         End
+         Begin VB.TextBox Hasta 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1920
+            MaxLength       =   10
+            TabIndex        =   104
+            Text            =   " "
+            Top             =   720
+            Width           =   1575
+         End
+         Begin VB.TextBox Desde 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   1920
+            MaxLength       =   10
+            TabIndex        =   103
+            Text            =   " "
+            Top             =   360
+            Width           =   1575
+         End
+         Begin VB.OptionButton Impresora 
+            Caption         =   "Impresora"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   1920
+            TabIndex        =   102
+            Top             =   1200
+            Value           =   -1  'True
+            Width           =   1215
+         End
+         Begin VB.OptionButton Panta 
+            Caption         =   "Pantalla"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   600
+            TabIndex        =   101
+            Top             =   1200
+            Width           =   1215
+         End
+         Begin VB.Label Label2 
+            Caption         =   "Hasta Codigo"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   375
+            Left            =   360
+            TabIndex        =   108
+            Top             =   720
+            Width           =   1335
+         End
+         Begin VB.Label Label1 
+            Caption         =   "Desde Codigo"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            ForeColor       =   &H00800000&
+            Height          =   255
+            Left            =   360
+            TabIndex        =   107
+            Top             =   360
+            Width           =   1215
+         End
+      End
    End
 End
 Attribute VB_Name = "prgcliente"
@@ -1988,7 +2189,9 @@ Sub Imprime_Datos()
         Postal.Text = Trim(rstCliente!Postal)
         Telefono.Text = Trim(rstCliente!Telefono)
         Observaciones.Text = Trim(rstCliente!Observaciones)
+        Cuit.Mask = ""
         Cuit.Text = Trim(rstCliente!Cuit)
+        Cuit.Mask = "##-########-#" ' Volvemos a colocar la mascara al campo.
         email.Text = Trim(rstCliente!email)
         fax.Text = Trim(rstCliente!fax)
         PorceIva.Text = Str$(rstCliente!PorceIva)
@@ -2060,6 +2263,12 @@ Private Sub Acepta_Click()
     spCliente = ZSql
     Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
     
+    If Trim(Hasta.Text) = "" Or Val(Hasta.Text) = 0 Then
+        Hasta.Text = "ZZZZ"
+    End If
+    
+    Listado.ReportFileName = App.Path + "/cliente.rpt"
+    
     Listado.WindowTitle = "Listado de Clientes"
     Listado.WindowTop = 0
     Listado.WindowLeft = 0
@@ -2092,7 +2301,8 @@ Private Sub Acepta_Click()
     
     Cliente.SetFocus
     Listado.Action = 1
-    Frame2.Visible = False
+    FrameListado.Visible = False
+    Extras.Visible = False
     
 End Sub
 
@@ -2102,8 +2312,14 @@ Private Sub Bonifica_Click()
     PrgClienteBonifica.Show
 End Sub
 
+Private Sub btnCerrarConsulta_Click()
+    Extras.Visible = False
+    FrameConsulta.Visible = False
+End Sub
+
 Private Sub Cancela_Click()
-    Frame2.Visible = False
+    FrameListado.Visible = False
+    Extras.Visible = False
     Cliente.SetFocus
 End Sub
 
@@ -2117,6 +2333,9 @@ Private Sub ClieLista_Click()
 End Sub
 
 Private Sub cmdAdd_Click()
+
+    ' SE AGREGARON DOS O TRES CAMPOS ADICIONALES,
+    ' PAGINA WEB, NOMBRE DE CONTACTO, EMAIL, ETC.
 
     Call Verifica_datos
     
@@ -2313,7 +2532,7 @@ Private Sub CmdLimpiar_Click()
     Postal.Text = ""
     Telefono.Text = ""
     Observaciones.Text = ""
-    Cuit.Text = ""
+'    Cuit.Text = ""
     email.Text = ""
     fax.Text = ""
     PorceIva.Text = ""
@@ -2387,13 +2606,16 @@ Private Sub Lista_Click()
     Hasta.Text = ""
     Panta.Value = False
     Impresora.Value = True
-    Frame2.Visible = True
+    Extras.Visible = True
+    Extras.ZOrder 0
+    FrameConsulta.Visible = False
+    FrameListado.Visible = True
     Desde.SetFocus
 End Sub
 
 Private Sub Razon_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Direccion.SetFocus
+        Fantasia.SetFocus
     End If
     If KeyAscii = 27 Then
         Razon.Text = ""
@@ -2402,7 +2624,7 @@ End Sub
 
 Private Sub Direccion_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Localidad.SetFocus
+        Postal.SetFocus
     End If
     If KeyAscii = 27 Then
         Direccion.Text = ""
@@ -2420,7 +2642,7 @@ End Sub
 
 Private Sub Provincia_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        NroLista.SetFocus
+        Telefono.SetFocus
     End If
     If KeyCode = 112 Or KeyCode = 113 Or KeyCode = 114 Or KeyCode = 115 Or KeyCode = 116 Or KeyCode = 117 Or KeyCode = 118 Or KeyCode = 119 Or KeyCode = 120 Or KeyCode = 121 Then
         WFuncion = KeyCode
@@ -2440,7 +2662,7 @@ End Sub
 
 Private Sub Postal_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Cuit.SetFocus
+        Localidad.SetFocus
     End If
     If KeyAscii = 27 Then
         Postal.Text = ""
@@ -2454,12 +2676,12 @@ Private Sub Cuit_Keypress(KeyAscii As Integer)
             Rem Call verifica_cuit(Cuit.Text, ResultadoCuit)
             ResultadoCuit = "S"
             If ResultadoCuit = "S" Then
-                Telefono.SetFocus
+                PorceIva.SetFocus
                     Else
                 Cuit.SetFocus
             End If
                 Else
-            Telefono.SetFocus
+            PorceIva.SetFocus
         End If
     End If
     If KeyAscii = 27 Then
@@ -2469,7 +2691,7 @@ End Sub
 
 Private Sub Telefono_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        email.SetFocus
+        txtNombreContacto.SetFocus
     End If
     If KeyAscii = 27 Then
         Telefono.Text = ""
@@ -2478,7 +2700,7 @@ End Sub
 
 Private Sub EMail_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        fax.SetFocus
+        txtPaginaWeb.SetFocus
     End If
     If KeyAscii = 27 Then
         email.Text = ""
@@ -2487,7 +2709,7 @@ End Sub
 
 Private Sub Fax_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        PorceIva.SetFocus
+        Observaciones.SetFocus
     End If
     If KeyAscii = 27 Then
         fax.Text = ""
@@ -2496,7 +2718,7 @@ End Sub
 
 Private Sub PorceIva_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Observaciones.SetFocus
+        Iva1.SetFocus
     End If
     If KeyAscii = 27 Then
         PorceIva.Text = ""
@@ -2506,7 +2728,7 @@ End Sub
 
 Private Sub Observaciones_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Expreso.SetFocus
+        Cuit.SetFocus
     End If
     If KeyAscii = 27 Then
         Observaciones.Text = ""
@@ -2521,10 +2743,6 @@ Private Sub EXPRESO_Keypress(KeyAscii As Integer)
         Expreso.Text = ""
     End If
     Rem Call NumbersOnly(Screen.ActiveControl, KeyAscii)
-End Sub
-
-Private Sub Text1_Change()
-
 End Sub
 
 Private Sub TipoClie_KeyPress(KeyAscii As Integer)
@@ -2577,7 +2795,7 @@ End Sub
 
 Private Sub Fantasia_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        DireccionII.SetFocus
+        Direccion.SetFocus
     End If
     If KeyAscii = 27 Then
         Fantasia.Text = ""
@@ -2757,6 +2975,12 @@ Private Sub Consulta_Click()
     Opcion.AddItem "Cliente"
     Opcion.AddItem "TipoClie"
     Opcion.AddItem "Condicion de Pago"
+    
+    Extras.Visible = True
+    Extras.ZOrder 0
+    FrameConsulta.Visible = True
+    Ayuda.Visible = False
+    Pantalla.Visible = False
     Opcion.Visible = True
     
 End Sub
@@ -2853,7 +3077,10 @@ Private Sub Opcion_Click()
         
         Case Else
     End Select
-            
+    
+    Extras.Visible = True
+    FrameListado.Visible = False
+    FrameConsulta.Visible = True
     Pantalla.Visible = True
     Ayuda.Visible = True
     Ayuda.Text = ""
@@ -2890,6 +3117,9 @@ Private Sub Pantalla_Click()
         Case Else
     End Select
     
+    FrameConsulta.Visible = False
+    Extras.Visible = False
+    
 End Sub
 
 Sub Form_Load()
@@ -2901,7 +3131,6 @@ Sub Form_Load()
     Postal.Text = ""
     Telefono.Text = ""
     Observaciones.Text = ""
-    Cuit.Text = ""
     email.Text = ""
     fax.Text = ""
     PorceIva.Text = ""
@@ -2995,6 +3224,8 @@ Sub Form_Load()
     ProvinciaII.AddItem ""
     
     ProvinciaII.ListIndex = 0
+    
+    SSTab1.TabEnabled(0) = True
     
 End Sub
 
@@ -3193,6 +3424,7 @@ Private Sub Condicion_DblClick()
     Opcion.AddItem "TipoClie"
     Opcion.AddItem "Condicion"
     Rem Opcion.Visible = True
+    Extras.ZOrder 0
     Opcion.ListIndex = 2
     
     Call Opcion_Click
@@ -3551,6 +3783,40 @@ Private Sub Primer_Click()
     End If
     
  End Sub
+
+Private Sub txtNombreContacto_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = 112 Or KeyCode = 113 Or KeyCode = 114 Or KeyCode = 115 Or KeyCode = 116 Or KeyCode = 117 Or KeyCode = 118 Or KeyCode = 119 Or KeyCode = 120 Or KeyCode = 121 Then
+        WFuncion = KeyCode
+        Call Ejecuta_Funcion
+    End If
+End Sub
+
+Private Sub txtNombreContacto_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+        email.SetFocus
+    End If
+    If KeyAscii = 27 Then
+        txtNombreContacto.Text = ""
+    End If
+End Sub
+
+
+
+Private Sub txtPaginaWeb_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = 112 Or KeyCode = 113 Or KeyCode = 114 Or KeyCode = 115 Or KeyCode = 116 Or KeyCode = 117 Or KeyCode = 118 Or KeyCode = 119 Or KeyCode = 120 Or KeyCode = 121 Then
+        WFuncion = KeyCode
+        Call Ejecuta_Funcion
+    End If
+End Sub
+
+Private Sub txtPaginaWeb_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+        fax.SetFocus
+    End If
+    If KeyAscii = 27 Then
+        txtPaginaWeb.Text = ""
+    End If
+End Sub
 
 Private Sub Ultimo_Click()
 
