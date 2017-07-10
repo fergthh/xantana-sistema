@@ -239,11 +239,27 @@ Begin VB.Form prgcliente
       Top             =   6600
       Width           =   855
    End
+   Begin Crystal.CrystalReport Listado 
+      Left            =   10920
+      Top             =   6600
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   262150
+      Destination     =   1
+      WindowTitle     =   "Listado de Clientes"
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      GroupSelectionFormula=   " "
+      BoundReportFooter=   -1  'True
+      DiscardSavedData=   -1  'True
+      WindowState     =   2
+   End
    Begin TabDlg.SSTab SSTab1 
       Height          =   6135
       Left            =   240
       TabIndex        =   21
-      Top             =   120
+      Top             =   240
       Width           =   10935
       _ExtentX        =   19288
       _ExtentY        =   10821
@@ -253,26 +269,16 @@ Begin VB.Form prgcliente
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "cliente.frx":60F8
       Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "lblLabels(0)"
-      Tab(0).Control(0).Enabled=   0   'False
-      Tab(0).Control(1)=   "lblLabels(2)"
-      Tab(0).Control(1).Enabled=   0   'False
-      Tab(0).Control(2)=   "lblLabels(1)"
-      Tab(0).Control(2).Enabled=   0   'False
-      Tab(0).Control(3)=   "Cliente"
-      Tab(0).Control(3).Enabled=   0   'False
-      Tab(0).Control(4)=   "Razon"
-      Tab(0).Control(4).Enabled=   0   'False
-      Tab(0).Control(5)=   "DatosAdicinales"
-      Tab(0).Control(5).Enabled=   0   'False
-      Tab(0).Control(6)=   "Fantasia"
-      Tab(0).Control(6).Enabled=   0   'False
-      Tab(0).Control(7)=   "Frame1"
-      Tab(0).Control(7).Enabled=   0   'False
-      Tab(0).Control(8)=   "Frame4"
-      Tab(0).Control(8).Enabled=   0   'False
-      Tab(0).Control(9)=   "Frame5"
-      Tab(0).Control(9).Enabled=   0   'False
+      Tab(0).Control(0)=   "Frame5"
+      Tab(0).Control(1)=   "Frame4"
+      Tab(0).Control(2)=   "Frame1"
+      Tab(0).Control(3)=   "Fantasia"
+      Tab(0).Control(4)=   "DatosAdicinales"
+      Tab(0).Control(5)=   "Razon"
+      Tab(0).Control(6)=   "Cliente"
+      Tab(0).Control(7)=   "lblLabels(1)"
+      Tab(0).Control(8)=   "lblLabels(2)"
+      Tab(0).Control(9)=   "lblLabels(0)"
       Tab(0).ControlCount=   10
       TabCaption(1)   =   "Facturación"
       TabPicture(1)   =   "cliente.frx":6114
@@ -323,15 +329,36 @@ Begin VB.Form prgcliente
       Tab(1).Control(21).Enabled=   0   'False
       Tab(1).Control(22)=   "TipoClie"
       Tab(1).Control(22).Enabled=   0   'False
-      Tab(1).Control(23)=   "Expreso"
+      Tab(1).Control(23)=   "ObservacionesII"
       Tab(1).Control(23).Enabled=   0   'False
       Tab(1).Control(24)=   "NroLista"
       Tab(1).Control(24).Enabled=   0   'False
-      Tab(1).ControlCount=   25
+      Tab(1).Control(25)=   "Expreso"
+      Tab(1).Control(25).Enabled=   0   'False
+      Tab(1).ControlCount=   26
       TabCaption(2)   =   "Tab 2"
       TabPicture(2)   =   "cliente.frx":6130
       Tab(2).ControlEnabled=   0   'False
       Tab(2).ControlCount=   0
+      Begin VB.TextBox Expreso 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   10440
+         MaxLength       =   50
+         MultiLine       =   -1  'True
+         TabIndex        =   114
+         Text            =   "cliente.frx":614C
+         Top             =   6600
+         Width           =   180
+      End
       Begin VB.Frame Frame5 
          Caption         =   "Datos Impositivos"
          Height          =   1215
@@ -945,7 +972,7 @@ Begin VB.Form prgcliente
          Top             =   960
          Width           =   7815
       End
-      Begin VB.TextBox Expreso 
+      Begin VB.TextBox ObservacionesII 
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -960,7 +987,7 @@ Begin VB.Form prgcliente
          MaxLength       =   50
          MultiLine       =   -1  'True
          TabIndex        =   36
-         Text            =   "cliente.frx":614C
+         Text            =   "cliente.frx":614E
          Top             =   3120
          Width           =   7815
       End
@@ -1150,9 +1177,9 @@ Begin VB.Form prgcliente
          EndProperty
          Height          =   615
          Left            =   -63120
-         MouseIcon       =   "cliente.frx":614E
+         MouseIcon       =   "cliente.frx":6150
          MousePointer    =   99  'Custom
-         Picture         =   "cliente.frx":6458
+         Picture         =   "cliente.frx":645A
          Style           =   1  'Graphical
          TabIndex        =   25
          ToolTipText     =   "Pedidos de Clientes"
@@ -1495,30 +1522,14 @@ Begin VB.Form prgcliente
          Width           =   735
       End
    End
-   Begin Crystal.CrystalReport Listado 
-      Left            =   10920
-      Top             =   6600
-      _ExtentX        =   741
-      _ExtentY        =   741
-      _Version        =   262150
-      Destination     =   1
-      WindowTitle     =   "Listado de Clientes"
-      WindowControlBox=   -1  'True
-      WindowMaxButton =   -1  'True
-      WindowMinButton =   -1  'True
-      GroupSelectionFormula=   " "
-      BoundReportFooter=   -1  'True
-      DiscardSavedData=   -1  'True
-      WindowState     =   2
-   End
    Begin VB.Frame PantaContacto 
       Caption         =   "Contactos"
       Height          =   5415
-      Left            =   240
+      Left            =   360
       TabIndex        =   1
-      Top             =   240
+      Top             =   720
       Visible         =   0   'False
-      Width           =   10455
+      Width           =   10695
       Begin VB.CommandButton CierraContactos 
          Caption         =   "Aceptar y Cerrar"
          BeginProperty Font 
@@ -1532,9 +1543,9 @@ Begin VB.Form prgcliente
          EndProperty
          Height          =   615
          Left            =   4080
-         MouseIcon       =   "cliente.frx":6D22
+         MouseIcon       =   "cliente.frx":6D24
          MousePointer    =   99  'Custom
-         Picture         =   "cliente.frx":702C
+         Picture         =   "cliente.frx":702E
          TabIndex        =   20
          ToolTipText     =   "Salida"
          Top             =   3960
@@ -1901,9 +1912,9 @@ Begin VB.Form prgcliente
                Strikethrough   =   0   'False
             EndProperty
             Height          =   1500
-            ItemData        =   "cliente.frx":786E
+            ItemData        =   "cliente.frx":7870
             Left            =   360
-            List            =   "cliente.frx":7875
+            List            =   "cliente.frx":7877
             TabIndex        =   113
             Top             =   600
             Visible         =   0   'False
@@ -1983,9 +1994,9 @@ Begin VB.Form prgcliente
             EndProperty
             Height          =   615
             Left            =   3720
-            MouseIcon       =   "cliente.frx":7883
+            MouseIcon       =   "cliente.frx":7885
             MousePointer    =   99  'Custom
-            Picture         =   "cliente.frx":7B8D
+            Picture         =   "cliente.frx":7B8F
             TabIndex        =   106
             ToolTipText     =   "Graba los Datos Ingresados"
             Top             =   240
@@ -2004,9 +2015,9 @@ Begin VB.Form prgcliente
             EndProperty
             Height          =   615
             Left            =   3720
-            MouseIcon       =   "cliente.frx":7FCF
+            MouseIcon       =   "cliente.frx":7FD1
             MousePointer    =   99  'Custom
-            Picture         =   "cliente.frx":82D9
+            Picture         =   "cliente.frx":82DB
             TabIndex        =   105
             ToolTipText     =   "Graba los Datos Ingresados"
             Top             =   960
@@ -2132,6 +2143,7 @@ Attribute VB_Exposed = False
 Dim ZZProvincia As Integer
 Private Auxi As String
 Dim ResultadoCuit As String
+Private Valida As Boolean
 
 Dim ZZAyudaCli(10000) As String
 Dim ZZLugarCli As Integer
@@ -2167,6 +2179,91 @@ Sub Imprime_Descripcion()
 End Sub
 
 Sub Verifica_datos()
+    
+    ' Validar las fechas. ¿Son todas obligatorias?
+    Auxi = "S"
+    Valida_fecha FechaAlta, Auxi
+    
+    If Auxi = "N" Then
+        Valida = False
+        Exit Sub
+    End If
+    
+    ' Validar que Condicion de Pago exista.
+    Auxi = "S"
+    If Trim(Condicion) = "" Then
+        Auxi = "N"
+    Else
+        Valida_Condicion Condicion.Text, Auxi
+    End If
+    
+    If Auxi = "N" Then
+        Valida = False
+        Exit Sub
+    End If
+    
+    ' Validar que se coloque y que lista exista.
+    Auxi = "S"
+    If Trim(NroLista.Text) = "" Then
+        Auxi = "N"
+    Else
+        Valida_Condicion NroLista.Text, Auxi
+    End If
+    
+    If Auxi = "N" Then
+        Valida = False
+        Exit Sub
+    End If
+    
+    ' Validar el Cuit en caso de colocar alguno. (¿Como en Administración?)
+    If Trim(Cuit.Text) <> "" Then
+    
+        Auxi = "S"
+        
+        Valida_Condicion Cuit.Text, Auxi
+        
+        If Auxi = "N" Then
+            Valida = False
+            Exit Sub
+        End If
+    End If
+    
+End Sub
+
+Private Sub Valida_Lista(Lista As String, Valida As String)
+
+    ZSql = ""
+    ZSql = ZSql + "Select Codigo"
+    ZSql = ZSql + " FROM Lista"
+    ZSql = ZSql + " Where Codigo = " + "'" + Trim(Lista) + "'"
+    spCliente = ZSql
+    Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
+    If rstCliente.RecordCount > 0 Then
+        Valida = "S"
+    Else
+        Valida = "N"
+    End If
+    
+    rstCliente.Close
+
+End Sub
+
+Private Sub Valida_Condicion(Condicion As String, Valida As String)
+
+    ZSql = ""
+    ZSql = ZSql + "Select Codigo"
+    ZSql = ZSql + " FROM CondPago"
+    ZSql = ZSql + " Where Codigo = " + "'" + Trim(Condicion) + "'"
+    spCliente = ZSql
+    Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
+    If rstCliente.RecordCount > 0 Then
+        Valida = "S"
+    Else
+        Valida = "N"
+    End If
+    
+    rstCliente.Close
+
 End Sub
 
 Sub Format_datos()
@@ -2188,7 +2285,10 @@ Sub Imprime_Datos()
         Localidad.Text = Trim(rstCliente!Localidad)
         Postal.Text = Trim(rstCliente!Postal)
         Telefono.Text = Trim(rstCliente!Telefono)
+        txtNombreContacto.Text = Trim(rstCliente!Responsable)
+        txtPaginaWeb.Text = Trim(rstCliente!PaginaWeb)
         Observaciones.Text = Trim(rstCliente!Observaciones)
+        ObservacionesII.Text = Trim(rstCliente!ObservacionesII)
         Cuit.Mask = ""
         Cuit.Text = Trim(rstCliente!Cuit)
         Cuit.Mask = "##-########-#" ' Volvemos a colocar la mascara al campo.
@@ -2334,10 +2434,16 @@ End Sub
 
 Private Sub cmdAdd_Click()
 
-    ' SE AGREGARON DOS O TRES CAMPOS ADICIONALES,
-    ' PAGINA WEB, NOMBRE DE CONTACTO, EMAIL, ETC.
-
+    ' DEFINIR QUE DATOS SE VAN A VALIDAR.
     Call Verifica_datos
+    
+    If Valida Then
+        MsgBox "Todos los datos son validos"
+    Else
+        MsgBox "Alguno de los datos NO son validos"
+    End If
+    
+    Exit Sub
     
     WIva = "0"
     If Iva1.Value = True Then
@@ -2362,7 +2468,7 @@ Private Sub cmdAdd_Click()
     ZSql = ""
     ZSql = ZSql + "Select *"
     ZSql = ZSql + " FROM Cliente"
-    ZSql = ZSql + " Where Cliente.Cliente = " + "'" + Cliente.Text + "'"
+    ZSql = ZSql + " Where Cliente.Cliente = " + "'" + Trim(Cliente.Text) + "'"
     spCliente = ZSql
     Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
     If rstCliente.RecordCount > 0 Then
@@ -2374,6 +2480,8 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + " Direccion = " + "'" + Direccion.Text + "',"
         ZSql = ZSql + " Localidad = " + "'" + Localidad.Text + "',"
         ZSql = ZSql + " Postal = " + "'" + Postal.Text + "',"
+        ZSql = ZSql + " Responsable = " + "'" + txtNombreContacto.Text + "',"
+        ZSql = ZSql + " PaginaWeb = " + "'" + txtPaginaWeb.Text + "',"
         ZSql = ZSql + " Telefono = " + "'" + Telefono.Text + "',"
         ZSql = ZSql + " Observaciones = " + "'" + Observaciones.Text + "',"
         ZSql = ZSql + " NombreI = " + "'" + NombreI.Text + "',"
@@ -2389,6 +2497,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + " DireccionII = " + "'" + DireccionII.Text + "',"
         ZSql = ZSql + " LocalidadII = " + "'" + LocalidadII.Text + "',"
         ZSql = ZSql + " PostalII = " + "'" + PostalII.Text + "',"
+        ZSql = ZSql + " ObservacionesII = " + "'" + ObservacionesII.Text + "',"
         ZSql = ZSql + " Cuit = " + "'" + Cuit.Text + "',"
         ZSql = ZSql + " Email = " + "'" + email.Text + "',"
         ZSql = ZSql + " Fax = " + "'" + fax.Text + "',"
@@ -2396,7 +2505,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + " Provincia = " + "'" + Mid$(Str$(Provincia.ListIndex), 2, 2) + "',"
         ZSql = ZSql + " ProvinciaII = " + "'" + Mid$(Str$(ProvinciaII.ListIndex), 2, 2) + "',"
         ZSql = ZSql + " Iva = " + "'" + WIva + "',"
-        ZSql = ZSql + " Expreso = " + "'" + Expreso.Text + "',"
+        ZSql = ZSql + " Expreso = '',"
         ZSql = ZSql + " TipoClie = " + "'" + TipoClie.Text + "',"
         ZSql = ZSql + " NroLista = " + "'" + NroLista.Text + "',"
         ZSql = ZSql + " Condicion = " + "'" + Condicion.Text + "'"
@@ -2415,6 +2524,8 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "Direccion ,"
         ZSql = ZSql + "Localidad ,"
         ZSql = ZSql + "Postal ,"
+        ZSql = ZSql + "Responsable ,"
+        ZSql = ZSql + "PaginaWeb ,"
         ZSql = ZSql + "Telefono ,"
         ZSql = ZSql + "Observaciones ,"
         ZSql = ZSql + "NombreI ,"
@@ -2430,6 +2541,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "DireccionII ,"
         ZSql = ZSql + "LocalidadII ,"
         ZSql = ZSql + "PostalII ,"
+        ZSql = ZSql + "ObservacionesII ,"
         ZSql = ZSql + "FechaAlta ,"
         ZSql = ZSql + "Cuit ,"
         ZSql = ZSql + "Email ,"
@@ -2448,6 +2560,8 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "'" + Direccion.Text + "',"
         ZSql = ZSql + "'" + Localidad.Text + "',"
         ZSql = ZSql + "'" + Postal.Text + "',"
+        ZSql = ZSql + "'" + txtNombreContacto.Text + "',"
+        ZSql = ZSql + "'" + txtPaginaWeb.Text + "',"
         ZSql = ZSql + "'" + Telefono.Text + "',"
         ZSql = ZSql + "'" + Observaciones.Text + "',"
         ZSql = ZSql + "'" + NombreI.Text + "',"
@@ -2463,6 +2577,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "'" + DireccionII.Text + "',"
         ZSql = ZSql + "'" + LocalidadII.Text + "',"
         ZSql = ZSql + "'" + PostalII.Text + "',"
+        ZSql = ZSql + "'" + ObservacionesII.Text + "',"
         ZSql = ZSql + "'" + ZZFechaAlta + "',"
         ZSql = ZSql + "'" + Cuit.Text + "',"
         ZSql = ZSql + "'" + email.Text + "',"
@@ -2471,7 +2586,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "'" + Mid$(Str$(Provincia.ListIndex), 2, 2) + "',"
         ZSql = ZSql + "'" + Mid$(Str$(ProvinciaII.ListIndex), 2, 2) + "',"
         ZSql = ZSql + "'" + WIva + "',"
-        ZSql = ZSql + "'" + Expreso.Text + "',"
+        ZSql = ZSql + "'',"
         ZSql = ZSql + "'" + TipoClie.Text + "',"
         ZSql = ZSql + "'" + NroLista.Text + "',"
         ZSql = ZSql + "'" + Condicion.Text + "')"
@@ -2481,7 +2596,7 @@ Private Sub cmdAdd_Click()
     End If
     
     
-    Rem Call CmdLimpiar_Click
+    Call CmdLimpiar_Click
     
     
     m$ = "Grabacion realizada"
@@ -3078,19 +3193,24 @@ Private Sub Opcion_Click()
         Case Else
     End Select
     
-    Extras.Visible = True
-    FrameListado.Visible = False
-    FrameConsulta.Visible = True
-    Pantalla.Visible = True
-    Ayuda.Visible = True
-    Ayuda.Text = ""
-    Ayuda.SetFocus
+    Call Mostrar_Resultados
     
     Exit Sub
     
 WError:
     Resume Next
 
+End Sub
+
+Private Sub Mostrar_Resultados()
+    Extras.Visible = True
+    Extras.ZOrder 0
+    FrameListado.Visible = False
+    FrameConsulta.Visible = True
+    Pantalla.Visible = True
+    Ayuda.Visible = True
+    Ayuda.Text = ""
+    Ayuda.SetFocus
 End Sub
 
 Private Sub Pantalla_Click()
@@ -3123,6 +3243,8 @@ Private Sub Pantalla_Click()
 End Sub
 
 Sub Form_Load()
+
+    Valida = True
 
     Cliente.Text = ""
     Razon.Text = ""
@@ -3860,13 +3982,9 @@ Private Sub Siguiente_Click()
 End Sub
 
 Private Sub Vercontactos_Click()
-
-    PantaContacto.Height = 5895
-    PantaContacto.Left = 120
-    PantaContacto.Top = 840
-    PantaContacto.Width = 9375
     
     PantaContacto.Visible = True
+    PantaContacto.ZOrder 0
     
     NombreI.SetFocus
 
