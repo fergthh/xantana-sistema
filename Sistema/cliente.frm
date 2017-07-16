@@ -2207,7 +2207,7 @@ Sub Verifica_datos()
     If Trim(NroLista.Text) = "" Then
         Auxi = "N"
     Else
-        Valida_Condicion NroLista.Text, Auxi
+        Valida_Lista NroLista.Text, Auxi
     End If
     
     If Auxi = "N" Then
@@ -2220,7 +2220,7 @@ Sub Verifica_datos()
     
         Auxi = "S"
         
-        Valida_Condicion Cuit.Text, Auxi
+        'Valida_Condicion Cuit.Text, Auxi
         
         If Auxi = "N" Then
             Valida = False
@@ -2767,7 +2767,20 @@ End Sub
 
 Private Sub NroLista_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Postal.SetFocus
+    
+        ZSql = "SELECT Descripcion FROM Lista WHERE Codigo = '" & Trim(NroLista.Text) & "'"
+        spCliente = ZSql
+        Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
+        If rstCliente.RecordCount > 0 Then
+            DesListaPrecios.Caption = rstCliente!Descripcion
+            rstCliente.Close
+            TipoClie.SetFocus
+        Else
+            NroLista.SetFocus
+        End If
+        
+        Exit Sub
+        
     End If
     If KeyAscii = 27 Then
         NroLista.Text = ""
