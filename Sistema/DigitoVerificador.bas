@@ -23,7 +23,7 @@ Public Function verifica_cuit(Cuit As String, ResultadoCuit As String) As String
     Next
     cuit_rearmado = Trim(cuit_rearmado)
     If Len(cuit_rearmado) <> 11 Then            ' si to estan todos los digitos
-       MsgBox "No estan todos los digitos. ", vbDefaultButton1, "Error en el C.U.I.T."
+       'MsgBox "No estan todos los digitos. ", vbDefaultButton1, "Error en el C.U.I.T."
        ResultadoCuit = "N"
     Else
        sumador = 0
@@ -39,7 +39,7 @@ Public Function verifica_cuit(Cuit As String, ResultadoCuit As String) As String
        
        veri_nro = Val(verificador)
        If veri_nro <> resultado Then
-          MsgBox "No coincide el digito verificador. " & Str(verificador), vbDefaultButton1, "Error en el C.U.I.T."
+          'MsgBox "No coincide el digito verificador. " & Str(verificador), vbDefaultButton1, "Error en el C.U.I.T."
           ResultadoCuit = "N"
        Else
           cuit_rearmado = Mid(cuit_rearmado, 1, 2) & "-" & Mid(cuit_rearmado, 3, 8) & "-" & Mid(cuit_rearmado, 11, 1)

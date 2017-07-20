@@ -371,13 +371,13 @@ Begin VB.Form prgcliente
             Left            =   960
             TabIndex        =   85
             Top             =   480
-            Width           =   1575
-            _ExtentX        =   2778
+            Width           =   1455
+            _ExtentX        =   2566
             _ExtentY        =   503
             _Version        =   393216
             MaxLength       =   13
             Mask            =   "##-########-#"
-            PromptChar      =   "_"
+            PromptChar      =   " "
          End
          Begin VB.Frame Frame3 
             Caption         =   "Condicion de Iva"
@@ -642,6 +642,7 @@ Begin VB.Form prgcliente
             Width           =   3135
          End
          Begin VB.TextBox Telefono 
+            Alignment       =   1  'Right Justify
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -678,6 +679,7 @@ Begin VB.Form prgcliente
             Width           =   8775
          End
          Begin VB.TextBox fax 
+            Alignment       =   1  'Right Justify
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -848,6 +850,7 @@ Begin VB.Form prgcliente
             Width           =   4215
          End
          Begin VB.TextBox Postal 
+            Alignment       =   1  'Right Justify
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -992,6 +995,7 @@ Begin VB.Form prgcliente
          Width           =   7815
       End
       Begin VB.TextBox TipoClie 
+         Alignment       =   1  'Right Justify
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -1010,6 +1014,7 @@ Begin VB.Form prgcliente
          Width           =   855
       End
       Begin VB.TextBox Condicion 
+         Alignment       =   1  'Right Justify
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -1056,7 +1061,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   2400
+         Left            =   6240
          TabIndex        =   32
          Top             =   4800
          Width           =   1455
@@ -1073,9 +1078,10 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   4080
+         Left            =   9240
          TabIndex        =   31
-         Top             =   4800
+         Top             =   6720
+         Visible         =   0   'False
          Width           =   1695
       End
       Begin VB.CommandButton ClieLista 
@@ -1090,9 +1096,9 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   6000
+         Left            =   9120
          TabIndex        =   30
-         Top             =   4800
+         Top             =   6480
          Width           =   1695
       End
       Begin VB.CommandButton Historial 
@@ -1130,6 +1136,7 @@ Begin VB.Form prgcliente
          Width           =   3135
       End
       Begin VB.TextBox PostalII 
+         Alignment       =   1  'Right Justify
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -1205,6 +1212,7 @@ Begin VB.Form prgcliente
          Width           =   5895
       End
       Begin VB.TextBox Cliente 
+         Alignment       =   1  'Right Justify
          BeginProperty Font 
             Name            =   "MS Sans Serif"
             Size            =   8.25
@@ -2178,7 +2186,41 @@ Sub Imprime_Descripcion()
     
 End Sub
 
+Private Function DatosBasicosValidos()
+    Dim validos As Boolean
+    validos = True
+    
+    ' Validamos Datos de Identificacion
+    If Trim(Cliente.Text) = "" Or Trim(Razon.Text) = "" Or Trim(Fantasia.Text) = "" Then
+        validos = False
+    End If
+    
+    ' Datos de contacto
+    If Trim(Direccion.Text) = "" Or Trim(Localidad.Text) = "" Or Trim(Postal.Text) = "" Or Provincia.ListIndex < 0 Or Provincia.ListIndex > 25 Then
+        validos = False
+    End If
+    
+    ' Datos de Entrega.
+    If Trim(DireccionII.Text) = "" Or Trim(LocalidadII.Text) = "" Or Trim(PostalII.Text) = "" Or ProvinciaII.ListIndex < 0 Or ProvinciaII.ListIndex > 25 Then
+        validos = False
+    End If
+    
+    ' Datos impositivos (Alguno tiene que se elegido)
+    If Iva1.Value = False And Iva2.Value = False And Iva3.Value = False And Iva4.Value = False And Iva5.Value = False And Iva6.Value = False Then
+        validos = False
+    End If
+    
+    DatosBasicosValidos = validos
+End Function
+
 Sub Verifica_datos()
+
+    ' Verificamos que los datos básicos hayan sido colocados.
+    If Not DatosBasicosValidos() Then
+        Valida = False
+        MsgBox "La Razon social, el nombre de Fantasia, los datos de contacto y de imputacioón son obligatorios. Por favor, verifique y vuelva a intentarlo.", vbInformation
+        Exit Sub
+    End If
     
     ' Validar las fechas. ¿Son todas obligatorias?
     Auxi = "S"
@@ -2186,32 +2228,39 @@ Sub Verifica_datos()
     
     If Auxi = "N" Then
         Valida = False
+        MsgBox "La Fecha de Alta no tiene un formato o valor valido", vbInformation
         Exit Sub
     End If
     
     ' Validar que Condicion de Pago exista.
     Auxi = "S"
-    If Trim(Condicion) = "" Then
-        Auxi = "N"
+    If Trim(Condicion.Text) = "" Then
+        MsgBox "Debe indicarse una condición de Pago.", vbInformation
+        Valida = False
+        Exit Sub
     Else
         Valida_Condicion Condicion.Text, Auxi
     End If
     
     If Auxi = "N" Then
         Valida = False
+        MsgBox "La Condición de Pago indicada no es válida.", vbInformation
         Exit Sub
     End If
     
     ' Validar que se coloque y que lista exista.
     Auxi = "S"
     If Trim(NroLista.Text) = "" Then
-        Auxi = "N"
+        Valida = False
+        MsgBox "Debe indicarse una Lista de Precios..", vbInformation
+        Exit Sub
     Else
         Valida_Lista NroLista.Text, Auxi
     End If
     
     If Auxi = "N" Then
         Valida = False
+        MsgBox "La Lista de Precios indicada no es válida.", vbInformation
         Exit Sub
     End If
     
@@ -2220,10 +2269,11 @@ Sub Verifica_datos()
     
         Auxi = "S"
         
-        'Valida_Condicion Cuit.Text, Auxi
+        verifica_cuit Cuit.Text, Auxi
         
         If Auxi = "N" Then
             Valida = False
+            MsgBox "La CUIT indicado no es válido.", vbInformation
             Exit Sub
         End If
     End If
@@ -2292,7 +2342,7 @@ Sub Imprime_Datos()
         Cuit.Mask = ""
         Cuit.Text = Trim(rstCliente!Cuit)
         Cuit.Mask = "##-########-#" ' Volvemos a colocar la mascara al campo.
-        email.Text = Trim(rstCliente!email)
+        EMail.Text = Trim(rstCliente!EMail)
         fax.Text = Trim(rstCliente!fax)
         PorceIva.Text = Str$(rstCliente!PorceIva)
         Iva1.Value = False
@@ -2437,10 +2487,8 @@ Private Sub cmdAdd_Click()
     ' DEFINIR QUE DATOS SE VAN A VALIDAR.
     Call Verifica_datos
     
-    If Valida Then
-        MsgBox "Todos los datos son validos"
-    Else
-        MsgBox "Alguno de los datos NO son validos"
+    If Not Valida Then
+        Exit Sub
     End If
     
     Exit Sub
@@ -2499,7 +2547,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + " PostalII = " + "'" + PostalII.Text + "',"
         ZSql = ZSql + " ObservacionesII = " + "'" + ObservacionesII.Text + "',"
         ZSql = ZSql + " Cuit = " + "'" + Cuit.Text + "',"
-        ZSql = ZSql + " Email = " + "'" + email.Text + "',"
+        ZSql = ZSql + " Email = " + "'" + EMail.Text + "',"
         ZSql = ZSql + " Fax = " + "'" + fax.Text + "',"
         ZSql = ZSql + " PorceIva = " + "'" + PorceIva.Text + "',"
         ZSql = ZSql + " Provincia = " + "'" + Mid$(Str$(Provincia.ListIndex), 2, 2) + "',"
@@ -2580,7 +2628,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "'" + ObservacionesII.Text + "',"
         ZSql = ZSql + "'" + ZZFechaAlta + "',"
         ZSql = ZSql + "'" + Cuit.Text + "',"
-        ZSql = ZSql + "'" + email.Text + "',"
+        ZSql = ZSql + "'" + EMail.Text + "',"
         ZSql = ZSql + "'" + fax.Text + "',"
         ZSql = ZSql + "'" + PorceIva.Text + "',"
         ZSql = ZSql + "'" + Mid$(Str$(Provincia.ListIndex), 2, 2) + "',"
@@ -2648,7 +2696,7 @@ Private Sub CmdLimpiar_Click()
     Telefono.Text = ""
     Observaciones.Text = ""
 '    Cuit.Text = ""
-    email.Text = ""
+    EMail.Text = ""
     fax.Text = ""
     PorceIva.Text = ""
     Expreso.Text = ""
@@ -2800,10 +2848,26 @@ End Sub
 
 Private Sub Cuit_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        If Cuit.Text <> "" Then
-            Rem Call verifica_cuit(Cuit.Text, ResultadoCuit)
-            ResultadoCuit = "S"
-            If ResultadoCuit = "S" Then
+        If Trim(Replace(Cuit.Text, "-", "")) <> "" Then
+        
+            ' Validar el Cuit en caso de colocar alguno. (¿Como en Administración?)
+            
+            Auxi = "S"
+                        
+            If Len(Trim(Cuit.Text)) <> 13 Then
+                Exit Sub
+            End If
+            
+            verifica_cuit Cuit.Text, Auxi
+            
+            If Auxi = "N" Then
+                Valida = False
+                MsgBox "La CUIT indicado no es válido.", vbInformation
+                Exit Sub
+            End If
+        
+            Auxi = "S"
+            If Auxi = "S" Then
                 PorceIva.SetFocus
                     Else
                 Cuit.SetFocus
@@ -2813,7 +2877,9 @@ Private Sub Cuit_Keypress(KeyAscii As Integer)
         End If
     End If
     If KeyAscii = 27 Then
+        Cuit.Mask = ""
         Cuit.Text = ""
+        Cuit.Mask = "##-########-#"
     End If
 End Sub
 
@@ -2831,7 +2897,7 @@ Private Sub EMail_Keypress(KeyAscii As Integer)
         txtPaginaWeb.SetFocus
     End If
     If KeyAscii = 27 Then
-        email.Text = ""
+        EMail.Text = ""
     End If
 End Sub
 
@@ -2909,16 +2975,15 @@ Private Sub Condicion_KeyPress(KeyAscii As Integer)
             DesCondicion.Caption = rstCondPago!Nombre
             rstCondPago.Close
             Fantasia.SetFocus
-                Else
-            Condicion.SetFocus
+        Else
             DesCondicion.Caption = ""
+            Condicion.SetFocus
         End If
     End If
     If KeyAscii = 27 Then
         Condicion.Text = ""
         DesCondicion.Caption = ""
     End If
-    Rem Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub Fantasia_Keypress(KeyAscii As Integer)
@@ -2966,6 +3031,10 @@ End Sub
 Private Sub Cliente_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
     
+        If Trim(Cliente.Text) = "" Then
+            Exit Sub
+        End If
+    
         ZSql = ""
         ZSql = ZSql + "Select *"
         ZSql = ZSql + " FROM Cliente"
@@ -2981,6 +3050,7 @@ Private Sub Cliente_KeyPress(KeyAscii As Integer)
         Cliente.Text = WCliente
         End If
         Razon.SetFocus
+        
     End If
     If KeyAscii = 27 Then
         Cliente.Text = ""
@@ -3103,6 +3173,7 @@ Private Sub Consulta_Click()
     Opcion.AddItem "Cliente"
     Opcion.AddItem "TipoClie"
     Opcion.AddItem "Condicion de Pago"
+    Opcion.AddItem "Lista de Precios"
     
     Extras.Visible = True
     Extras.ZOrder 0
@@ -3202,6 +3273,30 @@ Private Sub Opcion_Click()
                 rstCondPago.Close
             End If
         
+        Case 3
+            ZSql = ""
+            ZSql = ZSql + "Select *"
+            ZSql = ZSql + " FROM Lista"
+            ZSql = ZSql + " Order by Codigo"
+            spCondPago = ZSql
+            Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
+            If rstCondPago.RecordCount > 0 Then
+                With rstCondPago
+                    .MoveFirst
+                    Do
+                        If .EOF = False Then
+                            IngresaItem = !Codigo + " " + !Descripcion
+                            Pantalla.AddItem IngresaItem
+                            IngresaItem = !Codigo
+                            WIndice.AddItem IngresaItem
+                            .MoveNext
+                                Else
+                            Exit Do
+                        End If
+                    Loop
+                End With
+                rstCondPago.Close
+            End If
         
         Case Else
     End Select
@@ -3266,7 +3361,7 @@ Sub Form_Load()
     Postal.Text = ""
     Telefono.Text = ""
     Observaciones.Text = ""
-    email.Text = ""
+    EMail.Text = ""
     fax.Text = ""
     PorceIva.Text = ""
     Iva1.Value = True
@@ -3561,6 +3656,24 @@ Private Sub Condicion_DblClick()
     Rem Opcion.Visible = True
     Extras.ZOrder 0
     Opcion.ListIndex = 2
+    
+    Call Opcion_Click
+
+End Sub
+
+Private Sub NroLista_DblClick()
+
+' FALTA VER BIEN QUE ONDA CON LOS CLICKS Y LAS AYUDAS, ME PARECE QE ESTAN COLGADOS.
+
+    Opcion.Clear
+    Opcion.AddItem "Cliente"
+    Opcion.AddItem "Expreso"
+    Opcion.AddItem "TipoClie"
+    Opcion.AddItem "Condicion"
+    Opcion.AddItem "Listas"
+    Rem Opcion.Visible = True
+    Extras.ZOrder 0
+    Opcion.ListIndex = 4
     
     Call Opcion_Click
 
@@ -3928,7 +4041,7 @@ End Sub
 
 Private Sub txtNombreContacto_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        email.SetFocus
+        EMail.SetFocus
     End If
     If KeyAscii = 27 Then
         txtNombreContacto.Text = ""
