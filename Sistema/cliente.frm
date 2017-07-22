@@ -22,60 +22,77 @@ Begin VB.Form prgcliente
       _ExtentX        =   19288
       _ExtentY        =   10821
       _Version        =   393216
+      Tab             =   1
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "cliente.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "lblLabels(0)"
-      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "lblLabels(2)"
-      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "lblLabels(1)"
-      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).Control(3)=   "Frame4"
-      Tab(0).Control(3).Enabled=   0   'False
       Tab(0).Control(4)=   "Cliente"
-      Tab(0).Control(4).Enabled=   0   'False
       Tab(0).Control(5)=   "Razon"
-      Tab(0).Control(5).Enabled=   0   'False
       Tab(0).Control(6)=   "DatosAdicinales"
-      Tab(0).Control(6).Enabled=   0   'False
       Tab(0).Control(7)=   "Fantasia"
-      Tab(0).Control(7).Enabled=   0   'False
       Tab(0).Control(8)=   "Frame1"
-      Tab(0).Control(8).Enabled=   0   'False
       Tab(0).Control(9)=   "Frame5"
-      Tab(0).Control(9).Enabled=   0   'False
       Tab(0).ControlCount=   10
       TabCaption(1)   =   "Facturación"
       TabPicture(1)   =   "cliente.frx":001C
-      Tab(1).ControlEnabled=   0   'False
+      Tab(1).ControlEnabled=   -1  'True
       Tab(1).Control(0)=   "Label26"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Label25"
+      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).Control(2)=   "Label24"
+      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).Control(3)=   "Label11"
+      Tab(1).Control(3).Enabled=   0   'False
       Tab(1).Control(4)=   "lblLabels(3)"
+      Tab(1).Control(4).Enabled=   0   'False
       Tab(1).Control(5)=   "DesCondicion"
+      Tab(1).Control(5).Enabled=   0   'False
       Tab(1).Control(6)=   "Label17"
+      Tab(1).Control(6).Enabled=   0   'False
       Tab(1).Control(7)=   "DesTipoClie"
+      Tab(1).Control(7).Enabled=   0   'False
       Tab(1).Control(8)=   "Label12"
+      Tab(1).Control(8).Enabled=   0   'False
       Tab(1).Control(9)=   "Label10"
+      Tab(1).Control(9).Enabled=   0   'False
       Tab(1).Control(10)=   "Label15"
+      Tab(1).Control(10).Enabled=   0   'False
       Tab(1).Control(11)=   "DesListaPrecios"
+      Tab(1).Control(11).Enabled=   0   'False
       Tab(1).Control(12)=   "FechaAlta"
+      Tab(1).Control(12).Enabled=   0   'False
       Tab(1).Control(13)=   "LocalidadII"
+      Tab(1).Control(13).Enabled=   0   'False
       Tab(1).Control(14)=   "PostalII"
+      Tab(1).Control(14).Enabled=   0   'False
       Tab(1).Control(15)=   "ProvinciaII"
+      Tab(1).Control(15).Enabled=   0   'False
       Tab(1).Control(16)=   "Historial"
+      Tab(1).Control(16).Enabled=   0   'False
       Tab(1).Control(17)=   "ClieLista"
+      Tab(1).Control(17).Enabled=   0   'False
       Tab(1).Control(18)=   "Bonifica"
+      Tab(1).Control(18).Enabled=   0   'False
       Tab(1).Control(19)=   "Vercontactos"
+      Tab(1).Control(19).Enabled=   0   'False
       Tab(1).Control(20)=   "DireccionII"
+      Tab(1).Control(20).Enabled=   0   'False
       Tab(1).Control(21)=   "Condicion"
+      Tab(1).Control(21).Enabled=   0   'False
       Tab(1).Control(22)=   "TipoClie"
+      Tab(1).Control(22).Enabled=   0   'False
       Tab(1).Control(23)=   "ObservacionesII"
+      Tab(1).Control(23).Enabled=   0   'False
       Tab(1).Control(24)=   "NroLista"
+      Tab(1).Control(24).Enabled=   0   'False
       Tab(1).Control(25)=   "Expreso"
+      Tab(1).Control(25).Enabled=   0   'False
       Tab(1).ControlCount=   26
       TabCaption(2)   =   "Tab 2"
       TabPicture(2)   =   "cliente.frx":0038
@@ -92,7 +109,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -64560
+         Left            =   10440
          MaxLength       =   50
          MultiLine       =   -1  'True
          TabIndex        =   114
@@ -103,7 +120,7 @@ Begin VB.Form prgcliente
       Begin VB.Frame Frame5 
          Caption         =   "Datos Impositivos"
          Height          =   1215
-         Left            =   240
+         Left            =   -74760
          TabIndex        =   74
          Top             =   4680
          Width           =   10455
@@ -314,7 +331,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -72720
+         Left            =   2280
          MaxLength       =   6
          TabIndex        =   72
          Text            =   " "
@@ -324,7 +341,7 @@ Begin VB.Form prgcliente
       Begin VB.Frame Frame1 
          Caption         =   "Datos Domiciliarios"
          Height          =   1335
-         Left            =   240
+         Left            =   -74760
          TabIndex        =   50
          Top             =   1320
          Width           =   10455
@@ -377,7 +394,7 @@ Begin VB.Form prgcliente
             EndProperty
             Height          =   285
             Left            =   9000
-            MaxLength       =   15
+            MaxLength       =   8
             TabIndex        =   52
             Text            =   " "
             Top             =   360
@@ -484,7 +501,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2760
+         Left            =   -72240
          MaxLength       =   50
          TabIndex        =   48
          Top             =   960
@@ -501,7 +518,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1485
-         Left            =   -72720
+         Left            =   2280
          MaxLength       =   50
          MultiLine       =   -1  'True
          TabIndex        =   36
@@ -521,7 +538,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -72720
+         Left            =   2280
          MaxLength       =   6
          TabIndex        =   35
          Text            =   " "
@@ -540,7 +557,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -72720
+         Left            =   2280
          MaxLength       =   6
          TabIndex        =   34
          Text            =   " "
@@ -558,7 +575,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -72720
+         Left            =   2280
          MaxLength       =   50
          TabIndex        =   33
          Top             =   2160
@@ -576,7 +593,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   -68760
+         Left            =   6240
          TabIndex        =   32
          Top             =   4800
          Width           =   1455
@@ -593,7 +610,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   -65760
+         Left            =   9240
          TabIndex        =   31
          Top             =   6720
          Visible         =   0   'False
@@ -611,7 +628,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   -65880
+         Left            =   9120
          TabIndex        =   30
          Top             =   6480
          Width           =   1695
@@ -628,7 +645,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   -67080
+         Left            =   7920
          TabIndex        =   29
          Top             =   4800
          Width           =   1695
@@ -644,7 +661,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   -68040
+         Left            =   6960
          TabIndex        =   28
          Text            =   " "
          Top             =   2520
@@ -662,7 +679,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -65880
+         Left            =   9120
          MaxLength       =   15
          TabIndex        =   27
          Text            =   " "
@@ -680,7 +697,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -72720
+         Left            =   2280
          MaxLength       =   50
          TabIndex        =   26
          Text            =   " "
@@ -698,7 +715,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   11880
+         Left            =   -63120
          MouseIcon       =   "cliente.frx":0058
          MousePointer    =   99  'Custom
          Picture         =   "cliente.frx":0362
@@ -720,7 +737,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   4680
+         Left            =   -70320
          MaxLength       =   50
          TabIndex        =   23
          Top             =   480
@@ -738,7 +755,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   1560
+         Left            =   -73440
          MaxLength       =   10
          TabIndex        =   0
          Text            =   " "
@@ -747,7 +764,7 @@ Begin VB.Form prgcliente
       End
       Begin MSMask.MaskEdBox FechaAlta 
          Height          =   285
-         Left            =   -66360
+         Left            =   8640
          TabIndex        =   37
          Top             =   960
          Width           =   1575
@@ -771,7 +788,7 @@ Begin VB.Form prgcliente
       Begin VB.Frame Frame4 
          Caption         =   "Datos de Contacto"
          Height          =   1815
-         Left            =   240
+         Left            =   -74760
          TabIndex        =   59
          Top             =   2760
          Width           =   10455
@@ -898,10 +915,10 @@ Begin VB.Form prgcliente
             EndProperty
             ForeColor       =   &H00800000&
             Height          =   255
-            Left            =   240
+            Left            =   480
             TabIndex        =   71
             Top             =   660
-            Width           =   1095
+            Width           =   615
          End
          Begin VB.Label Label29 
             Caption         =   "Página Web:"
@@ -1008,7 +1025,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   -71760
+         Left            =   3240
          TabIndex        =   98
          Top             =   1320
          Width           =   3855
@@ -1026,7 +1043,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   73
          Top             =   1320
          Width           =   1455
@@ -1045,7 +1062,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   1
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   49
          Top             =   960
          Width           =   1815
@@ -1063,7 +1080,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   -74280
+         Left            =   720
          TabIndex        =   47
          Top             =   3120
          Width           =   1575
@@ -1081,7 +1098,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   -73845
+         Left            =   1155
          TabIndex        =   46
          Top             =   1680
          Width           =   855
@@ -1100,7 +1117,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   -71760
+         Left            =   3240
          TabIndex        =   45
          Top             =   1680
          Width           =   3855
@@ -1118,7 +1135,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   -74640
+         Left            =   360
          TabIndex        =   44
          Top             =   960
          Width           =   1815
@@ -1137,7 +1154,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   -71760
+         Left            =   3240
          TabIndex        =   43
          Top             =   960
          Width           =   3855
@@ -1156,7 +1173,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   3
-         Left            =   -74840
+         Left            =   160
          TabIndex        =   42
          Top             =   2160
          Width           =   1935
@@ -1174,7 +1191,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   -67440
+         Left            =   7560
          TabIndex        =   41
          Top             =   960
          Width           =   1095
@@ -1192,7 +1209,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   -69360
+         Left            =   5640
          TabIndex        =   40
          Top             =   2520
          Width           =   855
@@ -1210,7 +1227,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   -67200
+         Left            =   7800
          TabIndex        =   39
          Top             =   2160
          Width           =   1215
@@ -1228,7 +1245,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   -73850
+         Left            =   1150
          TabIndex        =   38
          Top             =   2520
          Width           =   975
@@ -1247,7 +1264,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   2
-         Left            =   3360
+         Left            =   -71640
          TabIndex        =   24
          Top             =   480
          Width           =   1215
@@ -1266,7 +1283,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   0
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   22
          Top             =   480
          Width           =   735
@@ -2410,6 +2427,7 @@ Sub Imprime_Datos()
         TelefonoIII.Text = Trim(rstCliente!TelefonoIII)
         EmailIII.Text = Trim(rstCliente!EmailIII)
         
+        FechaAlta.Enabled = True
         
         rstCliente.Close
         Call Format_datos
@@ -2737,7 +2755,8 @@ Private Sub CmdLimpiar_Click()
     Localidad.Text = ""
     LocalidadII.Text = ""
     PostalII.Text = ""
-    FechaAlta.Text = "  /  /    "
+    'FechaAlta.Text = "  /  /    "
+    FechaAlta.Text = Mid$(Date$, 4, 2) + "/" + Left$(Date$, 2) + "/" + Right$(Date$, 4)
     
     NombreI.Text = ""
     TelefonoI.Text = ""
@@ -2806,6 +2825,7 @@ Private Sub Lista_Click()
     Desde.SetFocus
 End Sub
 
+
 Private Sub Razon_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         Fantasia.SetFocus
@@ -2833,6 +2853,12 @@ Private Sub Localidad_Keypress(KeyAscii As Integer)
     End If
 End Sub
 
+Private Sub ProvinciaII_Keypress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+        ObservacionesII.SetFocus
+    End If
+End Sub
+
 Private Sub Provincia_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         Telefono.SetFocus
@@ -2845,6 +2871,10 @@ End Sub
 
 Private Sub NroLista_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
+        If Trim(NroLista.Text) = "" Then
+            Abrir_Opciones 3
+            Exit Sub
+        End If
     
         ZSql = "SELECT Descripcion FROM Lista WHERE Codigo = '" & Trim(NroLista.Text) & "'"
         spCliente = ZSql
@@ -2874,7 +2904,7 @@ Private Sub Postal_Keypress(KeyAscii As Integer)
     If KeyAscii = 27 Then
         Postal.Text = ""
     End If
-    Rem Call NumbersOnly(Screen.ActiveControl, KeyAscii)
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub Cuit_Keypress(KeyAscii As Integer)
@@ -2914,6 +2944,22 @@ Private Sub Cuit_Keypress(KeyAscii As Integer)
     End If
 End Sub
 
+Private Sub SSTab1_GotFocus()
+    
+    With SSTab1
+        Select Case .Tab
+    
+            Case 0
+                Cliente.SetFocus
+            Case 1
+                Condicion.SetFocus
+            Case Else
+    
+        End Select
+    End With
+    
+End Sub
+
 Private Sub Telefono_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         txtNombreContacto.SetFocus
@@ -2921,6 +2967,7 @@ Private Sub Telefono_Keypress(KeyAscii As Integer)
     If KeyAscii = 27 Then
         Telefono.Text = ""
     End If
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub EMail_Keypress(KeyAscii As Integer)
@@ -2939,16 +2986,26 @@ Private Sub Fax_Keypress(KeyAscii As Integer)
     If KeyAscii = 27 Then
         fax.Text = ""
     End If
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub PorceIva_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
+    
+        If Trim(PorceIva.Text) = "" Then: Exit Sub: End If
+        
         Iva1.SetFocus
     End If
     If KeyAscii = 27 Then
         PorceIva.Text = ""
     End If
     Call NumbersOnly(Screen.ActiveControl, KeyAscii)
+End Sub
+
+Private Sub ObservacionesII_Keypress(KeyAscii As Integer)
+    If KeyAscii = 27 Then
+        Observaciones.Text = ""
+    End If
 End Sub
 
 Private Sub Observaciones_Keypress(KeyAscii As Integer)
@@ -2972,6 +3029,11 @@ End Sub
 
 Private Sub TipoClie_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
+        If Trim(TipoClie.Text) = "" Then
+            Abrir_Opciones 1
+            Exit Sub
+        End If
+    
         ZSql = ""
         ZSql = ZSql + "Select *"
         ZSql = ZSql + " FROM TipoClie"
@@ -2996,19 +3058,23 @@ End Sub
 
 Private Sub Condicion_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        ZSql = ""
-        ZSql = ZSql + "Select Nombre"
-        ZSql = ZSql + " FROM CondPago"
-        ZSql = ZSql + " Where CondPago.Codigo = " + "'" + Condicion.Text + "'"
-        spCondPago = ZSql
-        Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
-        If rstCondPago.RecordCount > 0 Then
-            DesCondicion.Caption = rstCondPago!Nombre
-            rstCondPago.Close
-            NroLista.SetFocus
+        If Trim(Condicion.Text) = "" Then
+            Abrir_Opciones 2
         Else
-            DesCondicion.Caption = ""
-            Condicion.SetFocus
+            ZSql = ""
+            ZSql = ZSql + "Select Nombre"
+            ZSql = ZSql + " FROM CondPago"
+            ZSql = ZSql + " Where CondPago.Codigo = " + "'" + Condicion.Text + "'"
+            spCondPago = ZSql
+            Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
+            If rstCondPago.RecordCount > 0 Then
+                DesCondicion.Caption = rstCondPago!Nombre
+                rstCondPago.Close
+                NroLista.SetFocus
+            Else
+                DesCondicion.Caption = ""
+                Condicion.SetFocus
+            End If
         End If
     End If
     If KeyAscii = 27 Then
@@ -3050,12 +3116,6 @@ Private Sub PostalII_KeyPress(KeyAscii As Integer)
     End If
     If KeyAscii = 27 Then
         PostalII.Text = ""
-    End If
-End Sub
-
-Private Sub ProvinciaII_KeyPress(KeyAscii As Integer)
-    If KeyAscii = 13 Then
-        Razon.SetFocus
     End If
 End Sub
 
@@ -3266,9 +3326,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = Trim(!codigo) + " " + Trim(!Descripcion)
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !codigo
+                            IngresaItem = !Codigo
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3291,9 +3351,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = Trim(!codigo) + " " + Trim(!Nombre)
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Nombre)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = Trim(!codigo)
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3316,9 +3376,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = Trim(!codigo) + " " + Trim(!Descripcion)
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = Trim(!codigo)
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3356,23 +3416,23 @@ Private Sub Pantalla_Click()
 
     Pantalla.Visible = False
     Ayuda.Visible = False
-    Dim codigo As String
+    Dim Codigo As String
     
     indice = Pantalla.ListIndex
-    codigo = Trim(WIndice.List(indice))
+    Codigo = Trim(WIndice.List(indice))
     
     Select Case XIndice
         Case 0
-            Cliente.Text = codigo
+            Cliente.Text = Codigo
             Call Cliente_KeyPress(13)
         Case 1
-            TipoClie.Text = codigo
+            TipoClie.Text = Codigo
             Call TipoClie_KeyPress(13)
         Case 2
-            Condicion.Text = codigo
+            Condicion.Text = Codigo
             Call Condicion_KeyPress(13)
         Case 3
-            NroLista.Text = codigo
+            NroLista.Text = Codigo
             Call NroLista_Keypress(13)
         Case Else
     End Select
@@ -3600,9 +3660,9 @@ Private Sub aYUDA_Keypress(KeyAscii As Integer)
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !codigo + " " + !Nombre
+                            IngresaItem = !Codigo + " " + !Nombre
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !codigo
+                            IngresaItem = !Codigo
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3626,9 +3686,9 @@ Private Sub aYUDA_Keypress(KeyAscii As Integer)
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !codigo + " " + !Nombre
+                            IngresaItem = !Codigo + " " + !Nombre
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !codigo
+                            IngresaItem = !Codigo
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3684,8 +3744,6 @@ Private Sub Condicion_DblClick()
 End Sub
 
 Private Sub NroLista_DblClick()
-
-' FALTA VER BIEN QUE ONDA CON LOS CLICKS Y LAS AYUDAS, ME PARECE QE ESTAN COLGADOS.
 
     Abrir_Opciones 3
 

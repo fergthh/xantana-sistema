@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Begin VB.Form PrgPto 
    AutoRedraw      =   -1  'True
@@ -1111,7 +1111,7 @@ Begin VB.Form PrgPto
       Width           =   1575
       _ExtentX        =   2778
       _ExtentY        =   503
-      _Version        =   327680
+      _Version        =   393216
       MaxLength       =   10
       Mask            =   "##/##/####"
       PromptChar      =   " "
@@ -1151,7 +1151,7 @@ Begin VB.Form PrgPto
       Width           =   375
       _ExtentX        =   661
       _ExtentY        =   503
-      _Version        =   327680
+      _Version        =   393216
       BackColor       =   16776960
       MaxLength       =   10
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -1174,7 +1174,7 @@ Begin VB.Form PrgPto
       Width           =   15255
       _ExtentX        =   26908
       _ExtentY        =   8070
-      _Version        =   327680
+      _Version        =   393216
       BackColor       =   16777152
    End
    Begin VB.Label DesClienteII 
@@ -1535,7 +1535,7 @@ WError:
 
 End Sub
 
-Private Sub cmdClose_Click()
+Private Sub CmdClose_Click()
     PrgPto.Hide
     Unload Me
     PrgControlPedido.Show
@@ -1558,9 +1558,9 @@ Private Sub Graba_Click()
     End If
 
 
-    For a = 1 To 99
-        Articulo = UCase(WVector1.TextMatrix(a, 1))
-        WWCantidad = Val(WVector1.TextMatrix(a, 3))
+    For A = 1 To 99
+        Articulo = UCase(WVector1.TextMatrix(A, 1))
+        WWCantidad = Val(WVector1.TextMatrix(A, 3))
         If WWCantidad <> 0 Then
             ZSql = ""
             ZSql = ZSql + "Select *"
@@ -1576,7 +1576,7 @@ Private Sub Graba_Click()
                 Exit Sub
             End If
         End If
-    Next a
+    Next A
     
 
 Rem dada
@@ -1607,7 +1607,7 @@ Rem dada
     Renglon = 0
     WRenglon = 0
         
-    For a = 1 To 99
+    For A = 1 To 99
         
         WRenglon = WRenglon + 1
             
@@ -1769,7 +1769,7 @@ Rem dada
             
         End If
                                         
-    Next a
+    Next A
 
 
     T$ = "Impresion de Cotizaciones"
@@ -1831,7 +1831,7 @@ Private Sub Impresion()
 
 End Sub
 
-Private Sub CmdDelete_Click()
+Private Sub cmdDelete_Click()
 
     T$ = "Baja de Comprobantes"
     m$ = "Desea Borrar el Comprobante "
@@ -1900,21 +1900,21 @@ Private Sub Pantalla_Click()
     Ayuda.Visible = False
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Cliente.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Cliente.Text = WIndice.List(indice)
             Call Cliente_KeyPress(13)
             
         Case 1
             WTexto1.Visible = False
             WTexto2.Visible = False
             
-            Indice = Pantalla.ListIndex
-            Claveven$ = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Claveven$ = WIndice.List(indice)
             
             WTexto1.Visible = False
             WTexto2.Visible = False
-            WVector1.TextMatrix(WVector1.Row, 1) = WIndice.List(Indice)
-            WTexto1.Text = WIndice.List(Indice)
+            WVector1.TextMatrix(WVector1.Row, 1) = WIndice.List(indice)
+            WTexto1.Text = WIndice.List(indice)
             Call WTexto1_KeyDown(13, 0)
             
         Case Else
@@ -2352,6 +2352,7 @@ Private Sub Postal_Keypress(KeyAscii As Integer)
     If KeyAscii = 27 Then
         Postal.Text = ""
     End If
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub Telefono_Keypress(KeyAscii As Integer)
@@ -3403,13 +3404,13 @@ Private Sub Ejecuta_Funcion()
         Case 112
             Call Graba_Click
         Case 113
-            Call CmdDelete_Click
+            Call cmdDelete_Click
         Case 114
             Call Limpia_Click
         Case 115
             Call Consulta_Click
         Case 121
-            Call cmdClose_Click
+            Call CmdClose_Click
         Case Else
     End Select
 End Sub
@@ -3988,15 +3989,15 @@ Private Sub Calcula_Click()
     WNetoII = 0
     Rem dada
     
-    For a = 1 To 50
+    For A = 1 To 50
     
-        WImporte = Val(WVector1.TextMatrix(a, 8))
-        WImporteII = Val(WVector1.TextMatrix(a, 9))
+        WImporte = Val(WVector1.TextMatrix(A, 8))
+        WImporteII = Val(WVector1.TextMatrix(A, 9))
         
         WNeto = WNeto + WImporte
         WNetoII = WNetoII + WImporteII
         
-    Next a
+    Next A
     
 
     WIva1 = 0
