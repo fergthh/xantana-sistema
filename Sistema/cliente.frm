@@ -269,16 +269,16 @@ Begin VB.Form prgcliente
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "cliente.frx":60F8
       Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "Frame5"
-      Tab(0).Control(1)=   "Frame4"
-      Tab(0).Control(2)=   "Frame1"
-      Tab(0).Control(3)=   "Fantasia"
-      Tab(0).Control(4)=   "DatosAdicinales"
-      Tab(0).Control(5)=   "Razon"
-      Tab(0).Control(6)=   "Cliente"
-      Tab(0).Control(7)=   "lblLabels(1)"
-      Tab(0).Control(8)=   "lblLabels(2)"
-      Tab(0).Control(9)=   "lblLabels(0)"
+      Tab(0).Control(0)=   "lblLabels(0)"
+      Tab(0).Control(1)=   "lblLabels(2)"
+      Tab(0).Control(2)=   "lblLabels(1)"
+      Tab(0).Control(3)=   "Cliente"
+      Tab(0).Control(4)=   "Razon"
+      Tab(0).Control(5)=   "DatosAdicinales"
+      Tab(0).Control(6)=   "Fantasia"
+      Tab(0).Control(7)=   "Frame1"
+      Tab(0).Control(8)=   "Frame4"
+      Tab(0).Control(9)=   "Frame5"
       Tab(0).ControlCount=   10
       TabCaption(1)   =   "Facturación"
       TabPicture(1)   =   "cliente.frx":6114
@@ -2264,6 +2264,23 @@ Sub Verifica_datos()
         Exit Sub
     End If
     
+    
+    ' Validar que se coloque y que lista exista.
+    Auxi = "S"
+    If Trim(TipoClie.Text) = "" Then
+        Valida = False
+        MsgBox "Debe indicarse una Categoria a este Cliente.", vbInformation
+        Exit Sub
+    Else
+        Valida_Categoria TipoClie.Text, Auxi
+    End If
+    
+    If Auxi = "N" Then
+        Valida = False
+        MsgBox "La Categoria indicada no es válida.", vbInformation
+        Exit Sub
+    End If
+    
     ' Validar el Cuit en caso de colocar alguno. (¿Como en Administración?)
     If Trim(Cuit.Text) <> "" Then
     
@@ -2278,6 +2295,24 @@ Sub Verifica_datos()
         End If
     End If
     
+End Sub
+
+Private Sub Valida_Categoria(Categoria As String, Valida As String)
+
+    ZSql = ""
+    ZSql = ZSql + "Select Codigo"
+    ZSql = ZSql + " FROM TipoClie"
+    ZSql = ZSql + " Where Codigo = " + "'" + Trim(Categoria) + "'"
+    spCliente = ZSql
+    Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
+    If rstCliente.RecordCount > 0 Then
+        Valida = "S"
+    Else
+        Valida = "N"
+    End If
+    
+    rstCliente.Close
+
 End Sub
 
 Private Sub Valida_Lista(Lista As String, Valida As String)
@@ -2342,7 +2377,7 @@ Sub Imprime_Datos()
         Cuit.Mask = ""
         Cuit.Text = Trim(rstCliente!Cuit)
         Cuit.Mask = "##-########-#" ' Volvemos a colocar la mascara al campo.
-        EMail.Text = Trim(rstCliente!EMail)
+        email.Text = Trim(rstCliente!email)
         fax.Text = Trim(rstCliente!fax)
         PorceIva.Text = Str$(rstCliente!PorceIva)
         Iva1.Value = False
@@ -2547,7 +2582,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + " PostalII = " + "'" + PostalII.Text + "',"
         ZSql = ZSql + " ObservacionesII = " + "'" + ObservacionesII.Text + "',"
         ZSql = ZSql + " Cuit = " + "'" + Cuit.Text + "',"
-        ZSql = ZSql + " Email = " + "'" + EMail.Text + "',"
+        ZSql = ZSql + " Email = " + "'" + email.Text + "',"
         ZSql = ZSql + " Fax = " + "'" + fax.Text + "',"
         ZSql = ZSql + " PorceIva = " + "'" + PorceIva.Text + "',"
         ZSql = ZSql + " Provincia = " + "'" + Mid$(Str$(Provincia.ListIndex), 2, 2) + "',"
@@ -2628,7 +2663,7 @@ Private Sub cmdAdd_Click()
         ZSql = ZSql + "'" + ObservacionesII.Text + "',"
         ZSql = ZSql + "'" + ZZFechaAlta + "',"
         ZSql = ZSql + "'" + Cuit.Text + "',"
-        ZSql = ZSql + "'" + EMail.Text + "',"
+        ZSql = ZSql + "'" + email.Text + "',"
         ZSql = ZSql + "'" + fax.Text + "',"
         ZSql = ZSql + "'" + PorceIva.Text + "',"
         ZSql = ZSql + "'" + Mid$(Str$(Provincia.ListIndex), 2, 2) + "',"
@@ -2696,7 +2731,7 @@ Private Sub CmdLimpiar_Click()
     Telefono.Text = ""
     Observaciones.Text = ""
 '    Cuit.Text = ""
-    EMail.Text = ""
+    email.Text = ""
     fax.Text = ""
     PorceIva.Text = ""
     Expreso.Text = ""
@@ -2897,7 +2932,7 @@ Private Sub EMail_Keypress(KeyAscii As Integer)
         txtPaginaWeb.SetFocus
     End If
     If KeyAscii = 27 Then
-        EMail.Text = ""
+        email.Text = ""
     End If
 End Sub
 
@@ -3171,7 +3206,7 @@ Private Sub Consulta_Click()
 
     Opcion.Clear
     Opcion.AddItem "Cliente"
-    Opcion.AddItem "TipoClie"
+    Opcion.AddItem "Categoria"
     Opcion.AddItem "Condicion de Pago"
     Opcion.AddItem "Lista de Precios"
     
@@ -3200,7 +3235,7 @@ Private Sub Opcion_Click()
     Select Case XIndice
         Case 0
             ZSql = ""
-            ZSql = ZSql + "Select *"
+            ZSql = ZSql + "Select Cliente, Fantasia"
             ZSql = ZSql + " FROM Cliente"
             ZSql = ZSql + " Order by Cliente.Cliente"
             spCliente = ZSql
@@ -3210,9 +3245,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Cliente + " " + !Fantasia
+                            IngresaItem = Trim(!Cliente) + " " + Trim(!Fantasia)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Cliente
+                            IngresaItem = Trim(!Cliente)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3225,7 +3260,7 @@ Private Sub Opcion_Click()
             
         Case 1
             ZSql = ""
-            ZSql = ZSql + "Select *"
+            ZSql = ZSql + "Select Codigo, Descripcion"
             ZSql = ZSql + " FROM TipoClie"
             ZSql = ZSql + " Order by TipoClie.Codigo"
             spTipoClie = ZSql
@@ -3235,7 +3270,7 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Nombre
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
                             IngresaItem = !Codigo
                             WIndice.AddItem IngresaItem
@@ -3250,7 +3285,7 @@ Private Sub Opcion_Click()
         
         Case 2
             ZSql = ""
-            ZSql = ZSql + "Select *"
+            ZSql = ZSql + "Select Codigo, Nombre"
             ZSql = ZSql + " FROM CondPago"
             ZSql = ZSql + " Order by CondPago.Codigo"
             spCondPago = ZSql
@@ -3260,9 +3295,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Nombre
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Nombre)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3275,7 +3310,7 @@ Private Sub Opcion_Click()
         
         Case 3
             ZSql = ""
-            ZSql = ZSql + "Select *"
+            ZSql = ZSql + "Select Codigo, Descripcion"
             ZSql = ZSql + " FROM Lista"
             ZSql = ZSql + " Order by Codigo"
             spCondPago = ZSql
@@ -3285,9 +3320,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -3328,18 +3363,18 @@ Private Sub Pantalla_Click()
     
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Cliente.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Cliente.Text = WIndice.List(indice)
             Call Cliente_KeyPress(13)
             
         Case 1
-            Indice = Pantalla.ListIndex
-            TipoClie.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            TipoClie.Text = WIndice.List(indice)
             Call TipoClie_KeyPress(13)
             
         Case 2
-            Indice = Pantalla.ListIndex
-            Condicion.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Condicion.Text = WIndice.List(indice)
             Call Condicion_KeyPress(13)
                     
         Case Else
@@ -3361,7 +3396,7 @@ Sub Form_Load()
     Postal.Text = ""
     Telefono.Text = ""
     Observaciones.Text = ""
-    EMail.Text = ""
+    email.Text = ""
     fax.Text = ""
     PorceIva.Text = ""
     Iva1.Value = True
@@ -3622,60 +3657,39 @@ End Sub
 
 Private Sub Cliente_DblClick()
 
+    Abrir_Opciones
+
+End Sub
+
+Private Sub Abrir_Opciones(Optional ByVal indice As Integer = 0)
     Opcion.Clear
     Opcion.AddItem "Cliente"
-    Opcion.AddItem "Expreso"
-    Opcion.AddItem "TipoClie"
+    Opcion.AddItem "Categoria"
+    Opcion.AddItem "Condicion de Pago"
+    Opcion.AddItem "Lista de Precios"
+    Extras.ZOrder 0
     Rem Opcion.Visible = True
-    Opcion.ListIndex = 0
+    ' Abre por defecto la lista de clientes
+    Opcion.ListIndex = indice
     
     Call Opcion_Click
-
 End Sub
 
 Private Sub TipoClie_DblClick()
 
-    Opcion.Clear
-    Opcion.AddItem "Cliente"
-    Opcion.AddItem "Expreso"
-    Opcion.AddItem "TipoClie"
-    Rem Opcion.Visible = True
-    Opcion.ListIndex = 1
-    
-    Call Opcion_Click
+    Abrir_Opciones 1
 
 End Sub
 
 Private Sub Condicion_DblClick()
-
-    Opcion.Clear
-    Opcion.AddItem "Cliente"
-    Opcion.AddItem "Expreso"
-    Opcion.AddItem "TipoClie"
-    Opcion.AddItem "Condicion"
-    Rem Opcion.Visible = True
-    Extras.ZOrder 0
-    Opcion.ListIndex = 2
-    
-    Call Opcion_Click
-
+    Abrir_Opciones 2
 End Sub
 
 Private Sub NroLista_DblClick()
 
 ' FALTA VER BIEN QUE ONDA CON LOS CLICKS Y LAS AYUDAS, ME PARECE QE ESTAN COLGADOS.
 
-    Opcion.Clear
-    Opcion.AddItem "Cliente"
-    Opcion.AddItem "Expreso"
-    Opcion.AddItem "TipoClie"
-    Opcion.AddItem "Condicion"
-    Opcion.AddItem "Listas"
-    Rem Opcion.Visible = True
-    Extras.ZOrder 0
-    Opcion.ListIndex = 4
-    
-    Call Opcion_Click
+    Abrir_Opciones 3
 
 End Sub
 
@@ -4041,7 +4055,7 @@ End Sub
 
 Private Sub txtNombreContacto_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        EMail.SetFocus
+        email.SetFocus
     End If
     If KeyAscii = 27 Then
         txtNombreContacto.Text = ""
