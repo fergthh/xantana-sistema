@@ -2447,7 +2447,7 @@ Private Sub Acepta_Click()
     ZSql = ""
     ZSql = ZSql + "UPDATE Cliente SET "
     'ZSql = ZSql + " CodigoEmpresa = " + "'" + WEmpresa + "'"
-    ZSql = ZSql + " CodigoEmpresa = '1'"
+    ZSql = ZSql + " CodigoEmpresa = '" & YEmpresa & "'"
     spCliente = ZSql
     Set rstCliente = db.OpenRecordset(spCliente, dbOpenSnapshot, dbSQLPassThrough)
     

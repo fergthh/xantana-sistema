@@ -440,6 +440,8 @@ Global Const TABLA_Imputac = "Imputac"
 Global Const TABLA_Impproy = "Impproy"
 Global Const TABLA_Asiento = "Asiento"
 
+' Forzamos a que todos los archivos se asocien a empresa 0
+Global Const YEmpresa As Integer = 1
 
 
 '--------------------------------------------------------

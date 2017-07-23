@@ -1,15 +1,15 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Begin VB.Form PrgCondPago 
    AutoRedraw      =   -1  'True
    Caption         =   "Ingreso de Condiciones de Pago"
-   ClientHeight    =   6540
+   ClientHeight    =   5835
    ClientLeft      =   1125
    ClientTop       =   750
-   ClientWidth     =   9750
+   ClientWidth     =   10545
    LinkTopic       =   "Form2"
-   ScaleHeight     =   6540
-   ScaleWidth      =   9750
+   ScaleHeight     =   5835
+   ScaleWidth      =   10545
    Begin VB.TextBox Observaciones 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -20,15 +20,16 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   285
-      Left            =   2160
+      Height          =   765
+      Left            =   4725
       MaxLength       =   50
-      TabIndex        =   29
-      Top             =   1560
-      Width           =   4935
+      MultiLine       =   -1  'True
+      TabIndex        =   26
+      Top             =   720
+      Width           =   5535
    End
    Begin VB.CommandButton CmdAdd 
-      Caption         =   "Graba F1"
+      Caption         =   "Grabar (F1)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -38,19 +39,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   120
+      Height          =   735
+      Left            =   285
       MouseIcon       =   "condpago.frx":0000
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":030A
-      Style           =   1  'Graphical
-      TabIndex        =   26
+      TabIndex        =   23
       ToolTipText     =   "Graba los Datos Ingresados"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton CmdDelete 
-      Caption         =   "Borra  F2"
+      Caption         =   "Borrar  (F2)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -60,19 +60,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   1080
+      Height          =   735
+      Left            =   1245
       MouseIcon       =   "condpago.frx":0B4C
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":0E56
-      Style           =   1  'Graphical
-      TabIndex        =   25
+      TabIndex        =   22
       ToolTipText     =   "Elimina el Registro"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton CmdLimpiar 
-      Caption         =   "Limpia F3"
+      Caption         =   "Limpiar (F3)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -82,19 +81,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   2040
+      Height          =   735
+      Left            =   2205
       MouseIcon       =   "condpago.frx":1698
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":19A2
-      Style           =   1  'Graphical
-      TabIndex        =   24
+      TabIndex        =   21
       ToolTipText     =   "Limpia la pantalla"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton Consulta 
-      Caption         =   "Consulta F4"
+      Caption         =   "Consultar (F4)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -104,19 +102,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   3000
+      Height          =   735
+      Left            =   3165
       MouseIcon       =   "condpago.frx":21E4
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":24EE
-      Style           =   1  'Graphical
-      TabIndex        =   23
+      TabIndex        =   20
       ToolTipText     =   "Consulta de Datos"
-      Top             =   2160
-      Width           =   855
+      Top             =   1680
+      Width           =   1095
    End
    Begin VB.CommandButton Lista 
-      Caption         =   "Listado F9"
+      Caption         =   "Listado (F9)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -126,19 +123,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   7800
+      Height          =   735
+      Left            =   8445
       MouseIcon       =   "condpago.frx":2D30
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":303A
-      Style           =   1  'Graphical
-      TabIndex        =   22
+      TabIndex        =   19
       ToolTipText     =   "Impresion "
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton CmdClose 
-      Caption         =   "Menu F10"
+      Caption         =   "Salir (F10)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -148,19 +144,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   8760
+      Height          =   735
+      Left            =   9405
       MouseIcon       =   "condpago.frx":387C
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":3B86
-      Style           =   1  'Graphical
-      TabIndex        =   21
+      TabIndex        =   18
       ToolTipText     =   "Salida"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton Primer 
-      Caption         =   "Primer F5"
+      Caption         =   "Primero (F5)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -170,19 +165,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   3960
+      Height          =   735
+      Left            =   4365
       MouseIcon       =   "condpago.frx":43C8
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":46D2
-      Style           =   1  'Graphical
-      TabIndex        =   20
+      TabIndex        =   17
       ToolTipText     =   "Primer Registro"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton Anterior 
-      Caption         =   "Anterior F6"
+      Caption         =   "Anterior (F6)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -192,19 +186,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   4920
+      Height          =   735
+      Left            =   5325
       MouseIcon       =   "condpago.frx":4B14
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":4E1E
-      Style           =   1  'Graphical
-      TabIndex        =   19
+      TabIndex        =   16
       ToolTipText     =   "Registro Anterior"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
    End
    Begin VB.CommandButton Siguiente 
-      Caption         =   "Siguien. F7"
+      Caption         =   "Siguiente (F7)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -214,19 +207,18 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   5880
+      Height          =   735
+      Left            =   6285
       MouseIcon       =   "condpago.frx":5260
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":556A
-      Style           =   1  'Graphical
-      TabIndex        =   18
+      TabIndex        =   15
       ToolTipText     =   "Registro Siguiente"
-      Top             =   2160
-      Width           =   855
+      Top             =   1680
+      Width           =   1095
    End
    Begin VB.CommandButton Ultimo 
-      Caption         =   "Ultimo F8"
+      Caption         =   "Ultimo (F8)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -236,33 +228,15 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   975
-      Left            =   6840
+      Height          =   735
+      Left            =   7485
       MouseIcon       =   "condpago.frx":59AC
       MousePointer    =   99  'Custom
       Picture         =   "condpago.frx":5CB6
-      Style           =   1  'Graphical
-      TabIndex        =   17
+      TabIndex        =   14
       ToolTipText     =   "Salida"
-      Top             =   2160
+      Top             =   1680
       Width           =   855
-   End
-   Begin VB.TextBox Ayuda 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   120
-      TabIndex        =   16
-      Top             =   3360
-      Visible         =   0   'False
-      Width           =   8175
    End
    Begin VB.TextBox Dias 
       Alignment       =   1  'Right Justify
@@ -276,11 +250,11 @@ Begin VB.Form PrgCondPago
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   2160
+      Left            =   2325
       MaxLength       =   10
       TabIndex        =   2
       Text            =   " "
-      Top             =   1080
+      Top             =   720
       Width           =   735
    End
    Begin VB.TextBox Codigo 
@@ -295,18 +269,59 @@ Begin VB.Form PrgCondPago
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   2160
+      Left            =   2325
       MaxLength       =   4
       TabIndex        =   0
       Text            =   " "
-      Top             =   120
+      Top             =   240
       Width           =   735
+   End
+   Begin Crystal.CrystalReport Listado 
+      Left            =   9840
+      Top             =   4560
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   262150
+      Destination     =   1
+      WindowTitle     =   "Listado de Bancos"
+      WindowControlBox=   -1  'True
+      WindowMaxButton =   -1  'True
+      WindowMinButton =   -1  'True
+      GroupSelectionFormula=   " "
+      BoundReportFooter=   -1  'True
+      DiscardSavedData=   -1  'True
+      WindowState     =   2
+   End
+   Begin VB.ListBox WIndice 
+      Height          =   255
+      Left            =   9360
+      TabIndex        =   5
+      Top             =   4200
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.TextBox Nombre 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   4725
+      MaxLength       =   50
+      TabIndex        =   1
+      Top             =   240
+      Width           =   5535
    End
    Begin VB.Frame Frame2 
       Height          =   1935
-      Left            =   1920
-      TabIndex        =   7
-      Top             =   3840
+      Left            =   2505
+      TabIndex        =   6
+      Top             =   3240
       Visible         =   0   'False
       Width           =   5535
       Begin VB.CommandButton Acepta 
@@ -326,7 +341,7 @@ Begin VB.Form PrgCondPago
          MousePointer    =   99  'Custom
          Picture         =   "condpago.frx":6402
          Style           =   1  'Graphical
-         TabIndex        =   28
+         TabIndex        =   25
          ToolTipText     =   "Graba los Datos Ingresados"
          Top             =   480
          Width           =   855
@@ -348,7 +363,7 @@ Begin VB.Form PrgCondPago
          MousePointer    =   99  'Custom
          Picture         =   "condpago.frx":6B4E
          Style           =   1  'Graphical
-         TabIndex        =   27
+         TabIndex        =   24
          ToolTipText     =   "Graba los Datos Ingresados"
          Top             =   480
          Width           =   855
@@ -367,7 +382,7 @@ Begin VB.Form PrgCondPago
          Height          =   285
          Left            =   2040
          MaxLength       =   4
-         TabIndex        =   13
+         TabIndex        =   12
          Text            =   " "
          Top             =   720
          Width           =   855
@@ -386,7 +401,7 @@ Begin VB.Form PrgCondPago
          Height          =   285
          Left            =   2040
          MaxLength       =   4
-         TabIndex        =   12
+         TabIndex        =   11
          Text            =   " "
          Top             =   360
          Width           =   855
@@ -405,7 +420,7 @@ Begin VB.Form PrgCondPago
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   1800
-         TabIndex        =   11
+         TabIndex        =   10
          Top             =   1320
          Width           =   1215
       End
@@ -423,7 +438,7 @@ Begin VB.Form PrgCondPago
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   360
-         TabIndex        =   10
+         TabIndex        =   9
          Top             =   1320
          Width           =   1215
       End
@@ -441,7 +456,7 @@ Begin VB.Form PrgCondPago
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   240
-         TabIndex        =   9
+         TabIndex        =   8
          Top             =   720
          Width           =   1455
       End
@@ -459,88 +474,70 @@ Begin VB.Form PrgCondPago
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   240
-         TabIndex        =   8
+         TabIndex        =   7
          Top             =   360
          Width           =   1215
       End
    End
-   Begin Crystal.CrystalReport Listado 
-      Left            =   4800
-      Top             =   120
-      _ExtentX        =   741
-      _ExtentY        =   741
-      _Version        =   262150
-      ReportFileName  =   "CondPago.rpt"
-      Destination     =   1
-      WindowTitle     =   "Listado de Bancos"
-      WindowControlBox=   -1  'True
-      WindowMaxButton =   -1  'True
-      WindowMinButton =   -1  'True
-      GroupSelectionFormula=   " "
-      BoundReportFooter=   -1  'True
-      DiscardSavedData=   -1  'True
-      WindowState     =   2
-   End
-   Begin VB.ListBox WIndice 
-      Height          =   255
-      Left            =   5760
-      TabIndex        =   6
-      Top             =   0
-      Visible         =   0   'False
-      Width           =   975
-   End
-   Begin VB.TextBox Nombre 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2160
-      MaxLength       =   50
-      TabIndex        =   1
-      Top             =   600
-      Width           =   4935
-   End
-   Begin VB.ListBox Pantalla 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   2700
-      ItemData        =   "condpago.frx":6F90
-      Left            =   120
-      List            =   "condpago.frx":6F97
-      TabIndex        =   5
-      Top             =   3720
-      Visible         =   0   'False
-      Width           =   8175
-   End
-   Begin VB.ListBox Opcion 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   12
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   2160
-      Left            =   1560
-      TabIndex        =   15
-      Top             =   3720
-      Visible         =   0   'False
-      Width           =   3975
+   Begin VB.Frame ConsultaFrame 
+      Height          =   3015
+      Left            =   960
+      TabIndex        =   28
+      Top             =   2640
+      Width           =   8535
+      Begin VB.ListBox Pantalla 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   2220
+         ItemData        =   "condpago.frx":6F90
+         Left            =   240
+         List            =   "condpago.frx":6F97
+         TabIndex        =   30
+         Top             =   600
+         Visible         =   0   'False
+         Width           =   8175
+      End
+      Begin VB.TextBox Ayuda 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   285
+         Left            =   240
+         TabIndex        =   29
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   8175
+      End
+      Begin VB.ListBox Opcion 
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   1560
+         Left            =   2280
+         TabIndex        =   31
+         Top             =   1080
+         Visible         =   0   'False
+         Width           =   3975
+      End
    End
    Begin VB.Label lblLabels 
       Caption         =   "Observaciones"
@@ -556,13 +553,13 @@ Begin VB.Form PrgCondPago
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   2
-      Left            =   120
-      TabIndex        =   30
-      Top             =   1560
-      Width           =   2175
+      Left            =   3285
+      TabIndex        =   27
+      Top             =   720
+      Width           =   1335
    End
    Begin VB.Label Label3 
-      Caption         =   "Plazo"
+      Caption         =   "Plazo (Meses)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -574,10 +571,10 @@ Begin VB.Form PrgCondPago
       EndProperty
       ForeColor       =   &H00800000&
       Height          =   255
-      Left            =   120
-      TabIndex        =   14
-      Top             =   1080
-      Width           =   1815
+      Left            =   885
+      TabIndex        =   13
+      Top             =   720
+      Width           =   1215
    End
    Begin VB.Label lblLabels 
       Caption         =   "Descripcion"
@@ -593,10 +590,10 @@ Begin VB.Form PrgCondPago
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   1
-      Left            =   120
+      Left            =   3405
       TabIndex        =   4
-      Top             =   600
-      Width           =   2175
+      Top             =   240
+      Width           =   1215
    End
    Begin VB.Label lblLabels 
       Caption         =   "Codigo de Condicion"
@@ -612,9 +609,9 @@ Begin VB.Form PrgCondPago
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   0
-      Left            =   120
+      Left            =   285
       TabIndex        =   3
-      Top             =   180
+      Top             =   300
       Width           =   2295
    End
 End
@@ -623,6 +620,9 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Const WHeightI = 3150
+Private Const WHeightII = 6340
+
 Sub Imprime_Nombre()
 End Sub
 
@@ -644,8 +644,9 @@ Sub Imprime_Datos()
     spCondPago = ZSql
     Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
     If rstCondPago.RecordCount > 0 Then
+        Codigo.Text = Trim(rstCondPago!Codigo)
         Nombre.Text = Trim(rstCondPago!Nombre)
-        Dias.Text = Str$(rstCondPago!Dias)
+        Dias.Text = Str$(Trim(rstCondPago!Dias))
         Observaciones.Text = Trim(rstCondPago!Observaciones)
         rstCondPago.Close
         Call Format_datos
@@ -654,6 +655,8 @@ Sub Imprime_Datos()
 End Sub
 
 Private Sub Acepta_Click()
+    
+    Call ContraerFormulario
 
     If Val(Desde.Text) = 0 Then
          Desde.Text = "0"
@@ -675,7 +678,7 @@ Private Sub Acepta_Click()
     
     ZSql = ""
     ZSql = ZSql + "UPDATE CondPago SET "
-    ZSql = ZSql + " CodigoEmpresa = " + "'" + WEmpresa + "'"
+    ZSql = ZSql + " CodigoEmpresa = '" & YEmpresa & "'"
     spCondPago = ZSql
     Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
     
@@ -684,6 +687,8 @@ Private Sub Acepta_Click()
     Listado.WindowLeft = 0
     Listado.WindowWidth = Screen.Width
     Listado.WindowHeight = Screen.Height
+    
+    Listado.ReportFileName = App.Path & "/CondPago.rpt"
     
     
     DbConnect = db.Connect
@@ -695,14 +700,14 @@ Private Sub Acepta_Click()
                 + DSQ + ".dbo.CondPago CondPago, " _
                 + DSQ + ".dbo.Auxiliar Auxiliar " _
                 + "Where " _
-                + "CondPago.CodigoEmpresa = Auxiliar.Empresa AND " _
+                + "CondPago.CodigoEmpresa = '" & YEmpresa & "' AND " _
                 + "CondPago.Codigo >= " + Desde.Text + " AND " _
                 + "CondPago.Codigo <= " + Hasta.Text
     
     Listado.Connect = Connect()
     
-    Listado.GroupSelectionFormula = "{CondPago.Codigo} in " + Desde.Text + " to " + Hasta.Text
-    Listado.SelectionFormula = "{CondPago.Codigo} in " + Desde.Text + " to " + Hasta.Text
+    Listado.GroupSelectionFormula = "{CondPago.Codigo} in '" + Desde.Text + "' to '" + Hasta.Text + "'"
+    Listado.SelectionFormula = "{CondPago.Codigo} in '" + Desde.Text + "' to '" + Hasta.Text + "'"
     
     If Impresora.Value = True Then
         Listado.Destination = 1
@@ -716,13 +721,25 @@ Private Sub Acepta_Click()
     
 End Sub
 
-Private Sub Cancela_click()
-    Frame2.Visible = False
-     Codigo.SetFocus
+Private Sub Cancela_Click()
+    Call ContraerFormulario
+
+    Codigo.SetFocus
 End Sub
 
 Private Sub cmdAdd_Click()
-    If Codigo.Text <> "" Then
+    Dim WCodigo, WNombre, WObservaciones, WDias As String
+    
+    WCodigo = Trim(Codigo.Text)
+    WObservaciones = Trim(Observaciones.Text)
+    WNombre = Trim(Nombre.Text)
+    WDias = Trim(Dias.Text)
+    
+    WDias = IIf(WDias = "", "0", WDias)
+    
+    ' Validamos de que se hayan cargado por lo menos el codigo, el nombre y que el plazo no sea un numero negativo.
+    If Trim(Codigo.Text) <> "" And Trim(Nombre.Text) <> "" And Val(WDias) >= 0 Then
+        
         
         ZSql = ""
         ZSql = ZSql + "Select *"
@@ -734,13 +751,11 @@ Private Sub cmdAdd_Click()
             rstCondPago.Close
             ZSql = ""
             ZSql = ZSql + "UPDATE CondPago SET "
-            ZSql = ZSql + " Nombre = " + "'" + Nombre.Text + "',"
-            ZSql = ZSql + " Observaciones = " + "'" + Observaciones.Text + "',"
-            ZSql = ZSql + " Dias = " + "'" + Dias.Text + "'"
-            ZSql = ZSql + " Where Codigo = " + "'" + Codigo.Text + "'"
-            spCondPago = ZSql
-            Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
-                Else
+            ZSql = ZSql + " Nombre = " + "'" + WNombre + "',"
+            ZSql = ZSql + " Observaciones = " + "'" + WObservaciones + "',"
+            ZSql = ZSql + " Dias = " + "'" + WDias + "'"
+            ZSql = ZSql + " Where Codigo = " + "'" + WCodigo + "'"
+        Else
             ZSql = ""
             ZSql = ZSql + "INSERT INTO CondPago ("
             ZSql = ZSql + "Codigo ,"
@@ -748,122 +763,25 @@ Private Sub cmdAdd_Click()
             ZSql = ZSql + "Observaciones ,"
             ZSql = ZSql + "Dias )"
             ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + Codigo.Text + "',"
-            ZSql = ZSql + "'" + Nombre.Text + "',"
-            ZSql = ZSql + "'" + Observaciones.Text + "',"
-            ZSql = ZSql + "'" + Dias.Text + "')"
-            spCondPago = ZSql
-            Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
+            ZSql = ZSql + "'" + WCodigo + "',"
+            ZSql = ZSql + "'" + WNombre + "',"
+            ZSql = ZSql + "'" + WObservaciones + "',"
+            ZSql = ZSql + "'" + WDias + "')"
         End If
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        If ZZNivel = 0 Then
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "FraganciasII"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-                Else
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "Fragancias"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-        End If
-   
-        
-        ZSql = ""
-        ZSql = ZSql + "Select *"
-        ZSql = ZSql + " FROM CondPago"
-        ZSql = ZSql + " Where CondPago.Codigo = " + "'" + Codigo.Text + "'"
         spCondPago = ZSql
         Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
-        If rstCondPago.RecordCount > 0 Then
-            rstCondPago.Close
-            ZSql = ""
-            ZSql = ZSql + "UPDATE CondPago SET "
-            ZSql = ZSql + " Nombre = " + "'" + Nombre.Text + "',"
-            ZSql = ZSql + " Observaciones = " + "'" + Observaciones.Text + "',"
-            ZSql = ZSql + " Dias = " + "'" + Dias.Text + "'"
-            ZSql = ZSql + " Where Codigo = " + "'" + Codigo.Text + "'"
-            spCondPago = ZSql
-            Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
-                Else
-            ZSql = ""
-            ZSql = ZSql + "INSERT INTO CondPago ("
-            ZSql = ZSql + "Codigo ,"
-            ZSql = ZSql + "Nombre ,"
-            ZSql = ZSql + "Observaciones ,"
-            ZSql = ZSql + "Dias )"
-            ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + Codigo.Text + "',"
-            ZSql = ZSql + "'" + Nombre.Text + "',"
-            ZSql = ZSql + "'" + Observaciones.Text + "',"
-            ZSql = ZSql + "'" + Dias.Text + "')"
-            spCondPago = ZSql
-            Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
-        End If
-        
-        
-   
-        If ZZNivel = 0 Then
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "Fragancias"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-                Else
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "FraganciasII"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-        End If
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        Rem Call CmdLimpiar_Click
-        
+        Call CmdLimpiar_Click
     
         m$ = "Grabacion realizada"
         aaaaaa% = MsgBox(m$, 0, "Archivo de Condicion de Pago")
-    
-        
         
         Codigo.SetFocus
     End If
 End Sub
 
-Private Sub CmdDelete_Click()
+Private Sub cmdDelete_Click()
     If Codigo.Text <> "" Then
     
         ZSql = ""
@@ -894,7 +812,9 @@ Private Sub CmdDelete_Click()
 End Sub
 
 Private Sub CmdLimpiar_Click()
-
+    ' Reestablecemos el tamaño por defecto de la ventana, ocultando de esta manera la ayuda y ventana de impresion.
+    Call ContraerFormulario
+    
     Codigo.Text = ""
     Nombre.Text = ""
     Observaciones.Text = ""
@@ -912,11 +832,13 @@ Private Sub CmdLimpiar_Click()
         rstCondPago.Close
     End If
     
-    Codigo.SetFocus
+    If Codigo.Visible Then
+        Codigo.SetFocus
+    End If
     
 End Sub
 
-Private Sub cmdClose_Click()
+Private Sub CmdClose_Click()
     PrgCondPago.Hide
     Unload Me
     MenuVen.Show
@@ -929,6 +851,7 @@ Private Sub Lista_Click()
     Impresora.Value = True
     Frame2.Visible = True
     Desde.SetFocus
+    Call ExpandirFormulario
 End Sub
 
 Private Sub Nombre_Keypress(KeyAscii As Integer)
@@ -1007,16 +930,18 @@ Private Sub Hasta_Keypress(KeyAscii As Integer)
 End Sub
 
 Private Sub Consulta_Click()
-
-     Pantalla.Visible = False
-     Ayuda.Visible = False
-     Opcion.Clear
-
-     Opcion.AddItem "Condicion de Pago"
-
-     Rem Opcion.Visible = True
-     Opcion.ListIndex = 0
-     Call Opcion_Click
+    
+    ConsultaFrame.Visible = True
+    Pantalla.Visible = False
+    Ayuda.Visible = False
+    Opcion.Clear
+    
+    Opcion.AddItem "Condicion de Pago"
+    
+    Rem Opcion.Visible = True
+    Opcion.ListIndex = 0
+    Call Opcion_Click
+    Call ExpandirFormulario
      
 End Sub
 
@@ -1049,7 +974,7 @@ Private Sub Opcion_Click()
                             IngresaItem = Str$(!Codigo) + " " + !Nombre
                             Pantalla.AddItem IngresaItem
                             IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
+                            WIndice.AddItem Trim(IngresaItem)
                             .MoveNext
                                 Else
                             Exit Do
@@ -1075,39 +1000,39 @@ WError:
 End Sub
 
 Private Sub Pantalla_Click()
-
+    
     Pantalla.Visible = False
     Ayuda.Visible = False
     
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Codigo.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Codigo.Text = WIndice.List(indice)
             Call Codigo_KeyPress(13)
             
+            Call ContraerFormulario
         Case Else
     End Select
     
 End Sub
 
-Sub Form_Load()
-
-    Codigo.Text = ""
-    Nombre.Text = ""
-    Observaciones.Text = ""
-    Dias.Text = ""
-    
-    ZSql = ""
-    ZSql = ZSql + "Select Max(Codigo) as [CodigoMayor]"
-    ZSql = ZSql + " FROM CondPago"
-    spCondPago = ZSql
-    Set rstCondPago = db.OpenRecordset(spCondPago, dbOpenSnapshot, dbSQLPassThrough)
-    If rstCondPago.RecordCount > 0 Then
-        rstCondPago.MoveLast
-        ZUltimo = IIf(IsNull(rstCondPago!CodigoMayor), "0", rstCondPago!CodigoMayor)
-        Codigo.Text = ZUltimo + 1
-        rstCondPago.Close
+Private Sub ContraerFormulario()
+    Frame2.Visible = False
+    ConsultaFrame.Visible = False
+    Me.Height = WHeightI
+    If Codigo.Visible Then
+        Codigo.SetFocus
     End If
+    
+End Sub
+
+Private Sub ExpandirFormulario()
+    Me.Height = WHeightII
+End Sub
+
+Sub Form_Load()
+    
+    Call CmdLimpiar_Click
     
 End Sub
 
@@ -1156,7 +1081,7 @@ Private Sub aYUDA_Keypress(KeyAscii As Integer)
                             IngresaItem = Str$(!Codigo) + " " + !Nombre
                             Pantalla.AddItem IngresaItem
                             IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
+                            WIndice.AddItem Trim(IngresaItem)
                             .MoveNext
                                 Else
                             Exit Do
@@ -1170,6 +1095,11 @@ Private Sub aYUDA_Keypress(KeyAscii As Integer)
     End Select
     
     If KeyAscii = 27 Then
+        If Trim(Ayuda.Text) = "" Then
+            Call ContraerFormulario
+            Codigo.SetFocus
+            Exit Sub
+        End If
         Ayuda.Text = ""
     End If
     
@@ -1181,11 +1111,13 @@ WError:
 End Sub
 
 Private Sub Codigo_DblClick()
-
+    
     Opcion.Clear
     Opcion.AddItem "Condicion de Pago"
     Rem Opcion.Visible = True
     Opcion.ListIndex = 0
+    ConsultaFrame.Visible = True
+    Call ExpandirFormulario
     
     Call Opcion_Click
 
@@ -1261,7 +1193,7 @@ Private Sub Ejecuta_Funcion()
         Case 112
             Call cmdAdd_Click
         Case 113
-            Call CmdDelete_Click
+            Call cmdDelete_Click
         Case 114
             Call CmdLimpiar_Click
         Case 115
@@ -1277,11 +1209,11 @@ Private Sub Ejecuta_Funcion()
         Case 120
             Call Lista_Click
         Case 121
-            Call cmdClose_Click
+            Call CmdClose_Click
         Case 122
             Call Acepta_Click
         Case 123
-            Call Cancela_click
+            Call Cancela_Click
         Case Else
     End Select
 End Sub

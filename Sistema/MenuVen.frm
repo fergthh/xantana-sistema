@@ -6,7 +6,7 @@ Begin VB.Form MenuVen
    ClientHeight    =   8310
    ClientLeft      =   165
    ClientTop       =   660
-   ClientWidth     =   11640
+   ClientWidth     =   11400
    BeginProperty Font 
       Name            =   "MS Sans Serif"
       Size            =   24
@@ -20,7 +20,7 @@ Begin VB.Form MenuVen
    LinkTopic       =   "Form1"
    MouseIcon       =   "MenuVen.frx":0442
    ScaleHeight     =   8310
-   ScaleWidth      =   11640
+   ScaleWidth      =   11400
    WindowState     =   2  'Maximized
    Begin VB.TextBox dadaII 
       Height          =   675
@@ -364,7 +364,6 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim Registro As String
-
 
 Private Sub cash_Click()
     OPEN_FILE_Clientes
