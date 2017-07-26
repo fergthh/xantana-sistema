@@ -20,12 +20,12 @@ Begin VB.Form PrgCondPago
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   765
+      Height          =   285
       Left            =   4725
       MaxLength       =   50
       MultiLine       =   -1  'True
       TabIndex        =   26
-      Top             =   720
+      Top             =   840
       Width           =   5535
    End
    Begin VB.CommandButton CmdAdd 
@@ -254,7 +254,7 @@ Begin VB.Form PrgCondPago
       MaxLength       =   10
       TabIndex        =   2
       Text            =   " "
-      Top             =   720
+      Top             =   840
       Width           =   735
    End
    Begin VB.TextBox Codigo 
@@ -273,7 +273,7 @@ Begin VB.Form PrgCondPago
       MaxLength       =   4
       TabIndex        =   0
       Text            =   " "
-      Top             =   240
+      Top             =   360
       Width           =   735
    End
    Begin Crystal.CrystalReport Listado 
@@ -314,7 +314,7 @@ Begin VB.Form PrgCondPago
       Left            =   4725
       MaxLength       =   50
       TabIndex        =   1
-      Top             =   240
+      Top             =   360
       Width           =   5535
    End
    Begin VB.Frame Frame2 
@@ -555,7 +555,7 @@ Begin VB.Form PrgCondPago
       Index           =   2
       Left            =   3285
       TabIndex        =   27
-      Top             =   720
+      Top             =   840
       Width           =   1335
    End
    Begin VB.Label Label3 
@@ -573,7 +573,7 @@ Begin VB.Form PrgCondPago
       Height          =   255
       Left            =   885
       TabIndex        =   13
-      Top             =   720
+      Top             =   840
       Width           =   1215
    End
    Begin VB.Label lblLabels 
@@ -592,7 +592,7 @@ Begin VB.Form PrgCondPago
       Index           =   1
       Left            =   3405
       TabIndex        =   4
-      Top             =   240
+      Top             =   360
       Width           =   1215
    End
    Begin VB.Label lblLabels 
@@ -611,7 +611,7 @@ Begin VB.Form PrgCondPago
       Index           =   0
       Left            =   285
       TabIndex        =   3
-      Top             =   300
+      Top             =   420
       Width           =   2295
    End
 End

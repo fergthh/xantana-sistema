@@ -3,15 +3,71 @@ Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Begin VB.Form PrgTipoClie 
    AutoRedraw      =   -1  'True
    Caption         =   "Tipo de Clientes"
-   ClientHeight    =   5355
+   ClientHeight    =   5175
    ClientLeft      =   1050
    ClientTop       =   690
-   ClientWidth     =   9765
+   ClientWidth     =   11415
    LinkTopic       =   "Form2"
-   ScaleHeight     =   5355
-   ScaleWidth      =   9765
+   ScaleHeight     =   5175
+   ScaleWidth      =   11415
+   Begin VB.TextBox Descripcion 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   5520
+      MaxLength       =   50
+      TabIndex        =   24
+      Top             =   345
+      Width           =   4575
+   End
+   Begin VB.TextBox Codigo 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   2400
+      MaxLength       =   4
+      TabIndex        =   23
+      Text            =   " "
+      Top             =   345
+      Width           =   975
+   End
    Begin VB.CommandButton Ultimo 
-      Caption         =   "Ultimo F8"
+      Caption         =   "Ultimo (F8)"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   7920
+      MouseIcon       =   "tipoclie.frx":0000
+      MousePointer    =   99  'Custom
+      Picture         =   "tipoclie.frx":030A
+      TabIndex        =   20
+      ToolTipText     =   "Salida"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton Siguiente 
+      Caption         =   "Siguiente (F7)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -23,17 +79,16 @@ Begin VB.Form PrgTipoClie
       EndProperty
       Height          =   975
       Left            =   6840
-      MouseIcon       =   "tipoclie.frx":0000
+      MouseIcon       =   "tipoclie.frx":074C
       MousePointer    =   99  'Custom
-      Picture         =   "tipoclie.frx":030A
-      Style           =   1  'Graphical
-      TabIndex        =   24
-      ToolTipText     =   "Salida"
+      Picture         =   "tipoclie.frx":0A56
+      TabIndex        =   19
+      ToolTipText     =   "Registro Siguiente"
       Top             =   1080
-      Width           =   855
+      Width           =   975
    End
-   Begin VB.CommandButton Siguiente 
-      Caption         =   "Siguien. F7"
+   Begin VB.CommandButton Anterior 
+      Caption         =   "Anterior (F6)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -45,17 +100,16 @@ Begin VB.Form PrgTipoClie
       EndProperty
       Height          =   975
       Left            =   5880
-      MouseIcon       =   "tipoclie.frx":074C
+      MouseIcon       =   "tipoclie.frx":0E98
       MousePointer    =   99  'Custom
-      Picture         =   "tipoclie.frx":0A56
-      Style           =   1  'Graphical
-      TabIndex        =   23
-      ToolTipText     =   "Registro Siguiente"
+      Picture         =   "tipoclie.frx":11A2
+      TabIndex        =   18
+      ToolTipText     =   "Registro Anterior"
       Top             =   1080
       Width           =   855
    End
-   Begin VB.CommandButton Anterior 
-      Caption         =   "Anterior F6"
+   Begin VB.CommandButton Primer 
+      Caption         =   "Primer (F5)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -67,39 +121,16 @@ Begin VB.Form PrgTipoClie
       EndProperty
       Height          =   975
       Left            =   4920
-      MouseIcon       =   "tipoclie.frx":0E98
-      MousePointer    =   99  'Custom
-      Picture         =   "tipoclie.frx":11A2
-      Style           =   1  'Graphical
-      TabIndex        =   22
-      ToolTipText     =   "Registro Anterior"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton Primer 
-      Caption         =   "Primer F5"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   3960
       MouseIcon       =   "tipoclie.frx":15E4
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":18EE
-      Style           =   1  'Graphical
-      TabIndex        =   21
+      TabIndex        =   17
       ToolTipText     =   "Primer Registro"
       Top             =   1080
       Width           =   855
    End
    Begin VB.CommandButton CmdClose 
-      Caption         =   "Menu F10"
+      Caption         =   "Menu (F10)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -110,18 +141,17 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   975
-      Left            =   8760
+      Left            =   9840
       MouseIcon       =   "tipoclie.frx":1D30
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":203A
-      Style           =   1  'Graphical
-      TabIndex        =   20
+      TabIndex        =   16
       ToolTipText     =   "Salida"
       Top             =   1080
       Width           =   855
    End
    Begin VB.CommandButton Lista 
-      Caption         =   "Listado F9"
+      Caption         =   "Listado (F9)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -132,18 +162,17 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   975
-      Left            =   7800
+      Left            =   8880
       MouseIcon       =   "tipoclie.frx":287C
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":2B86
-      Style           =   1  'Graphical
-      TabIndex        =   19
+      TabIndex        =   15
       ToolTipText     =   "Impresion "
       Top             =   1080
       Width           =   855
    End
    Begin VB.CommandButton Consulta 
-      Caption         =   "Consulta F4"
+      Caption         =   "Consultar (F4)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -154,18 +183,17 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   975
-      Left            =   3000
+      Left            =   3840
       MouseIcon       =   "tipoclie.frx":33C8
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":36D2
-      Style           =   1  'Graphical
-      TabIndex        =   18
+      TabIndex        =   14
       ToolTipText     =   "Consulta de Datos"
       Top             =   1080
-      Width           =   855
+      Width           =   975
    End
    Begin VB.CommandButton CmdLimpiar 
-      Caption         =   "Limpia F3"
+      Caption         =   "Limpiar (F3)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -176,18 +204,17 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   975
-      Left            =   2040
+      Left            =   2880
       MouseIcon       =   "tipoclie.frx":3F14
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":421E
-      Style           =   1  'Graphical
-      TabIndex        =   17
+      TabIndex        =   13
       ToolTipText     =   "Limpia la pantalla"
       Top             =   1080
       Width           =   855
    End
    Begin VB.CommandButton CmdDelete 
-      Caption         =   "Borra  F2"
+      Caption         =   "Borrar (F2)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -198,18 +225,17 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   975
-      Left            =   1080
+      Left            =   1920
       MouseIcon       =   "tipoclie.frx":4A60
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":4D6A
-      Style           =   1  'Graphical
-      TabIndex        =   16
+      TabIndex        =   12
       ToolTipText     =   "Elimina el Registro"
       Top             =   1080
       Width           =   855
    End
    Begin VB.CommandButton CmdAdd 
-      Caption         =   "Graba F1"
+      Caption         =   "Grabar (F1)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -220,12 +246,11 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   975
-      Left            =   120
+      Left            =   960
       MouseIcon       =   "tipoclie.frx":55AC
       MousePointer    =   99  'Custom
       Picture         =   "tipoclie.frx":58B6
-      Style           =   1  'Graphical
-      TabIndex        =   15
+      TabIndex        =   11
       ToolTipText     =   "Graba los Datos Ingresados"
       Top             =   1080
       Width           =   855
@@ -241,29 +266,11 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   240
-      TabIndex        =   14
-      Top             =   2280
+      Left            =   2340
+      TabIndex        =   10
+      Top             =   2400
       Visible         =   0   'False
       Width           =   6735
-   End
-   Begin VB.TextBox Codigo 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2640
-      MaxLength       =   4
-      TabIndex        =   0
-      Text            =   " "
-      Top             =   120
-      Width           =   975
    End
    Begin VB.Frame Frame2 
       BeginProperty Font 
@@ -276,9 +283,9 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2055
-      Left            =   2400
-      TabIndex        =   6
-      Top             =   2760
+      Left            =   3120
+      TabIndex        =   2
+      Top             =   2880
       Visible         =   0   'False
       Width           =   5175
       Begin VB.CommandButton Cancela 
@@ -298,7 +305,7 @@ Begin VB.Form PrgTipoClie
          MousePointer    =   99  'Custom
          Picture         =   "tipoclie.frx":6402
          Style           =   1  'Graphical
-         TabIndex        =   26
+         TabIndex        =   22
          ToolTipText     =   "Graba los Datos Ingresados"
          Top             =   480
          Width           =   855
@@ -320,7 +327,7 @@ Begin VB.Form PrgTipoClie
          MousePointer    =   99  'Custom
          Picture         =   "tipoclie.frx":6B4E
          Style           =   1  'Graphical
-         TabIndex        =   25
+         TabIndex        =   21
          ToolTipText     =   "Graba los Datos Ingresados"
          Top             =   480
          Width           =   855
@@ -338,7 +345,7 @@ Begin VB.Form PrgTipoClie
          Height          =   285
          Left            =   1800
          MaxLength       =   4
-         TabIndex        =   12
+         TabIndex        =   8
          Text            =   " "
          Top             =   720
          Width           =   855
@@ -356,7 +363,7 @@ Begin VB.Form PrgTipoClie
          Height          =   285
          Left            =   1800
          MaxLength       =   4
-         TabIndex        =   11
+         TabIndex        =   7
          Text            =   " "
          Top             =   360
          Width           =   855
@@ -375,7 +382,7 @@ Begin VB.Form PrgTipoClie
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   1560
-         TabIndex        =   10
+         TabIndex        =   6
          Top             =   1320
          Width           =   1215
       End
@@ -393,7 +400,7 @@ Begin VB.Form PrgTipoClie
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   360
-         TabIndex        =   9
+         TabIndex        =   5
          Top             =   1320
          Width           =   1215
       End
@@ -411,7 +418,7 @@ Begin VB.Form PrgTipoClie
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   360
-         TabIndex        =   8
+         TabIndex        =   4
          Top             =   720
          Width           =   1335
       End
@@ -429,14 +436,14 @@ Begin VB.Form PrgTipoClie
          ForeColor       =   &H00800000&
          Height          =   375
          Left            =   360
-         TabIndex        =   7
+         TabIndex        =   3
          Top             =   360
          Width           =   1215
       End
    End
    Begin Crystal.CrystalReport Listado 
-      Left            =   8760
-      Top             =   240
+      Left            =   10320
+      Top             =   3720
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   262150
@@ -451,28 +458,11 @@ Begin VB.Form PrgTipoClie
    End
    Begin VB.ListBox WIndice 
       Height          =   255
-      Left            =   6240
-      TabIndex        =   5
-      Top             =   120
+      Left            =   9240
+      TabIndex        =   1
+      Top             =   3840
       Visible         =   0   'False
       Width           =   975
-   End
-   Begin VB.TextBox Descripcion 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2640
-      MaxLength       =   50
-      TabIndex        =   1
-      Top             =   600
-      Width           =   4575
    End
    Begin VB.ListBox Opcion 
       BeginProperty Font 
@@ -485,9 +475,9 @@ Begin VB.Form PrgTipoClie
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1980
-      Left            =   240
-      TabIndex        =   13
-      Top             =   2640
+      Left            =   3900
+      TabIndex        =   9
+      Top             =   2760
       Visible         =   0   'False
       Width           =   3615
    End
@@ -501,33 +491,14 @@ Begin VB.Form PrgTipoClie
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   2460
+      Height          =   2220
       ItemData        =   "tipoclie.frx":6F90
-      Left            =   240
+      Left            =   2340
       List            =   "tipoclie.frx":6F97
-      TabIndex        =   4
-      Top             =   2640
+      TabIndex        =   0
+      Top             =   2760
       Visible         =   0   'False
       Width           =   6735
-   End
-   Begin VB.Label lblLabels 
-      Caption         =   "Descripcion "
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00800000&
-      Height          =   255
-      Index           =   1
-      Left            =   120
-      TabIndex        =   3
-      Top             =   600
-      Width           =   2175
    End
    Begin VB.Label lblLabels 
       Caption         =   "Codigo "
@@ -543,10 +514,29 @@ Begin VB.Form PrgTipoClie
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   0
-      Left            =   120
-      TabIndex        =   2
-      Top             =   120
-      Width           =   2295
+      Left            =   1320
+      TabIndex        =   26
+      Top             =   360
+      Width           =   855
+   End
+   Begin VB.Label lblLabels 
+      Caption         =   "Descripcion "
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00800000&
+      Height          =   255
+      Index           =   1
+      Left            =   3600
+      TabIndex        =   25
+      Top             =   360
+      Width           =   1695
    End
 End
 Attribute VB_Name = "PrgTipoClie"
@@ -555,11 +545,22 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private WAuxi As String
+Private Const WMaxHeight = 5690
+Private Const WMinHeight = 2790
+Private WDatosValidos As Boolean
 
 Sub Imprime_Nombre()
 End Sub
 
 Sub Verifica_datos()
+    ' Comprobamos que hayan datos que guardar
+    If Trim(Codigo.Text) = "" Or Trim(Descripcion.Text) = "" Then
+    
+        MsgBox "Todos los datos son obligatorios.", vbInformation
+        WDatosValidos = False
+        Codigo.SetFocus
+        Exit Sub
+    End If
 End Sub
 
 Sub Format_datos()
@@ -575,8 +576,8 @@ Sub Imprime_Datos()
     If rstTipoClie.RecordCount > 0 Then
         Descripcion.Text = Trim(rstTipoClie!Descripcion)
         rstTipoClie.Close
-        Call Format_datos
-        Call Imprime_Nombre
+        'Call Format_datos
+        'Call Imprime_Nombre
     End If
 End Sub
 
@@ -636,6 +637,7 @@ Private Sub Acepta_Click()
     Codigo.SetFocus
     Listado.Action = 1
     Frame2.Visible = False
+    Call ContraerFormulario
     
 End Sub
 
@@ -645,13 +647,8 @@ Private Sub Cancela_Click()
 End Sub
 
 Private Sub cmdAdd_Click()
-    ' Comprobamos que hayan datos que guardar
-    If Trim(Codigo.Text) = "" Or Trim(Descripcion.Text) = "" Then
-    
-        MsgBox "Todos los datos son obligatorios.", vbInformation
-        Codigo.SetFocus
-        Exit Sub
-    End If
+        
+    Call Verifica_datos
     
     Dim XCodigo, XDescripcion As String
     XCodigo = Trim(Codigo.Text)
@@ -683,18 +680,10 @@ Private Sub cmdAdd_Click()
             Set rstTipoClie = db.OpenRecordset(spTipoClie, dbOpenSnapshot, dbSQLPassThrough)
         End If
         
-        
-        
-        
-        
-        
-        Rem Call CmdLimpiar_Click
-    
         m$ = "Grabacion realizada"
         aaaaaa% = MsgBox(m$, 0, "Archivo de Tipo de Clientes")
         
-        
-        Codigo.SetFocus
+        Call CmdLimpiar_Click
     
 End Sub
 
@@ -733,8 +722,14 @@ Private Sub CmdLimpiar_Click()
 
     On Error GoTo WError
     
+    
+    WDatosValidos = True
+    
     Codigo.Text = ""
     Descripcion.Text = ""
+    
+    Call ContraerFormulario
+    
     Codigo.SetFocus
     
     Rem ZSql = ""
@@ -776,6 +771,7 @@ Private Sub Lista_Click()
     Impresora.Value = True
     Frame2.Visible = True
     Desde.SetFocus
+    Call ExpandirFormulario
 End Sub
 
 Private Sub Descripcion_Keypress(KeyAscii As Integer)
@@ -845,6 +841,8 @@ Private Sub Consulta_Click()
      Opcion.ListIndex = 0
      Call Opcion_Click
      
+     Call ExpandirFormulario
+     
 End Sub
 
 Private Sub Opcion_Click()
@@ -863,7 +861,7 @@ Private Sub Opcion_Click()
     Select Case XIndice
         Case 0
             ZSql = ""
-            ZSql = ZSql + "Select *"
+            ZSql = ZSql + "Select Codigo, Descripcion"
             ZSql = ZSql + " FROM TipoClie"
             ZSql = ZSql + " Order by TipoClie.Descripcion"
             spTipoClie = ZSql
@@ -873,9 +871,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -906,33 +904,41 @@ Private Sub Pantalla_Click()
     Ayuda.Visible = False
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Codigo.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Codigo.Text = Trim(WIndice.List(indice))
             Call Codigo_KeyPress(13)
-            
+            Call ContraerFormulario
         Case Else
     End Select
     
+End Sub
+
+Private Sub ContraerFormulario()
+    Frame2.Visible = False
+    Me.Height = WMinHeight
+End Sub
+
+Private Sub ExpandirFormulario()
+    Me.Height = WMaxHeight
 End Sub
 
 Sub Form_Load()
 
     On Error GoTo WError
     
-    Codigo.Text = ""
-    Descripcion.Text = ""
+    Call CmdLimpiar_Click
     
-    Rem ZSql = ""
-    Rem ZSql = ZSql + "Select Max(Linea) as [LineaMayor]"
-    Rem ZSql = ZSql + " FROM TipoClie"
-    Rem spTipoClie = ZSql
-    Rem Set rstTipoClie = db.OpenRecordset(spTipoClie, dbOpenSnapshot, dbSQLPassThrough)
-    Rem If rstTipoClie.RecordCount > 0 Then
-    Rem     rstTipoClie.MoveLast
-    Rem     ZUltimo = IIf(IsNull(rstTipoClie!CodigoMayor), "0", rstTipoClie!CodigoMayor)
-    Rem     codigo.text = ZUltimo + 1
-    Rem     rstTipoClie.Close
-    Rem End If
+     ZSql = ""
+     ZSql = ZSql + "Select Codigo"
+     ZSql = ZSql + " FROM TipoClie"
+     spTipoClie = ZSql
+     Set rstTipoClie = db.OpenRecordset(spTipoClie, dbOpenSnapshot, dbSQLPassThrough)
+     If rstTipoClie.RecordCount > 0 Then
+         rstTipoClie.MoveLast
+         ZUltimo = IIf(IsNull(rstTipoClie!Codigo), "0", rstTipoClie!Codigo)
+         Codigo.Text = ZUltimo + 1
+         rstTipoClie.Close
+     End If
     
     Exit Sub
     
