@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form prgcliente 
@@ -22,25 +22,34 @@ Begin VB.Form prgcliente
       _ExtentX        =   19288
       _ExtentY        =   10821
       _Version        =   393216
-      Tab             =   1
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "cliente.frx":0000
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "lblLabels(0)"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "lblLabels(2)"
+      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "lblLabels(1)"
+      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).Control(3)=   "Frame4"
+      Tab(0).Control(3).Enabled=   0   'False
       Tab(0).Control(4)=   "Cliente"
+      Tab(0).Control(4).Enabled=   0   'False
       Tab(0).Control(5)=   "Razon"
+      Tab(0).Control(5).Enabled=   0   'False
       Tab(0).Control(6)=   "DatosAdicinales"
+      Tab(0).Control(6).Enabled=   0   'False
       Tab(0).Control(7)=   "Fantasia"
+      Tab(0).Control(7).Enabled=   0   'False
       Tab(0).Control(8)=   "Frame1"
+      Tab(0).Control(8).Enabled=   0   'False
       Tab(0).Control(9)=   "Frame5"
+      Tab(0).Control(9).Enabled=   0   'False
       Tab(0).ControlCount=   10
       TabCaption(1)   =   "Facturación"
       TabPicture(1)   =   "cliente.frx":001C
-      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "Label26"
       Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Label25"
@@ -109,7 +118,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   10440
+         Left            =   -64560
          MaxLength       =   50
          MultiLine       =   -1  'True
          TabIndex        =   114
@@ -120,7 +129,7 @@ Begin VB.Form prgcliente
       Begin VB.Frame Frame5 
          Caption         =   "Datos Impositivos"
          Height          =   1215
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   74
          Top             =   4680
          Width           =   10455
@@ -331,7 +340,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2280
+         Left            =   -72720
          MaxLength       =   6
          TabIndex        =   72
          Text            =   " "
@@ -341,7 +350,7 @@ Begin VB.Form prgcliente
       Begin VB.Frame Frame1 
          Caption         =   "Datos Domiciliarios"
          Height          =   1335
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   50
          Top             =   1320
          Width           =   10455
@@ -501,7 +510,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -72240
+         Left            =   2760
          MaxLength       =   50
          TabIndex        =   48
          Top             =   960
@@ -518,7 +527,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1485
-         Left            =   2280
+         Left            =   -72720
          MaxLength       =   50
          MultiLine       =   -1  'True
          TabIndex        =   36
@@ -538,7 +547,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2280
+         Left            =   -72720
          MaxLength       =   6
          TabIndex        =   35
          Text            =   " "
@@ -557,7 +566,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2280
+         Left            =   -72720
          MaxLength       =   6
          TabIndex        =   34
          Text            =   " "
@@ -575,7 +584,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2280
+         Left            =   -72720
          MaxLength       =   50
          TabIndex        =   33
          Top             =   2160
@@ -593,7 +602,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   6240
+         Left            =   -68760
          TabIndex        =   32
          Top             =   4800
          Width           =   1455
@@ -610,7 +619,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   9240
+         Left            =   -65760
          TabIndex        =   31
          Top             =   6720
          Visible         =   0   'False
@@ -628,7 +637,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   9120
+         Left            =   -65880
          TabIndex        =   30
          Top             =   6480
          Width           =   1695
@@ -645,7 +654,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   7920
+         Left            =   -67080
          TabIndex        =   29
          Top             =   4800
          Width           =   1695
@@ -661,7 +670,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   6960
+         Left            =   -68040
          TabIndex        =   28
          Text            =   " "
          Top             =   2520
@@ -679,7 +688,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   9120
+         Left            =   -65880
          MaxLength       =   15
          TabIndex        =   27
          Text            =   " "
@@ -697,7 +706,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   2280
+         Left            =   -72720
          MaxLength       =   50
          TabIndex        =   26
          Text            =   " "
@@ -715,7 +724,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   615
-         Left            =   -63120
+         Left            =   11880
          MouseIcon       =   "cliente.frx":0058
          MousePointer    =   99  'Custom
          Picture         =   "cliente.frx":0362
@@ -737,7 +746,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -70320
+         Left            =   4680
          MaxLength       =   50
          TabIndex        =   23
          Top             =   480
@@ -755,7 +764,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   285
-         Left            =   -73440
+         Left            =   1560
          MaxLength       =   10
          TabIndex        =   0
          Text            =   " "
@@ -764,7 +773,7 @@ Begin VB.Form prgcliente
       End
       Begin MSMask.MaskEdBox FechaAlta 
          Height          =   285
-         Left            =   8640
+         Left            =   -66360
          TabIndex        =   37
          Top             =   960
          Width           =   1575
@@ -788,7 +797,7 @@ Begin VB.Form prgcliente
       Begin VB.Frame Frame4 
          Caption         =   "Datos de Contacto"
          Height          =   1815
-         Left            =   -74760
+         Left            =   240
          TabIndex        =   59
          Top             =   2760
          Width           =   10455
@@ -1025,7 +1034,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   3240
+         Left            =   -71760
          TabIndex        =   98
          Top             =   1320
          Width           =   3855
@@ -1043,7 +1052,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   73
          Top             =   1320
          Width           =   1455
@@ -1062,7 +1071,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   1
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   49
          Top             =   960
          Width           =   1815
@@ -1080,7 +1089,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   720
+         Left            =   -74280
          TabIndex        =   47
          Top             =   3120
          Width           =   1575
@@ -1098,7 +1107,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   1155
+         Left            =   -73845
          TabIndex        =   46
          Top             =   1680
          Width           =   855
@@ -1117,7 +1126,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   3240
+         Left            =   -71760
          TabIndex        =   45
          Top             =   1680
          Width           =   3855
@@ -1135,7 +1144,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   285
-         Left            =   360
+         Left            =   -74640
          TabIndex        =   44
          Top             =   960
          Width           =   1815
@@ -1154,7 +1163,7 @@ Begin VB.Form prgcliente
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   3240
+         Left            =   -71760
          TabIndex        =   43
          Top             =   960
          Width           =   3855
@@ -1173,7 +1182,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   3
-         Left            =   160
+         Left            =   -74840
          TabIndex        =   42
          Top             =   2160
          Width           =   1935
@@ -1191,7 +1200,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   7560
+         Left            =   -67440
          TabIndex        =   41
          Top             =   960
          Width           =   1095
@@ -1209,7 +1218,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   5640
+         Left            =   -69360
          TabIndex        =   40
          Top             =   2520
          Width           =   855
@@ -1227,7 +1236,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   7800
+         Left            =   -67200
          TabIndex        =   39
          Top             =   2160
          Width           =   1215
@@ -1245,7 +1254,7 @@ Begin VB.Form prgcliente
          EndProperty
          ForeColor       =   &H00800000&
          Height          =   255
-         Left            =   1150
+         Left            =   -73850
          TabIndex        =   38
          Top             =   2520
          Width           =   975
@@ -1264,7 +1273,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   2
-         Left            =   -71640
+         Left            =   3360
          TabIndex        =   24
          Top             =   480
          Width           =   1215
@@ -1283,7 +1292,7 @@ Begin VB.Form prgcliente
          ForeColor       =   &H00800000&
          Height          =   255
          Index           =   0
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   22
          Top             =   480
          Width           =   735
@@ -1520,7 +1529,7 @@ Begin VB.Form prgcliente
       Top             =   6600
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   262150
+      _Version        =   348160
       Destination     =   1
       WindowTitle     =   "Listado de Clientes"
       WindowControlBox=   -1  'True
@@ -1530,6 +1539,7 @@ Begin VB.Form prgcliente
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
+      PrintFileLinesPerPage=   60
    End
    Begin VB.Frame Extras 
       Height          =   4335
