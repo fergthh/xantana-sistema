@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Begin VB.Form prgArticulo 
    AutoRedraw      =   -1  'True
@@ -40,7 +40,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   89
-      Top             =   1920
+      Top             =   2280
       Width           =   1095
    End
    Begin VB.TextBox StockIII 
@@ -60,7 +60,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   87
-      Top             =   1560
+      Top             =   1920
       Width           =   1095
    End
    Begin VB.TextBox StockV 
@@ -80,7 +80,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   85
-      Top             =   1920
+      Top             =   2280
       Width           =   1095
    End
    Begin VB.TextBox StockII 
@@ -100,7 +100,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   83
-      Top             =   1560
+      Top             =   1920
       Width           =   1095
    End
    Begin VB.TextBox StockIV 
@@ -120,7 +120,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   81
-      Top             =   1920
+      Top             =   2280
       Width           =   1095
    End
    Begin VB.TextBox StockI 
@@ -140,7 +140,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   79
-      Top             =   1560
+      Top             =   1920
       Width           =   1095
    End
    Begin VB.CommandButton Command1 
@@ -223,7 +223,7 @@ Begin VB.Form prgArticulo
          Width           =   7575
          _ExtentX        =   13361
          _ExtentY        =   7011
-         _Version        =   327680
+         _Version        =   393216
          BackColor       =   16777152
       End
    End
@@ -627,7 +627,7 @@ Begin VB.Form prgArticulo
          Width           =   11055
          _ExtentX        =   19500
          _ExtentY        =   4260
-         _Version        =   327680
+         _Version        =   393216
          BackColor       =   16777152
       End
       Begin MSMask.MaskEdBox Desde 
@@ -638,7 +638,7 @@ Begin VB.Form prgArticulo
          Width           =   1455
          _ExtentX        =   2566
          _ExtentY        =   503
-         _Version        =   327680
+         _Version        =   393216
          MaxLength       =   10
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -660,7 +660,7 @@ Begin VB.Form prgArticulo
          Width           =   1455
          _ExtentX        =   2566
          _ExtentY        =   503
-         _Version        =   327680
+         _Version        =   393216
          MaxLength       =   10
          BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
             Name            =   "MS Sans Serif"
@@ -905,7 +905,7 @@ Begin VB.Form prgArticulo
       Left            =   1080
       MaxLength       =   8
       TabIndex        =   32
-      Top             =   2520
+      Top             =   2880
       Width           =   855
    End
    Begin VB.TextBox Tamano 
@@ -919,12 +919,13 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   5760
+      Left            =   6600
       MaxLength       =   10
       TabIndex        =   30
       Text            =   " "
-      Top             =   0
-      Width           =   975
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   255
    End
    Begin VB.TextBox Calidad 
       BeginProperty Font 
@@ -937,12 +938,13 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   4680
+      Left            =   6240
       MaxLength       =   10
       TabIndex        =   29
       Text            =   " "
-      Top             =   0
-      Width           =   975
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   255
    End
    Begin VB.TextBox Fragancia 
       BeginProperty Font 
@@ -955,12 +957,13 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   3600
+      Left            =   5955
       MaxLength       =   10
       TabIndex        =   28
       Text            =   " "
-      Top             =   0
-      Width           =   975
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   180
    End
    Begin VB.TextBox Tipo 
       BeginProperty Font 
@@ -973,12 +976,13 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   2520
+      Left            =   5640
       MaxLength       =   10
       TabIndex        =   27
       Text            =   " "
-      Top             =   0
-      Width           =   975
+      Top             =   240
+      Visible         =   0   'False
+      Width           =   255
    End
    Begin VB.ComboBox Etiqueta 
       BeginProperty Font 
@@ -993,7 +997,7 @@ Begin VB.Form prgArticulo
       Height          =   315
       Left            =   6000
       TabIndex        =   25
-      Top             =   3240
+      Top             =   3600
       Width           =   1455
    End
    Begin VB.ComboBox Facturable 
@@ -1009,7 +1013,7 @@ Begin VB.Form prgArticulo
       Height          =   315
       Left            =   6000
       TabIndex        =   23
-      Top             =   2880
+      Top             =   3240
       Width           =   1455
    End
    Begin VB.TextBox DescripcionII 
@@ -1023,10 +1027,10 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   1440
+      Left            =   1560
       MaxLength       =   25
       TabIndex        =   22
-      Top             =   720
+      Top             =   960
       Width           =   3975
    End
    Begin VB.ComboBox Activo 
@@ -1042,7 +1046,7 @@ Begin VB.Form prgArticulo
       Height          =   315
       Left            =   1080
       TabIndex        =   20
-      Top             =   2880
+      Top             =   3240
       Width           =   1455
    End
    Begin VB.CommandButton ImpreVenta 
@@ -1056,14 +1060,14 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   615
-      Left            =   7080
+      Left            =   7200
       MouseIcon       =   "articulo.frx":0000
       MousePointer    =   99  'Custom
       Picture         =   "articulo.frx":030A
       Style           =   1  'Graphical
       TabIndex        =   19
       ToolTipText     =   "Pedidos de Clientes"
-      Top             =   0
+      Top             =   240
       Width           =   495
    End
    Begin VB.TextBox Stock 
@@ -1083,7 +1087,7 @@ Begin VB.Form prgArticulo
       Locked          =   -1  'True
       MaxLength       =   10
       TabIndex        =   17
-      Top             =   1200
+      Top             =   1560
       Width           =   1095
    End
    Begin VB.CommandButton CmdAdd 
@@ -1329,16 +1333,16 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   1440
+      Left            =   1560
       MaxLength       =   10
       TabIndex        =   0
       Text            =   " "
-      Top             =   0
-      Width           =   975
+      Top             =   240
+      Width           =   1935
    End
    Begin Crystal.CrystalReport Listado 
       Left            =   7800
-      Top             =   840
+      Top             =   960
       _ExtentX        =   741
       _ExtentY        =   741
       _Version        =   262150
@@ -1372,10 +1376,10 @@ Begin VB.Form prgArticulo
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   1440
+      Left            =   1560
       MaxLength       =   50
       TabIndex        =   2
-      Top             =   360
+      Top             =   600
       Width           =   5535
    End
    Begin VB.ListBox Pantalla 
@@ -1401,11 +1405,11 @@ Begin VB.Form prgArticulo
       Height          =   285
       Left            =   3000
       TabIndex        =   31
-      Top             =   2880
+      Top             =   3240
       Width           =   1575
       _ExtentX        =   2778
       _ExtentY        =   503
-      _Version        =   327680
+      _Version        =   393216
       MaxLength       =   10
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "MS Sans Serif"
@@ -1434,7 +1438,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   5280
       TabIndex        =   90
-      Top             =   1920
+      Top             =   2280
       Width           =   1215
    End
    Begin VB.Label Label21 
@@ -1452,7 +1456,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   5280
       TabIndex        =   88
-      Top             =   1560
+      Top             =   1920
       Width           =   1215
    End
    Begin VB.Label Label20 
@@ -1470,7 +1474,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   2760
       TabIndex        =   86
-      Top             =   1920
+      Top             =   2280
       Width           =   1215
    End
    Begin VB.Label Label18 
@@ -1488,7 +1492,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   2760
       TabIndex        =   84
-      Top             =   1560
+      Top             =   1920
       Width           =   1215
    End
    Begin VB.Label Label17 
@@ -1506,7 +1510,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   240
       TabIndex        =   82
-      Top             =   1920
+      Top             =   2280
       Width           =   1215
    End
    Begin VB.Label Label15 
@@ -1524,7 +1528,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   240
       TabIndex        =   80
-      Top             =   1560
+      Top             =   1920
       Width           =   1095
    End
    Begin VB.Label lblLabels 
@@ -1541,9 +1545,9 @@ Begin VB.Form prgArticulo
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   2
-      Left            =   240
+      Left            =   360
       TabIndex        =   77
-      Top             =   720
+      Top             =   960
       Width           =   1815
    End
    Begin VB.Label lblLabels 
@@ -1560,9 +1564,9 @@ Begin VB.Form prgArticulo
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   1
-      Left            =   240
+      Left            =   360
       TabIndex        =   76
-      Top             =   360
+      Top             =   600
       Width           =   1815
    End
    Begin VB.Label Label7 
@@ -1580,7 +1584,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   240
       TabIndex        =   34
-      Top             =   2520
+      Top             =   2880
       Width           =   1215
    End
    Begin VB.Label DesSector 
@@ -1598,7 +1602,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   3120
       TabIndex        =   33
-      Top             =   2520
+      Top             =   2880
       Width           =   1575
    End
    Begin VB.Label Label4 
@@ -1616,7 +1620,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   4800
       TabIndex        =   26
-      Top             =   3360
+      Top             =   3720
       Width           =   1335
    End
    Begin VB.Label Label3 
@@ -1634,7 +1638,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   4800
       TabIndex        =   24
-      Top             =   2880
+      Top             =   3240
       Width           =   1335
    End
    Begin VB.Line Line3 
@@ -1646,14 +1650,14 @@ Begin VB.Form prgArticulo
    Begin VB.Line Line2 
       X1              =   240
       X2              =   7680
-      Y1              =   2400
-      Y2              =   2400
+      Y1              =   2760
+      Y2              =   2760
    End
    Begin VB.Line Line1 
       X1              =   240
       X2              =   7680
-      Y1              =   1080
-      Y2              =   1080
+      Y1              =   1440
+      Y2              =   1440
    End
    Begin VB.Label Label41 
       Caption         =   "Activo"
@@ -1670,7 +1674,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   240
       TabIndex        =   21
-      Top             =   2880
+      Top             =   3240
       Width           =   1335
    End
    Begin VB.Label Label27 
@@ -1688,7 +1692,7 @@ Begin VB.Form prgArticulo
       Height          =   255
       Left            =   240
       TabIndex        =   18
-      Top             =   1200
+      Top             =   1560
       Width           =   855
    End
    Begin VB.Label Label19 
@@ -1713,9 +1717,9 @@ Begin VB.Form prgArticulo
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   0
-      Left            =   240
+      Left            =   360
       TabIndex        =   1
-      Top             =   0
+      Top             =   240
       Width           =   1815
    End
 End
@@ -2416,7 +2420,7 @@ Stop
 
 End Sub
 
-Private Sub Descripcion_KeyPress(KeyAscii As Integer)
+Private Sub Descripcion_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         DescripcionII.SetFocus
     End If
@@ -2619,6 +2623,7 @@ Private Sub Sector_Keypress(KeyAscii As Integer)
 End Sub
 
 Private Sub LInea_KeyPress(KeyAscii As Integer)
+    ' FALTA CONSULTAR EL FORMATO DE ENTRADA.
     If KeyAscii = 13 Then
         Linea.Text = UCase(Linea.Text)
         ZSql = ""
@@ -3012,33 +3017,33 @@ Private Sub Pantalla_Click()
     Ayuda.Visible = False
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Linea.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Linea.Text = WIndice.List(indice)
             Call LInea_KeyPress(13)
             
         Case 1
-            Indice = Pantalla.ListIndex
-            Tipo.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Tipo.Text = WIndice.List(indice)
             Call Tipo_KeyPress(13)
             
         Case 2
-            Indice = Pantalla.ListIndex
-            Fragancia.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Fragancia.Text = WIndice.List(indice)
             Call Fragancia_KeyPress(13)
             
         Case 3
-            Indice = Pantalla.ListIndex
-            Calidad.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Calidad.Text = WIndice.List(indice)
             Call Calidad_KeyPress(13)
             
         Case 4
-            Indice = Pantalla.ListIndex
-            Tamano.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Tamano.Text = WIndice.List(indice)
             Call Tamano_KeyPress(13)
             
         Case 6
-            Indice = Pantalla.ListIndex
-            Sector.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Sector.Text = WIndice.List(indice)
             Call Sector_Keypress(13)
                     
         Case Else

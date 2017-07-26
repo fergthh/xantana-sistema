@@ -2656,7 +2656,7 @@ End Sub
 
 Private Sub Prod_Click()
     If ZZNivel = 0 Then
-        prgArticulo.Show
+        prgArticulo2.Show
     End If
 End Sub
 
