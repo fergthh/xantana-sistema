@@ -1,7 +1,10 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
+Object = "{00028C01-0000-0000-0000-000000000046}#1.0#0"; "DBGRID32.OCX"
+Object = "{BEC61919-E6C4-11D1-BE7D-C63815000000}#1.0#0"; "FLEXWIZ.OCX"
 Begin VB.Form prgArticulo2 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
@@ -23,47 +26,178 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
-      Tab             =   2
+      Tab             =   1
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
       Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "Frame2"
-      Tab(0).Control(0).Enabled=   0   'False
-      Tab(0).Control(1)=   "Frame1"
-      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).Control(0)=   "Frame1"
+      Tab(0).Control(1)=   "Frame2"
       Tab(0).ControlCount=   2
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
-      Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Frame4"
+      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).Control(0)=   "Frame3"
       Tab(1).Control(0).Enabled=   0   'False
-      Tab(1).Control(1)=   "Frame3"
+      Tab(1).Control(1)=   "Frame7"
       Tab(1).Control(1).Enabled=   0   'False
-      Tab(1).ControlCount=   2
+      Tab(1).Control(2)=   "SubWizard1"
+      Tab(1).Control(2).Enabled=   0   'False
+      Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "Frame6"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame5"
-      Tab(2).Control(1).Enabled=   0   'False
       Tab(2).Control(2)=   "btnAsignarLista"
-      Tab(2).Control(2).Enabled=   0   'False
       Tab(2).ControlCount=   3
+      Begin MSFlexGridWizard.SubWizard SubWizard1 
+         Height          =   1455
+         Left            =   3960
+         TabIndex        =   44
+         Top             =   6720
+         Width           =   2295
+         _ExtentX        =   4048
+         _ExtentY        =   2566
+      End
+      Begin VB.Frame Frame7 
+         Caption         =   "Proveedores Relacionados"
+         Height          =   2295
+         Left            =   1320
+         TabIndex        =   42
+         Top             =   2040
+         Width           =   8655
+         Begin MSMask.MaskEdBox WTexto3 
+            Height          =   375
+            Left            =   7800
+            TabIndex        =   51
+            Top             =   1080
+            Visible         =   0   'False
+            Width           =   495
+            _ExtentX        =   873
+            _ExtentY        =   661
+            _Version        =   393216
+            MaxLength       =   10
+            Mask            =   "##/##/####"
+            PromptChar      =   " "
+         End
+         Begin VB.ComboBox WCombo1 
+            Height          =   315
+            Left            =   8160
+            TabIndex        =   54
+            Text            =   "Combo2"
+            Top             =   240
+            Visible         =   0   'False
+            Width           =   390
+         End
+         Begin VB.TextBox WTexto1 
+            Appearance      =   0  'Flat
+            BorderStyle     =   0  'None
+            Height          =   375
+            Left            =   6120
+            Locked          =   -1  'True
+            TabIndex        =   53
+            Top             =   1440
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox WTexto2 
+            Height          =   375
+            Left            =   6840
+            TabIndex        =   52
+            Top             =   960
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox WTitulo 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BorderStyle     =   0  'None
+            Height          =   375
+            Index           =   0
+            Left            =   7920
+            Locked          =   -1  'True
+            TabIndex        =   50
+            Top             =   720
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox WTitulo 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BorderStyle     =   0  'None
+            Height          =   375
+            Index           =   1
+            Left            =   7320
+            Locked          =   -1  'True
+            TabIndex        =   49
+            Top             =   600
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox WTitulo 
+            Alignment       =   2  'Center
+            BorderStyle     =   0  'None
+            Height          =   375
+            Index           =   2
+            Left            =   7320
+            Locked          =   -1  'True
+            TabIndex        =   48
+            Top             =   1440
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox WTitulo 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BorderStyle     =   0  'None
+            Height          =   375
+            Index           =   3
+            Left            =   6720
+            Locked          =   -1  'True
+            TabIndex        =   47
+            Top             =   1440
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox WTitulo 
+            Alignment       =   2  'Center
+            Appearance      =   0  'Flat
+            BorderStyle     =   0  'None
+            Height          =   375
+            Index           =   4
+            Left            =   6600
+            Locked          =   -1  'True
+            TabIndex        =   46
+            Top             =   480
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin MSFlexGridLib.MSFlexGrid WVector1 
+            Height          =   1815
+            Left            =   240
+            TabIndex        =   45
+            Top             =   360
+            Width           =   8175
+            _ExtentX        =   14420
+            _ExtentY        =   3201
+            _Version        =   393216
+            OLEDropMode     =   1
+         End
+      End
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   6720
-         TabIndex        =   44
+         Left            =   -68280
+         TabIndex        =   41
          Top             =   4980
          Width           =   3375
       End
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   1440
-         TabIndex        =   41
+         Left            =   -73560
+         TabIndex        =   38
          Top             =   540
          Width           =   8655
          Begin VB.ComboBox Combo1 
@@ -78,7 +212,7 @@ Begin VB.Form prgArticulo2
             EndProperty
             Height          =   315
             Left            =   3480
-            TabIndex        =   42
+            TabIndex        =   39
             Top             =   720
             Width           =   1575
          End
@@ -96,7 +230,7 @@ Begin VB.Form prgArticulo2
             ForeColor       =   &H00800000&
             Height          =   255
             Left            =   3960
-            TabIndex        =   43
+            TabIndex        =   40
             Top             =   480
             Width           =   855
          End
@@ -104,47 +238,23 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   1440
-         TabIndex        =   39
+         Left            =   -73560
+         TabIndex        =   37
          Top             =   2220
          Width           =   8655
-         Begin MSFlexGridLib.MSFlexGrid MSFlexGrid1 
-            Height          =   2055
-            Left            =   240
-            TabIndex        =   40
-            Top             =   360
-            Width           =   8175
-            _ExtentX        =   14420
-            _ExtentY        =   3625
-            _Version        =   393216
-            Cols            =   3
-            AllowUserResizing=   1
-         End
-      End
-      Begin VB.Frame Frame4 
-         Caption         =   "Proveedores Relacionados"
-         Height          =   2175
-         Left            =   -73680
-         TabIndex        =   29
-         Top             =   2040
-         Width           =   8655
-         Begin MSFlexGridLib.MSFlexGrid GridProveedoresRelacionados 
-            Height          =   1575
-            Left            =   240
-            TabIndex        =   30
-            Top             =   360
-            Width           =   8175
-            _ExtentX        =   14420
-            _ExtentY        =   2778
-            _Version        =   393216
-            Cols            =   3
-            AllowUserResizing=   1
+         Begin MSDBGrid.DBGrid DBGrid1 
+            Height          =   1935
+            Left            =   360
+            OleObjectBlob   =   "articulo2.frx":0054
+            TabIndex        =   43
+            Top             =   480
+            Width           =   7935
          End
       End
       Begin VB.Frame Frame3 
          Caption         =   "Costo Actual (En Dolares)"
          Height          =   1095
-         Left            =   -73680
+         Left            =   1320
          TabIndex        =   26
          Top             =   720
          Width           =   8655
@@ -185,7 +295,7 @@ Begin VB.Form prgArticulo2
             Height          =   1575
             Left            =   1440
             MultiLine       =   -1  'True
-            TabIndex        =   38
+            TabIndex        =   36
             Top             =   360
             Width           =   7455
          End
@@ -210,7 +320,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   5670
             MaxLength       =   8
-            TabIndex        =   37
+            TabIndex        =   35
             Top             =   840
             Width           =   735
          End
@@ -227,7 +337,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   4920
             MaxLength       =   50
-            TabIndex        =   33
+            TabIndex        =   31
             Top             =   360
             Width           =   5055
          End
@@ -244,7 +354,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   2040
             MaxLength       =   25
-            TabIndex        =   31
+            TabIndex        =   29
             Top             =   840
             Width           =   2895
          End
@@ -280,7 +390,7 @@ Begin VB.Form prgArticulo2
             EndProperty
             Height          =   285
             Left            =   6480
-            TabIndex        =   36
+            TabIndex        =   34
             Top             =   840
             Width           =   3495
          End
@@ -299,7 +409,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   3
             Left            =   5040
-            TabIndex        =   35
+            TabIndex        =   33
             Top             =   840
             Width           =   735
          End
@@ -318,7 +428,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   1
             Left            =   360
-            TabIndex        =   34
+            TabIndex        =   32
             Top             =   840
             Width           =   1695
          End
@@ -337,7 +447,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   2
             Left            =   3720
-            TabIndex        =   32
+            TabIndex        =   30
             Top             =   360
             Width           =   1095
          End
@@ -375,9 +485,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   7320
-      MouseIcon       =   "articulo2.frx":0054
+      MouseIcon       =   "articulo2.frx":0D9F
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":035E
+      Picture         =   "articulo2.frx":10A9
       TabIndex        =   20
       ToolTipText     =   "Consulta de Datos"
       Top             =   8880
@@ -396,9 +506,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   6240
-      MouseIcon       =   "articulo2.frx":0BA0
+      MouseIcon       =   "articulo2.frx":18EB
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":0EAA
+      Picture         =   "articulo2.frx":1BF5
       TabIndex        =   19
       ToolTipText     =   "Limpia la pantalla"
       Top             =   8880
@@ -417,9 +527,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   5160
-      MouseIcon       =   "articulo2.frx":16EC
+      MouseIcon       =   "articulo2.frx":2437
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":19F6
+      Picture         =   "articulo2.frx":2741
       TabIndex        =   18
       ToolTipText     =   "Elimina el Registro"
       Top             =   8880
@@ -438,9 +548,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   4080
-      MouseIcon       =   "articulo2.frx":2238
+      MouseIcon       =   "articulo2.frx":2F83
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":2542
+      Picture         =   "articulo2.frx":328D
       TabIndex        =   17
       ToolTipText     =   "Graba los Datos Ingresados"
       Top             =   8880
@@ -476,9 +586,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   615
       Left            =   13080
-      MouseIcon       =   "articulo2.frx":2D84
+      MouseIcon       =   "articulo2.frx":3ACF
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":308E
+      Picture         =   "articulo2.frx":3DD9
       Style           =   1  'Graphical
       TabIndex        =   10
       ToolTipText     =   "Pedidos de Clientes"
@@ -498,9 +608,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   12720
-      MouseIcon       =   "articulo2.frx":3958
+      MouseIcon       =   "articulo2.frx":46A3
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":3C62
+      Picture         =   "articulo2.frx":49AD
       TabIndex        =   9
       ToolTipText     =   "Salida"
       Top             =   8880
@@ -519,9 +629,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   8400
-      MouseIcon       =   "articulo2.frx":44A4
+      MouseIcon       =   "articulo2.frx":51EF
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":47AE
+      Picture         =   "articulo2.frx":54F9
       TabIndex        =   8
       ToolTipText     =   "Primer Registro"
       Top             =   8880
@@ -540,9 +650,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   9480
-      MouseIcon       =   "articulo2.frx":4BF0
+      MouseIcon       =   "articulo2.frx":593B
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":4EFA
+      Picture         =   "articulo2.frx":5C45
       TabIndex        =   7
       ToolTipText     =   "Registro Anterior"
       Top             =   8880
@@ -561,9 +671,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   10560
-      MouseIcon       =   "articulo2.frx":533C
+      MouseIcon       =   "articulo2.frx":6087
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":5646
+      Picture         =   "articulo2.frx":6391
       TabIndex        =   6
       ToolTipText     =   "Registro Siguiente"
       Top             =   8880
@@ -582,9 +692,9 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   11640
-      MouseIcon       =   "articulo2.frx":5A88
+      MouseIcon       =   "articulo2.frx":67D3
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":5D92
+      Picture         =   "articulo2.frx":6ADD
       TabIndex        =   5
       ToolTipText     =   "Salida"
       Top             =   8880
@@ -644,9 +754,9 @@ Begin VB.Form prgArticulo2
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2460
-      ItemData        =   "articulo2.frx":61D4
+      ItemData        =   "articulo2.frx":6F1F
       Left            =   9480
-      List            =   "articulo2.frx":61DB
+      List            =   "articulo2.frx":6F26
       TabIndex        =   0
       Top             =   6120
       Visible         =   0   'False
@@ -777,6 +887,16 @@ Private WPlazo1 As Integer
 Private WVencimiento As String
 
 Dim WMovi(20000, 3) As String
+
+Dim mRow As Integer
+Dim mCol As Integer
+Dim mColSel As Integer
+Dim mText As String
+
+' CONTROLES PARA GRILLA
+Private WParametros(4, 5)
+Private WFormato(100) As String
+Private WControl As String
 
 
 Sub Imprime_Descripcion()
@@ -1428,13 +1548,9 @@ Private Sub CmdLimpiar_Click()
 End Sub
 
 Private Sub CmdClose_Click()
-    prgArticulo.Hide
+    prgArticulo2.Hide
     Unload Me
     MenuVen.Show
-End Sub
-
-Private Sub Codigo_Change()
-
 End Sub
 
 Private Sub Codigo_KeyPress(KeyAscii As Integer)
@@ -1507,6 +1623,27 @@ Stop
 
 End Sub
 
+Private Sub DBGrid1_KeyPress(KeyAscii As Integer)
+
+    If KeyAscii = 13 Then
+        With DBGrid1
+            
+            Select Case .Col
+            
+            Case 3
+                
+            
+            End Select
+            
+        End With
+        
+    ElseIf KeyAscii = 27 Then
+        DBGrid1.Text = ""
+    End If
+    
+
+End Sub
+
 Private Sub Descripcion_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         DescripcionII.SetFocus
@@ -1536,7 +1673,7 @@ Private Sub Lista_KeyPress(KeyAscii As Integer)
         If rstLista.RecordCount > 0 Then
             DesLista.Caption = rstLista!Descripcion
             rstLista.Close
-            ZSql = ""
+             ZSql = ""
             ZSql = ZSql + "Select *"
             ZSql = ZSql + " FROM Precios"
             ZSql = ZSql + " Where Precios.Lista = " + "'" + Lista.Text + "'"
@@ -2141,79 +2278,71 @@ End Sub
 
 Sub Form_Load()
     
+    'Linea.Text = ""
+    'Tipo.Text = ""
+    'Fragancia.Text = ""
+    'Calidad.Text = ""
+    'Tamano.Text = ""
+    'Descripcion.Text = ""
+    'DescripcionII.Text = ""
+    'Sector.Text = ""
+    'DesSector.Caption = ""
+    'Stock.Text = ""
+    'StockI.Text = ""
+    'StockII.Text = ""
+    'StockII.Text = ""
+    'StockIV.Text = ""
+    'StockV.Text = ""
+    'StockVI.Text = ""
+    'FechaInactivo.Text = "  /  /    "
+    'Lista.Text = "0"
+    'DesLista.Caption = ""
+    'Desde.Text = "  /  /    "
+    'Hasta.Text = "  /  /    "
+    'Tope1.Text = ""
+    'Valor1.Text = ""
+    'Tope2.Text = ""
+    'Valor2.Text = ""
+    'Tope3.Text = ""
+    'Valor3.Text = ""
+    'Tope4.Text = ""
+    'Valor4.Text = ""
+   '
+    'Moneda.Clear
     
-    With GridProveedoresRelacionados
-        .ColWidth(0) = 6950 / 3
-        .ColWidth(1) = 6950 / 3
-        .ColWidth(2) = 6950 / 3
-    End With
-    Exit Sub
+    'Moneda.AddItem "Pesos"
+    'Moneda.AddItem "Dolares"
+    
+    'Moneda.ListIndex = 1
+    
+    'TipoBusqueda.Value = 0
+    
+    'Activo.Clear
+    
+    'Activo.AddItem "Si"
+    'Activo.AddItem "No"
+    
+    'Activo.ListIndex = 0
 
-    Linea.Text = ""
-    Tipo.Text = ""
-    Fragancia.Text = ""
-    Calidad.Text = ""
-    Tamano.Text = ""
-    Descripcion.Text = ""
-    DescripcionII.Text = ""
-    Sector.Text = ""
-    DesSector.Caption = ""
-    Stock.Text = ""
-    StockI.Text = ""
-    StockII.Text = ""
-    StockII.Text = ""
-    StockIV.Text = ""
-    StockV.Text = ""
-    StockVI.Text = ""
-    FechaInactivo.Text = "  /  /    "
-    Lista.Text = "0"
-    DesLista.Caption = ""
-    Desde.Text = "  /  /    "
-    Hasta.Text = "  /  /    "
-    Tope1.Text = ""
-    Valor1.Text = ""
-    Tope2.Text = ""
-    Valor2.Text = ""
-    Tope3.Text = ""
-    Valor3.Text = ""
-    Tope4.Text = ""
-    Valor4.Text = ""
-    
-    Moneda.Clear
-    
-    Moneda.AddItem "Pesos"
-    Moneda.AddItem "Dolares"
-    
-    Moneda.ListIndex = 1
-    
-    TipoBusqueda.Value = 0
-    
-    Activo.Clear
-    
-    Activo.AddItem "Si"
-    Activo.AddItem "No"
-    
-    Activo.ListIndex = 0
-
-    Facturable.Clear
+    'Facturable.Clear
      
-    Facturable.AddItem "Si"
-    Facturable.AddItem "No"
+    'Facturable.AddItem "Si"
+    'Facturable.AddItem "No"
     
-    Facturable.ListIndex = 0
+    'Facturable.ListIndex = 0
      
     
-    Etiqueta.Clear
+    'Etiqueta.Clear
     
-    Etiqueta.AddItem ""
-    Etiqueta.AddItem "Si"
-    Etiqueta.AddItem "No"
+    'Etiqueta.AddItem ""
+    'Etiqueta.AddItem "Si"
+    'Etiqueta.AddItem "No"
     
-    Etiqueta.ListIndex = 0
+    'Etiqueta.ListIndex = 0
     
     Call Limpia_Vector
-    Call Limpia_Vector2
-    Call LInea_DblClick
+    'Call Limpia_Vector2
+    'Call LInea_DblClick
     
 End Sub
 
@@ -2735,10 +2864,7 @@ Private Sub Siguiente_Click()
     End If
 End Sub
 
-
-
-
-Private Sub Limpia_Vector()
+Private Sub Limpia_VectorII()
 
     WVector1.Clear
 
@@ -2750,9 +2876,9 @@ Private Sub Limpia_Vector()
     ' Establesco loa Valores de la wvector1
     
     WVector1.FixedCols = 1
-    WVector1.Cols = 3
+    WVector1.Cols = 5
     WVector1.FixedRows = 1
-    WVector1.Rows = 10001
+    WVector1.Rows = 10
     
     Rem Descripcion de los datos a Informar
     
@@ -2788,14 +2914,164 @@ Private Sub Limpia_Vector()
         WVector1.Col = Ciclo
         Select Case Ciclo
             Case 1
-                WVector1.Text = "Codigo"
-                WVector1.ColWidth(Ciclo) = 2000
+                WVector1.Text = "ID"
+                WVector1.ColWidth(Ciclo) = 700
                 WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 10
+                WParametros(2, Ciclo) = 0
+                WParametros(3, Ciclo) = 1
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = ""
             Case 2
                 WVector1.Text = "Descripcion"
                 WVector1.ColWidth(Ciclo) = 5000
                 WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
-       End Select
+                WParametros(1, Ciclo) = 25
+                WParametros(2, Ciclo) = 0
+                WParametros(3, Ciclo) = 0
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = ""
+            Case 3
+                WVector1.Text = "Fecha"
+                WVector1.ColWidth(Ciclo) = 700
+                WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 10
+                WParametros(2, Ciclo) = 0
+                WParametros(3, Ciclo) = 2
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = ""
+            Case 4
+                WVector1.Text = "Costo"
+                WVector1.ColWidth(Ciclo) = 700
+                WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 50
+                WParametros(2, Ciclo) = 0
+                WParametros(3, Ciclo) = 1
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = "######.##"
+        End Select
+    Next Ciclo
+    
+    Rem DESPILEGA LOS TITULOS
+    
+    WVector1.Row = 0
+    For Ciclo = 1 To WVector1.Cols - 1
+        WVector1.Col = Ciclo
+        WTitulo(Ciclo).Text = WVector1.Text
+        WTitulo(Ciclo).Left = WVector1.CellLeft + WVector1.Left
+        WTitulo(Ciclo).Top = WVector1.CellTop + WVector1.Top
+        WTitulo(Ciclo).Width = WVector1.CellWidth
+        WTitulo(Ciclo).Height = WVector1.CellHeight
+        WTitulo(Ciclo).Visible = True
+    Next Ciclo
+    
+    Rem CALCULA EL ANCHO TOTAL DE LA wvector1
+    
+    WAncho = 400
+    For Ciclo = 0 To WVector1.Cols - 1
+        WAncho = WAncho + WVector1.ColWidth(Ciclo)
+    Next Ciclo
+    WVector1.Width = WAncho
+
+    ' Size the columns.
+    Font.Name = WVector1.Font.Name
+    Font.Size = WVector1.Font.Size
+    
+    Rem Parametro que indica que el usuario puede
+    Rem modificar el Tamano de las celdas
+    WVector1.AllowUserResizing = flexResizeBoth
+    
+    WVector1.Col = 1
+    WVector1.Row = 1
+    
+End Sub
+
+Private Sub Limpia_Vector()
+
+    WVector1.Clear
+
+    Rem ponga la wvector1 en negritas
+    WVector1.Font.Bold = True
+
+    ' Inicalizo los Valores de las Variables
+    
+    ' Establesco loa Valores de la wvector1
+    
+    WVector1.FixedCols = 1
+    WVector1.Cols = 5
+    WVector1.FixedRows = 1
+    WVector1.Rows = 10
+    
+    Rem Descripcion de los datos a Informar
+    
+    Rem Titulo
+    Rem WVector1.Text = "Articulo"
+    
+    Rem Longitud
+    Rem WVector1.ColWidth(Ciclo) = 1200
+    
+    Rem Alineacion de la columna
+    Rem WVector1.ColAlignment(Ciclo) = flexAlignRightCenter
+    
+    Rem cantidad maxima de caracteres
+    Rem WParametros(1, 1) = 4
+
+    Rem indica si el campo es editable
+    Rem (0 es editable, 1 no es editable)
+    Rem WParametros(2, 1) = 0
+    
+    Rem tipo de datos del ingreso
+    Rem (0 si es texto, 1 si es numerico, 2 si es fecha)
+    Rem WParametros(3, 1) = 0
+    
+    Rem SI ES TEXTO O COMBO
+    Rem (0 si es texto, 1 SI ES COMBO)
+    Rem WParametros(4, 1) = 0
+    
+    Rem Descripcion de los datos a Informar
+    
+    WVector1.ColWidth(0) = 200
+    WVector1.Row = 0
+    For Ciclo = 1 To WVector1.Cols - 1
+        WVector1.Col = Ciclo
+        Select Case Ciclo
+            Case 1
+                WVector1.Text = "ID"
+                WVector1.ColWidth(Ciclo) = 700
+                WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 10
+                WParametros(2, Ciclo) = 1
+                WParametros(3, Ciclo) = 1
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = ""
+            Case 2
+                WVector1.Text = "Descripcion"
+                WVector1.ColWidth(Ciclo) = 5000
+                WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 25
+                WParametros(2, Ciclo) = 1
+                WParametros(3, Ciclo) = 0
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = ""
+            Case 3
+                WVector1.Text = "Fecha"
+                WVector1.ColWidth(Ciclo) = 700
+                WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 10
+                WParametros(2, Ciclo) = 1
+                WParametros(3, Ciclo) = 2
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = ""
+            Case 4
+                WVector1.Text = "Costo"
+                WVector1.ColWidth(Ciclo) = 700
+                WVector1.ColAlignment(Ciclo) = flexAlignLeftCenter
+                WParametros(1, Ciclo) = 50
+                WParametros(2, Ciclo) = 1
+                WParametros(3, Ciclo) = 1
+                WParametros(4, Ciclo) = 0
+                WFormato(Ciclo) = "######.##"
+        End Select
     Next Ciclo
     
     Rem DESPILEGA LOS TITULOS
@@ -2895,30 +3171,6 @@ End Sub
 
 
 Private Sub WVector1_DblClick()
-
-    WVector1.Col = 1
-    ZZClave = WVector1.Text
-    
-    ZSql = ""
-    ZSql = ZSql + "Select *"
-    ZSql = ZSql + " FROM Articulo"
-    ZSql = ZSql + " Where Articulo.Codigo = " + "'" + ZZClave + "'"
-    spArticulo = ZSql
-    Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-    If rstArticulo.RecordCount > 0 Then
-        Linea.Text = rstArticulo!Linea
-        Tipo.Text = rstArticulo!Tipo
-        Fragancia.Text = rstArticulo!Fragancia
-        Calidad.Text = rstArticulo!Calidad
-        Tamano.Text = rstArticulo!Tamano
-        rstArticulo.Close
-        Call Tamano_KeyPress(13)
-        Linea.SetFocus
-    End If
-    
-End Sub
-
-Private Sub WVector1_Click()
 
     WVector1.Col = 1
     ZZClave = WVector1.Text
@@ -3117,3 +3369,458 @@ Private Sub LeeHistorial()
     End If
 End Sub
 
+Rem
+Rem Controles de la wvector1
+Rem
+
+Private Sub GridEditText(ByVal KeyAscii As Integer)
+
+    XColumna = WVector1.Col
+    XTipoDato = WParametros(3, XColumna)
+
+    Select Case XTipoDato
+        Case 0
+            WTexto1.Left = WVector1.CellLeft + WVector1.Left
+            WTexto1.Top = WVector1.CellTop + WVector1.Top
+            WTexto1.Width = WVector1.CellWidth
+            WTexto1.Height = WVector1.CellHeight
+            WTexto1.MaxLength = WParametros(1, XColumna)
+            Select Case KeyAscii
+                Case 0 To Asc(" ")
+                    WTexto1.Text = WVector1.Text
+                    WTexto1.SelStart = Len(WTexto1.Text)
+                Case Else
+                    WTexto1.Text = Chr$(KeyAscii)
+                    WTexto1.SelStart = 1
+            End Select
+            WTexto1.Visible = True
+            WTexto1.SetFocus
+        Case 1
+            WTexto2.Left = WVector1.CellLeft + WVector1.Left
+            WTexto2.Top = WVector1.CellTop + WVector1.Top
+            WTexto2.Width = WVector1.CellWidth
+            WTexto2.Height = WVector1.CellHeight
+            WTexto2.MaxLength = WParametros(1, XColumna)
+            Select Case KeyAscii
+                Case 0 To Asc(" ")
+                    WTexto2.Text = WVector1.Text
+                    Rem WTexto2.SelStart = Len(WTexto2.Text)
+                    WTexto2.SelStart = 0
+                Case Else
+                    WTexto2.Text = Chr$(KeyAscii)
+                    WTexto2.SelStart = 1
+            End Select
+            WTexto2.Visible = True
+            WTexto2.SetFocus
+        Case 2
+            WTexto3.Left = WVector1.CellLeft + WVector1.Left
+            WTexto3.Top = WVector1.CellTop + WVector1.Top
+            WTexto3.Width = WVector1.CellWidth
+            WTexto3.Height = WVector1.CellHeight
+            Select Case KeyAscii
+                Case 0 To Asc(" ")
+                    If Len(WVector1.Text) = 10 Then
+                        WTexto3.Text = WVector1.Text
+                            Else
+                        WTexto3.Mask = ""
+                        WTexto3.Text = ""
+                        WTexto3.Mask = "##/##/####"
+                    End If
+                    WTexto3.SelStart = 0
+                Case Else
+                    WTexto3.Text = Chr$(KeyAscii) + " /  /    "
+                    WTexto3.SelStart = 1
+            End Select
+            WTexto3.Visible = True
+            WTexto3.SetFocus
+        Case Else
+    End Select
+
+End Sub
+
+Private Sub EndEdit()
+    Pasa = 0
+    If WCombo1.Visible Then
+        Pasa = 0
+        WVector1.Text = WCombo1.Text
+        WCombo1.Visible = False
+            Else
+        If WTexto1.Visible Then
+            Pasa = 1
+            If Trim(WTexto1.Text) = "" Then
+                WVector1.Text = ""
+            Else
+                WVector1.Text = WTexto1.Text
+            End If
+            WTexto1.Visible = False
+                Else
+            If WTexto2.Visible Then
+                Pasa = 1
+                If Trim(WTexto2.Text) = "" Then
+                    WVector1.Text = ""
+                Else
+                    WVector1.Text = WTexto2.Text
+                End If
+                WTexto2.Visible = False
+                    Else
+                If WTexto3.Visible Then
+                    Pasa = 1
+                    If Trim(Replace(WTexto3.Text, "/", "")) = "" Then
+                        WVector1.Text = ""
+                    Else
+                        WVector1.Text = WTexto3.Text
+                    End If
+                    WTexto3.Visible = False
+                End If
+            End If
+        End If
+    End If
+    If Pasa = 1 Then
+        If WFormato(WVector1.Col) <> "" And Trim(WVector1.Text) <> "" Then
+            WVector1.Text = Pusing(WFormato(WVector1.Col), WVector1.Text)
+            'WVector1.Text = WVector1.Text
+        End If
+        Rem Call Suma_Datos
+    End If
+End Sub
+
+Private Sub GridEditCombo()
+    ' Position the ComboBox over the cell.
+    WCombo1.Left = WVector1.CellLeft + WVector1.Left
+    WCombo1.Top = WVector1.CellTop + WVector1.Top
+    WCombo1.Width = WVector1.CellWidth
+    WCombo1.Visible = True
+    WCombo1.SetFocus
+End Sub
+
+Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
+    Select Case KeyCode
+        Case vbKeyEscape
+            WTexto1.Text = ""
+            
+        Rem F1
+        Case 113
+            WTexto1.Text = WVector1.Text
+
+        Case vbKeyReturn
+            ' Finish editing.
+            WVector1.SetFocus
+            DoEvents
+            Call Control_Campo
+            'If WControl = "S" Then
+                Call Control_wvector1
+            'End If
+            Call StartEdit
+
+        Case vbKeyDown
+            ' Move down 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row < WVector1.Rows - 1 Then
+                Call Control_Campo
+             '   If WControl = "S" Then
+                    WVector1.Row = WVector1.Row + 1
+              '  End If
+            End If
+            Call StartEdit
+
+        Case vbKeyUp
+            ' Move up 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row > WVector1.FixedRows Then
+                Call Control_Campo
+               ' If WControl = "S" Then
+                    WVector1.Row = WVector1.Row - 1
+                'End If
+            End If
+            Call StartEdit
+        Case 34
+            ' Move down 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.TopRow < WVector1.Rows - 12 Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.TopRow = WVector1.TopRow + 12
+                    WVector1.Row = WVector1.TopRow
+                Rem End If
+            End If
+            Call StartEdit
+            
+        Case 33
+            ' Move up 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.TopRow - 12 > WVector1.FixedRows Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.TopRow = WVector1.TopRow - 12
+                    WVector1.Row = WVector1.TopRow
+                        Else
+                    WVector1.TopRow = 1
+                    WVector1.Row = WVector1.TopRow
+                Rem End If
+            End If
+            Call StartEdit
+
+    End Select
+End Sub
+
+Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
+    Select Case KeyCode
+        Case vbKeyEscape
+            WTexto2.Text = ""
+            
+        Rem F1
+        Case 113
+            WTexto2.Text = WVector1.Text
+
+        Case vbKeyReturn
+            ' Finish editing.
+            WVector1.SetFocus
+            DoEvents
+            Call Control_Campo
+            'If WControl = "S" Then
+                Call Control_wvector1
+            'End If
+            Call StartEdit
+    
+        Case vbKeyDown
+            ' Move down 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row < WVector1.Rows - 1 Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.Row = WVector1.Row + 1
+                Rem End If
+            End If
+            Call StartEdit
+
+        Case vbKeyUp
+            ' Move up 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row > WVector1.FixedRows Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.Row = WVector1.Row - 1
+                Rem End If
+            End If
+            Call StartEdit
+        Case 34
+            ' Move down 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.TopRow < WVector1.Rows - 12 Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.TopRow = WVector1.TopRow + 12
+                    WVector1.Row = WVector1.TopRow
+                Rem End If
+            End If
+            Call StartEdit
+            
+        Case 33
+            ' Move up 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.TopRow - 12 > WVector1.FixedRows Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.TopRow = WVector1.TopRow - 12
+                    WVector1.Row = WVector1.TopRow
+                        Else
+                    WVector1.TopRow = 1
+                    WVector1.Row = WVector1.TopRow
+                Rem End If
+            End If
+            Call StartEdit
+
+    End Select
+End Sub
+
+Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
+    Select Case KeyCode
+        Case vbKeyEscape
+            ' Leave the text unchanged.
+            WTexto3.Mask = ""
+            WTexto3.Text = ""
+            
+        Rem F1
+        Case 113
+            WTexto3.Text = WVector1.Text
+
+        Case vbKeyReturn
+            ' Finish editing.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row < WVector1.Rows - 1 Then
+                'Call Control_Campo
+                'If WControl = "S" Then
+                    WVector1.Row = WVector1.Row + 1
+                'End If
+            End If
+            Call StartEdit
+
+        Case vbKeyDown
+            ' Move down 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row < WVector1.Rows - 1 Then
+                Call Control_Campo
+             '   If WControl = "S" Then
+                    WVector1.Row = WVector1.Row + 1
+              '  End If
+            End If
+            Call StartEdit
+
+        Case vbKeyUp
+            ' Move up 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.Row > WVector1.FixedRows Then
+                Call Control_Campo
+               ' If WControl = "S" Then
+                    WVector1.Row = WVector1.Row - 1
+               ' End If
+            End If
+            Call StartEdit
+        Case 34
+            ' Move down 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.TopRow < WVector1.Rows - 12 Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.TopRow = WVector1.TopRow + 12
+                    WVector1.Row = WVector1.TopRow
+                Rem End If
+            End If
+            Call StartEdit
+            
+        Case 33
+            ' Move up 1 row.
+            WVector1.SetFocus
+            DoEvents
+            If WVector1.TopRow - 12 > WVector1.FixedRows Then
+                Rem Call Control_Campo
+                Rem If WControl = "S" Then
+                    WVector1.TopRow = WVector1.TopRow - 12
+                    WVector1.Row = WVector1.TopRow
+                        Else
+                    WVector1.TopRow = 1
+                    WVector1.Row = WVector1.TopRow
+                Rem End If
+            End If
+            Call StartEdit
+
+    End Select
+End Sub
+
+' Do not beep on Return or Escape.
+Private Sub WTexto1_KeyPress(KeyAscii As Integer)
+    If (KeyAscii = vbKeyReturn) Or _
+       (KeyAscii = vbKeyEscape) _
+            Then KeyAscii = 0
+End Sub
+
+' Do not beep on Return or Escape.
+Private Sub WTexto2_KeyPress(KeyAscii As Integer)
+    If (KeyAscii = vbKeyReturn) Or _
+       (KeyAscii = vbKeyEscape) _
+            Then KeyAscii = 0
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
+End Sub
+
+' Do not beep on Return or Escape.
+Private Sub WTexto3_KeyPress(KeyAscii As Integer)
+    If (KeyAscii = vbKeyReturn) Or _
+       (KeyAscii = vbKeyEscape) _
+            Then KeyAscii = 0
+End Sub
+
+' Make the change.
+Private Sub WCombo1_Click()
+    WVector1.SetFocus
+End Sub
+
+
+Private Sub WVector1_Click()
+    StartEdit
+End Sub
+
+Private Sub WVector1_LeaveCell()
+    EndEdit
+End Sub
+
+Private Sub WVector1_GotFocus()
+    EndEdit
+End Sub
+
+Private Sub WVector1_KeyPress(KeyAscii As Integer)
+    XColumna = WVector1.Col
+    Select Case WParametros(4, WVector1.Col)
+        Case 1
+        Case Else
+            If WParametros(2, XColumna) = 0 Then
+                GridEditText KeyAscii
+            End If
+    End Select
+End Sub
+
+
+Rem
+Rem Desde aca empieza las rutinas a cambiar
+Rem
+
+Private Sub StartEdit()
+    Select Case WParametros(4, WVector1.Col)
+        Case 1
+            Rem Carga los datos en el caso que el campo a editar sea un combo
+            WCombo1.Clear
+            WCombo1.AddItem "Campo1"
+            WCombo1.AddItem "Campo2"
+            On Error Resume Next
+            WCombo1.Text = WVector1.Text
+            On Error GoTo 0
+            GridEditCombo
+        Case Else
+            If WParametros(2, WVector1.Col) = 0 Then
+                GridEditText Asc(" ")
+            End If
+    End Select
+End Sub
+
+Private Sub Control_wvector1()
+    Select Case WVector1.Col
+        Case 4
+            If WVector1.Row < WVector1.Rows - 1 Then
+                WVector1.Row = WVector1.Row + 1
+            End If
+            Rem WVector1.Col = 1
+        Case Else
+            Rem If WVector1.Col < WVector1.Cols - 1 Then
+            Rem     WVector1.Col = WVector1.Col + 1
+            Rem End If
+    End Select
+    WVector1.SetFocus
+    GridEditText KeyAscii
+End Sub
+
+Private Sub Control_Campo()
+    XColumna = WVector1.Col
+    XFila = WVector1.Row
+    WControl = "S"
+    Select Case XColumna
+        Case Else
+            WVector1.Col = XColumna
+    End Select
+End Sub
+
+Private Sub WVector1_Scroll()
+    WTexto1.Visible = False
+    WTexto2.Visible = False
+    WTexto3.Visible = False
+End Sub

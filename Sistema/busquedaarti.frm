@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form prgBusquedaArti 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
@@ -89,7 +89,7 @@ Begin VB.Form prgBusquedaArti
          Width           =   7575
          _ExtentX        =   13361
          _ExtentY        =   11033
-         _Version        =   327680
+         _Version        =   393216
          BackColor       =   16777152
       End
    End
@@ -239,7 +239,7 @@ Begin VB.Form prgBusquedaArti
       Top             =   600
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   262150
+      _Version        =   348160
       ReportFileName  =   "Articulo.rpt"
       Destination     =   1
       WindowTitle     =   "Listado de Clientes"
@@ -250,6 +250,7 @@ Begin VB.Form prgBusquedaArti
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
+      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -365,7 +366,7 @@ Sub Imprime_Datos()
     
 End Sub
 
-Private Sub Cancela_click()
+Private Sub Cancela_Click()
     Frame2.Visible = False
     Linea.SetFocus
 End Sub
@@ -403,7 +404,7 @@ Private Sub CmdLimpiar_Click()
     Linea.SetFocus
 End Sub
 
-Private Sub cmdClose_Click()
+Private Sub CmdClose_Click()
     ZZPasaLinea = Linea.Text
     ZZPasaTipo = Tipo.Text
     ZZPasaFragancia = Fragancia.Text
@@ -733,28 +734,28 @@ Private Sub Pantalla_Click()
     Ayuda.Visible = False
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Linea.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Linea.Text = WIndice.List(indice)
             Call LInea_KeyPress(13)
             
         Case 1
-            Indice = Pantalla.ListIndex
-            Tipo.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Tipo.Text = WIndice.List(indice)
             Call Tipo_KeyPress(13)
             
         Case 2
-            Indice = Pantalla.ListIndex
-            Fragancia.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Fragancia.Text = WIndice.List(indice)
             Call Fragancia_KeyPress(13)
             
         Case 3
-            Indice = Pantalla.ListIndex
-            Calidad.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Calidad.Text = WIndice.List(indice)
             Call Calidad_KeyPress(13)
             
         Case 4
-            Indice = Pantalla.ListIndex
-            Tamano.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Tamano.Text = WIndice.List(indice)
             Call Tamano_KeyPress(13)
             
         Case Else
@@ -1092,7 +1093,7 @@ Private Sub Ejecuta_Funcion()
         Case 115
             Call Consulta_Click
         Case 121
-            Call cmdClose_Click
+            Call CmdClose_Click
         Case Else
     End Select
 End Sub
@@ -1290,7 +1291,7 @@ Private Sub WVector1_Click()
         rstArticulo.Close
     End If
     
-    Call cmdClose_Click
+    Call CmdClose_Click
     
 End Sub
 
