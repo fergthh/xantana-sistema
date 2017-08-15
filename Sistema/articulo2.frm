@@ -36,9 +36,9 @@ Begin VB.Form prgArticulo2
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Frame3"
+      Tab(1).Control(0)=   "SubWizard1"
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "SubWizard1"
+      Tab(1).Control(2)=   "Frame3"
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
@@ -119,7 +119,7 @@ Begin VB.Form prgArticulo2
          TabIndex        =   38
          Top             =   540
          Width           =   8655
-         Begin VB.ComboBox Combo1 
+         Begin VB.ComboBox cmbIva 
             BeginProperty Font 
                Name            =   "MS Sans Serif"
                Size            =   8.25
@@ -1008,29 +1008,21 @@ Sub Imprime_Descripcion()
     
 End Sub
 
-Sub Verifica_datos()
-    If Val(Stock.Text) = 0 Then
-        Stock.Text = "0"
-    End If
-    If Val(StockI.Text) = 0 Then
-        StockI.Text = "0"
-    End If
-    If Val(StockII.Text) = 0 Then
-        StockII.Text = "0"
-    End If
-    If Val(StockIII.Text) = 0 Then
-        StockIII.Text = "0"
-    End If
-    If Val(StockIV.Text) = 0 Then
-        StockIV.Text = "0"
-    End If
-    If Val(StockV.Text) = 0 Then
-        StockV.Text = "0"
-    End If
-    If Val(StockVI.Text) = 0 Then
-        StockVI.Text = "0"
-    End If
-End Sub
+Private Function Verifica_datos() As Boolean
+    Dim grabar As Boolean
+    grabar = True
+    
+    If Trim(Codigo.Text) = "" Then grabar = False
+    If Trim(Descripcion.Text) = "" Then grabar = False
+    If Trim(DescripcionII.Text) = "" Then grabar = False
+    If Trim(Rubro.Text) = "" Then grabar = False
+    
+    ' Hacer verificacion de valides de Rubro cuando este realizada esta parte.
+    If Val(cmbIva.ListIndex) < 0 Then grabar = False
+    
+    
+    Verifica_datos = grabar
+End Function
 
 Sub Format_datos()
 End Sub
@@ -1203,28 +1195,9 @@ End Sub
 
 Private Sub cmdAdd_Click()
 
-    If Trim(Sector.Text) <> "" Then
-        ZSql = ""
-        ZSql = ZSql + "Select *"
-        ZSql = ZSql + " FROM Sector"
-        ZSql = ZSql + " Where Sector.Codigo = " + "'" + Sector.Text + "'"
-        spSector = ZSql
-        Set rstSector = db.OpenRecordset(spSector, dbOpenSnapshot, dbSQLPassThrough)
-        If rstSector.RecordCount > 0 Then
-            rstSector.Close
-                Else
-            m$ = "Codigo de sector inexistente"
-            aaaaaa% = MsgBox(m$, 0, "Archivo de Articulos")
-            Exit Sub
-        End If
-            Else
-        m$ = "Se debe informar codigo de sector"
-        aaaaaa% = MsgBox(m$, 0, "Archivo de Articulos")
-        Exit Sub
-    End If
-
-
-    Call Verifica_datos
+    MsgBox Verifica_datos
+    
+    Stop
     
     ZZCodigo = Trim(Linea.Text) + "-" + Trim(Tipo.Text) + "-" + Trim(Fragancia.Text) + "-" + Trim(Calidad.Text) + "-" + Trim(Tamano.Text)
     
