@@ -1,3 +1,1 @@
-Línea 162: la clase MSMask.MaskEdBox del control HastaFec no era una clase de control cargada.
-Línea 184: la clase MSMask.MaskEdBox del control DesdeFec no era una clase de control cargada.
-Línea 314: la clase Crystal.CrystalReport del control Listado no era una clase de control cargada.
+Line 349: Class Crystal.CrystalReport of control Listado was not a loaded control class.

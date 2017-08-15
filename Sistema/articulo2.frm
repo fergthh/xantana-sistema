@@ -1,9 +1,9 @@
 VERSION 5.00
 Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{BEC61919-E6C4-11D1-BE7D-C63815000000}#1.0#0"; "FLEXWIZ.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Begin VB.Form prgArticulo2 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
@@ -25,14 +25,13 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
+      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
-      Tab(0).Control(0)=   "Frame1"
-      Tab(0).Control(0).Enabled=   0   'False
-      Tab(0).Control(1)=   "Frame2"
-      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "Frame2"
+      Tab(0).Control(1)=   "Frame1"
       Tab(0).ControlCount=   2
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
@@ -43,18 +42,22 @@ Begin VB.Form prgArticulo2
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "Frame6"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame5"
+      Tab(2).Control(1).Enabled=   0   'False
       Tab(2).Control(2)=   "btnAsignarLista"
+      Tab(2).Control(2).Enabled=   0   'False
       Tab(2).Control(3)=   "FrameListaPrecios"
+      Tab(2).Control(3).Enabled=   0   'False
       Tab(2).ControlCount=   4
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   -68400
+         Left            =   6600
          TabIndex        =   55
-         Top             =   480
+         Top             =   360
          Visible         =   0   'False
          Width           =   4455
          Begin VB.CommandButton btnCerrarListasPrecios 
@@ -104,7 +107,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   -68280
+         Left            =   6720
          TabIndex        =   41
          Top             =   4980
          Width           =   3375
@@ -112,7 +115,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   38
          Top             =   540
          Width           =   8655
@@ -154,7 +157,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   37
          Top             =   2220
          Width           =   8655
@@ -317,7 +320,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   23
          Top             =   2400
          Width           =   10215
@@ -333,7 +336,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   22
          Top             =   720
          Width           =   10215
@@ -752,7 +755,7 @@ Begin VB.Form prgArticulo2
       Top             =   5160
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   348160
+      _Version        =   262150
       ReportFileName  =   "Articulo.rpt"
       Destination     =   1
       WindowTitle     =   "Listado de Clientes"
@@ -763,7 +766,6 @@ Begin VB.Form prgArticulo2
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
-      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -1187,9 +1189,10 @@ Private Sub btnAsignarLista_Click()
             
             Loop
             
-            FrameListaPrecios.Visible = True
         End If
     End With
+    
+    FrameListaPrecios.Visible = True
 End Sub
 
 Private Sub btnCerrarListasPrecios_Click()
