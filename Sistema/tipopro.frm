@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form PrgTipoPro 
    AutoRedraw      =   -1  'True
-   Caption         =   "Tipo de Productos"
+   Caption         =   "Rubros de Articulos y Productos"
    ClientHeight    =   5355
    ClientLeft      =   1050
    ClientTop       =   690
@@ -439,7 +439,7 @@ Begin VB.Form PrgTipoPro
       Top             =   240
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   262150
+      _Version        =   348160
       ReportFileName  =   "TipoPro.rpt"
       Destination     =   1
       WindowTitle     =   "Listado de Vendedor"
@@ -450,6 +450,7 @@ Begin VB.Form PrgTipoPro
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
+      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -768,7 +769,7 @@ Private Sub Lista_Click()
     Desde.SetFocus
 End Sub
 
-Private Sub Descripcion_Keypress(KeyAscii As Integer)
+Private Sub Descripcion_KeyPress(KeyAscii As Integer)
     Rem If KeyAscii = 13 Then
     Rem     Cuenta.SetFocus
     Rem End If
@@ -896,8 +897,8 @@ Private Sub Pantalla_Click()
     Ayuda.Visible = False
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Codigo.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Codigo.Text = WIndice.List(indice)
             Call Codigo_KeyPress(13)
             
         Case Else

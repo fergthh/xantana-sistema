@@ -3,7 +3,7 @@ Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{BEC61919-E6C4-11D1-BE7D-C63815000000}#1.0#0"; "FLEXWIZ.OCX"
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form prgArticulo2 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
@@ -19,59 +19,255 @@ Begin VB.Form prgArticulo2
    Begin TabDlg.SSTab SSTab1 
       Height          =   6615
       Left            =   360
-      TabIndex        =   21
+      TabIndex        =   13
       Top             =   240
       Width           =   11415
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
-      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   0   'False
-      Tab(0).Control(0)=   "Frame2"
-      Tab(0).Control(1)=   "Frame1"
-      Tab(0).ControlCount=   2
+      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).Control(0)=   "Frame1"
+      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).Control(1)=   "Frame2"
+      Tab(0).Control(1).Enabled=   0   'False
+      Tab(0).Control(2)=   "frameConsulta"
+      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).ControlCount=   3
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "SubWizard1"
+      Tab(1).Control(0)=   "Frame3"
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "Frame3"
+      Tab(1).Control(2)=   "SubWizard1"
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   -1  'True
-      Tab(2).Control(0)=   "Frame6"
-      Tab(2).Control(0).Enabled=   0   'False
-      Tab(2).Control(1)=   "Frame5"
-      Tab(2).Control(1).Enabled=   0   'False
-      Tab(2).Control(2)=   "btnAsignarLista"
-      Tab(2).Control(2).Enabled=   0   'False
-      Tab(2).Control(3)=   "FrameListaPrecios"
-      Tab(2).Control(3).Enabled=   0   'False
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).Control(0)=   "FrameListaPrecios"
+      Tab(2).Control(1)=   "btnAsignarLista"
+      Tab(2).Control(2)=   "Frame5"
+      Tab(2).Control(3)=   "Frame6"
       Tab(2).ControlCount=   4
+      Begin VB.Frame frameConsulta 
+         Caption         =   "Rubros"
+         Height          =   4215
+         Left            =   3120
+         TabIndex        =   50
+         Top             =   1200
+         Visible         =   0   'False
+         Width           =   4815
+         Begin VB.CommandButton ImpreVenta 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   615
+            Left            =   4080
+            MouseIcon       =   "articulo2.frx":0054
+            MousePointer    =   99  'Custom
+            Picture         =   "articulo2.frx":035E
+            Style           =   1  'Graphical
+            TabIndex        =   59
+            ToolTipText     =   "Pedidos de Clientes"
+            Top             =   3480
+            Visible         =   0   'False
+            Width           =   495
+         End
+         Begin VB.TextBox Ayuda 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   240
+            TabIndex        =   58
+            Top             =   480
+            Visible         =   0   'False
+            Width           =   4335
+         End
+         Begin VB.ListBox Pantalla 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   2460
+            ItemData        =   "articulo2.frx":0C28
+            Left            =   240
+            List            =   "articulo2.frx":0C2F
+            TabIndex        =   57
+            Top             =   840
+            Visible         =   0   'False
+            Width           =   4335
+         End
+         Begin VB.ListBox Opcion 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   9.75
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   1740
+            ItemData        =   "articulo2.frx":0C3D
+            Left            =   1320
+            List            =   "articulo2.frx":0C44
+            TabIndex        =   56
+            Top             =   1080
+            Visible         =   0   'False
+            Width           =   2175
+         End
+         Begin VB.TextBox Tipo 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   2760
+            MaxLength       =   10
+            TabIndex        =   55
+            Text            =   " "
+            Top             =   3480
+            Visible         =   0   'False
+            Width           =   255
+         End
+         Begin VB.TextBox Fragancia 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   3075
+            MaxLength       =   10
+            TabIndex        =   54
+            Text            =   " "
+            Top             =   3480
+            Visible         =   0   'False
+            Width           =   180
+         End
+         Begin VB.TextBox Calidad 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   3360
+            MaxLength       =   10
+            TabIndex        =   53
+            Text            =   " "
+            Top             =   3480
+            Visible         =   0   'False
+            Width           =   255
+         End
+         Begin VB.TextBox Tamano 
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   285
+            Left            =   3720
+            MaxLength       =   10
+            TabIndex        =   52
+            Text            =   " "
+            Top             =   3480
+            Visible         =   0   'False
+            Width           =   255
+         End
+         Begin VB.CommandButton btnCerrarConsulta 
+            Caption         =   "Cerrar"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   495
+            Left            =   1800
+            TabIndex        =   51
+            Top             =   3480
+            Width           =   1215
+         End
+         Begin Crystal.CrystalReport Listado 
+            Left            =   3840
+            Top             =   2760
+            _ExtentX        =   741
+            _ExtentY        =   741
+            _Version        =   348160
+            ReportFileName  =   "Articulo.rpt"
+            Destination     =   1
+            WindowTitle     =   "Listado de Clientes"
+            WindowControlBox=   -1  'True
+            WindowMaxButton =   -1  'True
+            WindowMinButton =   -1  'True
+            GroupSelectionFormula=   " "
+            BoundReportFooter=   -1  'True
+            DiscardSavedData=   -1  'True
+            WindowState     =   2
+            PrintFileLinesPerPage=   60
+         End
+      End
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   6600
-         TabIndex        =   55
-         Top             =   360
+         Left            =   -68640
+         TabIndex        =   47
+         Top             =   480
          Visible         =   0   'False
          Width           =   4455
          Begin VB.CommandButton btnCerrarListasPrecios 
             Caption         =   "Cerrar Listas"
             Height          =   495
             Left            =   1680
-            TabIndex        =   57
+            TabIndex        =   49
             Top             =   4560
             Width           =   1215
          End
          Begin VB.ListBox ListasPrecios 
             Height          =   3960
             Left            =   240
-            TabIndex        =   56
+            TabIndex        =   48
             Top             =   480
             Width           =   3975
          End
@@ -79,7 +275,7 @@ Begin VB.Form prgArticulo2
       Begin MSFlexGridWizard.SubWizard SubWizard1 
          Height          =   1455
          Left            =   -71040
-         TabIndex        =   43
+         TabIndex        =   35
          Top             =   6720
          Width           =   2295
          _ExtentX        =   4048
@@ -89,13 +285,13 @@ Begin VB.Form prgArticulo2
          Caption         =   "Proveedores Relacionados"
          Height          =   2295
          Left            =   -73560
-         TabIndex        =   42
+         TabIndex        =   34
          Top             =   2160
          Width           =   8655
          Begin MSFlexGridLib.MSFlexGrid ProveedoresRelacionados 
             Height          =   1815
             Left            =   240
-            TabIndex        =   44
+            TabIndex        =   36
             Top             =   360
             Width           =   8175
             _ExtentX        =   14420
@@ -107,16 +303,16 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   6720
-         TabIndex        =   41
+         Left            =   -68280
+         TabIndex        =   33
          Top             =   4980
          Width           =   3375
       End
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   1440
-         TabIndex        =   38
+         Left            =   -73560
+         TabIndex        =   30
          Top             =   540
          Width           =   8655
          Begin VB.ComboBox cmbIva 
@@ -131,7 +327,7 @@ Begin VB.Form prgArticulo2
             EndProperty
             Height          =   315
             Left            =   3480
-            TabIndex        =   39
+            TabIndex        =   31
             Top             =   720
             Width           =   1575
          End
@@ -149,7 +345,7 @@ Begin VB.Form prgArticulo2
             ForeColor       =   &H00800000&
             Height          =   255
             Left            =   3960
-            TabIndex        =   40
+            TabIndex        =   32
             Top             =   480
             Width           =   855
          End
@@ -157,10 +353,24 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   1440
-         TabIndex        =   37
+         Left            =   -73560
+         TabIndex        =   29
          Top             =   2220
          Width           =   8655
+         Begin MSMask.MaskEdBox WTexto3 
+            Height          =   375
+            Left            =   6120
+            TabIndex        =   38
+            Top             =   840
+            Visible         =   0   'False
+            Width           =   495
+            _ExtentX        =   873
+            _ExtentY        =   661
+            _Version        =   393216
+            MaxLength       =   10
+            Mask            =   "##/##/####"
+            PromptChar      =   " "
+         End
          Begin VB.TextBox WTitulo 
             Alignment       =   2  'Center
             Appearance      =   0  'Flat
@@ -170,7 +380,7 @@ Begin VB.Form prgArticulo2
             Left            =   3480
             Locked          =   -1  'True
             MousePointer    =   1  'Arrow
-            TabIndex        =   54
+            TabIndex        =   46
             Top             =   1440
             Visible         =   0   'False
             Width           =   495
@@ -184,7 +394,7 @@ Begin VB.Form prgArticulo2
             Left            =   4680
             Locked          =   -1  'True
             MousePointer    =   1  'Arrow
-            TabIndex        =   53
+            TabIndex        =   45
             Top             =   1440
             Visible         =   0   'False
             Width           =   495
@@ -197,7 +407,7 @@ Begin VB.Form prgArticulo2
             Left            =   4080
             Locked          =   -1  'True
             MousePointer    =   1  'Arrow
-            TabIndex        =   52
+            TabIndex        =   44
             Top             =   1440
             Visible         =   0   'False
             Width           =   495
@@ -211,7 +421,7 @@ Begin VB.Form prgArticulo2
             Left            =   2880
             Locked          =   -1  'True
             MousePointer    =   1  'Arrow
-            TabIndex        =   51
+            TabIndex        =   43
             Top             =   1440
             Visible         =   0   'False
             Width           =   495
@@ -225,16 +435,16 @@ Begin VB.Form prgArticulo2
             Left            =   2280
             Locked          =   -1  'True
             MousePointer    =   1  'Arrow
-            TabIndex        =   50
+            TabIndex        =   42
             Top             =   1440
             Visible         =   0   'False
             Width           =   495
          End
          Begin VB.TextBox WTexto2 
             Height          =   375
-            Left            =   7200
-            TabIndex        =   49
-            Top             =   1440
+            Left            =   7080
+            TabIndex        =   41
+            Top             =   840
             Visible         =   0   'False
             Width           =   495
          End
@@ -244,7 +454,7 @@ Begin VB.Form prgArticulo2
             Height          =   375
             Left            =   6600
             Locked          =   -1  'True
-            TabIndex        =   48
+            TabIndex        =   40
             Top             =   1440
             Visible         =   0   'False
             Width           =   495
@@ -252,7 +462,7 @@ Begin VB.Form prgArticulo2
          Begin VB.ComboBox WCombo1 
             Height          =   315
             Left            =   7560
-            TabIndex        =   47
+            TabIndex        =   39
             Text            =   "Combo2"
             Top             =   480
             Visible         =   0   'False
@@ -261,7 +471,7 @@ Begin VB.Form prgArticulo2
          Begin MSFlexGridLib.MSFlexGrid Wvector1 
             Height          =   2055
             Left            =   240
-            TabIndex        =   45
+            TabIndex        =   37
             Top             =   360
             Width           =   8175
             _ExtentX        =   14420
@@ -269,32 +479,18 @@ Begin VB.Form prgArticulo2
             _Version        =   393216
             OLEDropMode     =   1
          End
-         Begin MSMask.MaskEdBox WTexto3 
-            Height          =   375
-            Left            =   7560
-            TabIndex        =   46
-            Top             =   1080
-            Visible         =   0   'False
-            Width           =   495
-            _ExtentX        =   873
-            _ExtentY        =   661
-            _Version        =   393216
-            MaxLength       =   10
-            Mask            =   "##/##/####"
-            PromptChar      =   " "
-         End
       End
       Begin VB.Frame Frame3 
          Caption         =   "Costo Actual (En Dolares)"
          Height          =   1095
          Left            =   -73680
-         TabIndex        =   26
+         TabIndex        =   18
          Top             =   720
          Width           =   8655
          Begin VB.TextBox Costo 
             Height          =   285
             Left            =   3600
-            TabIndex        =   27
+            TabIndex        =   19
             Top             =   480
             Width           =   1815
          End
@@ -312,7 +508,7 @@ Begin VB.Form prgArticulo2
             ForeColor       =   &H00800000&
             Height          =   255
             Left            =   2520
-            TabIndex        =   28
+            TabIndex        =   20
             Top             =   480
             Width           =   735
          End
@@ -320,15 +516,15 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   -74400
-         TabIndex        =   23
+         Left            =   600
+         TabIndex        =   15
          Top             =   2400
          Width           =   10215
          Begin VB.TextBox Observaciones 
             Height          =   1575
             Left            =   1440
             MultiLine       =   -1  'True
-            TabIndex        =   36
+            TabIndex        =   28
             Top             =   360
             Width           =   7455
          End
@@ -336,8 +532,8 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   -74400
-         TabIndex        =   22
+         Left            =   600
+         TabIndex        =   14
          Top             =   720
          Width           =   10215
          Begin VB.TextBox Rubro 
@@ -353,7 +549,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   5670
             MaxLength       =   8
-            TabIndex        =   35
+            TabIndex        =   27
             Top             =   840
             Width           =   735
          End
@@ -370,7 +566,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   4920
             MaxLength       =   50
-            TabIndex        =   31
+            TabIndex        =   23
             Top             =   360
             Width           =   5055
          End
@@ -387,7 +583,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   2040
             MaxLength       =   25
-            TabIndex        =   29
+            TabIndex        =   21
             Top             =   840
             Width           =   2895
          End
@@ -404,7 +600,7 @@ Begin VB.Form prgArticulo2
             Height          =   285
             Left            =   2040
             MaxLength       =   10
-            TabIndex        =   24
+            TabIndex        =   16
             Text            =   " "
             Top             =   360
             Width           =   1455
@@ -423,7 +619,7 @@ Begin VB.Form prgArticulo2
             EndProperty
             Height          =   285
             Left            =   6480
-            TabIndex        =   34
+            TabIndex        =   26
             Top             =   840
             Width           =   3495
          End
@@ -442,7 +638,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   3
             Left            =   5040
-            TabIndex        =   33
+            TabIndex        =   25
             Top             =   840
             Width           =   735
          End
@@ -461,7 +657,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   1
             Left            =   360
-            TabIndex        =   32
+            TabIndex        =   24
             Top             =   840
             Width           =   1695
          End
@@ -480,7 +676,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   2
             Left            =   3720
-            TabIndex        =   30
+            TabIndex        =   22
             Top             =   360
             Width           =   1095
          End
@@ -499,7 +695,7 @@ Begin VB.Form prgArticulo2
             Height          =   255
             Index           =   0
             Left            =   1200
-            TabIndex        =   25
+            TabIndex        =   17
             Top             =   360
             Width           =   735
          End
@@ -518,10 +714,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   4560
-      MouseIcon       =   "articulo2.frx":0054
+      MouseIcon       =   "articulo2.frx":0C50
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":035E
-      TabIndex        =   20
+      Picture         =   "articulo2.frx":0F5A
+      TabIndex        =   12
       ToolTipText     =   "Consulta de Datos"
       Top             =   6960
       Width           =   975
@@ -539,10 +735,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   3480
-      MouseIcon       =   "articulo2.frx":0BA0
+      MouseIcon       =   "articulo2.frx":179C
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":0EAA
-      TabIndex        =   19
+      Picture         =   "articulo2.frx":1AA6
+      TabIndex        =   11
       ToolTipText     =   "Limpia la pantalla"
       Top             =   6960
       Width           =   975
@@ -560,10 +756,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   2400
-      MouseIcon       =   "articulo2.frx":16EC
+      MouseIcon       =   "articulo2.frx":22E8
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":19F6
-      TabIndex        =   18
+      Picture         =   "articulo2.frx":25F2
+      TabIndex        =   10
       ToolTipText     =   "Elimina el Registro"
       Top             =   6960
       Width           =   975
@@ -581,10 +777,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   1320
-      MouseIcon       =   "articulo2.frx":2238
+      MouseIcon       =   "articulo2.frx":2E34
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":2542
-      TabIndex        =   17
+      Picture         =   "articulo2.frx":313E
+      TabIndex        =   9
       ToolTipText     =   "Graba los Datos Ingresados"
       Top             =   6960
       Width           =   975
@@ -593,7 +789,7 @@ Begin VB.Form prgArticulo2
       Caption         =   "Command2"
       Height          =   495
       Left            =   9360
-      TabIndex        =   16
+      TabIndex        =   8
       Top             =   7800
       Visible         =   0   'False
       Width           =   855
@@ -602,31 +798,10 @@ Begin VB.Form prgArticulo2
       Caption         =   "Command1"
       Height          =   735
       Left            =   10320
-      TabIndex        =   15
+      TabIndex        =   7
       Top             =   7560
       Visible         =   0   'False
       Width           =   615
-   End
-   Begin VB.CommandButton ImpreVenta 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   615
-      Left            =   10920
-      MouseIcon       =   "articulo2.frx":2D84
-      MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":308E
-      Style           =   1  'Graphical
-      TabIndex        =   10
-      ToolTipText     =   "Pedidos de Clientes"
-      Top             =   4440
-      Width           =   495
    End
    Begin VB.CommandButton CmdClose 
       Caption         =   "Menu (F10)"
@@ -641,10 +816,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   9960
-      MouseIcon       =   "articulo2.frx":3958
+      MouseIcon       =   "articulo2.frx":3980
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":3C62
-      TabIndex        =   9
+      Picture         =   "articulo2.frx":3C8A
+      TabIndex        =   6
       ToolTipText     =   "Salida"
       Top             =   6960
       Width           =   975
@@ -662,10 +837,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   5640
-      MouseIcon       =   "articulo2.frx":44A4
+      MouseIcon       =   "articulo2.frx":44CC
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":47AE
-      TabIndex        =   8
+      Picture         =   "articulo2.frx":47D6
+      TabIndex        =   5
       ToolTipText     =   "Primer Registro"
       Top             =   6960
       Width           =   975
@@ -683,10 +858,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   6720
-      MouseIcon       =   "articulo2.frx":4BF0
+      MouseIcon       =   "articulo2.frx":4C18
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":4EFA
-      TabIndex        =   7
+      Picture         =   "articulo2.frx":4F22
+      TabIndex        =   4
       ToolTipText     =   "Registro Anterior"
       Top             =   6960
       Width           =   975
@@ -704,10 +879,10 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   7800
-      MouseIcon       =   "articulo2.frx":533C
+      MouseIcon       =   "articulo2.frx":5364
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":5646
-      TabIndex        =   6
+      Picture         =   "articulo2.frx":566E
+      TabIndex        =   3
       ToolTipText     =   "Registro Siguiente"
       Top             =   6960
       Width           =   975
@@ -725,173 +900,27 @@ Begin VB.Form prgArticulo2
       EndProperty
       Height          =   975
       Left            =   8880
-      MouseIcon       =   "articulo2.frx":5A88
+      MouseIcon       =   "articulo2.frx":5AB0
       MousePointer    =   99  'Custom
-      Picture         =   "articulo2.frx":5D92
-      TabIndex        =   5
+      Picture         =   "articulo2.frx":5DBA
+      TabIndex        =   2
       ToolTipText     =   "Salida"
       Top             =   6960
       Width           =   975
    End
-   Begin VB.TextBox Ayuda 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   7320
-      TabIndex        =   4
-      Top             =   2880
-      Visible         =   0   'False
-      Width           =   4335
-   End
-   Begin Crystal.CrystalReport Listado 
-      Left            =   10920
-      Top             =   5160
-      _ExtentX        =   741
-      _ExtentY        =   741
-      _Version        =   262150
-      ReportFileName  =   "Articulo.rpt"
-      Destination     =   1
-      WindowTitle     =   "Listado de Clientes"
-      WindowControlBox=   -1  'True
-      WindowMaxButton =   -1  'True
-      WindowMinButton =   -1  'True
-      GroupSelectionFormula=   " "
-      BoundReportFooter=   -1  'True
-      DiscardSavedData=   -1  'True
-      WindowState     =   2
-   End
    Begin VB.ListBox WIndice 
       Height          =   255
       Left            =   10680
-      TabIndex        =   1
+      TabIndex        =   0
       Top             =   7080
       Visible         =   0   'False
       Width           =   975
-   End
-   Begin VB.ListBox Pantalla 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   2460
-      ItemData        =   "articulo2.frx":61D4
-      Left            =   7320
-      List            =   "articulo2.frx":61DB
-      TabIndex        =   0
-      Top             =   3240
-      Visible         =   0   'False
-      Width           =   4335
-   End
-   Begin VB.ListBox Opcion 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   1740
-      Left            =   8040
-      TabIndex        =   2
-      Top             =   3360
-      Visible         =   0   'False
-      Width           =   2175
-   End
-   Begin VB.TextBox Tipo 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   9840
-      MaxLength       =   10
-      TabIndex        =   11
-      Text            =   " "
-      Top             =   5880
-      Visible         =   0   'False
-      Width           =   255
-   End
-   Begin VB.TextBox Fragancia 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   10155
-      MaxLength       =   10
-      TabIndex        =   12
-      Text            =   " "
-      Top             =   5880
-      Visible         =   0   'False
-      Width           =   180
-   End
-   Begin VB.TextBox Calidad 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   10440
-      MaxLength       =   10
-      TabIndex        =   13
-      Text            =   " "
-      Top             =   5880
-      Visible         =   0   'False
-      Width           =   255
-   End
-   Begin VB.TextBox Tamano 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   10440
-      MaxLength       =   10
-      TabIndex        =   14
-      Text            =   " "
-      Top             =   5160
-      Visible         =   0   'False
-      Width           =   255
    End
    Begin VB.Label Label19 
       Caption         =   " "
       Height          =   255
       Left            =   7200
-      TabIndex        =   3
+      TabIndex        =   1
       Top             =   8040
       Width           =   1935
    End
@@ -1028,21 +1057,9 @@ Sub Format_datos()
 End Sub
 
 Sub Imprime_Datos()
-    ' Cargamos el rubro
-    ZSql = ""
-    ZSql = ZSql + "Select * FROM TipoArticulo WHERE Codigo = '" + Trim(Rubro.Text) + "'"
-    spArticulo = ZSql
-    Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-    With rstArticulo
-        If .RecordCount > 0 Then
-            .MoveFirst
-            DesRubro.Caption = IIf(IsNull(!Descripcion), "", Trim(!Descripcion))
-            .Close
-        Else
-            DesRubro.Caption = ""
-        End If
-        
-    End With
+    Call Rubro_KeyPress(13)
+    ' Faltaria cargar los datos de la lista de precios. Cuando este terminada.
+    
 End Sub
 
 Sub Imprime_Datos2()
@@ -1187,8 +1204,14 @@ Private Sub btnAsignarLista_Click()
     FrameListaPrecios.Visible = True
 End Sub
 
+Private Sub btnCerrarConsulta_Click()
+    frameConsulta.Visible = False
+    Rubro.SetFocus
+End Sub
+
 Private Sub btnCerrarListasPrecios_Click()
     FrameListaPrecios.Visible = False
+    Wvector1.Row = 1
     Wvector1.Col = 3
     Wvector1.SetFocus
 End Sub
@@ -1527,7 +1550,9 @@ End Sub
 Private Sub CmdLimpiar_Click()
     
     Call Limpia_Vector
-
+    
+    frameConsulta.Visible = False
+    FrameListaPrecios.Visible = False
     SSTab1.Tab = 0
     Codigo.SetFocus
     
@@ -1557,6 +1582,7 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
                 Descripcion.Text = Trim(!Descripcion)
                 DescripcionII.Text = Trim(!DescripcionII)
                 Rubro.Text = Trim(!Rubro)
+                
                 Observaciones.Text = Trim(!Observaciones)
                 
                 Costo.Text = Trim(!Costo)
@@ -1906,6 +1932,47 @@ Private Sub ListasPrecios_Click()
     
 End Sub
 
+Private Sub Rubro_DblClick()
+    Call Consulta_Click
+End Sub
+
+Private Sub Rubro_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+    
+        If Trim(Rubro.Text) = "" Then
+            DesRubro.Caption = ""
+            Call Consulta_Click
+            
+            Exit Sub
+        End If
+    
+        ZSql = ""
+        ZSql = ZSql + "Select Codigo, Descripcion"
+        ZSql = ZSql + " FROM TipoArticulo"
+        ZSql = ZSql + " Where Codigo = " + "'" + Trim(Rubro.Text) + "'"
+        spTipoPro = ZSql
+        Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
+        
+        With rstTipoPro
+            If .RecordCount > 0 Then
+                Rubro.Text = Trim(!Codigo)
+                DesRubro.Caption = Trim(!Descripcion)
+                
+                Observaciones.SetFocus
+                
+                .Close
+            Else
+                Rubro.SetFocus
+            End If
+        End With
+        
+    End If
+    If KeyAscii = 27 Then
+        Tipo.Text = ""
+        Call Busqueda
+    End If
+End Sub
+
 Private Sub Tipo_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         Tipo.Text = UCase(Tipo.Text)
@@ -2079,18 +2146,16 @@ Private Sub Hasta_Keypress(KeyAscii As Integer)
 End Sub
 
 Private Sub Consulta_Click()
-    Opcion.Visible = False
-    Pantalla.Visible = False
-
-     Opcion.Clear
-
-     Opcion.AddItem "Lineaa"
-     Opcion.AddItem "Tipos"
-     Opcion.AddItem "Fragancias"
-     Opcion.AddItem "Calidad"
-     Opcion.AddItem "Tamano"
-
-     Opcion.Visible = True
+    frameConsulta.Visible = False
+    
+    Opcion.Clear
+    
+    Opcion.AddItem "Rubros"
+    
+    Opcion.ListIndex = 0
+    
+    Call Opcion_Click
+    
 End Sub
 
 Private Sub Opcion_Click()
@@ -2110,8 +2175,8 @@ Private Sub Opcion_Click()
         Case 0
             ZSql = ""
             ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM Lineas"
-            ZSql = ZSql + " Order by Lineas.Descripcion"
+            ZSql = ZSql + " FROM TipoArticulo"
+            ZSql = ZSql + " Order by Descripcion"
             spLinea = ZSql
             Set rstLinea = db.OpenRecordset(spLinea, dbOpenSnapshot, dbSQLPassThrough)
             If rstLinea.RecordCount > 0 Then
@@ -2119,9 +2184,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -2132,135 +2197,10 @@ Private Sub Opcion_Click()
                 rstLinea.Close
             End If
             
-        Case 1
-            ZSql = ""
-            ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM TipoPro"
-            ZSql = ZSql + " Order by TipoPro.Descripcion"
-            spTipoPro = ZSql
-            Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
-            If rstTipoPro.RecordCount > 0 Then
-                With rstTipoPro
-                    .MoveFirst
-                    Do
-                        If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
-                            Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
-                            .MoveNext
-                                Else
-                            Exit Do
-                        End If
-                    Loop
-                End With
-                rstTipoPro.Close
-            End If
-            
-        Case 2
-            ZSql = ""
-            ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM Fragancia"
-            ZSql = ZSql + " Order by Fragancia.Descripcion"
-            spFragancia = ZSql
-            Set rstFragancia = db.OpenRecordset(spFragancia, dbOpenSnapshot, dbSQLPassThrough)
-            If rstFragancia.RecordCount > 0 Then
-                With rstFragancia
-                    .MoveFirst
-                    Do
-                        If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
-                            Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
-                            .MoveNext
-                                Else
-                            Exit Do
-                        End If
-                    Loop
-                End With
-                rstFragancia.Close
-            End If
-            
-        Case 3
-            ZSql = ""
-            ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM Calidad"
-            ZSql = ZSql + " Order by Calidad.Descripcion"
-            spCalidad = ZSql
-            Set rstCalidad = db.OpenRecordset(spCalidad, dbOpenSnapshot, dbSQLPassThrough)
-            If rstCalidad.RecordCount > 0 Then
-                With rstCalidad
-                    .MoveFirst
-                    Do
-                        If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
-                            Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
-                            .MoveNext
-                                Else
-                            Exit Do
-                        End If
-                    Loop
-                End With
-                rstCalidad.Close
-            End If
-            
-        Case 4
-            ZSql = ""
-            ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM Tamano"
-            ZSql = ZSql + " Order by Tamano.Descripcion"
-            spTamano = ZSql
-            Set rstTamano = db.OpenRecordset(spTamano, dbOpenSnapshot, dbSQLPassThrough)
-            If rstTamano.RecordCount > 0 Then
-                With rstTamano
-                    .MoveFirst
-                    Do
-                        If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
-                            Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
-                            .MoveNext
-                                Else
-                            Exit Do
-                        End If
-                    Loop
-                End With
-                rstTamano.Close
-            End If
-            
-        Case 6
-            ZSql = ""
-            ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM Sector"
-            ZSql = ZSql + " Order by Sector.Descripcion"
-            spSector = ZSql
-            Set rstSector = db.OpenRecordset(spSector, dbOpenSnapshot, dbSQLPassThrough)
-            If rstSector.RecordCount > 0 Then
-                With rstSector
-                    .MoveFirst
-                    Do
-                        If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
-                            Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
-                            .MoveNext
-                                Else
-                            Exit Do
-                        End If
-                    Loop
-                End With
-                rstSector.Close
-            End If
-            
-        
         Case Else
     End Select
             
+    frameConsulta.Visible = True
     Pantalla.Visible = True
     Ayuda.Text = ""
     Ayuda.Visible = True
@@ -2276,36 +2216,14 @@ End Sub
 Private Sub Pantalla_Click()
     Pantalla.Visible = False
     Ayuda.Visible = False
+    
+    frameConsulta.Visible = False
+    
     Select Case XIndice
         Case 0
             indice = Pantalla.ListIndex
-            Linea.Text = WIndice.List(indice)
-            Call LInea_KeyPress(13)
-            
-        Case 1
-            indice = Pantalla.ListIndex
-            Tipo.Text = WIndice.List(indice)
-            Call Tipo_KeyPress(13)
-            
-        Case 2
-            indice = Pantalla.ListIndex
-            Fragancia.Text = WIndice.List(indice)
-            Call Fragancia_KeyPress(13)
-            
-        Case 3
-            indice = Pantalla.ListIndex
-            Calidad.Text = WIndice.List(indice)
-            Call Calidad_KeyPress(13)
-            
-        Case 4
-            indice = Pantalla.ListIndex
-            Tamano.Text = WIndice.List(indice)
-            Call Tamano_KeyPress(13)
-            
-        Case 6
-            indice = Pantalla.ListIndex
-            Sector.Text = WIndice.List(indice)
-            Call Sector_Keypress(13)
+            Rubro.Text = WIndice.List(indice)
+            Call Rubro_KeyPress(13)
                     
         Case Else
     End Select
