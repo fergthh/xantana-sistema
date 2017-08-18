@@ -1,9 +1,9 @@
 Module1 = 0, 0, 0, 0, C
 Module2 = 0, 0, 0, 0, C
 SISTEMA = 0, 0, 0, 0, C
-Funciones = 0, 0, 0, 0, C
+Funciones = 132, 174, 1001, 630, 
 MenuVen = 44, 58, 1002, 456, I, 110, 145, 979, 601, C
-gsNumeroLetra = 0, 0, 0, 0, C
+gsNumeroLetra = 110, 145, 979, 601, 
 Calculator = 0, 0, 0, 0, C, 0, 0, 0, 0, C
 Empresa = 0, 0, 0, 0, C, 0, 0, 0, 0, C
 Digitoverificador = 0, 0, 0, 0, C

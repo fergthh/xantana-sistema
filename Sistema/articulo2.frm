@@ -25,10 +25,11 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
+      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "Frame1"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Frame2"
@@ -39,24 +40,28 @@ Begin VB.Form prgArticulo2
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Frame3"
+      Tab(1).Control(0)=   "SubWizard1"
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "SubWizard1"
+      Tab(1).Control(2)=   "Frame3"
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "FrameListaPrecios"
-      Tab(2).Control(1)=   "btnAsignarLista"
-      Tab(2).Control(2)=   "Frame5"
-      Tab(2).Control(3)=   "Frame6"
+      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).Control(0)=   "Frame6"
+      Tab(2).Control(0).Enabled=   0   'False
+      Tab(2).Control(1)=   "Frame5"
+      Tab(2).Control(1).Enabled=   0   'False
+      Tab(2).Control(2)=   "btnAsignarLista"
+      Tab(2).Control(2).Enabled=   0   'False
+      Tab(2).Control(3)=   "FrameListaPrecios"
+      Tab(2).Control(3).Enabled=   0   'False
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Rubros"
          Height          =   4215
-         Left            =   3120
+         Left            =   -71640
          TabIndex        =   50
-         Top             =   1200
+         Top             =   720
          Visible         =   0   'False
          Width           =   4815
          Begin VB.CommandButton ImpreVenta 
@@ -251,9 +256,9 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   -68640
+         Left            =   5880
          TabIndex        =   47
-         Top             =   480
+         Top             =   600
          Visible         =   0   'False
          Width           =   4455
          Begin VB.CommandButton btnCerrarListasPrecios 
@@ -303,7 +308,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   -68280
+         Left            =   6720
          TabIndex        =   33
          Top             =   4980
          Width           =   3375
@@ -311,7 +316,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   30
          Top             =   540
          Width           =   8655
@@ -353,7 +358,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   29
          Top             =   2220
          Width           =   8655
@@ -516,7 +521,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   15
          Top             =   2400
          Width           =   10215
@@ -532,7 +537,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   14
          Top             =   720
          Width           =   10215
@@ -948,6 +953,7 @@ Private WPlazo1 As Integer
 Private WVencimiento As String
 
 Dim WMovi(20000, 3) As String
+Dim WIva(4) As String
 
 Dim mRow As Integer
 Dim mCol As Integer
@@ -1046,11 +1052,48 @@ Private Function Verifica_datos() As Boolean
     If Trim(DescripcionII.Text) = "" Then grabar = False
     If Trim(Rubro.Text) = "" Then grabar = False
     
+    If Trim(Costo.Text) = "" Then grabar = False
+    
     ' Hacer verificacion de valides de Rubro cuando este realizada esta parte.
+    
     If Val(cmbIva.ListIndex) < 0 Then grabar = False
+    
+    ' Recorremos la grilla y verificamos que haya datos en las columnas de neto y final.
+    For i = 1 To Wvector1.Rows
+    
+        With Wvector1
+            .Row = i
+            .Col = 1
+            If Trim(.Text) <> "" Then
+                ' Chequeamos que haya datos en Neto
+                .Col = 3
+                
+                If Val(.Text) <= 0 Then
+                    grabar = False
+                    Exit For
+                End If
+                
+                ' Chequeamos que haya datos en Final
+                .Col = 4
+                
+                If Val(.Text) <= 0 Then
+                    grabar = False
+                    Exit For
+                End If
+                
+            Else
+            
+                Exit For
+            
+            End If
+        
+        End With
+    
+    Next
     
     
     Verifica_datos = grabar
+    
 End Function
 
 Sub Format_datos()
@@ -1216,291 +1259,65 @@ Private Sub btnCerrarListasPrecios_Click()
     Wvector1.SetFocus
 End Sub
 
+Private Sub cmbIva_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+        If Val(cmbIva.ListIndex) <= 0 Then Exit Sub
+        
+        btnAsignarLista.SetFocus
+        btnAsignarLista_Click
+    End If
+    If KeyAscii = 27 Then
+        cmbIva.ListIndex = 0
+    End If
+End Sub
+
 Private Sub cmdAdd_Click()
 
-    MsgBox Verifica_datos
+    Dim WCodigo, WDescripcion, WDescripcionII, WCosto, WCodigoIva, WObservaciones As String
+    Dim WRubro As Integer
     
-    Stop
+    WCodigo = ""
+    WDescripcion = ""
+    WDescripcionII = ""
+    WCosto = ""
+    WCodigoIva = ""
+    WObservaciones = ""
+    WRubro = 0
     
-    ZZCodigo = Trim(Linea.Text) + "-" + Trim(Tipo.Text) + "-" + Trim(Fragancia.Text) + "-" + Trim(Calidad.Text) + "-" + Trim(Tamano.Text)
+    If Not Verifica_datos Then
+        m$ = "Grabacion no se pudo realizar" & Chr(13) & "Hay datos que no son validos."
+        aaaaaa% = MsgBox(m$, 0, "Alta de Articulos")
+        Exit Sub
+    End If
+    
+    WCodigo = Trim(Codigo.Text)
+    WDescripcion = Left$(Trim(Descripcion.Text), 50)
+    WDescripcionII = Left$(Trim(DescripcionII.Text), 20)
+    WCosto = Trim(Costo.Text)
+    WCodigoIva = Left$(WIva(cmbIva.ListIndex), 1)
+    WObservaciones = Left$(Trim(Observaciones.Text), 200)
+    WRubro = Val(Rubro.Text)
     
     ZSql = ""
-    ZSql = ZSql + "Select *"
-    ZSql = ZSql + " FROM Articulo"
-    ZSql = ZSql + " Where Articulo.LInea = " + "'" + Linea.Text + "'"
-    ZSql = ZSql + " and Articulo.Tipo = " + "'" + Tipo.Text + "'"
-    ZSql = ZSql + " and Articulo.fragancia = " + "'" + Fragancia.Text + "'"
-    ZSql = ZSql + " and Articulo.Calidad = " + "'" + Calidad.Text + "'"
-    ZSql = ZSql + " and Articulo.Tamano = " + "'" + Tamano.Text + "'"
+    ZSql = ZSql + "INSERT INTO Articulo "
+    ZSql = ZSql + "(Codigo, Descripcion, DescripcionII, Costo, Iva, Observaciones, Rubro) "
+    ZSql = ZSql + "VALUES ("
+    ZSql = ZSql + "'" + WCodigo + "',"
+    ZSql = ZSql + "'" + WDescripcion + "',"
+    ZSql = ZSql + "'" + WDescripcionII + "',"
+    ZSql = ZSql + "'" + WCosto + "',"
+    ZSql = ZSql + "'" + WCodigoIva + "',"
+    ZSql = ZSql + "'" + WObservaciones + "',"
+    ZSql = ZSql + "'" + Str$(WRubro) + "'"
+    ZSql = ZSql + ")"
+    
     spArticulo = ZSql
     Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-    If rstArticulo.RecordCount > 0 Then
-    
-        rstArticulo.Close
-        
-        ZSql = ""
-        ZSql = ZSql + "UPDATE Articulo SET "
-        ZSql = ZSql + " Descripcion = " + "'" + Descripcion.Text + "',"
-        ZSql = ZSql + " DescripcionII = " + "'" + DescripcionII.Text + "',"
-        ZSql = ZSql + " Stock = " + "'" + Stock.Text + "',"
-        ZSql = ZSql + " StockI = " + "'" + StockI.Text + "',"
-        ZSql = ZSql + " StockII = " + "'" + StockII.Text + "',"
-        ZSql = ZSql + " StockIII = " + "'" + StockIII.Text + "',"
-        ZSql = ZSql + " StockIV = " + "'" + StockIV.Text + "',"
-        ZSql = ZSql + " StockV = " + "'" + StockV.Text + "',"
-        ZSql = ZSql + " StockVI = " + "'" + StockVI.Text + "',"
-        ZSql = ZSql + " Sector = " + "'" + Sector.Text + "',"
-        ZSql = ZSql + " Activo = " + "'" + Str$(Activo.ListIndex) + "',"
-        ZSql = ZSql + " FechaInactivo = " + "'" + FechaInactivo.Text + "',"
-        ZSql = ZSql + " Facturable = " + "'" + Str$(Facturable.ListIndex) + "',"
-        ZSql = ZSql + " Etiqueta = " + "'" + Str$(Etiqueta.ListIndex) + "'"
-        ZSql = ZSql + " Where LInea = " + "'" + Linea.Text + "'"
-        ZSql = ZSql + " and Tipo = " + "'" + Tipo.Text + "'"
-        ZSql = ZSql + " and Fragancia = " + "'" + Fragancia.Text + "'"
-        ZSql = ZSql + " and Calidad = " + "'" + Calidad.Text + "'"
-        ZSql = ZSql + " and Tamano = " + "'" + Tamano.Text + "'"
-        spArticulo = ZSql
-        Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-        
-            Else
-            
-        ZSql = ""
-        ZSql = ZSql + "INSERT INTO Articulo ("
-        ZSql = ZSql + "Linea ,"
-        ZSql = ZSql + "Tipo ,"
-        ZSql = ZSql + "Fragancia ,"
-        ZSql = ZSql + "Calidad ,"
-        ZSql = ZSql + "Tamano ,"
-        ZSql = ZSql + "Codigo ,"
-        ZSql = ZSql + "Descripcion ,"
-        ZSql = ZSql + "DescripcionII ,"
-        ZSql = ZSql + "Stock ,"
-        ZSql = ZSql + "StockI ,"
-        ZSql = ZSql + "StockII ,"
-        ZSql = ZSql + "StockIII ,"
-        ZSql = ZSql + "StockIV ,"
-        ZSql = ZSql + "StockV ,"
-        ZSql = ZSql + "StockVI ,"
-        ZSql = ZSql + "Sector ,"
-        ZSql = ZSql + "Activo ,"
-        ZSql = ZSql + "FechaInactivo ,"
-        ZSql = ZSql + "Facturable ,"
-        ZSql = ZSql + "Etiqueta )"
-        ZSql = ZSql + "Values ("
-        ZSql = ZSql + "'" + Linea.Text + "',"
-        ZSql = ZSql + "'" + Tipo.Text + "',"
-        ZSql = ZSql + "'" + Fragancia.Text + "',"
-        ZSql = ZSql + "'" + Calidad.Text + "',"
-        ZSql = ZSql + "'" + Tamano.Text + "',"
-        ZSql = ZSql + "'" + ZZCodigo + "',"
-        ZSql = ZSql + "'" + Descripcion.Text + "',"
-        ZSql = ZSql + "'" + DescripcionII.Text + "',"
-        ZSql = ZSql + "'" + Stock.Text + "',"
-        ZSql = ZSql + "'" + StockI.Text + "',"
-        ZSql = ZSql + "'" + StockII.Text + "',"
-        ZSql = ZSql + "'" + StockIII.Text + "',"
-        ZSql = ZSql + "'" + StockIV.Text + "',"
-        ZSql = ZSql + "'" + StockV.Text + "',"
-        ZSql = ZSql + "'" + StockVI.Text + "',"
-        ZSql = ZSql + "'" + Sector.Text + "',"
-        ZSql = ZSql + "'" + Str$(Activo.ListIndex) + "',"
-        ZSql = ZSql + "'" + FechaInactivo.Text + "',"
-        ZSql = ZSql + "'" + Str$(Facturable.ListIndex) + "',"
-        ZSql = ZSql + "'" + Str$(Etiqueta.ListIndex) + "')"
-        spArticulo = ZSql
-        Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-        
-    End If
-    
-    
-    
-    
-    
-    
-    
-    
-    ZSql = ""
-    ZSql = ZSql + "Select *"
-    ZSql = ZSql + " FROM Precios"
-    ZSql = ZSql + " Where Precios.Lista = " + "'" + Lista.Text + "'"
-    ZSql = ZSql + " and Precios.LInea = " + "'" + Linea.Text + "'"
-    ZSql = ZSql + " and Precios.Tipo = " + "'" + Tipo.Text + "'"
-    ZSql = ZSql + " and Precios.fragancia = " + "'" + Fragancia.Text + "'"
-    ZSql = ZSql + " and Precios.Calidad = " + "'" + Calidad.Text + "'"
-    ZSql = ZSql + " and Precios.Tamano = " + "'" + Tamano.Text + "'"
-    spPrecios = ZSql
-    Set rstPrecios = db.OpenRecordset(spPrecios, dbOpenSnapshot, dbSQLPassThrough)
-    If rstPrecios.RecordCount > 0 Then
-        
-        ZZClave = rstPrecios!Clave
-        ZZCodigo = rstPrecios!Codigo
-        ZZLinea = rstPrecios!Linea
-        ZZTipo = rstPrecios!Tipo
-        ZZFragancia = rstPrecios!Fragancia
-        ZZCalidad = rstPrecios!Calidad
-        ZZTamano = rstPrecios!Tamano
-        ZZLista = rstPrecios!Lista
-        ZZDesde = rstPrecios!Desde
-        ZZHasta = rstPrecios!Hasta
-        ZZOrdDesde = rstPrecios!OrdDesde
-        ZZOrdHasta = rstPrecios!OrdHasta
-        ZZTope1 = rstPrecios!Tope1
-        ZZValor1 = rstPrecios!Valor1
-        ZZTope2 = rstPrecios!Tope2
-        ZZValor2 = rstPrecios!Valor2
-        ZZTope3 = rstPrecios!Tope3
-        ZZValor3 = rstPrecios!Valor3
-        ZZTope4 = rstPrecios!Tope4
-        ZZValor4 = rstPrecios!Valor4
-        rstPrecios.Close
-        
-        If ZZTope1 <> Val(Tope1.Text) Or ZZValor1 <> Val(Valor1.Text) Or ZZTope2 <> Val(Tope2.Text) Or ZZValor2 <> Val(Valor2.Text) Or ZZTope3 <> Val(Tope3.Text) Or ZZValor3 <> Val(Valor3.Text) Or ZZTope4 <> Val(Tope4.Text) Or ZZValor4 <> Val(Valor4.Text) Then
-            
-            Desde.Text = Mid$(Date$, 4, 2) + "/" + Left$(Date$, 2) + "/" + Right$(Date$, 4)
-    
-            ZSql = ""
-            ZSql = ZSql + "INSERT INTO PreciosHistorial ("
-            ZSql = ZSql + "Clave ,"
-            ZSql = ZSql + "Codigo ,"
-            ZSql = ZSql + "Linea ,"
-            ZSql = ZSql + "Tipo ,"
-            ZSql = ZSql + "Fragancia ,"
-            ZSql = ZSql + "Calidad ,"
-            ZSql = ZSql + "Tamano ,"
-            ZSql = ZSql + "Lista ,"
-            ZSql = ZSql + "Desde ,"
-            ZSql = ZSql + "Hasta ,"
-            ZSql = ZSql + "OrdDesde ,"
-            ZSql = ZSql + "OrdHasta ,"
-            ZSql = ZSql + "Tope1 ,"
-            ZSql = ZSql + "Valor1 ,"
-            ZSql = ZSql + "Tope2 ,"
-            ZSql = ZSql + "Valor2 ,"
-            ZSql = ZSql + "Tope3 ,"
-            ZSql = ZSql + "Valor3 ,"
-            ZSql = ZSql + "Tope4 ,"
-            ZSql = ZSql + "Valor4 )"
-            ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + ZZClave + "',"
-            ZSql = ZSql + "'" + ZZCodigo + "',"
-            ZSql = ZSql + "'" + ZZLinea + "',"
-            ZSql = ZSql + "'" + ZZTipo + "',"
-            ZSql = ZSql + "'" + ZZFragancia + "',"
-            ZSql = ZSql + "'" + ZZCalidad + "',"
-            ZSql = ZSql + "'" + ZZTamano + "',"
-            ZSql = ZSql + "'" + ZZLista + "',"
-            ZSql = ZSql + "'" + ZZDesde + "',"
-            ZSql = ZSql + "'" + ZZHasta + "',"
-            ZSql = ZSql + "'" + ZZOrdDesde + "',"
-            ZSql = ZSql + "'" + ZZOrdHasta + "',"
-            ZSql = ZSql + "'" + Str$(ZZTope1) + "',"
-            ZSql = ZSql + "'" + Str$(ZZValor1) + "',"
-            ZSql = ZSql + "'" + Str$(ZZTope2) + "',"
-            ZSql = ZSql + "'" + Str$(ZZValor2) + "',"
-            ZSql = ZSql + "'" + Str$(ZZTope3) + "',"
-            ZSql = ZSql + "'" + Str$(ZZValor3) + "',"
-            ZSql = ZSql + "'" + Str$(ZZTope4) + "',"
-            ZSql = ZSql + "'" + Str$(ZZValor4) + "')"
-            spPreciosHistorial = ZSql
-            Set rstPreciosHistorial = db.OpenRecordset(spPreciosHistorial, dbOpenSnapshot, dbSQLPassThrough)
-
-        End If
-        
-        ZZOrdDesde = Right$(Desde.Text, 4) + Mid$(Desde.Text, 4, 2) + Left$(Desde.Text, 2)
-        ZZOrdHasta = Right$(Hasta.Text, 4) + Mid$(Hasta.Text, 4, 2) + Left$(Hasta.Text, 2)
-        
-        ZSql = ""
-        ZSql = ZSql + "UPDATE Precios SET "
-        ZSql = ZSql + " MOneda = " + "'" + Str$(Moneda.ListIndex) + "',"
-        ZSql = ZSql + " Desde = " + "'" + Desde.Text + "',"
-        ZSql = ZSql + " Hasta = " + "'" + Hasta.Text + "',"
-        ZSql = ZSql + " OrdDesde = " + "'" + ZZOrdDesde + "',"
-        ZSql = ZSql + " OrdHasta = " + "'" + ZZOrdHasta + "',"
-        ZSql = ZSql + " Tope1 = " + "'" + Tope1.Text + "',"
-        ZSql = ZSql + " Valor1 = " + "'" + Valor1.Text + "',"
-        ZSql = ZSql + " Tope2 = " + "'" + Tope2.Text + "',"
-        ZSql = ZSql + " Valor2 = " + "'" + Valor2.Text + "',"
-        ZSql = ZSql + " Tope3 = " + "'" + Tope3.Text + "',"
-        ZSql = ZSql + " Valor3 = " + "'" + Valor3.Text + "',"
-        ZSql = ZSql + " Tope4 = " + "'" + Tope4.Text + "',"
-        ZSql = ZSql + " Valor4 = " + "'" + Valor4.Text + "'"
-        ZSql = ZSql + " Where Precios.Lista = " + "'" + Lista.Text + "'"
-        ZSql = ZSql + " and Precios.LInea = " + "'" + Linea.Text + "'"
-        ZSql = ZSql + " and Precios.Tipo = " + "'" + Tipo.Text + "'"
-        ZSql = ZSql + " and Precios.fragancia = " + "'" + Fragancia.Text + "'"
-        ZSql = ZSql + " and Precios.Calidad = " + "'" + Calidad.Text + "'"
-        ZSql = ZSql + " and Precios.Tamano = " + "'" + Tamano.Text + "'"
-        spPrecios = ZSql
-        Set rstPrecios = db.OpenRecordset(spPrecios, dbOpenSnapshot, dbSQLPassThrough)
-        
-            Else
-            
-        ZZClave = Trim(Lista.Text) + ZZCodigo
-        Desde.Text = Mid$(Date$, 4, 2) + "/" + Left$(Date$, 2) + "/" + Right$(Date$, 4)
-        
-        ZZOrdDesde = Right$(Desde.Text, 4) + Mid$(Desde.Text, 4, 2) + Left$(Desde.Text, 2)
-        ZZOrdHasta = Right$(Hasta.Text, 4) + Mid$(Hasta.Text, 4, 2) + Left$(Hasta.Text, 2)
-
-        ZSql = ""
-        ZSql = ZSql + "INSERT INTO Precios ("
-        ZSql = ZSql + "Clave ,"
-        ZSql = ZSql + "Codigo ,"
-        ZSql = ZSql + "Linea ,"
-        ZSql = ZSql + "Tipo ,"
-        ZSql = ZSql + "Fragancia ,"
-        ZSql = ZSql + "Calidad ,"
-        ZSql = ZSql + "Tamano ,"
-        ZSql = ZSql + "Lista ,"
-        ZSql = ZSql + "Moneda ,"
-        ZSql = ZSql + "Desde ,"
-        ZSql = ZSql + "Hasta ,"
-        ZSql = ZSql + "OrdDesde ,"
-        ZSql = ZSql + "OrdHasta ,"
-        ZSql = ZSql + "Tope1 ,"
-        ZSql = ZSql + "Valor1 ,"
-        ZSql = ZSql + "Tope2 ,"
-        ZSql = ZSql + "Valor2 ,"
-        ZSql = ZSql + "Tope3 ,"
-        ZSql = ZSql + "Valor3 ,"
-        ZSql = ZSql + "Tope4 ,"
-        ZSql = ZSql + "Valor4 )"
-        ZSql = ZSql + "Values ("
-        ZSql = ZSql + "'" + ZZClave + "',"
-        ZSql = ZSql + "'" + ZZCodigo + "',"
-        ZSql = ZSql + "'" + Linea.Text + "',"
-        ZSql = ZSql + "'" + Tipo.Text + "',"
-        ZSql = ZSql + "'" + Fragancia.Text + "',"
-        ZSql = ZSql + "'" + Calidad.Text + "',"
-        ZSql = ZSql + "'" + Tamano.Text + "',"
-        ZSql = ZSql + "'" + Lista.Text + "',"
-        ZSql = ZSql + "'" + Str$(Moneda.ListIndex) + "',"
-        ZSql = ZSql + "'" + Desde.Text + "',"
-        ZSql = ZSql + "'" + Hasta.Text + "',"
-        ZSql = ZSql + "'" + ZZOrdDesde + "',"
-        ZSql = ZSql + "'" + ZZOrdHasta + "',"
-        ZSql = ZSql + "'" + Tope1.Text + "',"
-        ZSql = ZSql + "'" + Valor1.Text + "',"
-        ZSql = ZSql + "'" + Tope2.Text + "',"
-        ZSql = ZSql + "'" + Valor2.Text + "',"
-        ZSql = ZSql + "'" + Tope3.Text + "',"
-        ZSql = ZSql + "'" + Valor3.Text + "',"
-        ZSql = ZSql + "'" + Tope4.Text + "',"
-        ZSql = ZSql + "'" + Valor4.Text + "')"
-        spPrecios = ZSql
-        Set rstPrecios = db.OpenRecordset(spPrecios, dbOpenSnapshot, dbSQLPassThrough)
-
-    End If
-    
-    
-    
-    
-    
     
     m$ = "Grabacion realizada"
-    aaaaaa% = MsgBox(m$, 0, "Archivo de Articulos")
+    aaaaaa% = MsgBox(m$, 0, "Alta de Articulos")
     
-    Rem Call CmdLimpiar_Click
-    Linea.SetFocus
+    Call CmdLimpiar_Click
 End Sub
 
 Private Sub cmdDelete_Click()
@@ -1549,12 +1366,42 @@ End Sub
 
 Private Sub CmdLimpiar_Click()
     
-    Call Limpia_Vector
+    Erase WIva
+    
+    WIva(1) = "21.0"
+    WIva(2) = "27.0"
+    WIva(3) = "10.5"
+    WIva(4) = "0"
+    
+    With cmbIva
+    
+        .Clear
+        
+        .AddItem ""
+        .AddItem "% 21.0"
+        .AddItem "% 27.0"
+        .AddItem "% 10.5"
+        .AddItem "% 0     (Exento)"
+        
+        .ListIndex = 0
+    
+    End With
     
     frameConsulta.Visible = False
     FrameListaPrecios.Visible = False
+    
+    Codigo.Text = ""
+    Descripcion.Text = ""
+    DescripcionII.Text = ""
+    Observaciones.Text = ""
+    Rubro.Text = ""
+    Costo.Text = ""
+    
     SSTab1.Tab = 0
-    Codigo.SetFocus
+        
+    If Codigo.Visible Then Codigo.SetFocus
+    
+    Call Limpia_Vector
     
 End Sub
 
@@ -1566,10 +1413,11 @@ End Sub
 
 Private Sub Codigo_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        If Trim(Codigo.Text) = "" Then: Exit Sub: End If
+        
+        If Trim(Codigo.Text) = "" Then Exit Sub
         
         ZSql = ""
-        ZSql = ZSql + "SELECT * FROM Articulo Where Articulo = '" + Trim(Codigo.Text) + "'"
+        ZSql = ZSql + "SELECT * FROM Articulo Where Codigo = '" + Trim(Codigo.Text) + "'"
         
         spArticulo = ZSql
         
@@ -1585,9 +1433,14 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
                 
                 Observaciones.Text = Trim(!Observaciones)
                 
-                Costo.Text = Trim(!Costo)
+                Costo.Text = Pusing("######.##", Trim(!Costo))
                 
-                Call Imprime_Datos
+                'Call Imprime_Datos
+                
+                Codigo.SetFocus
+                
+                cmbIva.ListIndex = Val(!Iva)
+                
                 .Close
             Else
                 Descripcion.SetFocus
@@ -1597,6 +1450,7 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
     ElseIf KeyAscii = 27 Then
         Codigo.Text = ""
     End If
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub Command1_Click()
@@ -1656,6 +1510,22 @@ Private Sub DBGrid1_KeyPress(KeyAscii As Integer)
 
 End Sub
 
+Private Sub Costo_KeyPress(KeyAscii As Integer)
+    If KeyAscii = 13 Then
+    
+        If Val(Costo.Text) = 0 Then Exit Sub
+        
+        Costo.Text = Pusing("######.##", Trim(Costo.Text))
+        
+        SSTab1.Tab = 2
+        cmbIva.SetFocus
+    End If
+    If KeyAscii = 27 Then
+        Descripcion.Text = ""
+    End If
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
+End Sub
+
 Private Sub Descripcion_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         DescripcionII.SetFocus
@@ -1667,7 +1537,7 @@ End Sub
 
 Private Sub DescripcionII_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        Sector.SetFocus
+        Rubro.SetFocus
     End If
     If KeyAscii = 27 Then
         DescripcionII.Text = ""
@@ -1971,6 +1841,18 @@ Private Sub Rubro_KeyPress(KeyAscii As Integer)
         Tipo.Text = ""
         Call Busqueda
     End If
+    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
+End Sub
+
+Private Sub SSTab1_Click(PreviousTab As Integer)
+    Select Case SSTab1.Tab
+        Case 0:
+            If Codigo.Visible Then Codigo.SetFocus
+        Case 1:
+            If Costo.Visible Then Costo.SetFocus
+        Case 2:
+            If cmbIva.Visible Then cmbIva.SetFocus
+    End Select
 End Sub
 
 Private Sub Tipo_KeyPress(KeyAscii As Integer)
@@ -2233,74 +2115,7 @@ End Sub
 
 Sub Form_Load()
     
-    'Linea.Text = ""
-    'Tipo.Text = ""
-    'Fragancia.Text = ""
-    'Calidad.Text = ""
-    'Tamano.Text = ""
-    'Descripcion.Text = ""
-    'DescripcionII.Text = ""
-    'Sector.Text = ""
-    'DesSector.Caption = ""
-    'Stock.Text = ""
-    'StockI.Text = ""
-    'StockII.Text = ""
-    'StockII.Text = ""
-    'StockIV.Text = ""
-    'StockV.Text = ""
-    'StockVI.Text = ""
-    'FechaInactivo.Text = "  /  /    "
-    'Lista.Text = "0"
-    'DesLista.Caption = ""
-    'Desde.Text = "  /  /    "
-    'Hasta.Text = "  /  /    "
-    'Tope1.Text = ""
-    'Valor1.Text = ""
-    'Tope2.Text = ""
-    'Valor2.Text = ""
-    'Tope3.Text = ""
-    'Valor3.Text = ""
-    'Tope4.Text = ""
-    'Valor4.Text = ""
-   '
-    'Moneda.Clear
-    
-    'Moneda.AddItem "Pesos"
-    'Moneda.AddItem "Dolares"
-    
-    'Moneda.ListIndex = 1
-    
-    'TipoBusqueda.Value = 0
-    
-    'Activo.Clear
-    
-    'Activo.AddItem "Si"
-    'Activo.AddItem "No"
-    
-    'Activo.ListIndex = 0
-
-    'Facturable.Clear
-     
-    'Facturable.AddItem "Si"
-    'Facturable.AddItem "No"
-    
-    'Facturable.ListIndex = 0
-     
-    
-    'Etiqueta.Clear
-    
-    'Etiqueta.AddItem ""
-    'Etiqueta.AddItem "Si"
-    'Etiqueta.AddItem "No"
-    
-    'Etiqueta.ListIndex = 0
-    
-    SSTab1.Tab = 0
-    
-    Call Limpia_Vector
-    
-    'Call Limpia_Vector2
-    'Call LInea_DblClick
+    Call CmdLimpiar_Click
     
 End Sub
 
