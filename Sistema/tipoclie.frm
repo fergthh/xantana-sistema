@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form PrgTipoClie 
    AutoRedraw      =   -1  'True
    Caption         =   "Tipo de Clientes"
@@ -446,7 +446,7 @@ Begin VB.Form PrgTipoClie
       Top             =   3720
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   262150
+      _Version        =   348160
       WindowTitle     =   "Listado de Vendedor"
       WindowControlBox=   -1  'True
       WindowMaxButton =   -1  'True
@@ -455,6 +455,7 @@ Begin VB.Form PrgTipoClie
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
+      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -586,11 +587,12 @@ Private Sub Acepta_Click()
     ZZDesde = Desde.Text
     ZZHasta = Hasta.Text
 
-    Rem If Val(Desde.Text) = 0 Then
-    Rem      Desde.Text = "0"
-    Rem End If
+    If Trim(ZZDesde) = "" Then
+         ZZDesde = ""
+    End If
+    
     If Trim(ZZHasta) = "" Then
-         ZZHasta = "ZZZZ"
+         ZZHasta = "ZZZZZZ"
     End If
     
     ZSql = ""
@@ -774,7 +776,7 @@ Private Sub Lista_Click()
     Call ExpandirFormulario
 End Sub
 
-Private Sub Descripcion_Keypress(KeyAscii As Integer)
+Private Sub Descripcion_KeyPress(KeyAscii As Integer)
     Rem If KeyAscii = 13 Then
     Rem     Cuenta.SetFocus
     Rem End If

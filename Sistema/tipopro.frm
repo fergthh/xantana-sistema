@@ -2,7 +2,7 @@ VERSION 5.00
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form PrgTipoPro 
    AutoRedraw      =   -1  'True
-   Caption         =   "Rubros de Articulos y Productos"
+   Caption         =   "Tipo de Productos"
    ClientHeight    =   5355
    ClientLeft      =   1050
    ClientTop       =   690
@@ -562,8 +562,17 @@ Private WAuxi As String
 Sub Imprime_Nombre()
 End Sub
 
-Sub Verifica_datos()
-End Sub
+Private Function Verifica_datos() As Boolean
+    Dim Valido As Boolean
+    
+    Valido = True
+    
+    If Trim(Codigo.Text) = "" Then Valido = False
+    If Trim(Descripcion.Text) = "" Then Valido = False
+    
+    Verifica_datos = Valido
+    
+End Function
 
 Sub Format_datos()
 End Sub
@@ -572,27 +581,29 @@ Sub Imprime_Datos()
     ZSql = ""
     ZSql = ZSql + "Select *"
     ZSql = ZSql + " FROM TipoPro"
-    ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Codigo.Text + "'"
+    ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Trim(Codigo.Text) + "'"
     spTipoPro = ZSql
     Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
     If rstTipoPro.RecordCount > 0 Then
         Descripcion.Text = Trim(rstTipoPro!Descripcion)
         rstTipoPro.Close
-        Call Format_datos
-        Call Imprime_Nombre
+        'Call Format_datos
+        'Call Imprime_Nombre
     End If
 End Sub
 
 Private Sub Acepta_Click()
+    
+    ' Chequear porque me parece que es numerico.
+    ZZDesde = UCase(Desde.Text)
+    ZZHasta = UCase(Hasta.Text)
 
-    ZZDesde = Desde.Text
-    ZZHasta = Hasta.Text
-
-    Rem If Val(Desde.Text) = 0 Then
-    Rem      Desde.Text = "0"
-    Rem End If
+    If Trim(Desde.Text) = "" Then
+         ZZDesde = "0"
+    End If
+    
     If Trim(ZZHasta) = "" Then
-         ZZHasta = "ZZZZ"
+         ZZHasta = "9999999"
     End If
     
     ZSql = ""
@@ -606,6 +617,8 @@ Private Sub Acepta_Click()
     ZSql = ZSql + " CodigoEmpresa = " + "'" + WEmpresa + "'"
     spTipoPro = ZSql
     Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
+    
+    Listado.ReportFileName = App.Path & "\TipoPro.rpt"
     
     Listado.WindowTitle = "Listado de Tipo de Productos"
     Listado.WindowTop = 0
@@ -628,8 +641,8 @@ Private Sub Acepta_Click()
                 
     Listado.Connect = Connect()
     
-    Listado.GroupSelectionFormula = "{TipoPro.Codigo} in " + Chr$(34) + ZZDesde + Chr$(34) + " to " + Chr(34) + ZZHasta + Chr$(34)
-    Listado.SelectionFormula = "{TipoPro.Codigo} in " + Chr$(34) + ZZDesde + Chr$(34) + " to " + Chr(34) + ZZHasta + Chr$(34)
+    Listado.GroupSelectionFormula = "{TipoPro.Codigo} >= " + Chr$(34) + ZZDesde + Chr$(34) + " AND {TipoPro.Codigo} <=" + Chr(34) + ZZHasta + Chr$(34)
+    Listado.SelectionFormula = "{TipoPro.Codigo} >= " + Chr$(34) + ZZDesde + Chr$(34) + " AND {TipoPro.Codigo} <= " + Chr(34) + ZZHasta + Chr$(34)
     
     If Impresora.Value = True Then
         Listado.Destination = 1
@@ -650,6 +663,9 @@ End Sub
 
 Private Sub cmdAdd_Click()
     If Codigo.Text <> "" Then
+        
+        ' Verifico que haya datos que guardar.
+        If Not Verifica_datos Then Exit Sub
     
         ZSql = ""
         ZSql = ZSql + "Select *"
@@ -677,18 +693,10 @@ Private Sub cmdAdd_Click()
             Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
         End If
         
-        
-        
-        
-        
-        
-        Rem Call CmdLimpiar_Click
-    
         m$ = "Grabacion realizada"
         aaaaaaaaaaa% = MsgBox(m$, 0, "Archivo de Tipo de Productos")
         
-        
-        Codigo.SetFocus
+        Call CmdLimpiar_Click
         
     End If
     
@@ -731,19 +739,12 @@ Private Sub CmdLimpiar_Click()
     
     Codigo.Text = ""
     Descripcion.Text = ""
-    Codigo.SetFocus
+    Desde.Text = ""
+    Hasta.Text = ""
+    Panta.Value = True
+    Impresora.Value = False
     
-    Rem ZSql = ""
-    Rem ZSql = ZSql + "Select Max(Linea) as [LineaMayor]"
-    Rem ZSql = ZSql + " FROM TipoPro"
-    Rem sptipopro = ZSql
-    Rem Set rstTipoPro = db.OpenRecordset(sptipopro, dbOpenSnapshot, dbSQLPassThrough)
-    Rem If rstTipoPro.RecordCount > 0 Then
-    Rem     rstTipoPro.MoveLast
-    Rem     ZUltimo = IIf(IsNull(rstTipoPro!CodigoMayor), "0", rstTipoPro!CodigoMayor)
-    Rem     codigo.text = ZUltimo + 1
-    Rem     rstTipoPro.Close
-    Rem End If
+    Codigo.SetFocus
     
     Exit Sub
     
@@ -763,8 +764,8 @@ End Sub
 Private Sub Lista_Click()
     Desde.Text = ""
     Hasta.Text = ""
-    Panta.Value = False
-    Impresora.Value = True
+    Panta.Value = True
+    Impresora.Value = False
     Frame2.Visible = True
     Desde.SetFocus
 End Sub
@@ -864,9 +865,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else

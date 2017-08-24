@@ -25,11 +25,10 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
-      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "Frame1"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Frame2"
@@ -46,24 +45,37 @@ Begin VB.Form prgArticulo2
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   -1  'True
-      Tab(2).Control(0)=   "Frame6"
-      Tab(2).Control(0).Enabled=   0   'False
-      Tab(2).Control(1)=   "Frame5"
-      Tab(2).Control(1).Enabled=   0   'False
-      Tab(2).Control(2)=   "btnAsignarLista"
-      Tab(2).Control(2).Enabled=   0   'False
-      Tab(2).Control(3)=   "FrameListaPrecios"
-      Tab(2).Control(3).Enabled=   0   'False
+      Tab(2).ControlEnabled=   0   'False
+      Tab(2).Control(0)=   "FrameListaPrecios"
+      Tab(2).Control(1)=   "btnAsignarLista"
+      Tab(2).Control(2)=   "Frame5"
+      Tab(2).Control(3)=   "Frame6"
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Rubros"
          Height          =   4215
-         Left            =   -71640
+         Left            =   3360
          TabIndex        =   50
-         Top             =   720
+         Top             =   960
          Visible         =   0   'False
          Width           =   4815
+         Begin VB.CommandButton btnCerrarConsulta 
+            Caption         =   "Cerrar"
+            BeginProperty Font 
+               Name            =   "MS Sans Serif"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   495
+            Left            =   1800
+            TabIndex        =   51
+            Top             =   3480
+            Width           =   1215
+         End
          Begin VB.CommandButton ImpreVenta 
             BeginProperty Font 
                Name            =   "MS Sans Serif"
@@ -217,23 +229,6 @@ Begin VB.Form prgArticulo2
             Visible         =   0   'False
             Width           =   255
          End
-         Begin VB.CommandButton btnCerrarConsulta 
-            Caption         =   "Cerrar"
-            BeginProperty Font 
-               Name            =   "MS Sans Serif"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   495
-            Left            =   1800
-            TabIndex        =   51
-            Top             =   3480
-            Width           =   1215
-         End
          Begin Crystal.CrystalReport Listado 
             Left            =   3840
             Top             =   2760
@@ -256,7 +251,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   5880
+         Left            =   -69120
          TabIndex        =   47
          Top             =   600
          Visible         =   0   'False
@@ -308,7 +303,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   6720
+         Left            =   -68280
          TabIndex        =   33
          Top             =   4980
          Width           =   3375
@@ -316,7 +311,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   1440
+         Left            =   -73560
          TabIndex        =   30
          Top             =   540
          Width           =   8655
@@ -358,7 +353,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   1440
+         Left            =   -73560
          TabIndex        =   29
          Top             =   2220
          Width           =   8655
@@ -521,7 +516,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   15
          Top             =   2400
          Width           =   10215
@@ -537,7 +532,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   14
          Top             =   720
          Width           =   10215
@@ -1510,7 +1505,7 @@ Private Sub DBGrid1_KeyPress(KeyAscii As Integer)
 
 End Sub
 
-Private Sub Costo_KeyPress(KeyAscii As Integer)
+Private Sub Costo_Keypress(KeyAscii As Integer)
     If KeyAscii = 13 Then
     
         If Val(Costo.Text) = 0 Then Exit Sub

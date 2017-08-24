@@ -21,7 +21,7 @@ Begin VB.Form Clave
    Begin VB.Label Label1 
       Caption         =   "INGRESE SU CLAVE"
       BeginProperty Font 
-         Name            =   "Calibri"
+         Name            =   "Arial"
          Size            =   14.25
          Charset         =   0
          Weight          =   700
@@ -50,6 +50,8 @@ Private Sub WClave_Keypress(KeyAscii As Integer)
         strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
         Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
         
+        
+        WEmpresa = 1
         
         Salida = "N"
         Select Case UCase(Trim(WClave.Text))
