@@ -25,10 +25,11 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
+      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "Frame1"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Frame2"
@@ -40,21 +41,28 @@ Begin VB.Form prgArticulo2
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
       Tab(1).Control(0)=   "Frame3"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Frame7"
+      Tab(1).Control(1).Enabled=   0   'False
       Tab(1).Control(2)=   "SubWizard1"
+      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "Frame6"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame5"
+      Tab(2).Control(1).Enabled=   0   'False
       Tab(2).Control(2)=   "btnAsignarLista"
+      Tab(2).Control(2).Enabled=   0   'False
       Tab(2).Control(3)=   "FrameListaPrecios"
+      Tab(2).Control(3).Enabled=   0   'False
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Rubros"
          Height          =   4215
-         Left            =   3120
+         Left            =   -71880
          TabIndex        =   50
          Top             =   840
          Visible         =   0   'False
@@ -251,7 +259,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   -69120
+         Left            =   5880
          TabIndex        =   47
          Top             =   600
          Visible         =   0   'False
@@ -303,7 +311,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   -68280
+         Left            =   6720
          TabIndex        =   33
          Top             =   4980
          Width           =   3375
@@ -311,7 +319,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   30
          Top             =   540
          Width           =   8655
@@ -353,7 +361,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   29
          Top             =   2220
          Width           =   8655
@@ -516,7 +524,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   15
          Top             =   2400
          Width           =   10215
@@ -532,7 +540,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   14
          Top             =   720
          Width           =   10215
@@ -1361,14 +1369,12 @@ End Sub
 
 Private Sub cmdDelete_Click()
 
+    If Trim(Codigo.Text) = "" Then Exit Sub
+
     ZSql = ""
     ZSql = ZSql + "Select *"
     ZSql = ZSql + " FROM Articulo"
-    ZSql = ZSql + " Where Articulo.LInea = " + "'" + Linea.Text + "'"
-    ZSql = ZSql + " and Articulo.Tipo = " + "'" + Tipo.Text + "'"
-    ZSql = ZSql + " and Articulo.fragancia = " + "'" + Fragancia.Text + "'"
-    ZSql = ZSql + " and Articulo.Calidad = " + "'" + Calidad.Text + "'"
-    ZSql = ZSql + " and Articulo.Tamano = " + "'" + Tamano.Text + "'"
+    ZSql = ZSql + " Where Articulo.Codigo = " + "'" + Trim(Codigo.Text) + "'"
     spArticulo = ZSql
     Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
     If rstArticulo.RecordCount > 0 Then
@@ -1377,30 +1383,18 @@ Private Sub cmdDelete_Click()
         m$ = "Desea Borrar el Registro "
         Respuestaaaaaa% = MsgBox(m$, 32 + 4, T$)
         If Respuestaaaaaa% = 6 Then
-    
-    
-            T$ = "Borrar Registro"
-            m$ = "Usted va a borrar el articulo, usted esta seguro de hacerlo"
-            Respuestaaaaaa% = MsgBox(m$, 32 + 4, T$)
-            If Respuestaaaaaa% = 6 Then
         
-                ZSql = ""
-                ZSql = ZSql + "DELETE Articulo"
-                ZSql = ZSql + " Where LInea = " + "'" + Linea.Text + "'"
-                ZSql = ZSql + " and Tipo = " + "'" + Tipo.Text + "'"
-                ZSql = ZSql + " and Fragancia = " + "'" + Fragancia.Text + "'"
-                ZSql = ZSql + " and Calidad = " + "'" + Calidad.Text + "'"
-                ZSql = ZSql + " and Tamano = " + "'" + Tamano.Text + "'"
-                spArticulo = ZSql
-                Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-                
-                Call CmdLimpiar_Click
-                
-            End If
+            ZSql = ""
+            ZSql = ZSql + "DELETE Articulo"
+            ZSql = ZSql + " Where Codigo = " + "'" + Trim(Codigo.Text) + "'"
+            spArticulo = ZSql
+            Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
+            
+            Call CmdLimpiar_Click
             
         End If
     End If
-    Linea.SetFocus
+    'Codigo.SetFocus
 End Sub
 
 Private Sub CmdLimpiar_Click()
