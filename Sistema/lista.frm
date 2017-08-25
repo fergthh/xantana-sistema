@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "CRYSTL32.OCX"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form PrgLista 
    AutoRedraw      =   -1  'True
    Caption         =   "Lista de Precio"
@@ -439,7 +439,7 @@ Begin VB.Form PrgLista
       Top             =   240
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   262150
+      _Version        =   348160
       ReportFileName  =   "Fragancia.rpt"
       Destination     =   1
       WindowTitle     =   "Listado de Vendedor"
@@ -450,6 +450,7 @@ Begin VB.Form PrgLista
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
+      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -561,8 +562,15 @@ Private WAuxi As String
 Sub Imprime_Nombre()
 End Sub
 
-Sub Verifica_datos()
-End Sub
+Private Function Verifica_datos() As Boolean
+    Dim Valido As Boolean
+    Valido = True
+    
+    If Trim(Codigo.Text) = "" Then Valido = False
+    If Trim(Descripcion.Text) = "" Then Valido = False
+
+    Verifica_datos
+End Function
 
 Sub Format_datos()
 End Sub
@@ -584,14 +592,14 @@ End Sub
 
 Private Sub Acepta_Click()
 
-    ZZDesde = Desde.Text
-    ZZHasta = Hasta.Text
+    ZZDesde = UCase(Trim(Desde.Text))
+    ZZHasta = UCase(Trim(Hasta.Text))
 
     Rem If Val(Desde.Text) = 0 Then
     Rem      Desde.Text = "0"
     Rem End If
     If Trim(ZZHasta) = "" Then
-         ZZHasta = "ZZZZ"
+         ZZHasta = "ZZZZZZZ"
     End If
     
     ZSql = ""
@@ -606,7 +614,9 @@ Private Sub Acepta_Click()
     spLista = ZSql
     Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
     
-    Listado.WindowTitle = "Listado de Listas"
+    Listado.ReportFileName = App.Path & "/WListadoPrecios.rpt" 'Cambiar el nombre por algo mas descriptivo.
+    
+    Listado.WindowTitle = "Listado de Listas de Precios"
     Listado.WindowTop = 0
     Listado.WindowLeft = 0
     Listado.WindowWidth = Screen.Width
@@ -642,7 +652,7 @@ Private Sub Acepta_Click()
     
 End Sub
 
-Private Sub Cancela_click()
+Private Sub Cancela_Click()
     Frame2.Visible = False
     Codigo.SetFocus
 End Sub
@@ -650,37 +660,42 @@ End Sub
 Private Sub cmdAdd_Click()
     If Codigo.Text <> "" Then
     
+        If Not Verifica_datos Then
+            m$ = "Alguno de los datos no es correcto. Verifique y vuelva a intentarlo."
+            aaaaaa% = MsgBox(m$, 0, "Archivo de Lista de Precios")
+            Exit Sub
+        End If
+        
+        Dim WCodigo, WDescripcion As String
+        
+        WCodigo = Left$(Codigo.Text, 4)
+        WDescripcion = Left$(Descripcion.Text, 50)
+    
         ZSql = ""
         ZSql = ZSql + "Select *"
         ZSql = ZSql + " FROM Lista"
-        ZSql = ZSql + " Where Lista.Codigo = " + "'" + Codigo.Text + "'"
+        ZSql = ZSql + " Where Lista.Codigo = " + "'" + WCodigo + "'"
         spLista = ZSql
         Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
         If rstLista.RecordCount > 0 Then
             rstLista.Close
             ZSql = ""
             ZSql = ZSql + "UPDATE Lista SET "
-            ZSql = ZSql + " Descripcion = " + "'" + Descripcion.Text + "'"
-            ZSql = ZSql + " Where Codigo = " + "'" + Codigo.Text + "'"
+            ZSql = ZSql + " Descripcion = " + "'" + WDescripcion + "'"
+            ZSql = ZSql + " Where Codigo = " + "'" + WCodigo + "'"
             spLista = ZSql
             Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-                Else
+        Else
             ZSql = ""
             ZSql = ZSql + "INSERT INTO Lista ("
             ZSql = ZSql + "Codigo ,"
             ZSql = ZSql + "Descripcion )"
             ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + Codigo.Text + "',"
-            ZSql = ZSql + "'" + Descripcion.Text + "')"
+            ZSql = ZSql + "'" + WCodigo + "',"
+            ZSql = ZSql + "'" + WDescripcion + "')"
             spLista = ZSql
             Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
         End If
-        
-        
-        
-        
-        
-        
         
         If ZZNivel = 0 Then
             txtUserName = "SA"
@@ -700,25 +715,25 @@ Private Sub cmdAdd_Click()
         ZSql = ""
         ZSql = ZSql + "Select *"
         ZSql = ZSql + " FROM Lista"
-        ZSql = ZSql + " Where Lista.Codigo = " + "'" + Codigo.Text + "'"
+        ZSql = ZSql + " Where Lista.Codigo = " + "'" + WCodigo + "'"
         spLista = ZSql
         Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
         If rstLista.RecordCount > 0 Then
             rstLista.Close
             ZSql = ""
             ZSql = ZSql + "UPDATE Lista SET "
-            ZSql = ZSql + " Descripcion = " + "'" + Descripcion.Text + "'"
-            ZSql = ZSql + " Where Codigo = " + "'" + Codigo.Text + "'"
+            ZSql = ZSql + " Descripcion = " + "'" + WDescripcion + "'"
+            ZSql = ZSql + " Where Codigo = " + "'" + WCodigo + "'"
             spLista = ZSql
             Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-                Else
+        Else
             ZSql = ""
             ZSql = ZSql + "INSERT INTO Lista ("
             ZSql = ZSql + "Codigo ,"
             ZSql = ZSql + "Descripcion )"
             ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + Codigo.Text + "',"
-            ZSql = ZSql + "'" + Descripcion.Text + "')"
+            ZSql = ZSql + "'" + WCodigo + "',"
+            ZSql = ZSql + "'" + WDescripcion + "')"
             spLista = ZSql
             Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
         End If
@@ -763,7 +778,7 @@ Private Sub cmdAdd_Click()
     
 End Sub
 
-Private Sub CmdDelete_Click()
+Private Sub cmdDelete_Click()
     If Codigo.Text <> "" Then
     
         ZSql = ""
@@ -800,19 +815,14 @@ Private Sub CmdLimpiar_Click()
     
     Codigo.Text = ""
     Descripcion.Text = ""
-    Codigo.SetFocus
     
-    Rem ZSql = ""
-    Rem ZSql = ZSql + "Select Max(Linea) as [LineaMayor]"
-    Rem ZSql = ZSql + " FROM Lista"
-    Rem spLista = ZSql
-    Rem Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-    Rem If rstLista.RecordCount > 0 Then
-    Rem     rstLista.MoveLast
-    Rem     ZUltimo = IIf(IsNull(rstLista!CodigoMayor), "0", rstLista!CodigoMayor)
-    Rem     codigo.text = ZUltimo + 1
-    Rem     rstLista.Close
-    Rem End If
+    Desde.Text = ""
+    Hasta.Text = ""
+    Panta.Value = True
+    Impresora.Value = False
+    Frame2.Visible = False
+    
+    Codigo.SetFocus
     
     Exit Sub
     
@@ -823,7 +833,7 @@ WError:
     
 End Sub
 
-Private Sub cmdClose_Click()
+Private Sub CmdClose_Click()
     PrgLista.Hide
     Unload Me
     MenuVen.Show
@@ -832,13 +842,13 @@ End Sub
 Private Sub Lista_Click()
     Desde.Text = ""
     Hasta.Text = ""
-    Panta.Value = False
-    Impresora.Value = True
+    Panta.Value = True
+    Impresora.Value = False
     Frame2.Visible = True
     Desde.SetFocus
 End Sub
 
-Private Sub Descripcion_Keypress(KeyAscii As Integer)
+Private Sub Descripcion_KeyPress(KeyAscii As Integer)
     Rem If KeyAscii = 13 Then
     Rem     Cuenta.SetFocus
     Rem End If
@@ -966,8 +976,8 @@ Private Sub Pantalla_Click()
     Ayuda.Visible = False
     Select Case XIndice
         Case 0
-            Indice = Pantalla.ListIndex
-            Codigo.Text = WIndice.List(Indice)
+            indice = Pantalla.ListIndex
+            Codigo.Text = WIndice.List(indice)
             Call Codigo_KeyPress(13)
             
         Case Else
@@ -1143,7 +1153,7 @@ Private Sub Ejecuta_Funcion()
         Case 112
             Call cmdAdd_Click
         Case 113
-            Call CmdDelete_Click
+            Call cmdDelete_Click
         Case 114
             Call CmdLimpiar_Click
         Case 115
@@ -1159,11 +1169,11 @@ Private Sub Ejecuta_Funcion()
         Case 120
             Call Lista_Click
         Case 121
-            Call cmdClose_Click
+            Call CmdClose_Click
         Case 122
             Call Acepta_Click
         Case 123
-            Call Cancela_click
+            Call Cancela_Click
         Case Else
     End Select
 End Sub
