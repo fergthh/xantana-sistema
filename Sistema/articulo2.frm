@@ -39,24 +39,24 @@ Begin VB.Form prgArticulo2
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "SubWizard1"
+      Tab(1).Control(0)=   "Frame3"
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "Frame3"
+      Tab(1).Control(2)=   "SubWizard1"
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "FrameListaPrecios"
-      Tab(2).Control(1)=   "btnAsignarLista"
-      Tab(2).Control(2)=   "Frame5"
-      Tab(2).Control(3)=   "Frame6"
+      Tab(2).Control(0)=   "Frame6"
+      Tab(2).Control(1)=   "Frame5"
+      Tab(2).Control(2)=   "btnAsignarLista"
+      Tab(2).Control(3)=   "FrameListaPrecios"
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Rubros"
          Height          =   4215
-         Left            =   3360
+         Left            =   3120
          TabIndex        =   50
-         Top             =   960
+         Top             =   840
          Visible         =   0   'False
          Width           =   4815
          Begin VB.CommandButton btnCerrarConsulta 
@@ -1050,6 +1050,20 @@ Private Function Verifica_datos() As Boolean
     If Trim(Costo.Text) = "" Then grabar = False
     
     ' Hacer verificacion de valides de Rubro cuando este realizada esta parte.
+    ZSql = ""
+    ZSql = ZSql + "Select Codigo"
+    ZSql = ZSql + " FROM TipoPro"
+    ZSql = ZSql + " Where Codigo = " + "'" + Trim(Rubro.Text) + "'"
+    spTipoPro = ZSql
+    Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
+    
+    With rstTipoPro
+        If .RecordCount > 0 Then
+            .Close
+        Else
+            grabar = False
+        End If
+    End With
     
     If Val(cmbIva.ListIndex) < 0 Then grabar = False
     
@@ -1291,23 +1305,53 @@ Private Sub cmdAdd_Click()
     WCosto = Trim(Costo.Text)
     WCodigoIva = Left$(WIva(cmbIva.ListIndex), 1)
     WObservaciones = Left$(Trim(Observaciones.Text), 200)
-    WRubro = Val(Rubro.Text)
+    WRubro = Left$(Rubro.Text, 4) ' Verificar bien por el tema de que si seguira o no siendo alfanumerico.
     
     ZSql = ""
-    ZSql = ZSql + "INSERT INTO Articulo "
-    ZSql = ZSql + "(Codigo, Descripcion, DescripcionII, Costo, Iva, Observaciones, Rubro) "
-    ZSql = ZSql + "VALUES ("
-    ZSql = ZSql + "'" + WCodigo + "',"
-    ZSql = ZSql + "'" + WDescripcion + "',"
-    ZSql = ZSql + "'" + WDescripcionII + "',"
-    ZSql = ZSql + "'" + WCosto + "',"
-    ZSql = ZSql + "'" + WCodigoIva + "',"
-    ZSql = ZSql + "'" + WObservaciones + "',"
-    ZSql = ZSql + "'" + Str$(WRubro) + "'"
-    ZSql = ZSql + ")"
+    ZSql = ZSql + "Select Codigo"
+    ZSql = ZSql + " FROM Articulo"
+    ZSql = ZSql + " Where Codigo = " + "'" + Trim(Codigo.Text) + "'"
     
     spArticulo = ZSql
     Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
+        
+        With rstArticulo
+            If .RecordCount > 0 Then
+                .Close
+                ' Actualizamos existente
+                ZSql = ""
+                ZSql = ZSql + "UPDATE Articulo SET "
+                ZSql = ZSql + "Codigo = '" + WCodigo + "',"
+                ZSql = ZSql + "Descripcion = '" + WDescripcion + "',"
+                ZSql = ZSql + "Descripcion = '" + WDescripcionII + "',"
+                ZSql = ZSql + "Costo = '" + WCosto + "',"
+                ZSql = ZSql + "Iva = '" + WCodigoIva + "',"
+                ZSql = ZSql + "Observaciones = '" + WObservaciones + "',"
+                ZSql = ZSql + "Rubro = '" + Str$(WRubro) + "'"
+                ZSql = ZSql + " Where Codigo = " + "'" + WCodigo + "'"
+                spTipoPro = ZSql
+                Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
+                
+            Else
+                ' Damos de alta.
+                
+                ZSql = ""
+                ZSql = ZSql + "INSERT INTO Articulo "
+                ZSql = ZSql + "(Codigo, Descripcion, DescripcionII, Costo, Iva, Observaciones, Rubro) "
+                ZSql = ZSql + "VALUES ("
+                ZSql = ZSql + "'" + WCodigo + "',"
+                ZSql = ZSql + "'" + WDescripcion + "',"
+                ZSql = ZSql + "'" + WDescripcionII + "',"
+                ZSql = ZSql + "'" + WCosto + "',"
+                ZSql = ZSql + "'" + WCodigoIva + "',"
+                ZSql = ZSql + "'" + WObservaciones + "',"
+                ZSql = ZSql + "'" + Str$(WRubro) + "'"
+                ZSql = ZSql + ")"
+                
+                spArticulo = ZSql
+                Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
+            End If
+        End With
     
     m$ = "Grabacion realizada"
     aaaaaa% = MsgBox(m$, 0, "Alta de Articulos")
@@ -1810,10 +1854,12 @@ Private Sub Rubro_KeyPress(KeyAscii As Integer)
             
             Exit Sub
         End If
+        
+        ' Chequear por el tema de si sigue o no siendo Alfanumerico.
     
         ZSql = ""
         ZSql = ZSql + "Select Codigo, Descripcion"
-        ZSql = ZSql + " FROM TipoArticulo"
+        ZSql = ZSql + " FROM TipoPro"
         ZSql = ZSql + " Where Codigo = " + "'" + Trim(Rubro.Text) + "'"
         spTipoPro = ZSql
         Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
@@ -1836,7 +1882,8 @@ Private Sub Rubro_KeyPress(KeyAscii As Integer)
         Tipo.Text = ""
         Call Busqueda
     End If
-    Call NumbersOnly(Screen.ActiveControl, KeyAscii)
+    ' Comentado hasta que se confirme si es o no alfanumerico.
+    'Call NumbersOnly(Screen.ActiveControl, KeyAscii)
 End Sub
 
 Private Sub SSTab1_Click(PreviousTab As Integer)
@@ -2052,7 +2099,7 @@ Private Sub Opcion_Click()
         Case 0
             ZSql = ""
             ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM TipoArticulo"
+            ZSql = ZSql + " FROM TipoPro"
             ZSql = ZSql + " Order by Descripcion"
             spLinea = ZSql
             Set rstLinea = db.OpenRecordset(spLinea, dbOpenSnapshot, dbSQLPassThrough)
