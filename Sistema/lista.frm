@@ -826,7 +826,7 @@ Private Sub cmdDelete_Click()
             T$ = "Borrar Registro"
             m$ = "Desea Borrar el Registro "
             Respuestaa% = MsgBox(m$, 32 + 4, T$)
-            If Respuestaaaaaa% = 6 Then
+            If Respuestaa% = 6 Then
             
                 ZSql = ""
                 ZSql = ZSql + "DELETE Lista"
