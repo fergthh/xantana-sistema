@@ -3,288 +3,14 @@ Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Begin VB.Form PrgLista 
    AutoRedraw      =   -1  'True
    Caption         =   "Lista de Precio"
-   ClientHeight    =   5355
+   ClientHeight    =   5310
    ClientLeft      =   1050
    ClientTop       =   690
-   ClientWidth     =   9765
+   ClientWidth     =   9960
    LinkTopic       =   "Form2"
-   ScaleHeight     =   5355
-   ScaleWidth      =   9765
+   ScaleHeight     =   5310
+   ScaleWidth      =   9960
    Visible         =   0   'False
-   Begin VB.ListBox PantallaFiltrada 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   2460
-      ItemData        =   "lista.frx":0000
-      Left            =   1680
-      List            =   "lista.frx":0007
-      TabIndex        =   27
-      Top             =   2640
-      Visible         =   0   'False
-      Width           =   6735
-   End
-   Begin VB.CommandButton Ultimo 
-      Caption         =   "Ultimo F8"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   6840
-      MouseIcon       =   "lista.frx":0015
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":031F
-      Style           =   1  'Graphical
-      TabIndex        =   24
-      ToolTipText     =   "Salida"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton Siguiente 
-      Caption         =   "Siguien. F7"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   5880
-      MouseIcon       =   "lista.frx":0761
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":0A6B
-      Style           =   1  'Graphical
-      TabIndex        =   23
-      ToolTipText     =   "Registro Siguiente"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton Anterior 
-      Caption         =   "Anterior F6"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   4920
-      MouseIcon       =   "lista.frx":0EAD
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":11B7
-      Style           =   1  'Graphical
-      TabIndex        =   22
-      ToolTipText     =   "Registro Anterior"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton Primer 
-      Caption         =   "Primer F5"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   3960
-      MouseIcon       =   "lista.frx":15F9
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":1903
-      Style           =   1  'Graphical
-      TabIndex        =   21
-      ToolTipText     =   "Primer Registro"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdClose 
-      Caption         =   "Menu F10"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   8760
-      MouseIcon       =   "lista.frx":1D45
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":204F
-      Style           =   1  'Graphical
-      TabIndex        =   20
-      ToolTipText     =   "Salida"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton Lista 
-      Caption         =   "Listado F9"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   7800
-      MouseIcon       =   "lista.frx":2891
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":2B9B
-      Style           =   1  'Graphical
-      TabIndex        =   19
-      ToolTipText     =   "Impresion "
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton Consulta 
-      Caption         =   "Consulta F4"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   3000
-      MouseIcon       =   "lista.frx":33DD
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":36E7
-      Style           =   1  'Graphical
-      TabIndex        =   18
-      ToolTipText     =   "Consulta de Datos"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdLimpiar 
-      Caption         =   "Limpia F3"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   2040
-      MouseIcon       =   "lista.frx":3F29
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":4233
-      Style           =   1  'Graphical
-      TabIndex        =   17
-      ToolTipText     =   "Limpia la pantalla"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdDelete 
-      Caption         =   "Borra  F2"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   1080
-      MouseIcon       =   "lista.frx":4A75
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":4D7F
-      Style           =   1  'Graphical
-      TabIndex        =   16
-      ToolTipText     =   "Elimina el Registro"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.CommandButton CmdAdd 
-      Caption         =   "Graba F1"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   975
-      Left            =   120
-      MouseIcon       =   "lista.frx":55C1
-      MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":58CB
-      Style           =   1  'Graphical
-      TabIndex        =   15
-      ToolTipText     =   "Graba los Datos Ingresados"
-      Top             =   1080
-      Width           =   855
-   End
-   Begin VB.TextBox Ayuda 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   1680
-      TabIndex        =   14
-      Top             =   2280
-      Visible         =   0   'False
-      Width           =   6735
-   End
-   Begin VB.TextBox Codigo 
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   285
-      Left            =   2640
-      MaxLength       =   4
-      TabIndex        =   0
-      Text            =   " "
-      Top             =   120
-      Width           =   975
-   End
    Begin VB.Frame Frame2 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -296,9 +22,9 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2055
-      Left            =   2520
+      Left            =   2400
       TabIndex        =   6
-      Top             =   2640
+      Top             =   2760
       Visible         =   0   'False
       Width           =   5175
       Begin VB.CommandButton Cancela 
@@ -314,9 +40,9 @@ Begin VB.Form PrgLista
          EndProperty
          Height          =   975
          Left            =   4080
-         MouseIcon       =   "lista.frx":610D
+         MouseIcon       =   "lista.frx":0000
          MousePointer    =   99  'Custom
-         Picture         =   "lista.frx":6417
+         Picture         =   "lista.frx":030A
          Style           =   1  'Graphical
          TabIndex        =   26
          ToolTipText     =   "Graba los Datos Ingresados"
@@ -336,9 +62,9 @@ Begin VB.Form PrgLista
          EndProperty
          Height          =   975
          Left            =   3000
-         MouseIcon       =   "lista.frx":6859
+         MouseIcon       =   "lista.frx":074C
          MousePointer    =   99  'Custom
-         Picture         =   "lista.frx":6B63
+         Picture         =   "lista.frx":0A56
          Style           =   1  'Graphical
          TabIndex        =   25
          ToolTipText     =   "Graba los Datos Ingresados"
@@ -454,8 +180,282 @@ Begin VB.Form PrgLista
          Width           =   1215
       End
    End
+   Begin VB.ListBox PantallaFiltrada 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   2460
+      ItemData        =   "lista.frx":0E98
+      Left            =   1560
+      List            =   "lista.frx":0E9F
+      TabIndex        =   27
+      Top             =   2760
+      Visible         =   0   'False
+      Width           =   6735
+   End
+   Begin VB.CommandButton Ultimo 
+      Caption         =   "Ultimo F8"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   6960
+      MouseIcon       =   "lista.frx":0EAD
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":11B7
+      Style           =   1  'Graphical
+      TabIndex        =   24
+      ToolTipText     =   "Salida"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton Siguiente 
+      Caption         =   "Siguien. F7"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   6000
+      MouseIcon       =   "lista.frx":15F9
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":1903
+      Style           =   1  'Graphical
+      TabIndex        =   23
+      ToolTipText     =   "Registro Siguiente"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton Anterior 
+      Caption         =   "Anterior F6"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   5040
+      MouseIcon       =   "lista.frx":1D45
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":204F
+      Style           =   1  'Graphical
+      TabIndex        =   22
+      ToolTipText     =   "Registro Anterior"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton Primer 
+      Caption         =   "Primer F5"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   4080
+      MouseIcon       =   "lista.frx":2491
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":279B
+      Style           =   1  'Graphical
+      TabIndex        =   21
+      ToolTipText     =   "Primer Registro"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton CmdClose 
+      Caption         =   "Menu F10"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   8880
+      MouseIcon       =   "lista.frx":2BDD
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":2EE7
+      Style           =   1  'Graphical
+      TabIndex        =   20
+      ToolTipText     =   "Salida"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton Lista 
+      Caption         =   "Listado F9"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   7920
+      MouseIcon       =   "lista.frx":3729
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":3A33
+      Style           =   1  'Graphical
+      TabIndex        =   19
+      ToolTipText     =   "Impresion "
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton Consulta 
+      Caption         =   "Consulta F4"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   3120
+      MouseIcon       =   "lista.frx":4275
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":457F
+      Style           =   1  'Graphical
+      TabIndex        =   18
+      ToolTipText     =   "Consulta de Datos"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton CmdLimpiar 
+      Caption         =   "Limpia F3"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   2160
+      MouseIcon       =   "lista.frx":4DC1
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":50CB
+      Style           =   1  'Graphical
+      TabIndex        =   17
+      ToolTipText     =   "Limpia la pantalla"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton CmdDelete 
+      Caption         =   "Borra  F2"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   1200
+      MouseIcon       =   "lista.frx":590D
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":5C17
+      Style           =   1  'Graphical
+      TabIndex        =   16
+      ToolTipText     =   "Elimina el Registro"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.CommandButton CmdAdd 
+      Caption         =   "Graba F1"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   975
+      Left            =   240
+      MouseIcon       =   "lista.frx":6459
+      MousePointer    =   99  'Custom
+      Picture         =   "lista.frx":6763
+      Style           =   1  'Graphical
+      TabIndex        =   15
+      ToolTipText     =   "Graba los Datos Ingresados"
+      Top             =   1080
+      Width           =   855
+   End
+   Begin VB.TextBox Ayuda 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   1560
+      TabIndex        =   14
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   6735
+   End
+   Begin VB.TextBox Codigo 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   285
+      Left            =   2760
+      MaxLength       =   4
+      TabIndex        =   0
+      Text            =   " "
+      Top             =   120
+      Width           =   975
+   End
    Begin Crystal.CrystalReport Listado 
-      Left            =   8760
+      Left            =   8880
       Top             =   240
       _ExtentX        =   741
       _ExtentY        =   741
@@ -473,7 +473,7 @@ Begin VB.Form PrgLista
    End
    Begin VB.ListBox WIndice 
       Height          =   255
-      Left            =   6240
+      Left            =   6360
       TabIndex        =   5
       Top             =   120
       Visible         =   0   'False
@@ -490,7 +490,7 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   2640
+      Left            =   2760
       MaxLength       =   50
       TabIndex        =   1
       Top             =   600
@@ -507,9 +507,9 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1980
-      Left            =   1680
+      Left            =   1800
       TabIndex        =   13
-      Top             =   2640
+      Top             =   2760
       Visible         =   0   'False
       Width           =   3615
    End
@@ -525,10 +525,10 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   2460
       ItemData        =   "lista.frx":6FA5
-      Left            =   1680
+      Left            =   1560
       List            =   "lista.frx":6FAC
       TabIndex        =   4
-      Top             =   2640
+      Top             =   2760
       Visible         =   0   'False
       Width           =   6735
    End
@@ -546,7 +546,7 @@ Begin VB.Form PrgLista
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   1
-      Left            =   120
+      Left            =   240
       TabIndex        =   3
       Top             =   600
       Width           =   2175
@@ -565,7 +565,7 @@ Begin VB.Form PrgLista
       ForeColor       =   &H00800000&
       Height          =   255
       Index           =   0
-      Left            =   120
+      Left            =   240
       TabIndex        =   2
       Top             =   120
       Width           =   2295
@@ -577,6 +577,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private WAuxi As String
+Private Const WMaxHeight = 5970
+Private Const WMinHeight = 2775
 
 Sub Imprime_Nombre()
 End Sub
@@ -585,10 +587,12 @@ Private Function Verifica_datos() As Boolean
     Dim Valido As Boolean
     Valido = True
     
+     ' Se pide como minimo el codigo y una descripcion.
     If Trim(Codigo.Text) = "" Then Valido = False
     If Trim(Descripcion.Text) = "" Then Valido = False
 
-    Verifica_datos
+    Verifica_datos = Valido
+    
 End Function
 
 Sub Format_datos()
@@ -668,6 +672,7 @@ Private Sub Acepta_Click()
     Codigo.SetFocus
     Listado.Action = 1
     Frame2.Visible = False
+    Me.Height = WMinHeight
     
 End Sub
 
@@ -696,6 +701,7 @@ End Sub
 Private Sub Cancela_Click()
     Frame2.Visible = False
     Codigo.SetFocus
+    Me.Height = WMinHeight
 End Sub
 
 Private Sub cmdAdd_Click()
@@ -795,23 +801,10 @@ Private Sub cmdAdd_Click()
             Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
         End If
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        Rem Call CmdLimpiar_Click
-    
         m$ = "Grabacion realizada"
         aaaaaa% = MsgBox(m$, 0, "Archivo de Lista de Precios")
+        
+        Call CmdLimpiar_Click
     
         Codigo.SetFocus
         
@@ -863,6 +856,8 @@ Private Sub CmdLimpiar_Click()
     Impresora.Value = False
     Frame2.Visible = False
     
+    Me.Height = WMinHeight
+    
     Codigo.SetFocus
     
     Exit Sub
@@ -884,7 +879,13 @@ Private Sub Lista_Click()
     Desde.Text = ""
     Hasta.Text = ""
     Panta.Value = True
+    Me.Height = WMaxHeight
     Impresora.Value = False
+    
+    Ayuda.Visible = False
+    Pantalla.Visible = False
+    PantallaFiltrada.Visible = False
+    
     Frame2.Visible = True
     Desde.SetFocus
 End Sub
@@ -984,9 +985,9 @@ Private Sub Opcion_Click()
                     .MoveFirst
                     Do
                         If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
+                            IngresaItem = Trim(!Codigo) + " " + Trim(!Descripcion)
                             Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
+                            IngresaItem = Trim(!Codigo)
                             WIndice.AddItem IngresaItem
                             .MoveNext
                                 Else
@@ -1001,6 +1002,9 @@ Private Sub Opcion_Click()
     End Select
             
     Pantalla.Visible = True
+    PantallaFiltrada.Visible = False
+    Frame2.Visible = False
+    Me.Height = WMaxHeight
     Ayuda.Text = ""
     Ayuda.Visible = True
     Ayuda.SetFocus
@@ -1019,6 +1023,7 @@ Private Sub Pantalla_Click()
         Case 0
             indice = Pantalla.ListIndex
             Codigo.Text = WIndice.List(indice)
+            Me.Height = WMinHeight
             Call Codigo_KeyPress(13)
             
         Case Else
@@ -1030,8 +1035,7 @@ Sub Form_Load()
 
     On Error GoTo WError
     
-    Codigo.Text = ""
-    Descripcion.Text = ""
+    Call CmdLimpiar_Click
     
     Rem ZSql = ""
     Rem ZSql = ZSql + "Select Max(Linea) as [LineaMayor]"
@@ -1238,6 +1242,23 @@ Private Sub Anterior_Click()
         m$ = "No exsite registro Anterior"
         aaaaaa% = MsgBox(m$, 0, "Archivo de Listas")
     End If
+End Sub
+
+Private Sub PantallaFiltrada_Click()
+    WIndice = PantallaFiltrada.ListIndex
+    WTexto = PantallaFiltrada.List(PantallaFiltrada.ListIndex)
+    For i = o To Pantalla.ListCount
+        If UCase(Pantalla.List(i)) = UCase(WTexto) Then
+            
+            Pantalla.ListIndex = i
+            
+            Call Pantalla_Click
+            
+            PantallaFiltrada.Visible = False
+            
+            Exit Sub
+        End If
+    Next
 End Sub
 
 Private Sub Primer_Click()
