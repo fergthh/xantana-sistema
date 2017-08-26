@@ -3,7 +3,6 @@ Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
 Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Object = "{BEC61919-E6C4-11D1-BE7D-C63815000000}#1.0#0"; "FLEXWIZ.OCX"
-Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form prgArticulo2 
    AutoRedraw      =   -1  'True
    BorderStyle     =   1  'Fixed Single
@@ -25,11 +24,10 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
-      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "Frame1"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Frame2"
@@ -49,7 +47,7 @@ Begin VB.Form prgArticulo2
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "Frame6"
       Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame5"
@@ -62,7 +60,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame frameConsulta 
          Caption         =   "Rubros"
          Height          =   4215
-         Left            =   -71880
+         Left            =   3120
          TabIndex        =   50
          Top             =   840
          Visible         =   0   'False
@@ -237,29 +235,11 @@ Begin VB.Form prgArticulo2
             Visible         =   0   'False
             Width           =   255
          End
-         Begin Crystal.CrystalReport Listado 
-            Left            =   3840
-            Top             =   2760
-            _ExtentX        =   741
-            _ExtentY        =   741
-            _Version        =   348160
-            ReportFileName  =   "Articulo.rpt"
-            Destination     =   1
-            WindowTitle     =   "Listado de Clientes"
-            WindowControlBox=   -1  'True
-            WindowMaxButton =   -1  'True
-            WindowMinButton =   -1  'True
-            GroupSelectionFormula=   " "
-            BoundReportFooter=   -1  'True
-            DiscardSavedData=   -1  'True
-            WindowState     =   2
-            PrintFileLinesPerPage=   60
-         End
       End
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   5880
+         Left            =   -69120
          TabIndex        =   47
          Top             =   600
          Visible         =   0   'False
@@ -311,7 +291,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   6720
+         Left            =   -68280
          TabIndex        =   33
          Top             =   4980
          Width           =   3375
@@ -319,7 +299,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   1440
+         Left            =   -73560
          TabIndex        =   30
          Top             =   540
          Width           =   8655
@@ -361,7 +341,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   1440
+         Left            =   -73560
          TabIndex        =   29
          Top             =   2220
          Width           =   8655
@@ -524,7 +504,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   15
          Top             =   2400
          Width           =   10215
@@ -540,7 +520,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   14
          Top             =   720
          Width           =   10215
