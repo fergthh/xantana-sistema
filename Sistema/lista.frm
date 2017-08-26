@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Begin VB.Form PrgLista 
    AutoRedraw      =   -1  'True
    Caption         =   "Lista de Precio"
@@ -10,6 +10,26 @@ Begin VB.Form PrgLista
    LinkTopic       =   "Form2"
    ScaleHeight     =   5355
    ScaleWidth      =   9765
+   Visible         =   0   'False
+   Begin VB.ListBox PantallaFiltrada 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   2460
+      ItemData        =   "lista.frx":0000
+      Left            =   1680
+      List            =   "lista.frx":0007
+      TabIndex        =   27
+      Top             =   2640
+      Visible         =   0   'False
+      Width           =   6735
+   End
    Begin VB.CommandButton Ultimo 
       Caption         =   "Ultimo F8"
       BeginProperty Font 
@@ -23,9 +43,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   6840
-      MouseIcon       =   "lista.frx":0000
+      MouseIcon       =   "lista.frx":0015
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":030A
+      Picture         =   "lista.frx":031F
       Style           =   1  'Graphical
       TabIndex        =   24
       ToolTipText     =   "Salida"
@@ -45,9 +65,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   5880
-      MouseIcon       =   "lista.frx":074C
+      MouseIcon       =   "lista.frx":0761
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":0A56
+      Picture         =   "lista.frx":0A6B
       Style           =   1  'Graphical
       TabIndex        =   23
       ToolTipText     =   "Registro Siguiente"
@@ -67,9 +87,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   4920
-      MouseIcon       =   "lista.frx":0E98
+      MouseIcon       =   "lista.frx":0EAD
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":11A2
+      Picture         =   "lista.frx":11B7
       Style           =   1  'Graphical
       TabIndex        =   22
       ToolTipText     =   "Registro Anterior"
@@ -89,9 +109,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   3960
-      MouseIcon       =   "lista.frx":15E4
+      MouseIcon       =   "lista.frx":15F9
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":18EE
+      Picture         =   "lista.frx":1903
       Style           =   1  'Graphical
       TabIndex        =   21
       ToolTipText     =   "Primer Registro"
@@ -111,9 +131,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   8760
-      MouseIcon       =   "lista.frx":1D30
+      MouseIcon       =   "lista.frx":1D45
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":203A
+      Picture         =   "lista.frx":204F
       Style           =   1  'Graphical
       TabIndex        =   20
       ToolTipText     =   "Salida"
@@ -133,9 +153,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   7800
-      MouseIcon       =   "lista.frx":287C
+      MouseIcon       =   "lista.frx":2891
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":2B86
+      Picture         =   "lista.frx":2B9B
       Style           =   1  'Graphical
       TabIndex        =   19
       ToolTipText     =   "Impresion "
@@ -155,9 +175,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   3000
-      MouseIcon       =   "lista.frx":33C8
+      MouseIcon       =   "lista.frx":33DD
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":36D2
+      Picture         =   "lista.frx":36E7
       Style           =   1  'Graphical
       TabIndex        =   18
       ToolTipText     =   "Consulta de Datos"
@@ -177,9 +197,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   2040
-      MouseIcon       =   "lista.frx":3F14
+      MouseIcon       =   "lista.frx":3F29
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":421E
+      Picture         =   "lista.frx":4233
       Style           =   1  'Graphical
       TabIndex        =   17
       ToolTipText     =   "Limpia la pantalla"
@@ -199,9 +219,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   1080
-      MouseIcon       =   "lista.frx":4A60
+      MouseIcon       =   "lista.frx":4A75
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":4D6A
+      Picture         =   "lista.frx":4D7F
       Style           =   1  'Graphical
       TabIndex        =   16
       ToolTipText     =   "Elimina el Registro"
@@ -221,9 +241,9 @@ Begin VB.Form PrgLista
       EndProperty
       Height          =   975
       Left            =   120
-      MouseIcon       =   "lista.frx":55AC
+      MouseIcon       =   "lista.frx":55C1
       MousePointer    =   99  'Custom
-      Picture         =   "lista.frx":58B6
+      Picture         =   "lista.frx":58CB
       Style           =   1  'Graphical
       TabIndex        =   15
       ToolTipText     =   "Graba los Datos Ingresados"
@@ -241,7 +261,7 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   240
+      Left            =   1680
       TabIndex        =   14
       Top             =   2280
       Visible         =   0   'False
@@ -276,9 +296,9 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2055
-      Left            =   2400
+      Left            =   2520
       TabIndex        =   6
-      Top             =   2760
+      Top             =   2640
       Visible         =   0   'False
       Width           =   5175
       Begin VB.CommandButton Cancela 
@@ -294,9 +314,9 @@ Begin VB.Form PrgLista
          EndProperty
          Height          =   975
          Left            =   4080
-         MouseIcon       =   "lista.frx":60F8
+         MouseIcon       =   "lista.frx":610D
          MousePointer    =   99  'Custom
-         Picture         =   "lista.frx":6402
+         Picture         =   "lista.frx":6417
          Style           =   1  'Graphical
          TabIndex        =   26
          ToolTipText     =   "Graba los Datos Ingresados"
@@ -316,9 +336,9 @@ Begin VB.Form PrgLista
          EndProperty
          Height          =   975
          Left            =   3000
-         MouseIcon       =   "lista.frx":6844
+         MouseIcon       =   "lista.frx":6859
          MousePointer    =   99  'Custom
-         Picture         =   "lista.frx":6B4E
+         Picture         =   "lista.frx":6B63
          Style           =   1  'Graphical
          TabIndex        =   25
          ToolTipText     =   "Graba los Datos Ingresados"
@@ -439,7 +459,7 @@ Begin VB.Form PrgLista
       Top             =   240
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   348160
+      _Version        =   262150
       ReportFileName  =   "Fragancia.rpt"
       Destination     =   1
       WindowTitle     =   "Listado de Vendedor"
@@ -450,7 +470,6 @@ Begin VB.Form PrgLista
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
-      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -488,7 +507,7 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1980
-      Left            =   240
+      Left            =   1680
       TabIndex        =   13
       Top             =   2640
       Visible         =   0   'False
@@ -505,9 +524,9 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2460
-      ItemData        =   "lista.frx":6F90
-      Left            =   240
-      List            =   "lista.frx":6F97
+      ItemData        =   "lista.frx":6FA5
+      Left            =   1680
+      List            =   "lista.frx":6FAC
       TabIndex        =   4
       Top             =   2640
       Visible         =   0   'False
@@ -650,6 +669,28 @@ Private Sub Acepta_Click()
     Listado.Action = 1
     Frame2.Visible = False
     
+End Sub
+
+Private Sub Ayuda_KeyUp(KeyCode As Integer, Shift As Integer)
+    If Trim(Ayuda.Text) <> "" Then
+        Dim WTextoABuscar, WTexto
+        
+        WTextoABuscar = Trim(Ayuda.Text)
+        
+        PantallaFiltrada.Clear
+        
+        For i = 0 To Pantalla.ListCount
+            WTexto = Pantalla.List(i)
+            
+            If WTexto Like "*" & WTextoABuscar & "*" Or WTexto Like "*" & UCase(WTextoABuscar) & "*" Then
+                PantallaFiltrada.AddItem WTexto
+            End If
+        Next
+        
+        PantallaFiltrada.Visible = True
+    Else
+        PantallaFiltrada.Visible = False
+    End If
 End Sub
 
 Private Sub Cancela_Click()
@@ -1016,60 +1057,6 @@ Private Sub aYUDA_Keypress(KeyAscii As Integer)
 
     On Error GoTo WError
     
-    Pantalla.Clear
-    WIndice.Clear
-    
-    If KeyAscii > 31 Then
-        ZAyuda = Ayuda.Text + Chr$(KeyAscii)
-            Else
-        Select Case KeyAscii
-            Case 27
-                Ayuda.Text = ""
-                ZAyuda = ""
-            Case 8
-                WEspacios = Len(Ayuda.Text)
-                If WEspacios > 0 Then
-                    WEspacios = WEspacios - 1
-                    ZAyuda = Left$(Ayuda.Text, WEspacios)
-                End If
-            Case Else
-                ZAyuda = Ayuda.Text
-        End Select
-    End If
-    WEspacios = Len(ZAyuda)
-    
-    XIndice = Opcion.ListIndex
-    
-    Select Case XIndice
-        Case 0
-            ZSql = ""
-            ZSql = ZSql + "Select *"
-            ZSql = ZSql + " FROM Lista"
-            ZSql = ZSql + " Where Lista.Descripcion LIKE " + "'" + "%" + ZAyuda + "%" + "'"
-            ZSql = ZSql + " Order by Lista.Descripcion"
-            spLista = ZSql
-            Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-            If rstLista.RecordCount > 0 Then
-                With rstLista
-                    .MoveFirst
-                    Do
-                        If .EOF = False Then
-                            IngresaItem = !Codigo + " " + !Descripcion
-                            Pantalla.AddItem IngresaItem
-                            IngresaItem = !Codigo
-                            WIndice.AddItem IngresaItem
-                            .MoveNext
-                                Else
-                            Exit Do
-                        End If
-                    Loop
-                End With
-                rstLista.Close
-            End If
-            
-        Case Else
-    End Select
-    
     If KeyAscii = 27 Then
         Ayuda.Text = ""
     End If
@@ -1078,6 +1065,58 @@ Private Sub aYUDA_Keypress(KeyAscii As Integer)
     
 WError:
     Resume Next
+    
+    ' No se ejecuta porque estoy probando filtrado dinamico.
+    'If KeyAscii > 31 Then
+    '    ZAyuda = Ayuda.Text + Chr$(KeyAscii)
+    '        Else
+    '    Select Case KeyAscii
+    '        Case 27
+    '           Ayuda.Text = ""
+    '           ZAyuda = ""
+    '        Case 8
+    '            WEspacios = Len(Ayuda.Text)
+    '            If WEspacios > 0 Then
+    '               WEspacios = WEspacios - 1
+    '               ZAyuda = Left$(Ayuda.Text, WEspacios)
+    '            End If
+    '        Case Else
+    '            ZAyuda = Ayuda.Text
+    '    End Select
+    'End If
+    'WEspacios = Len(ZAyuda)
+    
+    'XIndice = Opcion.ListIndex
+    
+    'Select Case XIndice
+    '    Case 0
+    '        ZSql = ""
+    '        ZSql = ZSql + "Select *"
+    '        ZSql = ZSql + " FROM Lista"
+    '        ZSql = ZSql + " Where Lista.Descripcion LIKE " + "'" + "%" + ZAyuda + "%" + "'"
+    '        ZSql = ZSql + " Order by Lista.Descripcion"
+    '        spLista = ZSql
+    '        Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+    '        If rstLista.RecordCount > 0 Then
+    '            With rstLista
+    '                .MoveFirst
+    '                Do
+    '                    If .EOF = False Then
+    '                        IngresaItem = !Codigo + " " + !Descripcion
+    '                        Pantalla.AddItem IngresaItem
+    '                        IngresaItem = !Codigo
+    '                        WIndice.AddItem IngresaItem
+    '                        .MoveNext
+    '                            Else
+    '                        Exit Do
+    '                    End If
+    '                Loop
+    '            End With
+    '            rstLista.Close
+    '        End If
+    '
+    '    Case Else
+    'End Select
 
 End Sub
 
