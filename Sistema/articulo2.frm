@@ -38,24 +38,31 @@ Begin VB.Form prgArticulo2
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "SubWizard1"
+      Tab(1).Control(0)=   "Frame3"
+      Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "Frame3"
+      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(2)=   "SubWizard1"
+      Tab(1).Control(2).Enabled=   0   'False
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "FrameListaPrecios"
-      Tab(2).Control(1)=   "btnAsignarLista"
-      Tab(2).Control(2)=   "Frame5"
-      Tab(2).Control(3)=   "Frame6"
+      Tab(2).Control(0)=   "Frame6"
+      Tab(2).Control(0).Enabled=   0   'False
+      Tab(2).Control(1)=   "Frame5"
+      Tab(2).Control(1).Enabled=   0   'False
+      Tab(2).Control(2)=   "btnAsignarLista"
+      Tab(2).Control(2).Enabled=   0   'False
+      Tab(2).Control(3)=   "FrameListaPrecios"
+      Tab(2).Control(3).Enabled=   0   'False
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Consulta"
          Height          =   4215
-         Left            =   3120
+         Left            =   3360
          TabIndex        =   50
-         Top             =   840
+         Top             =   960
          Visible         =   0   'False
          Width           =   4815
          Begin VB.ListBox Opcion 
@@ -1866,7 +1873,10 @@ Private Sub PantallaFiltrada_Click()
 End Sub
 
 Private Sub Rubro_DblClick()
-    Call Consulta_Click
+    Opcion.ListIndex = 1
+    Opcion_Click
+    
+    frameConsulta.Visible = True
 End Sub
 
 Private Sub Rubro_KeyPress(KeyAscii As Integer)
