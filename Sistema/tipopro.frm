@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
 Begin VB.Form PrgTipoPro 
    AutoRedraw      =   -1  'True
    Caption         =   "Tipo de Productos"
@@ -439,7 +439,7 @@ Begin VB.Form PrgTipoPro
       Top             =   240
       _ExtentX        =   741
       _ExtentY        =   741
-      _Version        =   348160
+      _Version        =   262150
       ReportFileName  =   "TipoPro.rpt"
       Destination     =   1
       WindowTitle     =   "Listado de Vendedor"
@@ -450,7 +450,6 @@ Begin VB.Form PrgTipoPro
       BoundReportFooter=   -1  'True
       DiscardSavedData=   -1  'True
       WindowState     =   2
-      PrintFileLinesPerPage=   60
    End
    Begin VB.ListBox WIndice 
       Height          =   255
@@ -666,6 +665,12 @@ Private Sub cmdAdd_Click()
         
         ' Verifico que haya datos que guardar.
         If Not Verifica_datos Then Exit Sub
+        
+        Auxi = Trim(Codigo.Text)
+    
+        Call Ceros(Auxi, 4)
+        
+        Codigo.Text = Auxi
     
         ZSql = ""
         ZSql = ZSql + "Select *"
@@ -783,6 +788,12 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
         If Codigo.Text <> "" Then
             Codigo.Text = UCase(Codigo.Text)
+            Auxi = Trim(Codigo.Text)
+    
+            Call Ceros(Auxi, 4)
+            
+            Codigo.Text = Auxi
+            
             ZSql = ""
             ZSql = ZSql + "Select *"
             ZSql = ZSql + " FROM TipoPro"
