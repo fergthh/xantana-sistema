@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{00025600-0000-0000-C000-000000000046}#4.6#0"; "crystl32.ocx"
+Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "crystl32.ocx"
 Begin VB.Form PrgTipoPro 
    AutoRedraw      =   -1  'True
    Caption         =   "Tipo de Productos"
@@ -10,6 +10,14 @@ Begin VB.Form PrgTipoPro
    LinkTopic       =   "Form2"
    ScaleHeight     =   5355
    ScaleWidth      =   9765
+   Begin Crystal.CrystalReport Listado 
+      Left            =   8160
+      Top             =   360
+      _ExtentX        =   741
+      _ExtentY        =   741
+      _Version        =   348160
+      PrintFileLinesPerPage=   60
+   End
    Begin VB.CommandButton Ultimo 
       Caption         =   "Ultimo F8"
       BeginProperty Font 
@@ -434,23 +442,6 @@ Begin VB.Form PrgTipoPro
          Width           =   1215
       End
    End
-   Begin Crystal.CrystalReport Listado 
-      Left            =   8760
-      Top             =   240
-      _ExtentX        =   741
-      _ExtentY        =   741
-      _Version        =   262150
-      ReportFileName  =   "TipoPro.rpt"
-      Destination     =   1
-      WindowTitle     =   "Listado de Vendedor"
-      WindowControlBox=   -1  'True
-      WindowMaxButton =   -1  'True
-      WindowMinButton =   -1  'True
-      GroupSelectionFormula=   " "
-      BoundReportFooter=   -1  'True
-      DiscardSavedData=   -1  'True
-      WindowState     =   2
-   End
    Begin VB.ListBox WIndice 
       Height          =   255
       Left            =   6240
@@ -661,21 +652,15 @@ Private Sub Cancela_Click()
 End Sub
 
 Private Sub cmdAdd_Click()
-    If Codigo.Text <> "" Then
+    If Trim(Codigo.Text) <> "" Then
         
         ' Verifico que haya datos que guardar.
         If Not Verifica_datos Then Exit Sub
-        
-        Auxi = Trim(Codigo.Text)
-    
-        Call Ceros(Auxi, 4)
-        
-        Codigo.Text = Auxi
     
         ZSql = ""
         ZSql = ZSql + "Select *"
         ZSql = ZSql + " FROM TipoPro"
-        ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Codigo.Text + "'"
+        ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Trim(Codigo.Text) + "'"
         spTipoPro = ZSql
         Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
         If rstTipoPro.RecordCount > 0 Then
@@ -683,7 +668,7 @@ Private Sub cmdAdd_Click()
             ZSql = ""
             ZSql = ZSql + "UPDATE TipoPro SET "
             ZSql = ZSql + " Descripcion = " + "'" + Descripcion.Text + "'"
-            ZSql = ZSql + " Where Codigo = " + "'" + Codigo.Text + "'"
+            ZSql = ZSql + " Where Codigo = " + "'" + Trim(Codigo.Text) + "'"
             spTipoPro = ZSql
             Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
                 Else
@@ -692,7 +677,7 @@ Private Sub cmdAdd_Click()
             ZSql = ZSql + "Codigo ,"
             ZSql = ZSql + "Descripcion )"
             ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + Codigo.Text + "',"
+            ZSql = ZSql + "'" + Trim(Codigo.Text) + "',"
             ZSql = ZSql + "'" + Descripcion.Text + "')"
             spTipoPro = ZSql
             Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
@@ -708,12 +693,12 @@ Private Sub cmdAdd_Click()
 End Sub
 
 Private Sub cmdDelete_Click()
-    If Codigo.Text <> "" Then
+    If Trim(Codigo.Text) <> "" Then
     
         ZSql = ""
         ZSql = ZSql + "Select *"
         ZSql = ZSql + " FROM TipoPro"
-        ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Codigo.Text + "'"
+        ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Trim(Codigo.Text) + "'"
         spTipoPro = ZSql
         Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
         If rstTipoPro.RecordCount > 0 Then
@@ -725,7 +710,7 @@ Private Sub cmdDelete_Click()
             
                 ZSql = ""
                 ZSql = ZSql + "DELETE TipoPro"
-                ZSql = ZSql + " Where Codigo = " + "'" + Codigo.Text + "'"
+                ZSql = ZSql + " Where Codigo = " + "'" + Trim(Codigo.Text) + "'"
                 spTipoPro = ZSql
                 Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
                     
@@ -786,25 +771,20 @@ End Sub
 
 Private Sub Codigo_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 Then
-        If Codigo.Text <> "" Then
+        If Trim(Codigo.Text) <> "" Then
             Codigo.Text = UCase(Codigo.Text)
-            Auxi = Trim(Codigo.Text)
-    
-            Call Ceros(Auxi, 4)
-            
-            Codigo.Text = Auxi
             
             ZSql = ""
             ZSql = ZSql + "Select *"
             ZSql = ZSql + " FROM TipoPro"
-            ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Codigo.Text + "'"
+            ZSql = ZSql + " Where TipoPro.Codigo = " + "'" + Trim(Codigo.Text) + "'"
             spTipoPro = ZSql
             Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
             If rstTipoPro.RecordCount > 0 Then
                 rstTipoPro.Close
                 Call Imprime_Datos
                     Else
-                WTipopro = Codigo.Text
+                WTipopro = Trim(Codigo.Text)
                 CmdLimpiar_Click
                 Codigo.Text = WTipopro
             End If

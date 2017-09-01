@@ -252,9 +252,9 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   840
+         Left            =   6840
          TabIndex        =   47
-         Top             =   720
+         Top             =   600
          Visible         =   0   'False
          Width           =   4455
          Begin VB.CommandButton btnCerrarListasPrecios 
@@ -1060,17 +1060,10 @@ Private Function Verifica_datos() As Boolean
     
     If Trim(Costo.Text) = "" Then grabar = False
     
-    ' Hacer verificacion de valides de Rubro cuando este realizada esta parte.
-    Auxi = Trim(Rubro.Text)
-    
-    Call Ceros(Auxi, 4)
-    
-    Rubro.Text = Auxi
-    
     ZSql = ""
     ZSql = ZSql + "Select Codigo"
     ZSql = ZSql + " FROM TipoPro"
-    ZSql = ZSql + " Where Codigo = '" + Rubro.Text + "'"
+    ZSql = ZSql + " Where Codigo = '" + Trim(Rubro.Text) + "'"
     spTipoPro = ZSql
     Set rstTipoPro = db.OpenRecordset(spTipoPro, dbOpenSnapshot, dbSQLPassThrough)
     
@@ -1088,7 +1081,7 @@ Private Function Verifica_datos() As Boolean
     For i = 1 To Wvector1.Rows
     
         With Wvector1
-            .Row = i
+            .row = i
             .Col = 1
             If Trim(.Text) <> "" Then
             
@@ -1159,7 +1152,7 @@ Sub Imprime_Datos()
                 WPrecio = IIf(IsNull(!Precio), 0, !Precio)
                 WDescripcion = IIf(IsNull(!Descripcion), "", Trim(!Descripcion))
                 
-                    Wvector1.Row = WRenglon
+                    Wvector1.row = WRenglon
                     Wvector1.Col = 1
                     If Trim(Wvector1.Text) = "" Then
                     
@@ -1371,7 +1364,7 @@ Private Sub btnCerrarListasPrecios_Click()
     For i = WRenglon To Wvector1.Rows
         
         With Wvector1
-            .Row = WRenglon
+            .row = WRenglon
             .Col = 3
             WCol = .Col
             If Trim(.Text) <> "" Then
@@ -1394,7 +1387,7 @@ Private Sub btnCerrarListasPrecios_Click()
     
     Next
     
-    Wvector1.Row = WRenglon
+    Wvector1.row = WRenglon
     Wvector1.Col = WCol
     'Wvector1.SetFocus
     Call StartEdit
@@ -1505,7 +1498,7 @@ Private Sub cmdAdd_Click()
 End Sub
 
 Private Sub Actualizar_Lista_Precios()
-    Dim WLista, WArticulo, WNeto, WPrecio, WClave, WRenglon, XRenglon
+    Dim WLista, WArticulo, WNeto, WPrecio, WClave, WRenglon, XRenglon, XLista
     
     WArticulo = Trim(Codigo.Text)
     WRenglon = 1
@@ -1518,8 +1511,6 @@ Private Sub Actualizar_Lista_Precios()
     spLista = ZSql
     Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
     
-    
-    
     ' Recorremos la grilla y verificamos que haya datos en las columnas de neto y final.
     For i = 1 To Wvector1.Rows
     
@@ -1529,7 +1520,7 @@ Private Sub Actualizar_Lista_Precios()
         WClave = ""
         
         With Wvector1
-            .Row = i
+            .row = i
             .Col = 1
             If Trim(.Text) <> "" Then
             
@@ -1545,7 +1536,7 @@ Private Sub Actualizar_Lista_Precios()
                 ' Una vez guardada la informacion, la guardamos.
                 Auxi = WLista
                 Call Ceros(Auxi, 4) ' Solo en caso en que sean numericos las claves de las listas.
-                WLista = Auxi
+                XLista = Auxi
                 
                 XRenglon = Str$(WRenglon)
                 
@@ -1553,7 +1544,7 @@ Private Sub Actualizar_Lista_Precios()
                 Call Ceros(Auxi, 2)
                 XRenglon = Auxi
                 
-                WClave = WArticulo + WLista + XRenglon
+                WClave = WArticulo + XLista + XRenglon
                 
                 ZSql = ""
                 ZSql = ZSql + "INSERT INTO ListaArticulos "
@@ -1687,6 +1678,38 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
                 .Close
             Else
                 Descripcion.SetFocus
+                
+                With Wvector1
+                    
+                    .row = 1
+                    .Col = 1
+                    .Text = "0"
+                    
+                    ZSql = ""
+                    ZSql = ZSql + "SELECT Codigo, Descripcion FROM Lista Where Codigo = '1'"
+                    
+                    spLista = ZSql
+                    
+                    Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+                    
+                    
+                        If rstLista.RecordCount > 0 Then
+                        
+                            .row = 1
+                            
+                            .Col = 1
+                            .Text = Trim(rstLista!Codigo)
+                            
+                            .Col = 2
+                            .Text = Trim(rstLista!Descripcion)
+                            
+                        Else
+                            MsgBox "Error en la carga de datos de la lista general", vbInformation
+                            Exit Sub
+                        End If
+                
+                End With
+                
             End If
         End With
         
@@ -2001,7 +2024,7 @@ Private Sub Form_Activate()
 End Sub
 
 Private Sub ListasPrecios_Click()
-    Dim wrow As Integer
+    Dim WRow As Integer
     
     ZSql = ""
     ZSql = ZSql + "Select *"
@@ -2013,9 +2036,9 @@ Private Sub ListasPrecios_Click()
         If .RecordCount > 0 Then
             .MoveFirst
             
-            For wrow = 1 To 100
+            For WRow = 1 To 100
             
-                Wvector1.Row = wrow
+                Wvector1.row = WRow
                 
                 Wvector1.Col = 1
                 
@@ -2078,12 +2101,6 @@ Private Sub Rubro_KeyPress(KeyAscii As Integer)
             
             Exit Sub
         End If
-        
-        Auxi = Trim(Rubro.Text)
-    
-        Call Ceros(Auxi, 4)
-        
-        Rubro.Text = Auxi
       
         ' Chequear por el tema de si sigue o no siendo Alfanumerico.
     
@@ -2989,7 +3006,7 @@ Private Sub Limpia_VectorII()
     Rem Descripcion de los datos a Informar
     
     Wvector1.ColWidth(0) = 200
-    Wvector1.Row = 0
+    Wvector1.row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         Select Case Ciclo
@@ -3034,7 +3051,7 @@ Private Sub Limpia_VectorII()
     
     Rem DESPILEGA LOS TITULOS
     
-    Wvector1.Row = 0
+    Wvector1.row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         WTitulo(Ciclo).Text = Wvector1.Text
@@ -3062,7 +3079,7 @@ Private Sub Limpia_VectorII()
     Wvector1.AllowUserResizing = flexResizeBoth
     
     Wvector1.Col = 1
-    Wvector1.Row = 1
+    Wvector1.row = 1
     
 End Sub
 
@@ -3111,7 +3128,7 @@ Private Sub Limpia_Vector()
     Rem Descripcion de los datos a Informar
     
     Wvector1.ColWidth(0) = 200
-    Wvector1.Row = 0
+    Wvector1.row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         Select Case Ciclo
@@ -3156,7 +3173,7 @@ Private Sub Limpia_Vector()
     
     Rem DESPILEGA LOS TITULOS
     
-    Wvector1.Row = 0
+    Wvector1.row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         WTitulo(Ciclo).Text = Wvector1.Text
@@ -3184,7 +3201,7 @@ Private Sub Limpia_Vector()
     Wvector1.AllowUserResizing = flexResizeBoth
     
     Wvector1.Col = 1
-    Wvector1.Row = 1
+    Wvector1.row = 1
     
 End Sub
 
@@ -3245,7 +3262,7 @@ Private Sub Busqueda()
     
     Wvector1.TopRow = 1
     Wvector1.Col = 1
-    Wvector1.Row = 1
+    Wvector1.row = 1
 
 End Sub
 
@@ -3266,7 +3283,36 @@ Private Sub WTexto2_LostFocus()
     End If
 End Sub
 
+Private Sub Borrar_Lista(ByVal iRow)
+    Wvector1.RemoveItem (iRow)
+End Sub
+
 Private Sub WVector1_DblClick()
+
+    ' Detectamos si se ha querido borrar.
+    With Wvector1
+        If .Col = 1 Then
+            Dim WRow
+            WRow = .row
+            
+            If .Text = "1" Then
+                .Col = 2
+                MsgBox "La lista " + Chr$(34) + .Text + Chr$(34) + ", no puede ser eliminada.", vbInformation
+                Exit Sub
+            End If
+            
+            T$ = "Borrar Registro"
+            m$ = "¿Desea Borrar la lista indicada?" + Chr$(13) + Chr$(13) + "Esta accion no puede deshacerse."
+            
+            Respuestaaaaaa% = MsgBox(m$, 32 + 4, T$)
+            
+            If Respuestaaaaaa% = 6 Then
+                Call Borrar_Lista(WRow)
+            End If
+            
+            Exit Sub
+        End If
+    End With
 
     Wvector1.Col = 1
     ZZClave = Wvector1.Text
@@ -3336,7 +3382,7 @@ Private Sub Limpia_Vector2()
     Rem Descripcion de los datos a Informar
     
     WVector2.ColWidth(0) = 200
-    WVector2.Row = 0
+    WVector2.row = 0
     For Ciclo = 1 To WVector2.Cols - 1
         WVector2.Col = Ciclo
         Select Case Ciclo
@@ -3385,7 +3431,7 @@ Private Sub Limpia_Vector2()
     
     Rem DESPILEGA LOS TITULOS
     
-    WVector2.Row = 0
+    WVector2.row = 0
     For Ciclo = 1 To WVector2.Cols - 1
         WVector2.Col = Ciclo
         WTitulo2(Ciclo).Text = WVector2.Text
@@ -3413,7 +3459,7 @@ Private Sub Limpia_Vector2()
     WVector2.AllowUserResizing = flexResizeBoth
     
     WVector2.Col = 1
-    WVector2.Row = 1
+    WVector2.row = 1
     
 End Sub
 
@@ -3612,10 +3658,10 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move down 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row < Wvector1.Rows - 1 Then
+            If Wvector1.row < Wvector1.Rows - 1 Then
                'Call Control_Campo
                'If WControl = "S" Then
-                    Wvector1.Row = Wvector1.Row + 1
+                    Wvector1.row = Wvector1.row + 1
                'End If
             End If
             Call StartEdit
@@ -3624,10 +3670,10 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move up 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row > Wvector1.FixedRows Then
+            If Wvector1.row > Wvector1.FixedRows Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.Row = Wvector1.Row - 1
+                    Wvector1.row = Wvector1.row - 1
                 'End If
             End If
             Call StartEdit
@@ -3639,7 +3685,7 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow + 12
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3652,10 +3698,10 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow - 12
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                         Else
                     Wvector1.TopRow = 1
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3677,7 +3723,7 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
             Wvector1.SetFocus
             DoEvents
             Call Control_Campo
-            If Wvector1.Row < Wvector1.Rows - 1 Then
+            If Wvector1.row < Wvector1.Rows - 1 Then
                 Call Control_Campo
                 If WControl = "S" Then
                     'Wvector1.Row = Wvector1.Row + 1
@@ -3690,10 +3736,10 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move down 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row < Wvector1.Rows - 1 Then
+            If Wvector1.row < Wvector1.Rows - 1 Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.Row = Wvector1.Row + 1
+                    Wvector1.row = Wvector1.row + 1
                 'End If
             End If
             Call StartEdit
@@ -3702,10 +3748,10 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move up 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row > Wvector1.FixedRows Then
+            If Wvector1.row > Wvector1.FixedRows Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.Row = Wvector1.Row - 1
+                    Wvector1.row = Wvector1.row - 1
                 'End If
             End If
             Call StartEdit
@@ -3717,7 +3763,7 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow + 12
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3730,10 +3776,10 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow - 12
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                         Else
                     Wvector1.TopRow = 1
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3756,7 +3802,7 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Finish editing.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row < Wvector1.Rows - 1 Then
+            If Wvector1.row < Wvector1.Rows - 1 Then
                 Call Control_Campo
                 If WControl = "S" Then
                     'Wvector1.Row = Wvector1.Row + 1
@@ -3769,10 +3815,10 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move down 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row < Wvector1.Rows - 1 Then
+            If Wvector1.row < Wvector1.Rows - 1 Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.Row = Wvector1.Row + 1
+                    Wvector1.row = Wvector1.row + 1
                 'End If
             End If
             Call StartEdit
@@ -3781,10 +3827,10 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move up 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.Row > Wvector1.FixedRows Then
+            If Wvector1.row > Wvector1.FixedRows Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.Row = Wvector1.Row - 1
+                    Wvector1.row = Wvector1.row - 1
                 'End If
             End If
             Call StartEdit
@@ -3796,7 +3842,7 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
                  'Call Control_Campo
                  'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow + 12
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                  'End If
             End If
             Call StartEdit
@@ -3809,10 +3855,10 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow - 12
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                         Else
                     Wvector1.TopRow = 1
-                    Wvector1.Row = Wvector1.TopRow
+                    Wvector1.row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3902,15 +3948,15 @@ Private Sub Control_wvector1()
             Case 3
                 .Col = .Col + 1
             Case 4
-                If .Row < .Rows - 1 Then
+                If .row < .Rows - 1 Then
                     
-                    .Row = Wvector1.Row + 1
+                    .row = Wvector1.row + 1
                     
                     .Col = 1 ' Controlo que hayan una lista asignada a esa fila.
                     If Trim(.Text) = "" Then
                         ' En caso de que no, me posiciono en la celda de neto en la fila original.
                         .Col = 3
-                        .Row = .Row - 1
+                        .row = .row - 1
                         Exit Sub
                     End If
                     
@@ -3932,7 +3978,7 @@ End Sub
 
 Private Sub Control_Campo()
     XColumna = Wvector1.Col
-    XFila = Wvector1.Row
+    XFila = Wvector1.row
     WControl = "S"
     Select Case XColumna
         Case Else
