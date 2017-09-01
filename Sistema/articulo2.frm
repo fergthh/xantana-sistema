@@ -24,38 +24,36 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
-      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   0   'False
+      Tab(0).ControlEnabled=   -1  'True
       Tab(0).Control(0)=   "Frame1"
+      Tab(0).Control(0).Enabled=   0   'False
       Tab(0).Control(1)=   "Frame2"
+      Tab(0).Control(1).Enabled=   0   'False
       Tab(0).Control(2)=   "frameConsulta"
+      Tab(0).Control(2).Enabled=   0   'False
       Tab(0).ControlCount=   3
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "SubWizard1"
+      Tab(1).Control(0)=   "Frame3"
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "Frame3"
+      Tab(1).Control(2)=   "SubWizard1"
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   -1  'True
+      Tab(2).ControlEnabled=   0   'False
       Tab(2).Control(0)=   "Frame6"
-      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame5"
-      Tab(2).Control(1).Enabled=   0   'False
       Tab(2).Control(2)=   "btnAsignarLista"
-      Tab(2).Control(2).Enabled=   0   'False
       Tab(2).Control(3)=   "FrameListaPrecios"
-      Tab(2).Control(3).Enabled=   0   'False
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Consulta"
          Height          =   4215
-         Left            =   -71880
+         Left            =   3120
          TabIndex        =   50
          Top             =   720
          Visible         =   0   'False
@@ -252,7 +250,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   6840
+         Left            =   -68160
          TabIndex        =   47
          Top             =   600
          Visible         =   0   'False
@@ -304,7 +302,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   6720
+         Left            =   -68280
          TabIndex        =   33
          Top             =   4980
          Width           =   3375
@@ -312,7 +310,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   1440
+         Left            =   -73560
          TabIndex        =   30
          Top             =   540
          Width           =   8655
@@ -354,7 +352,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   1440
+         Left            =   -73560
          TabIndex        =   29
          Top             =   2220
          Width           =   8655
@@ -517,7 +515,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   15
          Top             =   2400
          Width           =   10215
@@ -533,7 +531,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   -74400
+         Left            =   600
          TabIndex        =   14
          Top             =   720
          Width           =   10215
@@ -960,6 +958,7 @@ Dim mText As String
 Private WParametros(4, 5)
 Private WFormato(100) As String
 Private WControl As String
+Private WMsgErrores As String
 
 
 Private Declare Function GetKeyState Lib "user32" (ByVal nVirtKey As Long) As Integer
@@ -971,6 +970,12 @@ Private Function GetTabState() As Boolean
         GetTabState = True
     End If
 End Function
+
+Private Sub Agregar_Msg_Error(ByVal WMsg)
+
+    WMsgErrores = WMsgErrores + Chr$(13) + Chr$(13) + WMsg
+
+End Sub
 
 Sub Imprime_Descripcion()
 
@@ -1051,14 +1056,36 @@ End Sub
 
 Private Function Verifica_datos() As Boolean
     Dim grabar As Boolean
+    Dim WExisteListaGral As Boolean
+    
+    WExisteListaGral = False
+    
     grabar = True
     
-    If Trim(Codigo.Text) = "" Then grabar = False
-    If Trim(Descripcion.Text) = "" Then grabar = False
-    If Trim(DescripcionII.Text) = "" Then grabar = False
-    If Trim(Rubro.Text) = "" Then grabar = False
+    If Trim(Codigo.Text) = "" Then
+        grabar = False
+        Call Agregar_Msg_Error("El Codigo de Articulo es obligatorio.")
+    End If
     
-    If Trim(Costo.Text) = "" Then grabar = False
+    If Trim(Descripcion.Text) = "" Then
+        grabar = False
+        Call Agregar_Msg_Error("La Descripcion del Articulo es obligatoria.")
+    End If
+    If Trim(DescripcionII.Text) = "" Then
+        grabar = False
+        Call Agregar_Msg_Error("La Descripcion corta del Articulo es obligatoria.")
+    End If
+    If Trim(Rubro.Text) = "" Then
+        grabar = False
+        Call Agregar_Msg_Error("El Rubro del Articulo es obligatorio.")
+    End If
+    
+    If Trim(Costo.Text) = "" Or Val(Costo.Text) <= 0 Then
+        grabar = False
+        Call Agregar_Msg_Error("El Costo de Articulo es obligatorio y debe ser mayor a cero.")
+    End If
+    
+    If Not grabar Then Exit Function
     
     ZSql = ""
     ZSql = ZSql + "Select Codigo"
@@ -1072,10 +1099,14 @@ Private Function Verifica_datos() As Boolean
             .Close
         Else
             grabar = False
+            Call Agregar_Msg_Error("El Rubro debe ser valido.")
         End If
     End With
     
-    If Val(cmbIva.ListIndex) < 0 Then grabar = False
+    If Val(cmbIva.ListIndex) < 0 Then
+        grabar = False
+        Call Agregar_Msg_Error("El Iva de Articulo es obligatorio.")
+    End If
     
     ' Recorremos la grilla y verificamos que haya datos en las columnas de neto y final.
     For i = 1 To Wvector1.Rows
@@ -1084,12 +1115,21 @@ Private Function Verifica_datos() As Boolean
             .row = i
             .Col = 1
             If Trim(.Text) <> "" Then
+                
+                ' Chequeamos que haya Lista General cargada.
+                .Col = 1
+                
+                If Val(.Text) = 1 Then
+                    WExisteListaGral = True
+                End If
             
                 ' Chequeamos que haya datos en Neto
                 .Col = 3
                 
                 If Val(.Text) <= 0 Then
                     grabar = False
+                    .Col = 2
+                    Call Agregar_Msg_Error("El valor Neto del Articulo en Lista " + UCase(.Text) + " es obligatorio.")
                     Exit For
                 End If
                 
@@ -1098,6 +1138,8 @@ Private Function Verifica_datos() As Boolean
                 
                 If Val(.Text) <= 0 Then
                     grabar = False
+                    .Col = 2
+                    Call Agregar_Msg_Error("El valor Precio del Articulo en Lista " + UCase(.Text) + " es obligatorio.")
                     Exit For
                 End If
                 
@@ -1111,6 +1153,10 @@ Private Function Verifica_datos() As Boolean
     
     Next
     
+    If Not WExisteListaGral Then
+        grabar = False
+        Call Agregar_Msg_Error("La existencia del Articulo en la Lista Gral es obligatorio.")
+    End If
     
     Verifica_datos = grabar
     
@@ -1420,8 +1466,9 @@ Private Sub cmdAdd_Click()
     
     WPasa = "N"
     
+    WMsgErrores = ""
     If Not Verifica_datos Then
-        m$ = "Grabacion no se pudo realizar" & Chr(13) & "Hay datos que no son validos."
+        m$ = "Grabacion no se pudo realizar" & Chr(13) & WMsgErrores
         aaaaaa% = MsgBox(m$, 0, "Alta de Articulos")
         Exit Sub
     End If
