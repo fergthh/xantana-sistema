@@ -24,36 +24,38 @@ Begin VB.Form prgArticulo2
       _ExtentX        =   20135
       _ExtentY        =   11668
       _Version        =   393216
+      Tab             =   2
       TabHeight       =   520
       TabCaption(0)   =   "Datos Generales"
       TabPicture(0)   =   "articulo2.frx":0000
-      Tab(0).ControlEnabled=   -1  'True
-      Tab(0).Control(0)=   "Frame1"
-      Tab(0).Control(0).Enabled=   0   'False
+      Tab(0).ControlEnabled=   0   'False
+      Tab(0).Control(0)=   "frameConsulta"
       Tab(0).Control(1)=   "Frame2"
-      Tab(0).Control(1).Enabled=   0   'False
-      Tab(0).Control(2)=   "frameConsulta"
-      Tab(0).Control(2).Enabled=   0   'False
+      Tab(0).Control(2)=   "Frame1"
       Tab(0).ControlCount=   3
       TabCaption(1)   =   "Costos"
       TabPicture(1)   =   "articulo2.frx":001C
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "Frame3"
+      Tab(1).Control(0)=   "SubWizard1"
       Tab(1).Control(1)=   "Frame7"
-      Tab(1).Control(2)=   "SubWizard1"
+      Tab(1).Control(2)=   "Frame3"
       Tab(1).ControlCount=   3
       TabCaption(2)   =   "Precios e Impuestos"
       TabPicture(2)   =   "articulo2.frx":0038
-      Tab(2).ControlEnabled=   0   'False
+      Tab(2).ControlEnabled=   -1  'True
       Tab(2).Control(0)=   "Frame6"
+      Tab(2).Control(0).Enabled=   0   'False
       Tab(2).Control(1)=   "Frame5"
+      Tab(2).Control(1).Enabled=   0   'False
       Tab(2).Control(2)=   "btnAsignarLista"
+      Tab(2).Control(2).Enabled=   0   'False
       Tab(2).Control(3)=   "FrameListaPrecios"
+      Tab(2).Control(3).Enabled=   0   'False
       Tab(2).ControlCount=   4
       Begin VB.Frame frameConsulta 
          Caption         =   "Consulta"
          Height          =   4215
-         Left            =   3120
+         Left            =   -71880
          TabIndex        =   50
          Top             =   720
          Visible         =   0   'False
@@ -250,7 +252,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame FrameListaPrecios 
          Caption         =   "Listas de Precios Disponibles"
          Height          =   5175
-         Left            =   -68160
+         Left            =   6840
          TabIndex        =   47
          Top             =   600
          Visible         =   0   'False
@@ -302,7 +304,7 @@ Begin VB.Form prgArticulo2
       Begin VB.CommandButton btnAsignarLista 
          Caption         =   "ASIGNAR A LISTA DE PRECIOS"
          Height          =   495
-         Left            =   -68280
+         Left            =   6720
          TabIndex        =   33
          Top             =   4980
          Width           =   3375
@@ -310,7 +312,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame5 
          Caption         =   "I.V.A"
          Height          =   1455
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   30
          Top             =   540
          Width           =   8655
@@ -352,7 +354,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame6 
          Caption         =   "Precios de Venta"
          Height          =   2655
-         Left            =   -73560
+         Left            =   1440
          TabIndex        =   29
          Top             =   2220
          Width           =   8655
@@ -515,7 +517,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame2 
          Caption         =   "Observaciones"
          Height          =   2175
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   15
          Top             =   2400
          Width           =   10215
@@ -531,7 +533,7 @@ Begin VB.Form prgArticulo2
       Begin VB.Frame Frame1 
          Caption         =   "General"
          Height          =   1455
-         Left            =   600
+         Left            =   -74400
          TabIndex        =   14
          Top             =   720
          Width           =   10215
@@ -1112,7 +1114,7 @@ Private Function Verifica_datos() As Boolean
     For i = 1 To Wvector1.Rows
     
         With Wvector1
-            .row = i
+            .Row = i
             .Col = 1
             If Trim(.Text) <> "" Then
                 
@@ -1198,7 +1200,7 @@ Sub Imprime_Datos()
                 WPrecio = IIf(IsNull(!Precio), 0, !Precio)
                 WDescripcion = IIf(IsNull(!Descripcion), "", Trim(!Descripcion))
                 
-                    Wvector1.row = WRenglon
+                    Wvector1.Row = WRenglon
                     Wvector1.Col = 1
                     If Trim(Wvector1.Text) = "" Then
                     
@@ -1410,7 +1412,7 @@ Private Sub btnCerrarListasPrecios_Click()
     For i = WRenglon To Wvector1.Rows
         
         With Wvector1
-            .row = WRenglon
+            .Row = WRenglon
             .Col = 3
             WCol = .Col
             If Trim(.Text) <> "" Then
@@ -1433,7 +1435,7 @@ Private Sub btnCerrarListasPrecios_Click()
     
     Next
     
-    Wvector1.row = WRenglon
+    Wvector1.Row = WRenglon
     Wvector1.Col = WCol
     'Wvector1.SetFocus
     Call StartEdit
@@ -1567,7 +1569,7 @@ Private Sub Actualizar_Lista_Precios()
         WClave = ""
         
         With Wvector1
-            .row = i
+            .Row = i
             .Col = 1
             If Trim(.Text) <> "" Then
             
@@ -1728,7 +1730,7 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
                 
                 With Wvector1
                     
-                    .row = 1
+                    .Row = 1
                     .Col = 1
                     .Text = "0"
                     
@@ -1742,7 +1744,7 @@ Private Sub Codigo_KeyPress(KeyAscii As Integer)
                     
                         If rstLista.RecordCount > 0 Then
                         
-                            .row = 1
+                            .Row = 1
                             
                             .Col = 1
                             .Text = Trim(rstLista!Codigo)
@@ -2085,7 +2087,7 @@ Private Sub ListasPrecios_Click()
             
             For WRow = 1 To 100
             
-                Wvector1.row = WRow
+                Wvector1.Row = WRow
                 
                 Wvector1.Col = 1
                 
@@ -3053,7 +3055,7 @@ Private Sub Limpia_VectorII()
     Rem Descripcion de los datos a Informar
     
     Wvector1.ColWidth(0) = 200
-    Wvector1.row = 0
+    Wvector1.Row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         Select Case Ciclo
@@ -3098,7 +3100,7 @@ Private Sub Limpia_VectorII()
     
     Rem DESPILEGA LOS TITULOS
     
-    Wvector1.row = 0
+    Wvector1.Row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         WTitulo(Ciclo).Text = Wvector1.Text
@@ -3126,7 +3128,7 @@ Private Sub Limpia_VectorII()
     Wvector1.AllowUserResizing = flexResizeBoth
     
     Wvector1.Col = 1
-    Wvector1.row = 1
+    Wvector1.Row = 1
     
 End Sub
 
@@ -3175,7 +3177,7 @@ Private Sub Limpia_Vector()
     Rem Descripcion de los datos a Informar
     
     Wvector1.ColWidth(0) = 200
-    Wvector1.row = 0
+    Wvector1.Row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         Select Case Ciclo
@@ -3220,7 +3222,7 @@ Private Sub Limpia_Vector()
     
     Rem DESPILEGA LOS TITULOS
     
-    Wvector1.row = 0
+    Wvector1.Row = 0
     For Ciclo = 1 To Wvector1.Cols - 1
         Wvector1.Col = Ciclo
         WTitulo(Ciclo).Text = Wvector1.Text
@@ -3248,7 +3250,7 @@ Private Sub Limpia_Vector()
     Wvector1.AllowUserResizing = flexResizeBoth
     
     Wvector1.Col = 1
-    Wvector1.row = 1
+    Wvector1.Row = 1
     
 End Sub
 
@@ -3309,7 +3311,7 @@ Private Sub Busqueda()
     
     Wvector1.TopRow = 1
     Wvector1.Col = 1
-    Wvector1.row = 1
+    Wvector1.Row = 1
 
 End Sub
 
@@ -3340,7 +3342,7 @@ Private Sub WVector1_DblClick()
     With Wvector1
         If .Col = 1 Then
             Dim WRow
-            WRow = .row
+            WRow = .Row
             
             If .Text = "1" Then
                 .Col = 2
@@ -3429,7 +3431,7 @@ Private Sub Limpia_Vector2()
     Rem Descripcion de los datos a Informar
     
     WVector2.ColWidth(0) = 200
-    WVector2.row = 0
+    WVector2.Row = 0
     For Ciclo = 1 To WVector2.Cols - 1
         WVector2.Col = Ciclo
         Select Case Ciclo
@@ -3478,7 +3480,7 @@ Private Sub Limpia_Vector2()
     
     Rem DESPILEGA LOS TITULOS
     
-    WVector2.row = 0
+    WVector2.Row = 0
     For Ciclo = 1 To WVector2.Cols - 1
         WVector2.Col = Ciclo
         WTitulo2(Ciclo).Text = WVector2.Text
@@ -3506,7 +3508,7 @@ Private Sub Limpia_Vector2()
     WVector2.AllowUserResizing = flexResizeBoth
     
     WVector2.Col = 1
-    WVector2.row = 1
+    WVector2.Row = 1
     
 End Sub
 
@@ -3705,10 +3707,10 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move down 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row < Wvector1.Rows - 1 Then
+            If Wvector1.Row < Wvector1.Rows - 1 Then
                'Call Control_Campo
                'If WControl = "S" Then
-                    Wvector1.row = Wvector1.row + 1
+                    Wvector1.Row = Wvector1.Row + 1
                'End If
             End If
             Call StartEdit
@@ -3717,10 +3719,10 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move up 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row > Wvector1.FixedRows Then
+            If Wvector1.Row > Wvector1.FixedRows Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.row = Wvector1.row - 1
+                    Wvector1.Row = Wvector1.Row - 1
                 'End If
             End If
             Call StartEdit
@@ -3732,7 +3734,7 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow + 12
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3745,10 +3747,10 @@ Private Sub WTexto1_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow - 12
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                         Else
                     Wvector1.TopRow = 1
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3770,7 +3772,7 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
             Wvector1.SetFocus
             DoEvents
             Call Control_Campo
-            If Wvector1.row < Wvector1.Rows - 1 Then
+            If Wvector1.Row < Wvector1.Rows - 1 Then
                 Call Control_Campo
                 If WControl = "S" Then
                     'Wvector1.Row = Wvector1.Row + 1
@@ -3783,10 +3785,10 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move down 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row < Wvector1.Rows - 1 Then
+            If Wvector1.Row < Wvector1.Rows - 1 Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.row = Wvector1.row + 1
+                    Wvector1.Row = Wvector1.Row + 1
                 'End If
             End If
             Call StartEdit
@@ -3795,10 +3797,10 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move up 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row > Wvector1.FixedRows Then
+            If Wvector1.Row > Wvector1.FixedRows Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.row = Wvector1.row - 1
+                    Wvector1.Row = Wvector1.Row - 1
                 'End If
             End If
             Call StartEdit
@@ -3810,7 +3812,7 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow + 12
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3823,10 +3825,10 @@ Private Sub WTexto2_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow - 12
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                         Else
                     Wvector1.TopRow = 1
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3849,7 +3851,7 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Finish editing.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row < Wvector1.Rows - 1 Then
+            If Wvector1.Row < Wvector1.Rows - 1 Then
                 Call Control_Campo
                 If WControl = "S" Then
                     'Wvector1.Row = Wvector1.Row + 1
@@ -3862,10 +3864,10 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move down 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row < Wvector1.Rows - 1 Then
+            If Wvector1.Row < Wvector1.Rows - 1 Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.row = Wvector1.row + 1
+                    Wvector1.Row = Wvector1.Row + 1
                 'End If
             End If
             Call StartEdit
@@ -3874,10 +3876,10 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
             ' Move up 1 row.
             Wvector1.SetFocus
             DoEvents
-            If Wvector1.row > Wvector1.FixedRows Then
+            If Wvector1.Row > Wvector1.FixedRows Then
                 'Call Control_Campo
                 'If WControl = "S" Then
-                    Wvector1.row = Wvector1.row - 1
+                    Wvector1.Row = Wvector1.Row - 1
                 'End If
             End If
             Call StartEdit
@@ -3889,7 +3891,7 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
                  'Call Control_Campo
                  'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow + 12
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                  'End If
             End If
             Call StartEdit
@@ -3902,10 +3904,10 @@ Private Sub WTexto3_KeyDown(KeyCode As Integer, Shift As Integer)
                 'Call Control_Campo
                 'If WControl = "S" Then
                     Wvector1.TopRow = Wvector1.TopRow - 12
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                         Else
                     Wvector1.TopRow = 1
-                    Wvector1.row = Wvector1.TopRow
+                    Wvector1.Row = Wvector1.TopRow
                 'End If
             End If
             Call StartEdit
@@ -3995,15 +3997,15 @@ Private Sub Control_wvector1()
             Case 3
                 .Col = .Col + 1
             Case 4
-                If .row < .Rows - 1 Then
+                If .Row < .Rows - 1 Then
                     
-                    .row = Wvector1.row + 1
+                    .Row = Wvector1.Row + 1
                     
                     .Col = 1 ' Controlo que hayan una lista asignada a esa fila.
                     If Trim(.Text) = "" Then
                         ' En caso de que no, me posiciono en la celda de neto en la fila original.
                         .Col = 3
-                        .row = .row - 1
+                        .Row = .Row - 1
                         Exit Sub
                     End If
                     
@@ -4025,7 +4027,7 @@ End Sub
 
 Private Sub Control_Campo()
     XColumna = Wvector1.Col
-    XFila = Wvector1.row
+    XFila = Wvector1.Row
     WControl = "S"
     Select Case XColumna
         Case Else
