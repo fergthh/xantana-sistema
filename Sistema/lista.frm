@@ -13,6 +13,29 @@ Begin VB.Form PrgLista
    ScaleHeight     =   5715
    ScaleWidth      =   9960
    Visible         =   0   'False
+   Begin VB.Frame FrameListaPrecios 
+      Caption         =   "Listas de Precios Disponibles"
+      Height          =   5175
+      Left            =   4920
+      TabIndex        =   39
+      Top             =   240
+      Width           =   4455
+      Begin VB.ListBox ListasPrecios 
+         Height          =   3960
+         Left            =   240
+         TabIndex        =   41
+         Top             =   480
+         Width           =   3975
+      End
+      Begin VB.CommandButton btnCerrarListasPrecios 
+         Caption         =   "Cerrar Listas"
+         Height          =   495
+         Left            =   1680
+         TabIndex        =   40
+         Top             =   4560
+         Width           =   1215
+      End
+   End
    Begin VB.Frame Frame2 
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -24,9 +47,9 @@ Begin VB.Form PrgLista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2055
-      Left            =   2400
+      Left            =   2280
       TabIndex        =   6
-      Top             =   2760
+      Top             =   2880
       Visible         =   0   'False
       Width           =   5175
       Begin VB.CommandButton Cancela 
@@ -760,6 +783,70 @@ Sub Imprime_Datos()
         rstLista.Close
         Call Format_datos
         Call Imprime_Nombre
+        Call Traer_Articulos
+    End If
+End Sub
+
+Private Sub Traer_Articulos()
+    ' Cargamos los datos de las Listas de Precios.
+    
+    Call Limpia_Vector
+    
+    Dim WLista, WArticulo, WNeto, WPrecio, WClave, WRenglon, XRenglon, WDescripcion
+    
+    WLista = Trim(Codigo.Text)
+    WPrecio = 0
+    WNeto = 0
+    WDescripcion = ""
+    
+    WArticulo = ""
+    WRenglon = 1
+    
+    ZSql = ""
+    ZSql = ZSql + "Select *"
+    ZSql = ZSql + " FROM ListaArticulos, Lista"
+    ZSql = ZSql + " Where ListaArticulos.Lista = " + "'" + WLista + "' and ListaArticulos.Lista = Lista.Codigo"
+    spLista = ZSql
+    Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+    If rstLista.RecordCount > 0 Then
+    
+        With rstLista
+            .MoveFirst
+            Do While .EOF = False And .BOF = False
+                                            
+                WArticulo = Trim(IIf(IsNull(!Articulo), "", Trim(!Articulo)))
+                WNeto = IIf(IsNull(!Neto), 0, !Neto)
+                WPrecio = IIf(IsNull(!Precio), 0, !Precio)
+                WDescripcion = IIf(IsNull(!Descripcion), "", Trim(!Descripcion))
+                
+                    Wvector1.Row = WRenglon
+                    Wvector1.Col = 1
+                    If Trim(Wvector1.Text) = "" Then
+                    
+                        Wvector1.Col = 1
+                        Wvector1.Text = Trim(WArticulo)
+                        
+                        Wvector1.Col = 2
+                        Wvector1.Text = Trim(WDescripcion)
+                        
+                        Wvector1.Col = 3
+                        Wvector1.Text = Pusing("######.##", Trim(WNeto))
+                        
+                        Wvector1.Col = 4
+                        Wvector1.Text = Pusing("######.##", Trim(WPrecio))
+                        
+                        WRenglon = WRenglon + 1
+                        
+                    Else
+                    
+                        Exit Do
+                    
+                    End If
+            .MoveNext
+            Loop
+            
+        End With
+    
     End If
 End Sub
 
@@ -849,6 +936,11 @@ Private Sub Ayuda_KeyUp(KeyCode As Integer, Shift As Integer)
     End If
 End Sub
 
+Private Sub btnCerrarListasPrecios_Click()
+    FrameListaPrecios.Visible = False
+    Call Posicionar_En_Grilla
+End Sub
+
 Private Sub Cancela_Click()
     Frame2.Visible = False
     Codigo.SetFocus
@@ -895,62 +987,63 @@ Private Sub cmdAdd_Click()
             Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
         End If
         
-        If ZZNivel = 0 Then
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "FraganciasII"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-                Else
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "Fragancias"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-        End If
+        Call Actualizar_Lista_Precios
+       
+        'If ZZNivel = 0 Then
+        '    txtUserName = "SA"
+        '    txtPassword = "Sw58125812"
+        '    txtOdbc = "FraganciasII"
+        '    strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
+        '    Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
+        '        Else
+        '    txtUserName = "SA"
+        '    txtPassword = "Sw58125812"
+        '    txtOdbc = "Fragancias"
+        '    strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
+        '    Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
+        'End If
    
     
-        ZSql = ""
-        ZSql = ZSql + "Select *"
-        ZSql = ZSql + " FROM Lista"
-        ZSql = ZSql + " Where Lista.Codigo = " + "'" + WCodigo + "'"
-        spLista = ZSql
-        Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-        If rstLista.RecordCount > 0 Then
-            rstLista.Close
-            ZSql = ""
-            ZSql = ZSql + "UPDATE Lista SET "
-            ZSql = ZSql + " Descripcion = " + "'" + WDescripcion + "'"
-            ZSql = ZSql + " Where Codigo = " + "'" + WCodigo + "'"
-            spLista = ZSql
-            Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-        Else
-            ZSql = ""
-            ZSql = ZSql + "INSERT INTO Lista ("
-            ZSql = ZSql + "Codigo ,"
-            ZSql = ZSql + "Descripcion )"
-            ZSql = ZSql + "Values ("
-            ZSql = ZSql + "'" + WCodigo + "',"
-            ZSql = ZSql + "'" + WDescripcion + "')"
-            spLista = ZSql
-            Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
-        End If
+        'ZSql = ""
+        'ZSql = ZSql + "Select *"
+        'ZSql = ZSql + " FROM Lista"
+        'ZSql = ZSql + " Where Lista.Codigo = " + "'" + WCodigo + "'"
+        'spLista = ZSql
+        'Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+        'If rstLista.RecordCount > 0 Then
+        '    rstLista.Close
+         '   ZSql = ""
+        '    ZSql = ZSql + "UPDATE Lista SET "
+        '    ZSql = ZSql + " Descripcion = " + "'" + WDescripcion + "'"
+        '    ZSql = ZSql + " Where Codigo = " + "'" + WCodigo + "'"
+        '    spLista = ZSql
+        '    Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+        'Else
+        '    ZSql = ""
+        '    ZSql = ZSql + "INSERT INTO Lista ("
+        '    ZSql = ZSql + "Codigo ,"
+        '    ZSql = ZSql + "Descripcion )"
+        '    ZSql = ZSql + "Values ("
+        '    ZSql = ZSql + "'" + WCodigo + "',"
+        '    ZSql = ZSql + "'" + WDescripcion + "')"
+        '    spLista = ZSql
+        '    Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+        'End If
         
-        
-   
-        If ZZNivel = 0 Then
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "Fragancias"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-                Else
-            txtUserName = "SA"
-            txtPassword = "Sw58125812"
-            txtOdbc = "FraganciasII"
-            strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
-            Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
-        End If
+         
+        'If ZZNivel = 0 Then
+        '    txtUserName = "SA"
+        '    txtPassword = "Sw58125812"
+        '    txtOdbc = "Fragancias"
+        '    strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
+        '    Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
+        '        Else
+        '    txtUserName = "SA"
+        '     txtPassword = "Sw58125812"
+        '    txtOdbc = "FraganciasII"
+        '    strConnect = "odbc;dsn=" & txtOdbc & ";uid=" & txtUserName & ";pwd=" & txtPassword & ";app=" & gAplicacion
+        '    Set db = DBEngine.Workspaces(0).OpenDatabase("", False, False, strConnect)
+        'End If
         
         m$ = "Grabacion realizada"
         aaaaaa% = MsgBox(m$, 0, "Archivo de Lista de Precios")
@@ -962,6 +1055,78 @@ Private Sub cmdAdd_Click()
     End If
     
 End Sub
+
+Private Sub Actualizar_Lista_Precios()
+    Dim WLista, WArticulo, WNeto, WPrecio, WClave, WRenglon, XRenglon, XLista
+    
+    WLista = Trim(Codigo.Text)
+    WRenglon = 1
+    
+    ' Borramos la informacion anterior en caso de que hayan, asi no tendremos problemas en los casos en que se elimine alguna lista.
+    
+    ZSql = ""
+    ZSql = ZSql + "DELETE FROM ListaArticulos WHERE Lista = '" + WLista + "'"
+    
+    spLista = ZSql
+    Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+    
+    ' Recorremos la grilla y verificamos que haya datos en las columnas de neto y final.
+    For i = 1 To Wvector1.Rows
+    
+        WArticulo = ""
+        WNeto = 0
+        WPrecio = 0
+        WClave = ""
+        
+        With Wvector1
+            .Row = i
+            .Col = 1
+            If Trim(.Text) <> "" Then
+            
+                .Col = 1
+                WArticulo = Trim(.Text)
+                
+                .Col = 3
+                WNeto = Val(.Text)
+                
+                .Col = 4
+                WPrecio = Val(.Text)
+                
+                ' Una vez guardada la informacion, la guardamos.
+                Auxi = WLista
+                Call Ceros(Auxi, 4) ' Solo en caso en que sean numericos las claves de las listas.
+                XLista = Auxi
+                
+                XRenglon = Str$(WRenglon)
+                
+                Auxi = XRenglon
+                Call Ceros(Auxi, 2)
+                XRenglon = Auxi
+                
+                WClave = WArticulo + XLista + XRenglon
+                
+                ZSql = ""
+                ZSql = ZSql + "INSERT INTO ListaArticulos "
+                ZSql = ZSql + "(Clave, Articulo, Lista, Renglon, Neto, Precio) "
+                ZSql = ZSql + "VALUES "
+                ZSql = ZSql + "('" + WClave + "','" + WArticulo + "','" + WLista + "','" + XRenglon + "'," + Str$(WNeto) + "," + Str$(WPrecio) + ")"
+                
+                spLista = ZSql
+                Set rstLista = db.OpenRecordset(spLista, dbOpenSnapshot, dbSQLPassThrough)
+                
+                WRenglon = WRenglon + 1
+                
+            Else
+            
+                Exit For
+            
+            End If
+        
+        End With
+    
+    Next
+End Sub
+
 
 Private Sub cmdDelete_Click()
     If Codigo.Text <> "" Then
@@ -1006,6 +1171,7 @@ Private Sub CmdLimpiar_Click()
     Panta.Value = True
     Impresora.Value = False
     Frame2.Visible = False
+    FrameListaPrecios.Visible = False
     
     Articulos.Visible = True
     
@@ -1230,15 +1396,30 @@ Private Sub Consulta_Click()
 
      Opcion.Clear
 
+     Opcion.AddItem "Articulos"
      Opcion.AddItem "Listas"
      
-     Articulos.Visible = False
+     Pantalla.Visible = False
 
-     Rem Opcion.Visible = True
+     Opcion.Visible = True
      
-     Opcion.ListIndex = 0
-     Call Opcion_Click
+     'Opcion.ListIndex = 0
+     'Call Opcion_Click
      
+End Sub
+
+Private Sub ListasPrecios_Click()
+    Select Case XIndice
+        Case 0
+            indice = ListasPrecios.ListIndex
+            Dim WArticulo
+            WArticulo = WIndice.List(indice)
+            'Me.Height = WMinHeight
+            Articulos.Visible = True
+            
+            Call Cargar_Articulo(WArticulo)
+        Case Else
+    End Select
 End Sub
 
 Private Sub Opcion_Click()
@@ -1246,16 +1427,45 @@ Private Sub Opcion_Click()
     On Error GoTo WError
     
     Opcion.Visible = False
+    FrameListaPrecios.Visible = False
+    Pantalla.Visible = False
      
     Dim IngresaItem As String
 
     Pantalla.Clear
+    ListasPrecios.Clear
     WIndice.Clear
 
     XIndice = Opcion.ListIndex
     
     Select Case XIndice
         Case 0
+            ZSql = ""
+            ZSql = ZSql + "Select *"
+            ZSql = ZSql + " FROM Articulo"
+            Rem ZSql = ZSql + " Where Sector.Codigo = " + "'" + Sector.Text + "'"
+            spArticulo = ZSql
+            Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
+            With rstArticulo
+                If .RecordCount > 0 Then
+                    .MoveFirst
+                    
+                    Do While .EOF = False And .BOF = False
+                        
+                        IngresaItem = !Codigo + " " + !Descripcion
+                        ListasPrecios.AddItem IngresaItem
+                        IngresaItem = !Codigo
+                        WIndice.AddItem IngresaItem
+                        
+                        .MoveNext
+                    
+                    Loop
+                    
+                End If
+            End With
+            
+            FrameListaPrecios.Visible = True
+        Case 1
             ZSql = ""
             ZSql = ZSql + "Select *"
             ZSql = ZSql + " FROM Lista"
@@ -1279,17 +1489,16 @@ Private Sub Opcion_Click()
                 End With
                 rstLista.Close
             End If
-            
+            Articulos.Visible = False
+            Pantalla.Visible = True
+            PantallaFiltrada.Visible = False
+            Frame2.Visible = False
+            'Me.Height = WMaxHeight
+            Ayuda.Text = ""
+            Ayuda.Visible = True
+            Ayuda.SetFocus
         Case Else
     End Select
-            
-    Pantalla.Visible = True
-    PantallaFiltrada.Visible = False
-    Frame2.Visible = False
-    'Me.Height = WMaxHeight
-    Ayuda.Text = ""
-    Ayuda.Visible = True
-    Ayuda.SetFocus
     
     Exit Sub
     
@@ -1299,18 +1508,109 @@ WError:
 End Sub
 
 Private Sub Pantalla_Click()
-    Pantalla.Visible = False
-    Ayuda.Visible = False
+    
     Select Case XIndice
-        Case 0
+        Case 1
+            Pantalla.Visible = False
+            Ayuda.Visible = False
+        
             indice = Pantalla.ListIndex
             Codigo.Text = WIndice.List(indice)
             'Me.Height = WMinHeight
+            Articulos.Visible = True
             Call Codigo_KeyPress(13)
             
         Case Else
     End Select
     
+End Sub
+
+Private Sub Cargar_Articulo(ByVal Codigo As String)
+
+    Dim WRow As Integer
+    
+    ZSql = ""
+    ZSql = ZSql + "Select *"
+    ZSql = ZSql + " FROM Articulo"
+    ZSql = ZSql + " Where Codigo = " + "'" + Trim(Codigo) + "'"
+    spArticulo = ZSql
+    Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
+    With rstArticulo
+        If .RecordCount > 0 Then
+            .MoveFirst
+            
+            For WRow = 1 To 100
+            
+                Wvector1.Row = WRow
+                
+                Wvector1.Col = 1
+                
+                If Wvector1.Text = Trim(!Codigo) Then
+                    
+                    .Close
+                    Exit Sub
+                
+                End If
+                
+                If Wvector1.Text = "" Then
+                    
+                    Exit For
+                
+                End If
+            
+            Next
+            
+            Wvector1.Text = Trim(!Codigo)
+            
+            Wvector1.Col = 2
+            Wvector1.Text = Trim(!Descripcion)
+            
+            .Close
+        End If
+    End With
+    
+    'Call Posicionar_En_Grilla
+
+End Sub
+
+Private Sub Posicionar_En_Grilla()
+
+    Dim WRenglon, WCol
+    
+    WRenglon = 1
+    
+    ' Buscamos el primero que este para editar
+    For i = WRenglon To Wvector1.Rows
+        
+        With Wvector1
+            .Row = WRenglon
+            .Col = 3
+            WCol = .Col
+            If Trim(.Text) <> "" Then
+            
+                .Col = 4
+                WCol = .Col
+                If Trim(.Text) <> "" Then
+                
+                    WRenglon = WRenglon + 1
+                    
+                Else
+                    Exit For
+                End If
+                
+            Else
+                Exit For
+            End If
+        
+        End With
+    
+    Next
+    
+    Wvector1.Row = WRenglon
+    Wvector1.Col = WCol
+    'Wvector1.SetFocus
+    Call StartEdit
+
 End Sub
 
 Sub Form_Load()
@@ -1629,32 +1929,16 @@ Private Sub WVector1_DblClick()
             Exit Sub
         End If
     End With
-
-    Wvector1.Col = 1
-    ZZClave = Wvector1.Text
-    
-    ZSql = ""
-    ZSql = ZSql + "Select *"
-    ZSql = ZSql + " FROM Articulo"
-    ZSql = ZSql + " Where Articulo.Codigo = " + "'" + ZZClave + "'"
-    spArticulo = ZSql
-    Set rstArticulo = db.OpenRecordset(spArticulo, dbOpenSnapshot, dbSQLPassThrough)
-    If rstArticulo.RecordCount > 0 Then
-        Linea.Text = rstArticulo!Linea
-        Tipo.Text = rstArticulo!Tipo
-        Fragancia.Text = rstArticulo!Fragancia
-        Calidad.Text = rstArticulo!Calidad
-        Tamano.Text = rstArticulo!Tamano
-        rstArticulo.Close
-        Call Tamano_KeyPress(13)
-        Linea.SetFocus
-    End If
     
 End Sub
 
 Rem
 Rem Controles de la wvector1
 Rem
+
+Private Sub Borrar_Lista(ByVal iRow)
+    Wvector1.RemoveItem (iRow)
+End Sub
 
 Private Sub GridEditText(ByVal KeyAscii As Integer)
 
